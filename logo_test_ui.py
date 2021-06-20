@@ -3,16 +3,14 @@
 ################################################################################
 ## Form generated from reading UI file 'logoTest.ui'
 ##
-## Created by: Qt User Interface Compiler version 5.15.2
+## Created by: Qt User Interface Compiler version 6.1.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-
-# import stinder logo_rc
+from PySide6.QtCore import *  # type: ignore
+from PySide6.QtGui import *  # type: ignore
+from PySide6.QtWidgets import *  # type: ignore
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -39,12 +37,21 @@ class Ui_MainWindow(object):
         self.HomeButton = QPushButton(self.frame)
         self.HomeButton.setObjectName(u"HomeButton")
         self.HomeButton.setGeometry(QRect(0, 1, 81, 41))
+        self.HomeButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(92, 77, 182)\n"
+"")
         self.BrowseButton = QPushButton(self.frame)
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
+        self.BrowseButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(92, 77, 182)\n"
+"")
         self.pushButton_3 = QPushButton(self.frame)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setGeometry(QRect(0, 100, 81, 41))
+        self.pushButton_3.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: rgb(92, 77, 182)\n"
+"")
         self.stackedWidget = QStackedWidget(self.centralwidget)
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.stackedWidget.setGeometry(QRect(80, 0, 561, 471))

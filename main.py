@@ -1,7 +1,7 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-from Stinder.logo_test_ui import Ui_MainWindow
+from logo_test_ui import Ui_MainWindow
 
 
 class MainWindow(QMainWindow):
