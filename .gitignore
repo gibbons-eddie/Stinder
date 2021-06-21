@@ -49,3 +49,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
+# Random VS code settings
+.vscode/
+.code-workspace

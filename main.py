@@ -19,22 +19,6 @@ class MainWindow(QMainWindow):
         # PAGE 3
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
 
-        # self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
-
-        # self.button = QtWidgets.QPushButton("Click me!")
-        # self.text = QtWidgets.QLabel("Hello World",
-        #                              alignment=QtCore.Qt.AlignCenter)
-
-        # self.layout = QtWidgets.QVBoxLayout(self)
-        # self.layout.addWidget(self.text)
-        # self.layout.addWidget(self.button)
-
-        # self.button.clicked.connect(self.magic)
-
-    # @QtCore.Slot()
-    # def magic(self):
-        # self.text.setText(random.choice(self.hello))
-
 
 if __name__ == "__main__":
     app = QApplication([])
