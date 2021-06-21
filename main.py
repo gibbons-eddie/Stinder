@@ -89,7 +89,7 @@ if __name__ == "__main__":
     print(con.tables())
     insert_data()
 
-    print(con.tables())
+    print(con.record("contacts"))
     widget = MainWindow()
     widget.show()
 
