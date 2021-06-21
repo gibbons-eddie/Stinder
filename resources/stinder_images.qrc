@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>images/IMG_4845.JPG</file>
+    <file>images/stinder_logo.png</file>
+  </qresource>
+</RCC>

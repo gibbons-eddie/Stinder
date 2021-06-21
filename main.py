@@ -1,13 +1,13 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow
 
-from logo_test_ui import Ui_MainWindow
+from logo_test_ui import Ui_Stinder
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_Stinder()
         self.ui.setupUi(self)
 
         # PAGE 1
@@ -17,7 +17,7 @@ class MainWindow(QMainWindow):
         self.ui.BrowseButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.BrowsePage))
 
         # PAGE 3
-        self.ui.pushButton_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
+        self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
 
         # self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
 
@@ -42,4 +42,4 @@ if __name__ == "__main__":
     widget = MainWindow()
     widget.show()
 
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
