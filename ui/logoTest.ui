@@ -17,7 +17,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(50, 47, 90, 255), stop:1 rgba(84, 44, 179, 255))</string>
+   <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))</string>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -41,7 +41,7 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QPushButton" name="HomeButton">
+    <widget class="QPushButton" name="AboutButton">
      <property name="geometry">
       <rect>
        <x>0</x>
@@ -52,11 +52,12 @@
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(92, 77, 182)
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+font: 700 13pt &quot;Nexa Text Demo&quot;;
 </string>
      </property>
      <property name="text">
-      <string>Home</string>
+      <string>About</string>
      </property>
     </widget>
     <widget class="QPushButton" name="BrowseButton">
@@ -70,7 +71,8 @@ background-color: rgb(92, 77, 182)
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(92, 77, 182)
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+font: 500 13pt &quot;Nexa Bold&quot;;
 </string>
      </property>
      <property name="text">
@@ -88,8 +90,8 @@ background-color: rgb(92, 77, 182)
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(92, 77, 182)
-</string>
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+font: 700 13pt &quot;Nexa Bold&quot;;</string>
      </property>
      <property name="text">
       <string>Profile</string>
@@ -125,10 +127,10 @@ background-color: rgb(92, 77, 182)
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
-    <widget class="QWidget" name="homePage">
-     <widget class="QLabel" name="HomeLabel">
+    <widget class="QWidget" name="AboutPage">
+     <widget class="QLabel" name="AboutLabel">
       <property name="geometry">
        <rect>
         <x>180</x>
@@ -138,10 +140,11 @@ background-color: rgb(92, 77, 182)
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true"/>
+       <string notr="true">color: rgb(255, 255, 255);
+font: 700 13pt &quot;Nexa Demo&quot;;</string>
       </property>
       <property name="text">
-       <string>Home</string>
+       <string>About</string>
       </property>
      </widget>
     </widget>
@@ -154,6 +157,9 @@ background-color: rgb(92, 77, 182)
         <width>58</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255)</string>
       </property>
       <property name="text">
        <string>Browse</string>
@@ -169,6 +175,9 @@ background-color: rgb(92, 77, 182)
         <width>58</width>
         <height>16</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255)</string>
       </property>
       <property name="text">
        <string>Profile</string>
