@@ -1,3 +1,4 @@
+import sqlite3
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
@@ -13,7 +14,6 @@ class MainWindow(QMainWindow):
 
         # PAGE 1
         self.ui.HomeButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.homePage))
-
         # PAGE 2
         self.ui.BrowseButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.BrowsePage))
         # PAGE 3
@@ -35,61 +35,37 @@ class MainWindow(QMainWindow):
     # def magic(self):
     # self.text.setText(random.choice(self.hello))
 
+    def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
+        connection = sqlite3.connect("users.db")
+        cursor = connection.cursor()
 
-def insert_data():
-    insertDataQuery = QSqlQuery()
-    insertDataQuery.prepare(
-        """
-        INSERT INTO contacts (
-            name,
-            major,
-            class,
-            email
-        )
-        VALUES (?, ?, ?, ?)
-        """
-    )
+        cursor.execute("SELECT * FROM contacts")
+        print(cursor.fetchall())  # Delete later, this just shows all contacts in table
 
-    data = [
-        ("Joe", "Computer Science", "COP3502", "joe@example.com"),
-        ("Jack", "Sport Management", "CHM2045", "jack@example.com"),
-        ("Lisa", "Data Science", "IUF1000", "lisa@example.com"),
-        ("Allie", "Biology", "CHM2045", "allie@example.com"),
-    ]
-    for name, major, classes, email in data:
-        insertDataQuery.addBindValue(name)
-        insertDataQuery.addBindValue(major)
-        insertDataQuery.addBindValue(classes)
-        insertDataQuery.addBindValue(email)
-        insertDataQuery.exec()
+        # Add Functionality to link data to profile card once they are created
+        # FOR REFERENCE: Database table format created from below
+        #    CREATE TABLE contacts
+        #        name VARCHAR(40) PRIMARY KEY NOT NULL,
+        #        major VARCHAR(40) NOT NULL,
+        #        classes VARCHAR(50),
+        #        email VARCHAR(40)
+
+        connection.close()
 
 
 if __name__ == "__main__":
     app = QApplication([])
 
-    con = QSqlDatabase.addDatabase("QSQLITE")
-    con.setDatabaseName("users.db")
+    # Below block of code shows functionality for database
+    conn = sqlite3.connect("users.db")
+    c = conn.cursor()
 
-    if not con.open():
-        print("Database Error: %s" % con.lastError().databaseText())
-        sys.exit(1)
+    c.execute("SELECT * FROM contacts")
+    print(c.fetchall())
 
-    createTableQuery = QSqlQuery()
-    createTableQuery.exec(
-        """
-        CREATE TABLE contacts (
-            name VARCHAR(40) PRIMARY KEY NOT NULL,
-            major VARCHAR(40) NOT NULL,
-            classes VARCHAR(50),
-            email VARCHAR(40)
-        )
-        """
-    )
+    conn.close()
+    # End of database functionality test -- delete block after testing because it won't be needed
 
-    print(con.tables())
-    insert_data()
-
-    print(con.record("contacts"))
     widget = MainWindow()
     widget.show()
 
