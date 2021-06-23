@@ -11,12 +11,24 @@ class LogInWindow(QDialog):
         self.loginUi = Ui_Dialog()
         self.loginUi.setupUi(self)
         self.loginUi.SignInBtn.clicked.connect(self.handleLogin)
+        self.loginUi.CreateAcctTextbox.clicked.connect(self.handleSignUp)
 
         self.loginUi.SignUpBtn.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.SignUp))
         self.loginUi.SignInBtn_2.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.LogIn))
 
     def handleLogin(self):
         # check if login is valid?
+        if True:
+            self.accept()
+
+    def handleSignUp(self):
+        firstname = self.loginUi.FirstNameTextbox.text()
+        lastname = self.loginUi.LastNameTextbox.text()
+        email = self.loginUi.EmailAddrTextbox.text()
+        phone = self.loginUi.PhoneNumberTextbox.text()
+        major = self.loginUi.MajorBox.currentText()
+        password = self.loginUi.PasswordTextbox.text()
+
         if True:
             self.accept()
 

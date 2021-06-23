@@ -34,8 +34,11 @@ class Ui_Dialog(object):
         self.UsernameTextbox = QLineEdit(self.LogIn)
         self.UsernameTextbox.setObjectName(u"UsernameTextbox")
         self.UsernameTextbox.setGeometry(QRect(80, 180, 461, 41))
+        self.UsernameTextbox.setMouseTracking(True)
         self.UsernameTextbox.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;")
+        self.UsernameTextbox.setCursorPosition(0)
+        self.UsernameTextbox.setAlignment(Qt.AlignJustify|Qt.AlignVCenter)
         self.PasswordTextbox = QLineEdit(self.LogIn)
         self.PasswordTextbox.setObjectName(u"PasswordTextbox")
         self.PasswordTextbox.setGeometry(QRect(80, 250, 461, 41))
@@ -68,55 +71,78 @@ class Ui_Dialog(object):
         self.stackedWidget.addWidget(self.LogIn)
         self.SignUp = QWidget()
         self.SignUp.setObjectName(u"SignUp")
-        self.label_2 = QLabel(self.SignUp)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(210, 80, 231, 31))
-        self.label_2.setStyleSheet(u"background-color: transparent;\n"
+        self.CreateAccountLabel = QLabel(self.SignUp)
+        self.CreateAccountLabel.setObjectName(u"CreateAccountLabel")
+        self.CreateAccountLabel.setGeometry(QRect(210, 20, 241, 31))
+        self.CreateAccountLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;\n"
 "")
-        self.lineEdit = QLineEdit(self.SignUp)
-        self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(70, 150, 231, 41))
-        self.lineEdit.setStyleSheet(u"background-color: white;\n"
-"color: black;\n"
-"border-radius: 10px;\n"
-"")
-        self.lineEdit_2 = QLineEdit(self.SignUp)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setGeometry(QRect(330, 150, 231, 41))
-        self.lineEdit_2.setStyleSheet(u"background-color: white;\n"
+        self.FirstNameTextbox = QLineEdit(self.SignUp)
+        self.FirstNameTextbox.setObjectName(u"FirstNameTextbox")
+        self.FirstNameTextbox.setGeometry(QRect(70, 80, 231, 41))
+        self.FirstNameTextbox.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "border-radius: 10px;\n"
 "\n"
 "")
-        self.lineEdit_3 = QLineEdit(self.SignUp)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setGeometry(QRect(70, 230, 501, 41))
-        self.lineEdit_3.setStyleSheet(u"background-color: white;\n"
+        self.LastNameTextbox = QLineEdit(self.SignUp)
+        self.LastNameTextbox.setObjectName(u"LastNameTextbox")
+        self.LastNameTextbox.setGeometry(QRect(330, 80, 231, 41))
+        self.LastNameTextbox.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "border-radius: 10px;\n"
 "")
-        self.lineEdit_4 = QLineEdit(self.SignUp)
-        self.lineEdit_4.setObjectName(u"lineEdit_4")
-        self.lineEdit_4.setGeometry(QRect(70, 300, 501, 41))
-        self.lineEdit_4.setStyleSheet(u"background-color: white;\n"
+        self.EmailAddrTextbox = QLineEdit(self.SignUp)
+        self.EmailAddrTextbox.setObjectName(u"EmailAddrTextbox")
+        self.EmailAddrTextbox.setGeometry(QRect(70, 140, 491, 41))
+        self.EmailAddrTextbox.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "border-radius: 10px;\n"
 "")
-        self.pushButton = QPushButton(self.SignUp)
-        self.pushButton.setObjectName(u"pushButton")
-        self.pushButton.setGeometry(QRect(70, 370, 491, 32))
-        self.pushButton.setStyleSheet(u"background-color: rgb(106,255,121)")
-        self.label = QLabel(self.SignUp)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(240, 410, 161, 16))
-        self.label.setStyleSheet(u"background-color: transparent;\n"
+        self.PasswordTextbox_2 = QLineEdit(self.SignUp)
+        self.PasswordTextbox_2.setObjectName(u"PasswordTextbox_2")
+        self.PasswordTextbox_2.setGeometry(QRect(70, 320, 491, 41))
+        self.PasswordTextbox_2.setStyleSheet(u"background-color: white;\n"
+"color: black;\n"
+"border-radius: 10px;\n"
+"")
+        self.PasswordTextbox_2.setEchoMode(QLineEdit.PasswordEchoOnEdit)
+        self.CreateAcctTextbox = QPushButton(self.SignUp)
+        self.CreateAcctTextbox.setObjectName(u"CreateAcctTextbox")
+        self.CreateAcctTextbox.setGeometry(QRect(70, 380, 491, 32))
+        self.CreateAcctTextbox.setStyleSheet(u"background-color: rgb(106,255,121);\n"
+"border-radius: 10px;")
+        self.QuestionLabel = QLabel(self.SignUp)
+        self.QuestionLabel.setObjectName(u"QuestionLabel")
+        self.QuestionLabel.setGeometry(QRect(190, 420, 161, 16))
+        self.QuestionLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;")
         self.SignInBtn_2 = QPushButton(self.SignUp)
         self.SignInBtn_2.setObjectName(u"SignInBtn_2")
-        self.SignInBtn_2.setGeometry(QRect(255, 430, 100, 20))
+        self.SignInBtn_2.setGeometry(QRect(350, 418, 51, 20))
         self.SignInBtn_2.setStyleSheet(u"background-color: transparent;\n"
 "color: rgb(106,255,121);\n"
+"")
+        self.PhoneNumberTextbox = QLineEdit(self.SignUp)
+        self.PhoneNumberTextbox.setObjectName(u"PhoneNumberTextbox")
+        self.PhoneNumberTextbox.setGeometry(QRect(70, 200, 491, 41))
+        self.PhoneNumberTextbox.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"")
+        self.MajorBox = QComboBox(self.SignUp)
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.addItem("")
+        self.MajorBox.setObjectName(u"MajorBox")
+        self.MajorBox.setGeometry(QRect(70, 260, 491, 41))
+        self.MajorBox.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
 "")
         self.stackedWidget.addWidget(self.SignUp)
 
@@ -131,20 +157,34 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
         self.SignInLabel.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:24pt;\">Sign in to Stinder</span></p></body></html>", None))
+        self.UsernameTextbox.setText("")
         self.UsernameTextbox.setPlaceholderText(QCoreApplication.translate("Dialog", u"Username", None))
         self.PasswordTextbox.setPlaceholderText(QCoreApplication.translate("Dialog", u"Password", None))
         self.SignInBtn.setText(QCoreApplication.translate("Dialog", u"Sign In", None))
         self.NewUserLabel.setText(QCoreApplication.translate("Dialog", u"New User?", None))
         self.SignUpBtn.setText(QCoreApplication.translate("Dialog", u"Sign Up", None))
         self.Logo.setText("")
-        self.label_2.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:24pt; font-weight:700;\">Create Your Account</span></p></body></html>", None))
-        self.lineEdit.setText("")
-        self.lineEdit.setPlaceholderText(QCoreApplication.translate("Dialog", u"First Name", None))
-        self.lineEdit_2.setPlaceholderText(QCoreApplication.translate("Dialog", u"Last Name", None))
-        self.lineEdit_3.setPlaceholderText(QCoreApplication.translate("Dialog", u"Email Address", None))
-        self.lineEdit_4.setPlaceholderText(QCoreApplication.translate("Dialog", u"Password", None))
-        self.pushButton.setText(QCoreApplication.translate("Dialog", u"Create Account", None))
-        self.label.setText(QCoreApplication.translate("Dialog", u"Already have an account?", None))
+        self.CreateAccountLabel.setText(QCoreApplication.translate("Dialog", u"<html><head/><body><p><span style=\" font-size:24pt; font-weight:700;\">Create Your Account</span></p></body></html>", None))
+        self.FirstNameTextbox.setText("")
+        self.FirstNameTextbox.setPlaceholderText(QCoreApplication.translate("Dialog", u"First Name", None))
+        self.LastNameTextbox.setPlaceholderText(QCoreApplication.translate("Dialog", u"Last Name", None))
+        self.EmailAddrTextbox.setPlaceholderText(QCoreApplication.translate("Dialog", u"Email Address", None))
+        self.PasswordTextbox_2.setText("")
+        self.PasswordTextbox_2.setPlaceholderText(QCoreApplication.translate("Dialog", u"Password", None))
+        self.CreateAcctTextbox.setText(QCoreApplication.translate("Dialog", u"Create Account", None))
+        self.QuestionLabel.setText(QCoreApplication.translate("Dialog", u"Already have an account?", None))
         self.SignInBtn_2.setText(QCoreApplication.translate("Dialog", u"Sign In", None))
+        self.PhoneNumberTextbox.setPlaceholderText(QCoreApplication.translate("Dialog", u"Phone Number", None))
+        self.MajorBox.setItemText(0, QCoreApplication.translate("Dialog", u"Accounting", None))
+        self.MajorBox.setItemText(1, QCoreApplication.translate("Dialog", u"Advertising", None))
+        self.MajorBox.setItemText(2, QCoreApplication.translate("Dialog", u"Aerospace Engineering", None))
+        self.MajorBox.setItemText(3, QCoreApplication.translate("Dialog", u"Biology", None))
+        self.MajorBox.setItemText(4, QCoreApplication.translate("Dialog", u"Computer Science", None))
+        self.MajorBox.setItemText(5, QCoreApplication.translate("Dialog", u"Civil Engineering", None))
+        self.MajorBox.setItemText(6, QCoreApplication.translate("Dialog", u"Mechanical Engineering", None))
+        self.MajorBox.setItemText(7, QCoreApplication.translate("Dialog", u"Nursing", None))
+        self.MajorBox.setItemText(8, QCoreApplication.translate("Dialog", u"Philosophy", None))
+
+        self.MajorBox.setPlaceholderText(QCoreApplication.translate("Dialog", u"Major", None))
     # retranslateUi
 
