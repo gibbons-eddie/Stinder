@@ -73,14 +73,16 @@ if __name__ == "__main__":
     # Below block of code shows functionality for database
     conn = sqlite3.connect("users.db")
     c = conn.cursor()
+    """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
+    
     tablequery = "CREATE TABLE IF NOT EXISTS contacts(name VARCHAR(40) PRIMARY KEY NOT NULL, major VARCHAR(40) NOT NULL, classes VARCHAR(50),email VARCHAR(40))"
     createcontactstable(conn, tablequery)
-    fillcontacts()
+    fillcontacts() 
     rows = c.execute("SELECT * FROM contacts")
 
     for row in rows:
         print(row)
-
+"""
     conn.close()
     # End of database functionality test -- delete block after testing because it won't be needed
 

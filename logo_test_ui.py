@@ -11,6 +11,7 @@
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
+import sqlite3
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -40,7 +41,7 @@ class Ui_MainWindow(object):
         self.HomeButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: rgb(92, 77, 182)\n"
 "")
-        self.BrowseButton = QPushButton(self.frame)
+        self.BrowseButton = QPushButton(self.frame, clicked= lambda: self.list())
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
         self.BrowseButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
@@ -83,6 +84,14 @@ class Ui_MainWindow(object):
 
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
+
+    def list(self):
+        connection = sqlite3.connect("users.db")
+        cursor = connection.cursor()
+        with connection:
+            cursor.execute("SELECT name FROM contacts")
+            name = str(cursor.fetchone()[0])
+            self.label.setText(name)
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
