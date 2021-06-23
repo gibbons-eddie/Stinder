@@ -2,6 +2,7 @@ import sqlite3
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
+from sqlite3 import Error
 
 from logo_test_ui import Ui_MainWindow
 
@@ -52,6 +53,19 @@ class MainWindow(QMainWindow):
 
         connection.close()
 
+def createcontactstable(conn, tablesql):
+    try:
+        c = conn.cursor()
+        c.execute(tablesql)
+    except Error as e:
+        print(e)
+
+def fillcontacts():
+    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Joe', 'Computer Science', 'COP3502', 'joe@ufl.edu')")
+    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Data Science', 'IUL1000', 'jack@ufl.edu')")
+    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chemistry', 'CHM2532', 'jill@ufl.edu')")
+    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Joseph', 'Biology', 'CHM2531', 'joseph@ufl.edu')")
+    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Computer Science', 'COP3503', 'jorge@ufl.edu')")
 
 if __name__ == "__main__":
     app = QApplication([])
@@ -59,9 +73,13 @@ if __name__ == "__main__":
     # Below block of code shows functionality for database
     conn = sqlite3.connect("users.db")
     c = conn.cursor()
+    tablequery = "CREATE TABLE IF NOT EXISTS contacts(name VARCHAR(40) PRIMARY KEY NOT NULL, major VARCHAR(40) NOT NULL, classes VARCHAR(50),email VARCHAR(40))"
+    createcontactstable(conn, tablequery)
+    fillcontacts()
+    rows = c.execute("SELECT * FROM contacts")
 
-    c.execute("SELECT * FROM contacts")
-    print(c.fetchall())
+    for row in rows:
+        print(row)
 
     conn.close()
     # End of database functionality test -- delete block after testing because it won't be needed
