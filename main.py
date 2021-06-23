@@ -83,6 +83,7 @@ if __name__ == "__main__":
     for row in rows:
         print(row)
 """
+
     conn.close()
     # End of database functionality test -- delete block after testing because it won't be needed
 
