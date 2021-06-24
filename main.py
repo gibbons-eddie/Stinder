@@ -1,40 +1,54 @@
 import sqlite3
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from sqlite3 import Error
 
-from logo_test_ui import Ui_MainWindow
+from logo_test_ui import Ui_Stinder
+from Login import Ui_Dialog
+
+
+class LogInWindow(QDialog):
+    def __init__(self):
+        super(LogInWindow, self).__init__()
+        self.loginUi = Ui_Dialog()
+        self.loginUi.setupUi(self)
+        self.loginUi.SignInBtn.clicked.connect(self.handleLogin)
+        self.loginUi.CreateAcctTextbox.clicked.connect(self.handleSignUp)
+
+        self.loginUi.SignUpBtn.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.SignUp))
+        self.loginUi.SignInBtn_2.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.LogIn))
+
+    def handleLogin(self):
+        # check if login is valid?
+        if True:
+            self.accept()
+
+    def handleSignUp(self):
+        firstname = self.loginUi.FirstNameTextbox.text()
+        lastname = self.loginUi.LastNameTextbox.text()
+        email = self.loginUi.EmailAddrTextbox.text()
+        phone = self.loginUi.PhoneNumberTextbox.text()
+        major = self.loginUi.MajorBox.currentText()
+        password = self.loginUi.PasswordTextbox.text()
+
+        if True:
+            self.accept()
 
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.ui = Ui_MainWindow()
+        self.ui = Ui_Stinder()
         self.ui.setupUi(self)
 
         # PAGE 1
-        self.ui.HomeButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.homePage))
+        self.ui.AboutButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.AboutPage))
         # PAGE 2
         self.ui.BrowseButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.BrowsePage))
         # PAGE 3
-        self.ui.pushButton_3.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
-
-        # self.hello = ["Hallo Welt", "Hei maailma", "Hola Mundo", "Привет мир"]
-
-        # self.button = QtWidgets.QPushButton("Click me!")
-        # self.text = QtWidgets.QLabel("Hello World",
-        #                              alignment=QtCore.Qt.AlignCenter)
-
-        # self.layout = QtWidgets.QVBoxLayout(self)
-        # self.layout.addWidget(self.text)
-        # self.layout.addWidget(self.button)
-
-        # self.button.clicked.connect(self.magic)
-
-    # @QtCore.Slot()
-    # def magic(self):
-    # self.text.setText(random.choice(self.hello))
+        self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
+  
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
         connection = sqlite3.connect("users.db")
@@ -53,6 +67,7 @@ class MainWindow(QMainWindow):
 
         connection.close()
 
+
 def createcontactstable(conn, tablesql):
     try:
         c = conn.cursor()
@@ -69,6 +84,11 @@ def fillcontacts():
 
 if __name__ == "__main__":
     app = QApplication([])
+    login = LogInWindow()
+
+    if login.exec() == QDialog.Accepted:
+        window = MainWindow()
+        window.show()
 
     # Below block of code shows functionality for database
     conn = sqlite3.connect("users.db")
@@ -87,7 +107,5 @@ if __name__ == "__main__":
     conn.close()
     # End of database functionality test -- delete block after testing because it won't be needed
 
-    widget = MainWindow()
-    widget.show()
-
     sys.exit(app.exec())
+    
