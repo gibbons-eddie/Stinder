@@ -124,7 +124,7 @@ class Ui_Stinder(object):
                 name = name + row[0] + " "
             ##name = str(cursor.fetchone())
             print(name)
-            self.label.setText(name)
+            self.BrowseLabel.setText(name)
         connection.close()
     # retranslateUi
 
