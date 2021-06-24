@@ -68,7 +68,7 @@ class Ui_MainWindow(object):
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.label = QLabel(self.BrowsePage)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(230, 220, 58, 16))
+        self.label.setGeometry(QRect(230, 220, 120, 16))
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
@@ -90,9 +90,15 @@ class Ui_MainWindow(object):
         connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
         with connection:
-            cursor.execute("SELECT name FROM contacts")
-            name = str(cursor.fetchone()[0])
+            cursor.execute("SELECT * FROM contacts")
+            name = ""
+            ##classes = ""
+            for row in cursor:
+                name = name + row[0] + " "
+            ##name = str(cursor.fetchone())
+            print(name)
             self.label.setText(name)
+        connection.close()
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
