@@ -11,6 +11,8 @@
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
+import sqlite3
+
 
 import stinder_images_rc
 
@@ -43,7 +45,7 @@ class Ui_Stinder(object):
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "font: 700 13pt \"Nexa Text Demo\";\n"
 "")
-        self.BrowseButton = QPushButton(self.frame)
+        self.BrowseButton = QPushButton(self.frame, clicked= lambda: self.list())
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
         self.BrowseButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
@@ -96,6 +98,7 @@ class Ui_Stinder(object):
         QMetaObject.connectSlotsByName(Stinder)
     # setupUi
 
+
     def retranslateUi(self, Stinder):
         Stinder.setWindowTitle(QCoreApplication.translate("Stinder", u"Stinder", None))
         self.actionTemp_Button.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
@@ -108,5 +111,20 @@ class Ui_Stinder(object):
         self.AboutLabel.setText(QCoreApplication.translate("Stinder", u"About", None))
         self.BrowseLabel.setText(QCoreApplication.translate("Stinder", u"Browse", None))
         self.ProfileLabel.setText(QCoreApplication.translate("Stinder", u"Profile", None))
+
+        
+    def list(self):
+        connection = sqlite3.connect("users.db")
+        cursor = connection.cursor()
+        with connection:
+            cursor.execute("SELECT * FROM contacts")
+            name = ""
+            ##classes = ""
+            for row in cursor:
+                name = name + row[0] + " "
+            ##name = str(cursor.fetchone())
+            print(name)
+            self.label.setText(name)
+        connection.close()
     # retranslateUi
 
