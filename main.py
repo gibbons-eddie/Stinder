@@ -1,7 +1,36 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
 
 from logo_test_ui import Ui_Stinder
+from Login import Ui_Dialog
+
+
+class LogInWindow(QDialog):
+    def __init__(self):
+        super(LogInWindow, self).__init__()
+        self.loginUi = Ui_Dialog()
+        self.loginUi.setupUi(self)
+        self.loginUi.SignInBtn.clicked.connect(self.handleLogin)
+        self.loginUi.CreateAcctTextbox.clicked.connect(self.handleSignUp)
+
+        self.loginUi.SignUpBtn.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.SignUp))
+        self.loginUi.SignInBtn_2.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.LogIn))
+
+    def handleLogin(self):
+        # check if login is valid?
+        if True:
+            self.accept()
+
+    def handleSignUp(self):
+        firstname = self.loginUi.FirstNameTextbox.text()
+        lastname = self.loginUi.LastNameTextbox.text()
+        email = self.loginUi.EmailAddrTextbox.text()
+        phone = self.loginUi.PhoneNumberTextbox.text()
+        major = self.loginUi.MajorBox.currentText()
+        password = self.loginUi.PasswordTextbox.text()
+
+        if True:
+            self.accept()
 
 
 class MainWindow(QMainWindow):
@@ -22,8 +51,9 @@ class MainWindow(QMainWindow):
 
 if __name__ == "__main__":
     app = QApplication([])
+    login = LogInWindow()
 
-    widget = MainWindow()
-    widget.show()
-
-    sys.exit(app.exec())
+    if login.exec() == QDialog.Accepted:
+        window = MainWindow()
+        window.show()
+        sys.exit(app.exec())
