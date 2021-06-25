@@ -17,7 +17,8 @@ class LogInWindow(QDialog):
         self.loginUi.CreateAcctTextbox.clicked.connect(self.handleSignUp)
 
         self.loginUi.SignUpBtn.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.SignUp))
-        self.loginUi.SignInBtn_2.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.LogIn))
+        self.loginUi.SignInBtn_2.clicked.connect(
+            lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.LogIn))
 
     def handleLogin(self):
         # check if login is valid?
@@ -48,7 +49,6 @@ class MainWindow(QMainWindow):
         self.ui.BrowseButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.BrowsePage))
         # PAGE 3
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
-  
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
         connection = sqlite3.connect("users.db")
@@ -75,12 +75,19 @@ def createcontactstable(conn, tablesql):
     except Error as e:
         print(e)
 
+
 def fillcontacts():
-    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Joe', 'Computer Science', 'COP3502', 'joe@ufl.edu')")
-    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Data Science', 'IUL1000', 'jack@ufl.edu')")
-    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chemistry', 'CHM2532', 'jill@ufl.edu')")
-    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Joseph', 'Biology', 'CHM2531', 'joseph@ufl.edu')")
-    c.execute("INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Computer Science', 'COP3503', 'jorge@ufl.edu')")
+    c.execute(
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Joe', 'Computer Science', 'joe@ufl.edu')")
+    c.execute(
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Data Science',  'jack@ufl.edu')")
+    c.execute(
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chemistry', 'jill@ufl.edu')")
+    c.execute(
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Joseph', 'Biology', 'joseph@ufl.edu')")
+    c.execute(
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Computer Science', 'jorge@ufl.edu')")
+
 
 if __name__ == "__main__":
     app = QApplication([])
@@ -94,12 +101,11 @@ if __name__ == "__main__":
     conn = sqlite3.connect("users.db")
     c = conn.cursor()
     """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
-    
+
     tablequery = "CREATE TABLE IF NOT EXISTS contacts(name VARCHAR(40) PRIMARY KEY NOT NULL, major VARCHAR(40) NOT NULL, classes VARCHAR(50),email VARCHAR(40))"
     createcontactstable(conn, tablequery)
     fillcontacts() 
     rows = c.execute("SELECT * FROM contacts")
-
     for row in rows:
         print(row)
 """
@@ -108,4 +114,3 @@ if __name__ == "__main__":
     # End of database functionality test -- delete block after testing because it won't be needed
 
     sys.exit(app.exec())
-    

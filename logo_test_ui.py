@@ -17,6 +17,7 @@ import sqlite3
 import stinder_images_rc
 
 class Ui_Stinder(object):
+    counter = 0
     def setupUi(self, Stinder):
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
@@ -45,7 +46,8 @@ class Ui_Stinder(object):
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "font: 700 13pt \"Nexa Text Demo\";\n"
 "")
-        self.BrowseButton = QPushButton(self.frame, clicked= lambda: self.list())
+        lists, length = self.list()
+        self.BrowseButton = QPushButton(self.frame, clicked= lambda: self.next_user(lists, length))
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
         self.BrowseButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
@@ -78,7 +80,7 @@ class Ui_Stinder(object):
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.BrowseLabel = QLabel(self.BrowsePage)
         self.BrowseLabel.setObjectName(u"BrowseLabel")
-        self.BrowseLabel.setGeometry(QRect(230, 220, 58, 16))
+        self.BrowseLabel.setGeometry(QRect(180, 120, 200, 160))
         self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255)")
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
@@ -112,19 +114,24 @@ class Ui_Stinder(object):
         self.BrowseLabel.setText(QCoreApplication.translate("Stinder", u"Browse", None))
         self.ProfileLabel.setText(QCoreApplication.translate("Stinder", u"Profile", None))
 
-        
+    def next_user(self, users, length):
+        counter = self.counter
+        if counter == length:
+            counter = counter - 1
+        print(users[counter])
+        self.BrowseLabel.setText(users[counter])
+        self.counter = counter + 1
+
     def list(self):
         connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
-            name = ""
-            ##classes = ""
+            users = []
+            length = 0
             for row in cursor:
-                name = name + row[0] + " "
-            ##name = str(cursor.fetchone())
-            print(name)
-            self.BrowseLabel.setText(name)
-        connection.close()
-    # retranslateUi
+                user = "Name: " + row[0] + "\n\nMajor: " + row[1] + "\n\nEmail: " + row[2]
+                users.append(user)
+                length = length + 1
+            return users, length
 
