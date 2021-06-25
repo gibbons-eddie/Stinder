@@ -78,15 +78,15 @@ def createcontactstable(conn, tablesql):
 
 def fillcontacts():
     c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Joe', 'Computer Science', 'joe@ufl.edu')")
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Joe','Johnson', 'Computer Science', 'joe@ufl.edu')")
     c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Data Science',  'jack@ufl.edu')")
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Smith', 'Data Science', 'jack@ufl.edu')")
     c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chemistry', 'jill@ufl.edu')")
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chen','Chemistry', 'jill@ufl.edu')")
     c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Joseph', 'Biology', 'joseph@ufl.edu')")
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Joseph','Brown', 'Biology', 'joseph@ufl.edu')")
     c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Computer Science', 'jorge@ufl.edu')")
+        "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Parker','Computer Science', 'jorge@ufl.edu')")
 
 
 if __name__ == "__main__":

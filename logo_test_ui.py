@@ -17,13 +17,15 @@ import sqlite3
 import stinder_images_rc
 
 class Ui_Stinder(object):
-    counter = 0
+    counter = 1
+
     def setupUi(self, Stinder):
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
         Stinder.resize(646, 476)
         Stinder.setAutoFillBackground(False)
-        Stinder.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
+        Stinder.setStyleSheet(
+            u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
         Stinder.setAnimated(True)
         self.actionTemp_Button = QAction(Stinder)
         self.actionTemp_Button.setObjectName(u"actionTemp_Button")
@@ -43,23 +45,23 @@ class Ui_Stinder(object):
         self.AboutButton.setObjectName(u"AboutButton")
         self.AboutButton.setGeometry(QRect(0, 1, 81, 41))
         self.AboutButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"font: 700 13pt \"Nexa Text Demo\";\n"
-"")
+                                       "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+                                       "font: 700 13pt \"Nexa Text Demo\";\n"
+                                       "")
         lists, length = self.list()
-        self.BrowseButton = QPushButton(self.frame, clicked= lambda: self.next_user(lists, length))
+        self.BrowseButton = QPushButton(self.frame)
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
         self.BrowseButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"font: 500 13pt \"Nexa Bold\";\n"
-"")
+                                        "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+                                        "font: 500 13pt \"Nexa Bold\";\n"
+                                        "")
         self.ProfileButton = QPushButton(self.frame)
         self.ProfileButton.setObjectName(u"ProfileButton")
         self.ProfileButton.setGeometry(QRect(0, 100, 81, 41))
         self.ProfileButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"font: 700 13pt \"Nexa Bold\";")
+                                         "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+                                         "font: 700 13pt \"Nexa Bold\";")
         self.logo = QLabel(self.frame)
         self.logo.setObjectName(u"logo")
         self.logo.setGeometry(QRect(0, 430, 81, 41))
@@ -74,14 +76,21 @@ class Ui_Stinder(object):
         self.AboutLabel.setObjectName(u"AboutLabel")
         self.AboutLabel.setGeometry(QRect(180, 190, 161, 101))
         self.AboutLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-"font: 700 13pt \"Nexa Demo\";")
+                                      "font: 700 13pt \"Nexa Demo\";")
         self.stackedWidget.addWidget(self.AboutPage)
         self.BrowsePage = QWidget()
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.BrowseLabel = QLabel(self.BrowsePage)
         self.BrowseLabel.setObjectName(u"BrowseLabel")
-        self.BrowseLabel.setGeometry(QRect(180, 120, 200, 160))
-        self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255)")
+        self.BrowseLabel.setGeometry(QRect(130, 90, 300, 240))
+        self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+                                       "font: 700 15pt \"Ink Free\";")
+        self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(lists, length))
+        self.NextBottun.setObjectName(u"NextBottun")
+        self.NextBottun.setGeometry(QRect(235, 370, 64, 20))
+        self.NextBottun.setStyleSheet(u"color:rgb(255, 255, 255);\n"
+                                      "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+                                      "font: 9pt \"Nexa Demo\";")
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
@@ -96,12 +105,12 @@ class Ui_Stinder(object):
 
         self.stackedWidget.setCurrentIndex(0)
 
-
         QMetaObject.connectSlotsByName(Stinder)
+
     # setupUi
 
-
     def retranslateUi(self, Stinder):
+        userL, i = self.list()
         Stinder.setWindowTitle(QCoreApplication.translate("Stinder", u"Stinder", None))
         self.actionTemp_Button.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
         self.actionTemp_Button_2.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
@@ -111,14 +120,16 @@ class Ui_Stinder(object):
         self.ProfileButton.setText(QCoreApplication.translate("Stinder", u"Profile", None))
         self.logo.setText("")
         self.AboutLabel.setText(QCoreApplication.translate("Stinder", u"About", None))
-        self.BrowseLabel.setText(QCoreApplication.translate("Stinder", u"Browse", None))
+        self.BrowseLabel.setText(QCoreApplication.translate("Stinder", userL[0], None))
+        self.NextBottun.setText(QCoreApplication.translate("Stinder", u"Next", None))
         self.ProfileLabel.setText(QCoreApplication.translate("Stinder", u"Profile", None))
+
 
     def next_user(self, users, length):
         counter = self.counter
         if counter == length:
             counter = counter - 1
-        print(users[counter])
+        # print(users[counter])
         self.BrowseLabel.setText(users[counter])
         self.counter = counter + 1
 
@@ -130,7 +141,7 @@ class Ui_Stinder(object):
             users = []
             length = 0
             for row in cursor:
-                user = "Name: " + row[0] + "\n\nMajor: " + row[1] + "\n\nEmail: " + row[2]
+                user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + row[3]
                 users.append(user)
                 length = length + 1
             return users, length
