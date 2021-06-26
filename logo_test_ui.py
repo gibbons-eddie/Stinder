@@ -91,6 +91,12 @@ class Ui_Stinder(object):
         self.NextBottun.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                       "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
                                       "font: 9pt \"Nexa Demo\";")
+        self.PrevButton = QPushButton(self.BrowsePage, clicked=lambda: self.prev_user(lists, length))
+        self.PrevButton.setObjectName(u"PrevBottun")
+        self.PrevButton.setGeometry(QRect(235, 340, 64, 20))
+        self.PrevButton.setStyleSheet(u"color:rgb(255, 255, 255);\n"
+                                      "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+                                      "font: 9pt \"Nexa Demo\";")
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
@@ -122,6 +128,7 @@ class Ui_Stinder(object):
         self.AboutLabel.setText(QCoreApplication.translate("Stinder", u"About", None))
         self.BrowseLabel.setText(QCoreApplication.translate("Stinder", userL[0], None))
         self.NextBottun.setText(QCoreApplication.translate("Stinder", u"Next", None))
+        self.PrevButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
         self.ProfileLabel.setText(QCoreApplication.translate("Stinder", u"Profile", None))
 
 
@@ -132,6 +139,15 @@ class Ui_Stinder(object):
         # print(users[counter])
         self.BrowseLabel.setText(users[counter])
         self.counter = counter + 1
+
+    def prev_user(self, users, length):
+        counter = self.counter
+        if counter == length:
+            counter = counter - 1
+        if counter < 0:
+            counter = 0
+        self.BrowseLabel.setText(users[counter])
+        self.counter = counter - 1
 
     def list(self):
         connection = sqlite3.connect("users.db")
