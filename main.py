@@ -13,27 +13,27 @@ class LogInWindow(QDialog):
         super(LogInWindow, self).__init__()
         self.loginUi = Ui_Dialog()
         self.loginUi.setupUi(self)
-        self.loginUi.SignInBtn.clicked.connect(self.handleLogin)
-        self.loginUi.CreateAcctTextbox.clicked.connect(self.handleSignUp)
 
-        self.loginUi.SignUpBtn.clicked.connect(lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.SignUp))
-        self.loginUi.SignInBtn_2.clicked.connect(
-            lambda: self.loginUi.stackedWidget.setCurrentWidget(self.loginUi.LogIn))
+        self.loginUi.ContinueBtn.clicked.connect(self.handleLogin)
 
     def handleLogin(self):
-        # check if login is valid?
-        if True:
-            self.accept()
+        # check if login is valid
+        fName = self.loginUi.FirstNameInput.text()
+        lName = self.loginUi.LastNameTb.text()
+        email = self.loginUi.EmailInput.text()
+        major = self.loginUi.MajorInput.currentText()
 
-    def handleSignUp(self):
-        firstname = self.loginUi.FirstNameTextbox.text()
-        lastname = self.loginUi.LastNameTextbox.text()
-        email = self.loginUi.EmailAddrTextbox.text()
-        phone = self.loginUi.PhoneNumberTextbox.text()
-        major = self.loginUi.MajorBox.currentText()
-        password = self.loginUi.PasswordTextbox.text()
-
-        if True:
+        if len(fName) == 0 or len(lName) == 0 or len(email) == 0:
+            self.loginUi.errorLabel.setText("Please input all fields.")
+        else:
+            login_conn = sqlite3.connect("users.db")
+            login_cur = login_conn.cursor()
+            login_cur.execute(
+                "INSERT INTO contacts(Fname, Lname, major, email) VALUES (?, ?, ?, ?)", (fName, lName, major, email)
+            )
+            login_conn.commit()
+            login_conn.close()
+            print("Added to database")
             self.accept()
 
 
@@ -49,6 +49,25 @@ class MainWindow(QMainWindow):
         self.ui.BrowseButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.BrowsePage))
         # PAGE 3
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
+
+        # Adds information from database to profile page
+        profileconn = sqlite3.connect("users.db")
+        profilecur = profileconn.cursor()
+
+        maxid = profilecur.execute("SELECT MAX(rowid) FROM contacts")
+        maxid = profilecur.fetchone()
+        str = profilecur.execute("SELECT * FROM contacts WHERE rowid = ?", maxid)
+        str = profilecur.fetchone()
+        profileconn.close()
+        fName = str[0]
+        lName = str[1]
+        major = str[2]
+        profileEmail = str[3]
+        name = fName + " " + lName
+
+        self.ui.NameLabel.setText(name)
+        self.ui.EmailLabel.setText(profileEmail)
+        self.ui.MajorLabel.setText(major)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
         connection = sqlite3.connect("users.db")

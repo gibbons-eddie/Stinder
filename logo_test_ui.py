@@ -94,10 +94,60 @@ class Ui_Stinder(object):
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
-        self.ProfileLabel = QLabel(self.ProfilePage)
-        self.ProfileLabel.setObjectName(u"ProfileLabel")
-        self.ProfileLabel.setGeometry(QRect(250, 220, 58, 16))
-        self.ProfileLabel.setStyleSheet(u"color: rgb(255, 255, 255)")
+        self.label0 = QLabel(self.ProfilePage)
+        self.label0.setObjectName(u"label0")
+        self.label0.setGeometry(QRect(160, 10, 201, 41))
+        self.label0.setStyleSheet(u"background-color: transparent;\n"
+                                 "color: white;")
+        self.label_2 = QLabel(self.ProfilePage)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setGeometry(QRect(40, 80, 51, 21))
+        self.label_2.setStyleSheet(u"background-color: transparent;\n"
+                                   "color: white;\n"
+                                   "")
+        self.line = QFrame(self.ProfilePage)
+        self.line.setObjectName(u"line")
+        self.line.setGeometry(QRect(40, 140, 450, 3))
+        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShadow(QFrame.Sunken)
+        self.label_3 = QLabel(self.ProfilePage)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setGeometry(QRect(40, 190, 51, 21))
+        self.label_3.setStyleSheet(u"background-color: transparent;\n"
+                                   "color: white;")
+        self.line_2 = QFrame(self.ProfilePage)
+        self.line_2.setObjectName(u"line_2")
+        self.line_2.setGeometry(QRect(40, 250, 450, 3))
+        self.line_2.setFrameShape(QFrame.HLine)
+        self.line_2.setFrameShadow(QFrame.Sunken)
+        self.label_4 = QLabel(self.ProfilePage)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(40, 310, 51, 21))
+        self.label_4.setStyleSheet(u"background-color: transparent;\n"
+                                   "color: white;")
+        self.line_3 = QFrame(self.ProfilePage)
+        self.line_3.setObjectName(u"line_3")
+        self.line_3.setGeometry(QRect(40, 370, 450, 3))
+        self.line_3.setFrameShape(QFrame.HLine)
+        self.line_3.setFrameShadow(QFrame.Sunken)
+        self.NameLabel = QLabel(self.ProfilePage)
+        self.NameLabel.setObjectName(u"NameLabel")
+        self.NameLabel.setGeometry(QRect(40, 120, 451, 21))
+        self.NameLabel.setStyleSheet(u"background-color: transparent;\n"
+                                     "color: white;\n"
+                                     "font-size: 18px;")
+        self.EmailLabel = QLabel(self.ProfilePage)
+        self.EmailLabel.setObjectName(u"EmailLabel")
+        self.EmailLabel.setGeometry(QRect(40, 230, 431, 21))
+        self.EmailLabel.setStyleSheet(u"background-color: transparent;\n"
+                                      "color: white;\n"
+                                      "font-size: 18px;")
+        self.MajorLabel = QLabel(self.ProfilePage)
+        self.MajorLabel.setObjectName(u"MajorLabel")
+        self.MajorLabel.setGeometry(QRect(40, 350, 451, 21))
+        self.MajorLabel.setStyleSheet(u"background-color: transparent;\n"
+                                      "color: white;\n"
+                                      "font-size: 18px;")
         self.stackedWidget.addWidget(self.ProfilePage)
         Stinder.setCentralWidget(self.centralwidget)
 
@@ -122,7 +172,24 @@ class Ui_Stinder(object):
         self.AboutLabel.setText(QCoreApplication.translate("Stinder", u"About", None))
         self.BrowseLabel.setText(QCoreApplication.translate("Stinder", userL[0], None))
         self.NextBottun.setText(QCoreApplication.translate("Stinder", u"Next", None))
-        self.ProfileLabel.setText(QCoreApplication.translate("Stinder", u"Profile", None))
+        self.label0.setText(QCoreApplication.translate("Stinder",
+                                                      u"<html><head/><body><p><span style=\" font-size:36pt; font-weight:700;\">Your Profile</span></p></body></html>",
+                                                      None))
+        self.label_2.setText(QCoreApplication.translate("Stinder",
+                                                        u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700;\">Name</span></p></body></html>",
+                                                        None))
+        self.label_3.setText(QCoreApplication.translate("Stinder",
+                                                        u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700;\">Email</span></p></body></html>",
+                                                        None))
+        self.label_4.setText(QCoreApplication.translate("Stinder",
+                                                        u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700;\">Major</span></p></body></html>",
+                                                        None))
+        self.NameLabel.setText(
+            QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.EmailLabel.setText(
+            QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.MajorLabel.setText(
+            QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
 
 
     def next_user(self, users, length):
