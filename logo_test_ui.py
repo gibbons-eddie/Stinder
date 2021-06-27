@@ -17,7 +17,7 @@ import sqlite3
 import stinder_images_rc
 
 class Ui_Stinder(object):
-    counter = 1
+    counter = 0
 
     def setupUi(self, Stinder):
         if not Stinder.objectName():
@@ -134,20 +134,20 @@ class Ui_Stinder(object):
 
     def next_user(self, users, length):
         counter = self.counter
+        counter = counter + 1
         if counter == length:
             counter = counter - 1
+        self.counter = counter
         # print(users[counter])
         self.BrowseLabel.setText(users[counter])
-        self.counter = counter + 1
 
     def prev_user(self, users, length):
         counter = self.counter
-        if counter == length:
-            counter = counter - 1
-        if counter < 0:
-            counter = 0
+        if counter == 0:
+            counter = counter + 1
+        counter = counter - 1
+        self.counter = counter
         self.BrowseLabel.setText(users[counter])
-        self.counter = counter - 1
 
     def list(self):
         connection = sqlite3.connect("users.db")
