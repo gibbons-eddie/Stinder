@@ -224,4 +224,3 @@ class Ui_Stinder(object):
                 users.append(user)
                 length = length + 1
             return users, length
-
