@@ -2,19 +2,26 @@ import sqlite3
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
+from PySide6.QtGui import QIcon
 from sqlite3 import Error
 
 from logo_test_ui import Ui_Stinder
-from Login import Ui_Dialog
+from Login import Ui_Stinder_Login
 
 
 class LogInWindow(QDialog):
     def __init__(self):
         super(LogInWindow, self).__init__()
-        self.loginUi = Ui_Dialog()
+        self.setFixedSize(646, 476)
+        self.setIcon()
+        self.loginUi = Ui_Stinder_Login()
         self.loginUi.setupUi(self)
 
         self.loginUi.ContinueBtn.clicked.connect(self.handleLogin)
+
+    def setIcon(self):
+        appIcon = QIcon("resources/images/stinder_book_logo.png")
+        self.setWindowIcon(appIcon)
 
     def handleLogin(self):
         # check if login is valid
@@ -40,6 +47,8 @@ class LogInWindow(QDialog):
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
+        self.setFixedSize(646, 476)
+        self.setIcon()
         self.ui = Ui_Stinder()
         self.ui.setupUi(self)
 
@@ -68,6 +77,10 @@ class MainWindow(QMainWindow):
         self.ui.NameLabel.setText(name)
         self.ui.EmailLabel.setText(profileEmail)
         self.ui.MajorLabel.setText(major)
+
+    def setIcon(self):
+        appIcon = QIcon("resources/images/stinder_book_logo.png")
+        self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
         connection = sqlite3.connect("users.db")
