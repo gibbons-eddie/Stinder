@@ -15,6 +15,7 @@ from PySide6.QtWidgets import *  # type: ignore
 import stinder_images_rc
 
 class Ui_Stinder_Login(object):
+
     def setupUi(self, Stinder_Login):
         if not Stinder_Login.objectName():
             Stinder_Login.setObjectName(u"Stinder_Login")
@@ -37,28 +38,28 @@ class Ui_Stinder_Login(object):
         self.InstructLabel.setObjectName(u"InstructLabel")
         self.InstructLabel.setGeometry(QRect(150, 100, 341, 41))
         self.InstructLabel.setStyleSheet(u"background-color: transparent;\n"
-"color: white;\n"
-"font: 700 104pt \"Nexa Bold\";")
+"color: white;")
+        self.InstructLabel.setFont
         self.FirstNameInput = QLineEdit(self.page)
         self.FirstNameInput.setObjectName(u"FirstNameInput")
         self.FirstNameInput.setGeometry(QRect(50, 160, 231, 41))
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
 "padding: 0 8px;")
         self.LastNameTb = QLineEdit(self.page)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
 "padding: 0 8px;")
         self.EmailInput = QLineEdit(self.page)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
 "padding: 0 8px;")
         self.MajorInput = QComboBox(self.page)
         self.MajorInput.addItem("")
@@ -86,7 +87,7 @@ class Ui_Stinder_Login(object):
         self.MajorInput.setGeometry(QRect(50, 300, 551, 41))
         self.MajorInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
 "padding: 0 8px;")
         self.MajorInput.setEditable(False)
         self.ContinueBtn = QPushButton(self.page)

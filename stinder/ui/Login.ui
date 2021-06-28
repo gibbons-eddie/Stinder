@@ -84,7 +84,7 @@ font: 700 104pt &quot;Nexa Bold&quot;;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
 padding: 0 8px;</string>
      </property>
      <property name="placeholderText">
@@ -103,7 +103,7 @@ padding: 0 8px;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
 padding: 0 8px;</string>
      </property>
      <property name="placeholderText">
@@ -122,7 +122,7 @@ padding: 0 8px;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
 padding: 0 8px;</string>
      </property>
      <property name="placeholderText">
@@ -141,7 +141,7 @@ padding: 0 8px;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
 padding: 0 8px;</string>
      </property>
      <property name="editable">

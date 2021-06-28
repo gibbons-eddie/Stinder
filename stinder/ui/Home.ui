@@ -141,7 +141,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(255, 255, 255);
-font: 700 13pt &quot;Nexa Demo&quot;;</string>
+font: 700 13pt &quot;Nexa Text Demo&quot;;</string>
       </property>
       <property name="text">
        <string>About</string>

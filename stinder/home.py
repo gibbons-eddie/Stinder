@@ -75,7 +75,7 @@ class Ui_Stinder(object):
         self.AboutLabel.setObjectName(u"AboutLabel")
         self.AboutLabel.setGeometry(QRect(180, 190, 161, 101))
         self.AboutLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                      "font: 700 13pt \"Nexa Demo\";")
+                                      "font: 700 13pt \"Nexa Text Demo\";")
         self.stackedWidget.addWidget(self.AboutPage)
         self.BrowsePage = QWidget()
         self.BrowsePage.setObjectName(u"BrowsePage")
@@ -83,19 +83,19 @@ class Ui_Stinder(object):
         self.BrowseLabel.setObjectName(u"BrowseLabel")
         self.BrowseLabel.setGeometry(QRect(130, 90, 300, 240))
         self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                       "font: 700 15pt \"Ink Free\";")
+                                       "font: 700 15pt \"Nexa Text Demo\";")
         self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(lists, length))
         self.NextBottun.setObjectName(u"NextBottun")
         self.NextBottun.setGeometry(QRect(235, 370, 64, 20))
         self.NextBottun.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                       "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                      "font: 9pt \"Nexa Demo\";")
+                                      "font: 9pt \"Nexa Text Demo\";")
         self.PrevButton = QPushButton(self.BrowsePage, clicked=lambda: self.prev_user(lists, length))
         self.PrevButton.setObjectName(u"PrevBottun")
         self.PrevButton.setGeometry(QRect(235, 340, 64, 20))
         self.PrevButton.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                               "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                              "font: 9pt \"Nexa Demo\";")
+                                              "font: 9pt \"Nexa Text Demo\";")
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
@@ -212,7 +212,7 @@ class Ui_Stinder(object):
         self.BrowseLabel.setText(users[counter])
 
     def list(self):
-        connection = sqlite3.connect("users.db")
+        connection = sqlite3.connect("database/users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
