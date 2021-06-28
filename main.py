@@ -5,8 +5,8 @@ from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from PySide6.QtGui import QIcon
 from sqlite3 import Error
 
-from logo_test_ui import Ui_Stinder
-from Login import Ui_Stinder_Login
+from home import Ui_Stinder
+from login import Ui_Stinder_Login
 
 
 class LogInWindow(QDialog):

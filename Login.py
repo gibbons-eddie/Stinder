@@ -44,19 +44,22 @@ class Ui_Stinder_Login(object):
         self.FirstNameInput.setGeometry(QRect(50, 160, 231, 41))
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";")
+"font: 300 13pt \"Nexa Demo\";\n"
+"padding: 0 8px;")
         self.LastNameTb = QLineEdit(self.page)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";")
+"font: 300 13pt \"Nexa Demo\";\n"
+"padding: 0 8px;")
         self.EmailInput = QLineEdit(self.page)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";")
+"font: 300 13pt \"Nexa Demo\";\n"
+"padding: 0 8px;")
         self.MajorInput = QComboBox(self.page)
         self.MajorInput.addItem("")
         self.MajorInput.addItem("")
@@ -83,7 +86,8 @@ class Ui_Stinder_Login(object):
         self.MajorInput.setGeometry(QRect(50, 300, 551, 41))
         self.MajorInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Demo\";")
+"font: 300 13pt \"Nexa Demo\";\n"
+"padding: 0 8px;")
         self.MajorInput.setEditable(False)
         self.ContinueBtn = QPushButton(self.page)
         self.ContinueBtn.setObjectName(u"ContinueBtn")
@@ -111,9 +115,9 @@ class Ui_Stinder_Login(object):
         Stinder_Login.setWindowTitle(QCoreApplication.translate("Stinder_Login", u"Stinder", None))
         self.StinderLogo.setText("")
         self.InstructLabel.setText(QCoreApplication.translate("Stinder_Login", u"<html><head/><body><p><span style=\" font-size:24pt;\">please fill out form to continue</span></p></body></html>", None))
-        self.FirstNameInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"  First Name", None))
-        self.LastNameTb.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"  Last Name", None))
-        self.EmailInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"  Email Address", None))
+        self.FirstNameInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"First Name", None))
+        self.LastNameTb.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Last Name", None))
+        self.EmailInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Email Address", None))
         self.MajorInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Accounting", None))
         self.MajorInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"Aerospace Engineering", None))
         self.MajorInput.setItemText(2, QCoreApplication.translate("Stinder_Login", u"Anthropology", None))

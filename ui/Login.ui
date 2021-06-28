@@ -84,10 +84,11 @@ font: 700 104pt &quot;Nexa Bold&quot;;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;</string>
+font: 300 13pt &quot;Nexa Demo&quot;;
+padding: 0 8px;</string>
      </property>
      <property name="placeholderText">
-      <string>  First Name</string>
+      <string>First Name</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="LastNameTb">
@@ -102,10 +103,11 @@ font: 300 13pt &quot;Nexa Demo&quot;;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;</string>
+font: 300 13pt &quot;Nexa Demo&quot;;
+padding: 0 8px;</string>
      </property>
      <property name="placeholderText">
-      <string>  Last Name</string>
+      <string>Last Name</string>
      </property>
     </widget>
     <widget class="QLineEdit" name="EmailInput">
@@ -120,10 +122,11 @@ font: 300 13pt &quot;Nexa Demo&quot;;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;</string>
+font: 300 13pt &quot;Nexa Demo&quot;;
+padding: 0 8px;</string>
      </property>
      <property name="placeholderText">
-      <string>  Email Address</string>
+      <string>Email Address</string>
      </property>
     </widget>
     <widget class="QComboBox" name="MajorInput">
@@ -138,7 +141,8 @@ font: 300 13pt &quot;Nexa Demo&quot;;</string>
      <property name="styleSheet">
       <string notr="true">background-color: white;
 border-radius: 10px;
-font: 300 13pt &quot;Nexa Demo&quot;;</string>
+font: 300 13pt &quot;Nexa Demo&quot;;
+padding: 0 8px;</string>
      </property>
      <property name="editable">
       <bool>false</bool>
