@@ -7,10 +7,10 @@ Stinder aims to solve those problems for those who would like to pair up with th
 
 ***Stinder. Never have a bad (study) date again.***
 
-To test out our alpha build of Stinder: 
+To test out our alpha build of Stinder, open up a directory, download the *users.db* file from the repository (linked below) to that directory, and run: 
 
-    instructions to follow
+    python3 -m pip install stinder
+    python3 -m stinder
 
 [*Trello*](https://trello.com/b/WMZnG8PD/stinder)
-
 [*GitHub*](https://github.com/gibbons-eddie/Stinder)
