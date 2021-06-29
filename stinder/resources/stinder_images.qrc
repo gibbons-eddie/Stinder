@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="logo">
+    <file>images/IMG_4845.JPG</file>
+    <file>images/stinder_logo.png</file>
+  </qresource>
+  <qresource prefix="fonts">
+    <file>fonts/NexaDemo-Bold.ttf</file>
+    <file>fonts/NexaDemo-Light.ttf</file>
+    <file>fonts/NexaTextDemo-Bold.otf</file>
+    <file>fonts/NexaTextDemo-Light.otf</file>
+  </qresource>
+</RCC>

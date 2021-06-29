@@ -122,8 +122,8 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
      <rect>
       <x>80</x>
       <y>0</y>
-      <width>561</width>
-      <height>471</height>
+      <width>571</width>
+      <height>481</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -141,7 +141,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(255, 255, 255);
-font: 700 13pt &quot;Nexa Demo&quot;;</string>
+font: 700 13pt &quot;Nexa Text Demo&quot;;</string>
       </property>
       <property name="text">
        <string>About</string>
@@ -170,7 +170,7 @@ font: 700 13pt &quot;Nexa Demo&quot;;</string>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>160</x>
+        <x>180</x>
         <y>10</y>
         <width>201</width>
         <height>41</height>
@@ -181,13 +181,13 @@ font: 700 13pt &quot;Nexa Demo&quot;;</string>
 color: white;</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:36pt; font-weight:700;&quot;&gt;Your Profile&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; font-weight:700;&quot;&gt;Profile&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>60</x>
         <y>80</y>
         <width>51</width>
         <height>21</height>
@@ -199,7 +199,7 @@ color: white;
 </string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Name&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="line">
@@ -207,7 +207,7 @@ color: white;
        <rect>
         <x>40</x>
         <y>140</y>
-        <width>450</width>
+        <width>480</width>
         <height>3</height>
        </rect>
       </property>
@@ -218,7 +218,7 @@ color: white;
      <widget class="QLabel" name="label_3">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>60</x>
         <y>190</y>
         <width>51</width>
         <height>21</height>
@@ -229,7 +229,7 @@ color: white;
 color: white;</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Email&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Email&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="line_2">
@@ -237,7 +237,7 @@ color: white;</string>
        <rect>
         <x>40</x>
         <y>250</y>
-        <width>450</width>
+        <width>480</width>
         <height>3</height>
        </rect>
       </property>
@@ -248,7 +248,7 @@ color: white;</string>
      <widget class="QLabel" name="label_4">
       <property name="geometry">
        <rect>
-        <x>40</x>
+        <x>60</x>
         <y>310</y>
         <width>51</width>
         <height>21</height>
@@ -259,7 +259,7 @@ color: white;</string>
 color: white;</string>
       </property>
       <property name="text">
-       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:18pt; font-weight:700;&quot;&gt;Major&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt; font-weight:700;&quot;&gt;Major&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
      </widget>
      <widget class="Line" name="line_3">
@@ -267,7 +267,7 @@ color: white;</string>
        <rect>
         <x>40</x>
         <y>370</y>
-        <width>450</width>
+        <width>480</width>
         <height>3</height>
        </rect>
       </property>

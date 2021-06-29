@@ -13,8 +13,7 @@ from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 import sqlite3
 
-
-import stinder_images_rc
+from stinder.stinder_images_rc import *
 
 class Ui_Stinder(object):
     counter = 0
@@ -76,7 +75,7 @@ class Ui_Stinder(object):
         self.AboutLabel.setObjectName(u"AboutLabel")
         self.AboutLabel.setGeometry(QRect(180, 190, 161, 101))
         self.AboutLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                      "font: 700 13pt \"Nexa Demo\";")
+                                      "font: 700 13pt \"Nexa Text Demo\";")
         self.stackedWidget.addWidget(self.AboutPage)
         self.BrowsePage = QWidget()
         self.BrowsePage.setObjectName(u"BrowsePage")
@@ -84,41 +83,41 @@ class Ui_Stinder(object):
         self.BrowseLabel.setObjectName(u"BrowseLabel")
         self.BrowseLabel.setGeometry(QRect(130, 90, 300, 240))
         self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                       "font: 700 15pt \"Ink Free\";")
+                                       "font: 700 15pt \"Nexa Text Demo\";")
         self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(lists, length))
         self.NextBottun.setObjectName(u"NextBottun")
         self.NextBottun.setGeometry(QRect(235, 370, 64, 20))
         self.NextBottun.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                       "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                      "font: 9pt \"Nexa Demo\";")
+                                      "font: 9pt \"Nexa Text Demo\";")
         self.PrevButton = QPushButton(self.BrowsePage, clicked=lambda: self.prev_user(lists, length))
         self.PrevButton.setObjectName(u"PrevBottun")
         self.PrevButton.setGeometry(QRect(235, 340, 64, 20))
         self.PrevButton.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                               "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                              "font: 9pt \"Nexa Demo\";")
+                                              "font: 9pt \"Nexa Text Demo\";")
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
         self.label0 = QLabel(self.ProfilePage)
         self.label0.setObjectName(u"label0")
-        self.label0.setGeometry(QRect(160, 10, 201, 41))
+        self.label0.setGeometry(QRect(180, 10, 201, 41))
         self.label0.setStyleSheet(u"background-color: transparent;\n"
                                  "color: white;")
         self.label_2 = QLabel(self.ProfilePage)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(40, 80, 51, 21))
+        self.label_2.setGeometry(QRect(60, 80, 51, 21))
         self.label_2.setStyleSheet(u"background-color: transparent;\n"
                                    "color: white;\n"
                                    "")
         self.line = QFrame(self.ProfilePage)
         self.line.setObjectName(u"line")
-        self.line.setGeometry(QRect(40, 140, 450, 3))
+        self.line.setGeometry(QRect(40, 140, 480, 3))
         self.line.setFrameShape(QFrame.HLine)
         self.line.setFrameShadow(QFrame.Sunken)
         self.label_3 = QLabel(self.ProfilePage)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(40, 190, 51, 21))
+        self.label_3.setGeometry(QRect(60, 190, 51, 21))
         self.label_3.setStyleSheet(u"background-color: transparent;\n"
                                    "color: white;")
         self.line_2 = QFrame(self.ProfilePage)
@@ -128,7 +127,7 @@ class Ui_Stinder(object):
         self.line_2.setFrameShadow(QFrame.Sunken)
         self.label_4 = QLabel(self.ProfilePage)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(40, 310, 51, 21))
+        self.label_4.setGeometry(QRect(60, 310, 51, 21))
         self.label_4.setStyleSheet(u"background-color: transparent;\n"
                                    "color: white;")
         self.line_3 = QFrame(self.ProfilePage)
@@ -180,16 +179,16 @@ class Ui_Stinder(object):
         self.NextBottun.setText(QCoreApplication.translate("Stinder", u"Next", None))
         self.PrevButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
         self.label0.setText(QCoreApplication.translate("Stinder",
-                                                              u"<html><head/><body><p><span style=\" font-size:36pt; font-weight:700;\">Your Profile</span></p></body></html>",
+                                                              u"<html><head/><body><p><span style=\" font-size:24pt; font-weight:700;\">Your Profile</span></p></body></html>",
                                                               None))
         self.label_2.setText(QCoreApplication.translate("Stinder",
-                                                                u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700;\">Name</span></p></body></html>",
+                                                                u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700;\">Name</span></p></body></html>",
                                                                 None))
         self.label_3.setText(QCoreApplication.translate("Stinder",
-                                                                u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700;\">Email</span></p></body></html>",
+                                                                u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700;\">Email</span></p></body></html>",
                                                                 None))
         self.label_4.setText(QCoreApplication.translate("Stinder",
-                                                                u"<html><head/><body><p><span style=\" font-size:18pt; font-weight:700;\">Major</span></p></body></html>",
+                                                                u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700;\">Major</span></p></body></html>",
                                                                 None))
         self.NameLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
         self.EmailLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
