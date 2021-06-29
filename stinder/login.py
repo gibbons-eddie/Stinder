@@ -12,7 +12,7 @@ from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 
-import stinder_images_rc
+from stinder.stinder_images_rc import *
 
 class Ui_Stinder_Login(object):
 
@@ -46,21 +46,24 @@ class Ui_Stinder_Login(object):
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;")
         self.LastNameTb = QLineEdit(self.page)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;")
         self.EmailInput = QLineEdit(self.page)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;")
         self.MajorInput = QComboBox(self.page)
         self.MajorInput.addItem("")
         self.MajorInput.addItem("")
@@ -88,7 +91,8 @@ class Ui_Stinder_Login(object):
         self.MajorInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;")
         self.MajorInput.setEditable(False)
         self.ContinueBtn = QPushButton(self.page)
         self.ContinueBtn.setObjectName(u"ContinueBtn")

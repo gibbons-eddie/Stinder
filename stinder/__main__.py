@@ -1,5 +1,5 @@
 import sqlite3
-
+import os
 import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
@@ -7,8 +7,8 @@ from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from PySide6.QtGui import QIcon
 from sqlite3 import Error
 
-from home import Ui_Stinder
-from login import Ui_Stinder_Login
+from stinder.home import Ui_Stinder
+from stinder.login import Ui_Stinder_Login
 
 
 class LogInWindow(QDialog):
@@ -35,7 +35,7 @@ class LogInWindow(QDialog):
         if len(fName) == 0 or len(lName) == 0 or len(email) == 0:
             self.loginUi.errorLabel.setText("Please input all fields.")
         else:
-            login_conn = sqlite3.connect("database/users.db")
+            login_conn = sqlite3.connect("users.db")
             login_cur = login_conn.cursor()
             login_cur.execute(
                 "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email) VALUES (?, ?, ?, ?)", (fName, lName, major, email)
@@ -62,7 +62,7 @@ class MainWindow(QMainWindow):
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
 
         # Adds information from database to profile page
-        profileconn = sqlite3.connect("database/users.db")
+        profileconn = sqlite3.connect("users.db")
         profilecur = profileconn.cursor()
 
         maxid = profilecur.execute("SELECT MAX(rowid) FROM contacts")
@@ -85,7 +85,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
-        connection = sqlite3.connect("database/users.db")
+        connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
 
         cursor.execute("SELECT * FROM contacts")
@@ -132,7 +132,7 @@ if __name__ == "__main__":
         window.show()
 
     # Below block of code shows functionality for database
-    conn = sqlite3.connect("database/users.db")
+    conn = sqlite3.connect("users.db")
     c = conn.cursor()
     """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
 

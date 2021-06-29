@@ -13,7 +13,7 @@ from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 import sqlite3
 
-import stinder_images_rc
+from stinder.stinder_images_rc import *
 
 class Ui_Stinder(object):
     counter = 0
@@ -212,7 +212,7 @@ class Ui_Stinder(object):
         self.BrowseLabel.setText(users[counter])
 
     def list(self):
-        connection = sqlite3.connect("database/users.db")
+        connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
