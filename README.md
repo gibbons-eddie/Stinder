@@ -13,4 +13,5 @@ To test out our alpha build of Stinder, open up a directory, download the *users
     python3 -m stinder
 
 [*Trello*](https://trello.com/b/WMZnG8PD/stinder)
+
 [*GitHub*](https://github.com/gibbons-eddie/Stinder)
