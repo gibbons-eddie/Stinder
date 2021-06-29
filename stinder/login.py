@@ -15,7 +15,6 @@ from PySide6.QtWidgets import *  # type: ignore
 from stinder.stinder_images_rc import *
 
 class Ui_Stinder_Login(object):
-
     def setupUi(self, Stinder_Login):
         if not Stinder_Login.objectName():
             Stinder_Login.setObjectName(u"Stinder_Login")
@@ -38,8 +37,8 @@ class Ui_Stinder_Login(object):
         self.InstructLabel.setObjectName(u"InstructLabel")
         self.InstructLabel.setGeometry(QRect(150, 100, 341, 41))
         self.InstructLabel.setStyleSheet(u"background-color: transparent;\n"
-"color: white;")
-        self.InstructLabel.setFont
+"color: white;\n"
+"font: 700 24pt \"Nexa Bold\";")
         self.FirstNameInput = QLineEdit(self.page)
         self.FirstNameInput.setObjectName(u"FirstNameInput")
         self.FirstNameInput.setGeometry(QRect(50, 160, 231, 41))
@@ -119,7 +118,7 @@ class Ui_Stinder_Login(object):
     def retranslateUi(self, Stinder_Login):
         Stinder_Login.setWindowTitle(QCoreApplication.translate("Stinder_Login", u"Stinder", None))
         self.StinderLogo.setText("")
-        self.InstructLabel.setText(QCoreApplication.translate("Stinder_Login", u"<html><head/><body><p><span style=\" font-size:24pt;\">please fill out form to continue</span></p></body></html>", None))
+        self.InstructLabel.setText(QCoreApplication.translate("Stinder_Login", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">please fill out form to continue</span></p></body></html>", None))
         self.FirstNameInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"First Name", None))
         self.LastNameTb.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Last Name", None))
         self.EmailInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Email Address", None))
