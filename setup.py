@@ -14,9 +14,6 @@ setup(
     classifiers=[
         'Development Status :: 3 - Alpha',
 
-        'Intended Audience :: Students',
-        'Topic :: Utilities :: Build Tools',
-
         'License :: OSI Approved :: MIT License',
 
         'Programming Language :: Python :: 3',
