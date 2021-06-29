@@ -1,4 +1,4 @@
-![alt text](https://github.com/gibbons-eddie/Stinder/blob/m2-tweaks/resources/images/IMG_4845.JPG)
+![alt text](https://github.com/gibbons-eddie/Stinder/blob/main/stinder/resources/images/IMG_4845.JPG)
 
 <h3>Do you hate having to group up with students you don't know? Have you ever been stuck doing all the work?</h3>
 <h3>Us too.</h3>
