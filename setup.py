@@ -6,7 +6,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setup(
     name='stinder',
-    version='0.0.1',
+    version='0.0.2',
     description='Stinder aims to help students find compatible study partners through their major and coursework for optimal study sessions.',
     long_description = long_description,
     url='https://github.com/gibbons-eddie/Stinder',
