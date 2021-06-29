@@ -15,3 +15,5 @@ To test out our alpha build of Stinder, open up a directory, download the *users
 [*Trello*](https://trello.com/b/WMZnG8PD/stinder)
 
 [*GitHub*](https://github.com/gibbons-eddie/Stinder)
+
+[*PyPi*](https://pypi.org/project/stinder/0.0.1/)
