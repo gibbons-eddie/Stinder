@@ -7,7 +7,7 @@ Stinder aims to solve those problems for those who would like to pair up with th
 
 ***Stinder. Never have a bad (study) date again.***
 
-To test out our alpha build of Stinder, open up a directory, download the *users.db* file from the repository (linked below) to that directory, and run: 
+To test out our alpha build of Stinder, open up a directory, clone the repository (linked below) to that directory, and run: 
 
     python3 -m pip install stinder
     python3 -m stinder
