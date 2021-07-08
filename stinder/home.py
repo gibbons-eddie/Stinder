@@ -212,7 +212,7 @@ class Ui_Stinder(object):
         self.BrowseLabel.setText(users[counter])
 
     def list(self):
-        connection = sqlite3.connect("users.db")
+        connection = sqlite3.connect("stinder/users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
