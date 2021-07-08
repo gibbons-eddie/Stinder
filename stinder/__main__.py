@@ -19,7 +19,11 @@ class LogInWindow(QDialog):
         self.loginUi = Ui_Stinder_Login()
         self.loginUi.setupUi(self)
 
-        self.loginUi.ContinueBtn.clicked.connect(self.handleLogin)
+        # PAGE 1
+        self.loginUi.ContinueBtn.clicked.connect(lambda: self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage))
+        # PAGE 2
+        # self.ui.AboutButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.AboutPage))
+        self.loginUi.ContinueBtnP2.clicked.connect(self.handleLogin)
 
     def setIcon(self):
         appIcon = QIcon("resources/images/stinder_book_logo.png")
@@ -31,18 +35,25 @@ class LogInWindow(QDialog):
         lName = self.loginUi.LastNameTb.text()
         email = self.loginUi.EmailInput.text()
         major = self.loginUi.MajorInput.currentText()
+        year = self.loginUi.YearInput.currentText()
+        method = self.loginUi.MethodInput.currentText()
+        loc = self.loginUi.LocInput.currentText()
+        job = self.loginUi.JobInput.currentText()
+        day = self.loginUi.TimeInput.currentText()
+        sHistory = self.loginUi.StudyHistInput.currentText()
 
-        if len(fName) == 0 or len(lName) == 0 or len(email) == 0:
+        if len(fName) == 0 or len(lName) == 0 or len(email) == 0: # is there a way to check other inputs ?
             self.loginUi.errorLabel.setText("Please input all fields.")
         else:
             login_conn = sqlite3.connect("users.db")
             login_cur = login_conn.cursor()
             login_cur.execute(
-                "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email) VALUES (?, ?, ?, ?)", (fName, lName, major, email)
+                "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email, year, method, loc, job, day, sHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (fName, lName, major, email, year, method, loc, job, day, sHistory)
             )
             login_conn.commit()
             login_conn.close()
             print("Added to database")
+            print(loc) # testing
             self.accept()
 
 

@@ -20,50 +20,47 @@ class Ui_Stinder_Login(object):
             Stinder_Login.setObjectName(u"Stinder_Login")
         Stinder_Login.resize(646, 476)
         Stinder_Login.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
-        self.stackedWidget = QStackedWidget(Stinder_Login)
-        self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(0, 0, 651, 473))
-        self.stackedWidget.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
-        self.stackedWidget.setFrameShape(QFrame.NoFrame)
-        self.page = QWidget()
-        self.page.setObjectName(u"page")
-        self.StinderLogo = QLabel(self.page)
+        self.loginPages = QStackedWidget(Stinder_Login)
+        self.loginPages.setObjectName(u"loginPages")
+        self.loginPages.setGeometry(QRect(0, 0, 651, 473))
+        self.loginPages.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
+        self.loginPages.setFrameShape(QFrame.NoFrame)
+        self.BasicPage = QWidget()
+        self.BasicPage.setObjectName(u"BasicPage")
+        self.StinderLogo = QLabel(self.BasicPage)
         self.StinderLogo.setObjectName(u"StinderLogo")
         self.StinderLogo.setGeometry(QRect(110, -40, 411, 201))
         self.StinderLogo.setStyleSheet(u"background-color: transparent;")
         self.StinderLogo.setPixmap(QPixmap(u":/logo/images/stinder_logo.png"))
         self.StinderLogo.setScaledContents(True)
-        self.InstructLabel = QLabel(self.page)
+        self.InstructLabel = QLabel(self.BasicPage)
         self.InstructLabel.setObjectName(u"InstructLabel")
         self.InstructLabel.setGeometry(QRect(150, 100, 341, 41))
         self.InstructLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;\n"
 "font: 700 24pt \"Nexa Bold\";")
-        self.FirstNameInput = QLineEdit(self.page)
+        self.FirstNameInput = QLineEdit(self.BasicPage)
         self.FirstNameInput.setObjectName(u"FirstNameInput")
         self.FirstNameInput.setGeometry(QRect(50, 160, 231, 41))
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;\n"
-"color: black;")
-        self.LastNameTb = QLineEdit(self.page)
+"padding: 0 8px;")
+        self.LastNameTb = QLineEdit(self.BasicPage)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;\n"
-"color: black;")
-        self.EmailInput = QLineEdit(self.page)
+"padding: 0 8px;")
+        self.EmailInput = QLineEdit(self.BasicPage)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa Text Demo\";\n"
-"padding: 0 8px;\n"
-"color: black;")
-        self.MajorInput = QComboBox(self.page)
+"padding: 0 8px;")
+        self.MajorInput = QComboBox(self.BasicPage)
         self.MajorInput.addItem("")
         self.MajorInput.addItem("")
         self.MajorInput.addItem("")
@@ -93,24 +90,161 @@ class Ui_Stinder_Login(object):
 "padding: 0 8px;\n"
 "color: black;")
         self.MajorInput.setEditable(False)
-        self.ContinueBtn = QPushButton(self.page)
+        self.ContinueBtn = QPushButton(self.BasicPage)
         self.ContinueBtn.setObjectName(u"ContinueBtn")
         self.ContinueBtn.setGeometry(QRect(50, 390, 551, 31))
         self.ContinueBtn.setStyleSheet(u"background-color: rgb(106,255,121);\n"
 "border-radius: 10px;\n"
 "font: 700 13pt \"Nexa Bold\";\n"
 "color: white;")
-        self.errorLabel = QLabel(self.page)
+        self.errorLabel = QLabel(self.BasicPage)
         self.errorLabel.setObjectName(u"errorLabel")
         self.errorLabel.setGeometry(QRect(60, 347, 491, 16))
         self.errorLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: red;")
-        self.stackedWidget.addWidget(self.page)
-        self.page_2 = QWidget()
-        self.page_2.setObjectName(u"page_2")
-        self.stackedWidget.addWidget(self.page_2)
+        self.loginPages.addWidget(self.BasicPage)
+        self.DetailPage = QWidget()
+        self.DetailPage.setObjectName(u"DetailPage")
+        self.StinderLogo_2 = QLabel(self.DetailPage)
+        self.StinderLogo_2.setObjectName(u"StinderLogo_2")
+        self.StinderLogo_2.setGeometry(QRect(110, -40, 411, 201))
+        self.StinderLogo_2.setStyleSheet(u"background-color: transparent;")
+        self.StinderLogo_2.setPixmap(QPixmap(u":/logo/images/stinder_logo.png"))
+        self.StinderLogo_2.setScaledContents(True)
+        self.YearInput = QComboBox(self.DetailPage)
+        self.YearInput.addItem("")
+        self.YearInput.addItem("")
+        self.YearInput.addItem("")
+        self.YearInput.addItem("")
+        self.YearInput.setObjectName(u"YearInput")
+        self.YearInput.setGeometry(QRect(30, 160, 271, 41))
+        self.YearInput.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
+"padding: 0 8px;\n"
+"color:black;\n"
+"border: 0px;")
+        self.YearInput.setEditable(False)
+        self.MethodInput = QComboBox(self.DetailPage)
+        self.MethodInput.addItem("")
+        self.MethodInput.addItem("")
+        self.MethodInput.addItem("")
+        self.MethodInput.addItem("")
+        self.MethodInput.setObjectName(u"MethodInput")
+        self.MethodInput.setGeometry(QRect(30, 250, 271, 41))
+        self.MethodInput.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
+"padding: 0 8px;\n"
+"color:black;\n"
+"border: 0px;")
+        self.MethodInput.setEditable(False)
+        self.YearLabel = QLabel(self.DetailPage)
+        self.YearLabel.setObjectName(u"YearLabel")
+        self.YearLabel.setGeometry(QRect(30, 130, 131, 16))
+        self.YearLabel.setStyleSheet(u"background-color:transparent;\n"
+"color:white;")
+        self.MethodLabel = QLabel(self.DetailPage)
+        self.MethodLabel.setObjectName(u"MethodLabel")
+        self.MethodLabel.setGeometry(QRect(30, 220, 231, 16))
+        self.MethodLabel.setStyleSheet(u"background-color:transparent;\n"
+"color:white;")
+        self.LocInput = QComboBox(self.DetailPage)
+        self.LocInput.addItem("")
+        self.LocInput.addItem("")
+        self.LocInput.addItem("")
+        self.LocInput.addItem("")
+        self.LocInput.setObjectName(u"LocInput")
+        self.LocInput.setGeometry(QRect(30, 340, 271, 41))
+        self.LocInput.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
+"padding: 0 8px;\n"
+"color:black;\n"
+"border: 0px;")
+        self.LocInput.setEditable(False)
+        self.LocLabel = QLabel(self.DetailPage)
+        self.LocLabel.setObjectName(u"LocLabel")
+        self.LocLabel.setGeometry(QRect(30, 310, 231, 16))
+        self.LocLabel.setStyleSheet(u"background-color:transparent;\n"
+"color:white;")
+        self.JobInput = QComboBox(self.DetailPage)
+        self.JobInput.addItem("")
+        self.JobInput.addItem("")
+        self.JobInput.setObjectName(u"JobInput")
+        self.JobInput.setGeometry(QRect(350, 160, 261, 41))
+        self.JobInput.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
+"padding: 0 8px;\n"
+"color:black;\n"
+"border: 0px;")
+        self.JobInput.setEditable(False)
+        self.JobInput.setIconSize(QSize(0, 0))
+        self.JobLabel = QLabel(self.DetailPage)
+        self.JobLabel.setObjectName(u"JobLabel")
+        self.JobLabel.setGeometry(QRect(350, 130, 171, 16))
+        self.JobLabel.setStyleSheet(u"background-color:transparent;\n"
+"color:white;")
+        self.TimeInput = QComboBox(self.DetailPage)
+        self.TimeInput.addItem("")
+        self.TimeInput.addItem("")
+        self.TimeInput.addItem("")
+        self.TimeInput.addItem("")
+        self.TimeInput.addItem("")
+        self.TimeInput.addItem("")
+        self.TimeInput.addItem("")
+        self.TimeInput.setObjectName(u"TimeInput")
+        self.TimeInput.setGeometry(QRect(350, 250, 261, 41))
+        self.TimeInput.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
+"padding: 0 8px;\n"
+"color:black;\n"
+"border: 0px;")
+        self.TimeInput.setEditable(False)
+        self.TimeInput.setIconSize(QSize(0, 0))
+        self.TimeLabel = QLabel(self.DetailPage)
+        self.TimeLabel.setObjectName(u"TimeLabel")
+        self.TimeLabel.setGeometry(QRect(350, 220, 251, 16))
+        self.TimeLabel.setStyleSheet(u"background-color:transparent;\n"
+"color:white;")
+        self.StudyHistLabel = QLabel(self.DetailPage)
+        self.StudyHistLabel.setObjectName(u"StudyHistLabel")
+        self.StudyHistLabel.setGeometry(QRect(350, 310, 261, 16))
+        self.StudyHistLabel.setStyleSheet(u"background-color:transparent;\n"
+"color:white;")
+        self.StudyHistInput = QComboBox(self.DetailPage)
+        self.StudyHistInput.addItem("")
+        self.StudyHistInput.addItem("")
+        self.StudyHistInput.setObjectName(u"StudyHistInput")
+        self.StudyHistInput.setGeometry(QRect(350, 340, 261, 41))
+        self.StudyHistInput.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"font: 300 13pt \"Nexa Text Demo\";\n"
+"padding: 0 8px;\n"
+"color:black;\n"
+"border: 0px;")
+        self.StudyHistInput.setEditable(False)
+        self.StudyHistInput.setIconSize(QSize(0, 0))
+        self.ContinueBtnP2 = QPushButton(self.DetailPage)
+        self.ContinueBtnP2.setObjectName(u"ContinueBtnP2")
+        self.ContinueBtnP2.setGeometry(QRect(40, 420, 561, 31))
+        self.ContinueBtnP2.setStyleSheet(u"background-color: rgb(106,255,121);\n"
+"border-radius: 10px;\n"
+"font: 700 13pt \"Nexa Bold\";\n"
+"color: white;")
+        self.errorLabelP2 = QLabel(self.DetailPage)
+        self.errorLabelP2.setObjectName(u"errorLabelP2")
+        self.errorLabelP2.setGeometry(QRect(30, 390, 491, 16))
+        self.errorLabelP2.setStyleSheet(u"background-color: transparent;\n"
+"color: red;")
+        self.loginPages.addWidget(self.DetailPage)
 
         self.retranslateUi(Stinder_Login)
+
+        self.loginPages.setCurrentIndex(0)
+
 
         QMetaObject.connectSlotsByName(Stinder_Login)
     # setupUi
@@ -147,5 +281,49 @@ class Ui_Stinder_Login(object):
         self.MajorInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Major", None))
         self.ContinueBtn.setText(QCoreApplication.translate("Stinder_Login", u"Continue", None))
         self.errorLabel.setText("")
+        self.StinderLogo_2.setText("")
+        self.YearInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Freshman", None))
+        self.YearInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"Sophomore", None))
+        self.YearInput.setItemText(2, QCoreApplication.translate("Stinder_Login", u"Junior", None))
+        self.YearInput.setItemText(3, QCoreApplication.translate("Stinder_Login", u"Senior", None))
+
+        self.YearInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Year", None))
+        self.MethodInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Flashcards", None))
+        self.MethodInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"Reading through your textbook", None))
+        self.MethodInput.setItemText(2, QCoreApplication.translate("Stinder_Login", u"Doing practice problems", None))
+        self.MethodInput.setItemText(3, QCoreApplication.translate("Stinder_Login", u"Reviewing your own notes", None))
+
+        self.MethodInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Study Method", None))
+        self.YearLabel.setText(QCoreApplication.translate("Stinder_Login", u"Student Classification", None))
+        self.MethodLabel.setText(QCoreApplication.translate("Stinder_Login", u"What's your preferred study method?", None))
+        self.LocInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Library", None))
+        self.LocInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"Place of residence", None))
+        self.LocInput.setItemText(2, QCoreApplication.translate("Stinder_Login", u"Outdoor park", None))
+        self.LocInput.setItemText(3, QCoreApplication.translate("Stinder_Login", u"Coffee shop", None))
+
+        self.LocInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Study Location", None))
+        self.LocLabel.setText(QCoreApplication.translate("Stinder_Login", u"Where do you like to study?", None))
+        self.JobInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Yes", None))
+        self.JobInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"No", None))
+
+        self.JobInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Choose", None))
+        self.JobLabel.setText(QCoreApplication.translate("Stinder_Login", u"Are you currently employed?", None))
+        self.TimeInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Monday", None))
+        self.TimeInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"Tuesday", None))
+        self.TimeInput.setItemText(2, QCoreApplication.translate("Stinder_Login", u"Wednesday", None))
+        self.TimeInput.setItemText(3, QCoreApplication.translate("Stinder_Login", u"Thursday", None))
+        self.TimeInput.setItemText(4, QCoreApplication.translate("Stinder_Login", u"Friday", None))
+        self.TimeInput.setItemText(5, QCoreApplication.translate("Stinder_Login", u"Saturday", None))
+        self.TimeInput.setItemText(6, QCoreApplication.translate("Stinder_Login", u"Sunday", None))
+
+        self.TimeInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Choose", None))
+        self.TimeLabel.setText(QCoreApplication.translate("Stinder_Login", u"What day do you prefer to study?", None))
+        self.StudyHistLabel.setText(QCoreApplication.translate("Stinder_Login", u"Have you studied with other people before?", None))
+        self.StudyHistInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"Yes", None))
+        self.StudyHistInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"No", None))
+
+        self.StudyHistInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Choose", None))
+        self.ContinueBtnP2.setText(QCoreApplication.translate("Stinder_Login", u"Continue", None))
+        self.errorLabelP2.setText("")
     # retranslateUi
 

@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))</string>
   </property>
-  <widget class="QStackedWidget" name="stackedWidget">
+  <widget class="QStackedWidget" name="loginPages">
    <property name="geometry">
     <rect>
      <x>0</x>
@@ -31,7 +31,10 @@
    <property name="frameShape">
     <enum>QFrame::NoFrame</enum>
    </property>
-   <widget class="QWidget" name="page">
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="BasicPage">
     <widget class="QLabel" name="StinderLogo">
      <property name="geometry">
       <rect>
@@ -142,7 +145,8 @@ padding: 0 8px;</string>
       <string notr="true">background-color: white;
 border-radius: 10px;
 font: 300 13pt &quot;Nexa Text Demo&quot;;
-padding: 0 8px;</string>
+padding: 0 8px;
+color: black;</string>
      </property>
      <property name="editable">
       <bool>false</bool>
@@ -293,7 +297,445 @@ color: red;</string>
      </property>
     </widget>
    </widget>
-   <widget class="QWidget" name="page_2"/>
+   <widget class="QWidget" name="DetailPage">
+    <widget class="QLabel" name="StinderLogo_2">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>-40</y>
+       <width>411</width>
+       <height>201</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../resources/stinder_images.qrc">:/logo/images/stinder_logo.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="YearInput">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>160</y>
+       <width>271</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
+padding: 0 8px;
+color:black;
+border: 0px;</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Year</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Freshman</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sophomore</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Junior</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Senior</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QComboBox" name="MethodInput">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>250</y>
+       <width>271</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
+padding: 0 8px;
+color:black;
+border: 0px;</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Study Method</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Flashcards</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Reading through your textbook</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Doing practice problems</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Reviewing your own notes</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="YearLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>131</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Student Classification</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="MethodLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>220</y>
+       <width>231</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>What's your preferred study method?</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="LocInput">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>340</y>
+       <width>271</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
+padding: 0 8px;
+color:black;
+border: 0px;</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="placeholderText">
+      <string>Study Location</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Library</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Place of residence</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Outdoor park</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Coffee shop</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="LocLabel">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>310</y>
+       <width>231</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Where do you like to study?</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="JobInput">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>160</y>
+       <width>261</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
+padding: 0 8px;
+color:black;
+border: 0px;</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="placeholderText">
+      <string>Choose</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>No</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="JobLabel">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>130</y>
+       <width>171</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Are you currently employed?</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="TimeInput">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>250</y>
+       <width>261</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
+padding: 0 8px;
+color:black;
+border: 0px;</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="placeholderText">
+      <string>Choose</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Monday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Tuesday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Wednesday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Thursday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Friday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Saturday</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sunday</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QLabel" name="TimeLabel">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>220</y>
+       <width>251</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>What time of day do you prefer to study?</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="StudyHistLabel">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>310</y>
+       <width>261</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:transparent;
+color:white;</string>
+     </property>
+     <property name="text">
+      <string>Have you studied with other people before?</string>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="StudyHistInput">
+     <property name="geometry">
+      <rect>
+       <x>350</x>
+       <y>340</y>
+       <width>261</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: white;
+border-radius: 10px;
+font: 300 13pt &quot;Nexa Text Demo&quot;;
+padding: 0 8px;
+color:black;
+border: 0px;</string>
+     </property>
+     <property name="editable">
+      <bool>false</bool>
+     </property>
+     <property name="iconSize">
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+     <property name="placeholderText">
+      <string>Choose</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>Yes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>No</string>
+      </property>
+     </item>
+    </widget>
+    <widget class="QPushButton" name="ContinueBtnP2">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>420</y>
+       <width>561</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(106,255,121);
+border-radius: 10px;
+font: 700 13pt &quot;Nexa Bold&quot;;
+color: white;</string>
+     </property>
+     <property name="text">
+      <string>Continue</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="errorLabelP2">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>390</y>
+       <width>491</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+color: red;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </widget>
   </widget>
  </widget>
  <resources>
