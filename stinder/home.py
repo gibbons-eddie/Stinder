@@ -81,9 +81,9 @@ class Ui_Stinder(object):
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.BrowseLabel = QLabel(self.BrowsePage)
         self.BrowseLabel.setObjectName(u"BrowseLabel")
-        self.BrowseLabel.setGeometry(QRect(130, 90, 300, 240))
+        self.BrowseLabel.setGeometry(QRect(130, 30, 300, 300))
         self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                       "font: 700 15pt \"Nexa Text Demo\";")
+                                       "font: 700 12pt \"Nexa Text Demo\";")
         self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(lists, length))
         self.NextBottun.setObjectName(u"NextBottun")
         self.NextBottun.setGeometry(QRect(235, 370, 64, 20))
@@ -219,7 +219,10 @@ class Ui_Stinder(object):
             users = []
             length = 0
             for row in cursor:
-                user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + row[3]
+                user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                       row[3] + "\n\nYear: " + row[4] + "\n\nMethod: " + row[5] + "\n\nStudy Location: " + row[
+               6] + "\n\nWhether Employed: " + row[7] + "\n\nPreferred Date: " + row[8] + "\n\nGroup Study History: " + \
+           row[9]
                 users.append(user)
                 length = length + 1
             return users, length
