@@ -20,14 +20,33 @@ class LogInWindow(QDialog):
         self.loginUi.setupUi(self)
 
         # PAGE 1
-        self.loginUi.ContinueBtn.clicked.connect(lambda: self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage))
+        self.loginUi.ContinueBtn.clicked.connect(self.handleBasicPage)
         # PAGE 2
-        # self.ui.AboutButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.AboutPage))
         self.loginUi.ContinueBtnP2.clicked.connect(self.handleLogin)
+
+    # Override close event to close whole app when dialog is closed
+    def closeEvent(self, event):
+        sys.exit()
 
     def setIcon(self):
         appIcon = QIcon("resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
+
+    def handleBasicPage(self):
+        fName = self.loginUi.FirstNameInput.text()
+        lName = self.loginUi.LastNameTb.text()
+        email = self.loginUi.EmailInput.text()
+        major = self.loginUi.MajorInput.currentText()
+        exists_conn = sqlite3.connect("stinder/users.db")
+        curs = exists_conn.cursor()
+
+        if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
+            self.loginUi.errorLabel.setText("Please input all fields.")
+        elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
+            exists_conn.close()
+            self.accept()
+        else:
+            self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage)
 
     def handleLogin(self):
         # check if login is valid
@@ -41,19 +60,22 @@ class LogInWindow(QDialog):
         job = self.loginUi.JobInput.currentText()
         day = self.loginUi.TimeInput.currentText()
         sHistory = self.loginUi.StudyHistInput.currentText()
+        placeholder = "---Please Select---"
 
-        if len(fName) == 0 or len(lName) == 0 or len(email) == 0: # is there a way to check other inputs ?
-            self.loginUi.errorLabel.setText("Please input all fields.")
+        if year == placeholder or method == placeholder or loc == placeholder or job == placeholder or \
+                day == placeholder or sHistory == placeholder:
+            self.loginUi.errorLabelP2.setText("Please input all fields.")
         else:
             login_conn = sqlite3.connect("stinder/users.db")
             login_cur = login_conn.cursor()
             login_cur.execute(
-                "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email, year, method, loc, job, day, sHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", (fName, lName, major, email, year, method, loc, job, day, sHistory)
+                "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email, year, method, loc, job, day, sHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (fName, lName, major, email, year, method, loc, job, day, sHistory)
             )
             login_conn.commit()
             login_conn.close()
             print("Added to database")
-            print(loc) # testing
+            print(loc)  # testing
             self.accept()
 
 
