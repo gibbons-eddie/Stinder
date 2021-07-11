@@ -53,7 +53,7 @@ class LogInWindow(QDialog):
             login_conn.commit()
             login_conn.close()
             print("Added to database")
-            print(loc) # testing
+            # print(loc) # testing
             self.accept()
 
 
