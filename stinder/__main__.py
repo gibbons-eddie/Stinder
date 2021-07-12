@@ -19,11 +19,34 @@ class LogInWindow(QDialog):
         self.loginUi = Ui_Stinder_Login()
         self.loginUi.setupUi(self)
 
-        self.loginUi.ContinueBtn.clicked.connect(self.handleLogin)
+        # PAGE 1
+        self.loginUi.ContinueBtn.clicked.connect(self.handleBasicPage)
+        # PAGE 2
+        self.loginUi.ContinueBtnP2.clicked.connect(self.handleLogin)
+
+    # Override close event to close whole app when dialog is closed
+    def closeEvent(self, event):
+        sys.exit()
 
     def setIcon(self):
         appIcon = QIcon("resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
+
+    def handleBasicPage(self):
+        fName = self.loginUi.FirstNameInput.text()
+        lName = self.loginUi.LastNameTb.text()
+        email = self.loginUi.EmailInput.text()
+        major = self.loginUi.MajorInput.currentText()
+        exists_conn = sqlite3.connect("stinder/users.db")
+        curs = exists_conn.cursor()
+
+        if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
+            self.loginUi.errorLabel.setText("Please input all fields.")
+        elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
+            exists_conn.close()
+            self.accept()
+        else:
+            self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage)
 
     def handleLogin(self):
         # check if login is valid
@@ -31,18 +54,28 @@ class LogInWindow(QDialog):
         lName = self.loginUi.LastNameTb.text()
         email = self.loginUi.EmailInput.text()
         major = self.loginUi.MajorInput.currentText()
+        year = self.loginUi.YearInput.currentText()
+        method = self.loginUi.MethodInput.currentText()
+        loc = self.loginUi.LocInput.currentText()
+        job = self.loginUi.JobInput.currentText()
+        day = self.loginUi.TimeInput.currentText()
+        sHistory = self.loginUi.StudyHistInput.currentText()
+        placeholder = "---Please Select---"
 
-        if len(fName) == 0 or len(lName) == 0 or len(email) == 0:
-            self.loginUi.errorLabel.setText("Please input all fields.")
+        if year == placeholder or method == placeholder or loc == placeholder or job == placeholder or \
+                day == placeholder or sHistory == placeholder:
+            self.loginUi.errorLabelP2.setText("Please input all fields.")
         else:
-            login_conn = sqlite3.connect("users.db")
+            login_conn = sqlite3.connect("stinder/users.db")
             login_cur = login_conn.cursor()
             login_cur.execute(
-                "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email) VALUES (?, ?, ?, ?)", (fName, lName, major, email)
+                "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email, year, method, loc, job, day, sHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+                (fName, lName, major, email, year, method, loc, job, day, sHistory)
             )
             login_conn.commit()
             login_conn.close()
             print("Added to database")
+            # print(loc) # testing
             self.accept()
 
 
@@ -62,7 +95,7 @@ class MainWindow(QMainWindow):
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
 
         # Adds information from database to profile page
-        profileconn = sqlite3.connect("users.db")
+        profileconn = sqlite3.connect("stinder/users.db")
         profilecur = profileconn.cursor()
 
         maxid = profilecur.execute("SELECT MAX(rowid) FROM contacts")
@@ -85,7 +118,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
-        connection = sqlite3.connect("users.db")
+        connection = sqlite3.connect("stinder/users.db")
         cursor = connection.cursor()
 
         cursor.execute("SELECT * FROM contacts")
@@ -132,7 +165,7 @@ if __name__ == "__main__":
         window.show()
 
     # Below block of code shows functionality for database
-    conn = sqlite3.connect("users.db")
+    conn = sqlite3.connect("stinder/users.db")
     c = conn.cursor()
     """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
 

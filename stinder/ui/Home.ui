@@ -127,7 +127,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="AboutPage">
      <widget class="QLabel" name="AboutLabel">
@@ -163,6 +163,83 @@ font: 700 13pt &quot;Nexa Text Demo&quot;;</string>
       </property>
       <property name="text">
        <string>Browse</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="FilterBtn">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>390</y>
+        <width>81</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+font: 500 13pt &quot;Nexa Bold&quot;;
+
+</string>
+      </property>
+      <property name="text">
+       <string>Filter</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="FilterDropdown">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>400</y>
+        <width>103</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: white;
+color: black;
+padding: 5px;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Filter By</string>
+      </property>
+      <item>
+       <property name="text">
+        <string>Filter By</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Major</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>Year</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLineEdit" name="FilterLine">
+      <property name="geometry">
+       <rect>
+        <x>260</x>
+        <y>400</y>
+        <width>113</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+font: 500 13pt &quot;Nexa Bold&quot;;
+padding: 5px;</string>
+      </property>
+      <property name="placeholderText">
+       <string>Category</string>
       </property>
      </widget>
     </widget>

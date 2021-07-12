@@ -8,6 +8,7 @@
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
 
+from os import linesep
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
@@ -17,6 +18,8 @@ from stinder.stinder_images_rc import *
 
 class Ui_Stinder(object):
     counter = 0
+    students = 0
+    s_length = 0
 
     def setupUi(self, Stinder):
         if not Stinder.objectName():
@@ -47,7 +50,7 @@ class Ui_Stinder(object):
                                        "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
                                        "font: 700 13pt \"Nexa Text Demo\";\n"
                                        "")
-        lists, length = self.list()
+        self.students, self.s_length = self.list()
         self.BrowseButton = QPushButton(self.frame)
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
@@ -81,21 +84,46 @@ class Ui_Stinder(object):
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.BrowseLabel = QLabel(self.BrowsePage)
         self.BrowseLabel.setObjectName(u"BrowseLabel")
-        self.BrowseLabel.setGeometry(QRect(130, 90, 300, 240))
+        self.BrowseLabel.setGeometry(QRect(130, 30, 300, 300))
         self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                       "font: 700 15pt \"Nexa Text Demo\";")
-        self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(lists, length))
+                                       "font: 700 12pt \"Nexa Text Demo\";")
+        self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(self.students, self.s_length))
         self.NextBottun.setObjectName(u"NextBottun")
         self.NextBottun.setGeometry(QRect(235, 370, 64, 20))
         self.NextBottun.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                       "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
                                       "font: 9pt \"Nexa Text Demo\";")
-        self.PrevButton = QPushButton(self.BrowsePage, clicked=lambda: self.prev_user(lists, length))
+        self.PrevButton = QPushButton(self.BrowsePage, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PrevButton.setObjectName(u"PrevBottun")
         self.PrevButton.setGeometry(QRect(235, 340, 64, 20))
         self.PrevButton.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                               "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
                                               "font: 9pt \"Nexa Text Demo\";")
+        self.FilterDropdown = QComboBox(self.BrowsePage)
+        self.FilterDropdown.addItem("")
+        self.FilterDropdown.addItem("")
+        self.FilterDropdown.addItem("")
+        self.FilterDropdown.addItem("")
+        self.FilterDropdown.setObjectName(u"FilterDropdown")
+        self.FilterDropdown.setGeometry(QRect(130, 400, 103, 32))
+        self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
+"color: black;\n"
+"padding: 5px;")
+        self.FilterLine = QLineEdit(self.BrowsePage)
+        self.FilterLine.setObjectName(u"FilterLine")
+        self.FilterLine.setGeometry(QRect(260, 400, 113, 31))
+        self.FilterLine.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+"font: 500 13pt \"Nexa Bold\";\n"
+"padding: 5px;")
+        self.FilterBtn = QPushButton(self.BrowsePage, clicked=lambda: self.handleFilter())
+        self.FilterBtn.setObjectName(u"FilterBtn")
+        self.FilterBtn.setGeometry(QRect(30, 390, 81, 51))
+        self.FilterBtn.setStyleSheet(u"color: rgb(255, 255, 255);\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+"font: 500 13pt \"Nexa Bold\";\n"
+"\n"
+"")
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
@@ -165,7 +193,6 @@ class Ui_Stinder(object):
     # setupUi
 
     def retranslateUi(self, Stinder):
-        userL, i = self.list()
         Stinder.setWindowTitle(QCoreApplication.translate("Stinder", u"Stinder", None))
         self.actionTemp_Button.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
         self.actionTemp_Button_2.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
@@ -175,9 +202,16 @@ class Ui_Stinder(object):
         self.ProfileButton.setText(QCoreApplication.translate("Stinder", u"Profile", None))
         self.logo.setText("")
         self.AboutLabel.setText(QCoreApplication.translate("Stinder", u"About", None))
-        self.BrowseLabel.setText(QCoreApplication.translate("Stinder", userL[0], None))
+        self.BrowseLabel.setText(QCoreApplication.translate("Stinder", self.students[0], None))
         self.NextBottun.setText(QCoreApplication.translate("Stinder", u"Next", None))
         self.PrevButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
+        self.FilterBtn.setText(QCoreApplication.translate("Stinder", u"Filter", None))
+        self.FilterDropdown.setItemText(0, QCoreApplication.translate("Stinder", u"Filter By", None))
+        self.FilterDropdown.setItemText(1, QCoreApplication.translate("Stinder", u"Major", None))
+        self.FilterDropdown.setItemText(2, QCoreApplication.translate("Stinder", u"Year", None))
+
+        self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
+        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Category", None))
         self.label0.setText(QCoreApplication.translate("Stinder",
                                                               u"<html><head/><body><p><span style=\" font-size:24pt; font-weight:700;\">Your Profile</span></p></body></html>",
                                                               None))
@@ -200,7 +234,6 @@ class Ui_Stinder(object):
         if counter == length:
             counter = counter - 1
         self.counter = counter
-        # print(users[counter])
         self.BrowseLabel.setText(users[counter])
 
     def prev_user(self, users, length):
@@ -212,14 +245,54 @@ class Ui_Stinder(object):
         self.BrowseLabel.setText(users[counter])
 
     def list(self):
-        connection = sqlite3.connect("users.db")
+        connection = sqlite3.connect("stinder/users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
             users = []
             length = 0
             for row in cursor:
-                user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + row[3]
+                user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                       row[3] + "\n\nYear: " + row[4]
                 users.append(user)
                 length = length + 1
             return users, length
+
+    def handleFilter(self):
+        cat = self.FilterDropdown.currentText()
+        line = self.FilterLine.text()
+
+        if (cat != 'Filter By') & (line != 'Category'):
+            filter_conn = sqlite3.connect("stinder/users.db")
+            filter_cur = filter_conn.cursor()
+            print("Filtered by " + line) 
+            filter_cur.execute("SELECT * FROM contacts WHERE " + cat + " == ?", (line,))
+            filter_conn.commit()
+            fltr_users = []
+            fltr_length = 0
+            for row in filter_cur:
+                fltr_user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                    row[3] + "\n\nYear: " + row[4]
+                fltr_users.append(fltr_user)
+                fltr_length = fltr_length + 1
+                
+            if fltr_length == 0:
+                # self.errorLabel.setText("No results matching your search.")
+                print("No results matching your search.")
+                filter_cur.execute("SELECT * FROM contacts")
+                filter_conn.commit()
+                fltr_users = []
+                fltr_length = 0
+                for row in filter_cur:
+                    fltr_user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                        row[3] + "\n\nYear: " + row[4]
+                    fltr_users.append(fltr_user)
+                    fltr_length = fltr_length + 1
+
+            filter_conn.close()
+            print(fltr_length, "students")
+            self.students = fltr_users
+            self.s_length = fltr_length
+            self.prev_user(self.students, self.s_length)
+            self.counter = 0
+
