@@ -126,10 +126,10 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
     <widget class="QWidget" name="scrollAreaWidgetContents_3">
      <property name="geometry">
       <rect>
-       <x>-3</x>
-       <y>0</y>
-       <width>541</width>
-       <height>1142</height>
+       <x>0</x>
+       <y>-426</y>
+       <width>542</width>
+       <height>1006</height>
       </rect>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
@@ -149,7 +149,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
        <number>0</number>
       </property>
       <item>
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="aboutlogo">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
           <horstretch>100</horstretch>
@@ -186,7 +186,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="abouttext1">
         <property name="minimumSize">
          <size>
           <width>15</width>
@@ -220,7 +220,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="abouttext2">
         <property name="styleSheet">
          <string notr="true">font: 500 8pt &quot;Nexa Demo&quot;</string>
         </property>
@@ -239,7 +239,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="abouttext3">
         <property name="styleSheet">
          <string notr="true">font: 500 8pt &quot;Nexa Bold&quot;</string>
         </property>
@@ -249,7 +249,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
        </widget>
       </item>
       <item>
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="aboutteamtext">
         <property name="styleSheet">
          <string notr="true">font: 700 13pt &quot;Nexa Text Demo&quot;</string>
         </property>
