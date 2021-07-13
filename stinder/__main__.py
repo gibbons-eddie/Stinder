@@ -9,6 +9,7 @@ from sqlite3 import Error
 
 from stinder.home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
+from stinder.resources.images import *
 
 
 class LogInWindow(QDialog):
@@ -29,7 +30,7 @@ class LogInWindow(QDialog):
         sys.exit()
 
     def setIcon(self):
-        appIcon = QIcon("resources/images/stinder_book_logo.png")
+        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
 
     def handleBasicPage(self):

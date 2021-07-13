@@ -300,8 +300,8 @@ class Ui_Stinder(object):
             print(fltr_length, "students")
             self.students = fltr_users
             self.s_length = fltr_length
-            self.prev_user(self.students, self.s_length)
             self.counter = 0
+            self.prev_user(self.students, self.s_length)
     
     def likes_counter(self):
         u_email = self.EmailLabel.text()
