@@ -58,7 +58,7 @@ class Ui_Stinder(object):
                                         "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
                                         "font: 500 13pt \"Nexa Bold\";\n"
                                         "")
-        self.ProfileButton = QPushButton(self.frame)
+        self.ProfileButton = QPushButton(self.frame, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
         self.ProfileButton.setGeometry(QRect(0, 100, 81, 41))
         self.ProfileButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
@@ -127,17 +127,17 @@ class Ui_Stinder(object):
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
-        self.label0 = QLabel(self.ProfilePage)
-        self.label0.setObjectName(u"label0")
-        self.label0.setGeometry(QRect(180, 10, 201, 41))
-        self.label0.setStyleSheet(u"background-color: transparent;\n"
-                                 "color: white;")
+        self.label = QLabel(self.ProfilePage)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(180, 10, 201, 41))
+        self.label.setStyleSheet(u"background-color: transparent;\n"
+"color: white;")
         self.label_2 = QLabel(self.ProfilePage)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(60, 80, 51, 21))
         self.label_2.setStyleSheet(u"background-color: transparent;\n"
-                                   "color: white;\n"
-                                   "")
+"color: white;\n"
+"")
         self.line = QFrame(self.ProfilePage)
         self.line.setObjectName(u"line")
         self.line.setGeometry(QRect(40, 140, 480, 3))
@@ -147,40 +147,46 @@ class Ui_Stinder(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(60, 190, 51, 21))
         self.label_3.setStyleSheet(u"background-color: transparent;\n"
-                                   "color: white;")
+"color: white;")
         self.line_2 = QFrame(self.ProfilePage)
         self.line_2.setObjectName(u"line_2")
-        self.line_2.setGeometry(QRect(40, 250, 450, 3))
+        self.line_2.setGeometry(QRect(40, 250, 480, 3))
         self.line_2.setFrameShape(QFrame.HLine)
         self.line_2.setFrameShadow(QFrame.Sunken)
         self.label_4 = QLabel(self.ProfilePage)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(60, 310, 51, 21))
         self.label_4.setStyleSheet(u"background-color: transparent;\n"
-                                   "color: white;")
+"color: white;")
         self.line_3 = QFrame(self.ProfilePage)
         self.line_3.setObjectName(u"line_3")
-        self.line_3.setGeometry(QRect(40, 370, 450, 3))
+        self.line_3.setGeometry(QRect(40, 370, 480, 3))
         self.line_3.setFrameShape(QFrame.HLine)
         self.line_3.setFrameShadow(QFrame.Sunken)
         self.NameLabel = QLabel(self.ProfilePage)
         self.NameLabel.setObjectName(u"NameLabel")
         self.NameLabel.setGeometry(QRect(40, 120, 451, 21))
         self.NameLabel.setStyleSheet(u"background-color: transparent;\n"
-                                     "color: white;\n"
-                                     "font-size: 18px;")
+"color: white;\n"
+"font-size: 18px;")
         self.EmailLabel = QLabel(self.ProfilePage)
         self.EmailLabel.setObjectName(u"EmailLabel")
         self.EmailLabel.setGeometry(QRect(40, 230, 431, 21))
         self.EmailLabel.setStyleSheet(u"background-color: transparent;\n"
-                                      "color: white;\n"
-                                      "font-size: 18px;")
+"color: white;\n"
+"font-size: 18px;")
         self.MajorLabel = QLabel(self.ProfilePage)
         self.MajorLabel.setObjectName(u"MajorLabel")
         self.MajorLabel.setGeometry(QRect(40, 350, 451, 21))
         self.MajorLabel.setStyleSheet(u"background-color: transparent;\n"
-                                      "color: white;\n"
-                                      "font-size: 18px;")
+"color: white;\n"
+"font-size: 18px;")
+        self.LikesLabel = QLabel(self.ProfilePage)
+        self.LikesLabel.setObjectName(u"LikesLabel")
+        self.LikesLabel.setGeometry(QRect(40, 420, 251, 21))
+        self.LikesLabel.setStyleSheet(u"background-color: transparent;\n"
+"color: white;\n"
+"")
         self.stackedWidget.addWidget(self.ProfilePage)
         Stinder.setCentralWidget(self.centralwidget)
 
@@ -212,8 +218,8 @@ class Ui_Stinder(object):
 
         self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
         self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Category", None))
-        self.label0.setText(QCoreApplication.translate("Stinder",
-                                                              u"<html><head/><body><p><span style=\" font-size:24pt; font-weight:700;\">Your Profile</span></p></body></html>",
+        self.label.setText(QCoreApplication.translate("Stinder",
+                                                              u"<html><head/><body><p><span style=\" font-size:24pt; font-weight:700;\">Profile</span></p></body></html>",
                                                               None))
         self.label_2.setText(QCoreApplication.translate("Stinder",
                                                                 u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700;\">Name</span></p></body></html>",
@@ -227,6 +233,7 @@ class Ui_Stinder(object):
         self.NameLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
         self.EmailLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
         self.MajorLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
+        self.LikesLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
 
     def next_user(self, users, length):
         counter = self.counter
@@ -295,4 +302,27 @@ class Ui_Stinder(object):
             self.s_length = fltr_length
             self.prev_user(self.students, self.s_length)
             self.counter = 0
+    
+    def likes_counter(self):
+        u_email = self.EmailLabel.text()
+        
+        likes_conn = sqlite3.connect("stinder/users.db")
+        likes_cur = likes_conn.cursor()
 
+        likes_cur.execute("SELECT like_fname, like_lname, like_email FROM likes where user_email = ?", (u_email,))
+        likes_conn.commit()
+        users_liked = []
+        like_counter = 0
+
+        for row in likes_cur:
+            like = row[0] + "\n\n" + row[1] + "\n\n" + row[2]
+            users_liked.append(like)
+            like_counter = like_counter + 1
+
+        likes_conn.close()
+        result = ""
+        if like_counter == 1:
+            result = "You have received " + str(like_counter) + " like!"
+        else:
+            result = "You have received " + str(like_counter) + " likes!"
+        self.LikesLabel.setText(result)

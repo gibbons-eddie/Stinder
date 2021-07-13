@@ -127,7 +127,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="AboutPage">
      <widget class="QLabel" name="AboutLabel">
@@ -401,6 +401,24 @@ font-size: 18px;</string>
        <string notr="true">background-color: transparent;
 color: white;
 font-size: 18px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LikesLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>420</y>
+        <width>251</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: white;
+</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
