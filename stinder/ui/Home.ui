@@ -139,6 +139,14 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
         <height>471</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical{
+	background: none
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical{
+	background: none
+}</string>
+      </property>
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
@@ -146,9 +154,9 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
+         <y>-504</y>
          <width>542</width>
-         <height>1006</height>
+         <height>973</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -273,7 +281,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
            <string notr="true">font: 700 13pt &quot;Nexa Text Demo&quot;</string>
           </property>
           <property name="text">
-           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Meet Team Swipers&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Eddie Gibbons&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Allison Denham&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Carlos Echenique&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Wyatt Townsend&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Yuchen Xiong&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline;&quot;&gt;Meet Team Swipers&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Eddie Gibbons&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Allison Denham&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Carlos Echenique&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-weight:400;&quot;&gt;Wyatt Townsend&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
           </property>
          </widget>
         </item>
