@@ -208,7 +208,7 @@ class Ui_Stinder(object):
         self.ProfileButton.setText(QCoreApplication.translate("Stinder", u"Profile", None))
         self.logo.setText("")
         self.AboutLabel.setText(QCoreApplication.translate("Stinder", u"About", None))
-        self.BrowseLabel.setText(QCoreApplication.translate("Stinder", self.students[0], None))
+        self.BrowseLabel.setText(QCoreApplication.translate("Stinder", self.students[0][4], None))
         self.NextBottun.setText(QCoreApplication.translate("Stinder", u"Next", None))
         self.PrevButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
         self.FilterBtn.setText(QCoreApplication.translate("Stinder", u"Filter", None))
@@ -241,7 +241,7 @@ class Ui_Stinder(object):
         if counter == length:
             counter = counter - 1
         self.counter = counter
-        self.BrowseLabel.setText(users[counter])
+        self.BrowseLabel.setText(users[counter][4])
 
     def prev_user(self, users, length):
         counter = self.counter
@@ -249,7 +249,7 @@ class Ui_Stinder(object):
             counter = counter + 1
         counter = counter - 1
         self.counter = counter
-        self.BrowseLabel.setText(users[counter])
+        self.BrowseLabel.setText(users[counter][4])
 
     def list(self):
         connection = sqlite3.connect("stinder/users.db")
@@ -259,8 +259,13 @@ class Ui_Stinder(object):
             users = []
             length = 0
             for row in cursor:
-                user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                user_fN = row[0]
+                user_lN = row[1]
+                user_m = row[2]
+                user_e = row[3]
+                user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
                        row[3] + "\n\nYear: " + row[4]
+                user = [user_fN, user_lN, user_m, user_e, user_i]
                 users.append(user)
                 length = length + 1
             return users, length
@@ -278,8 +283,13 @@ class Ui_Stinder(object):
             fltr_users = []
             fltr_length = 0
             for row in filter_cur:
-                fltr_user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                fltr_user_fN = row[0]
+                fltr_user_lN = row[1]
+                fltr_user_m = row[2]
+                fltr_user_e = row[3]
+                fltr_user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
                     row[3] + "\n\nYear: " + row[4]
+                fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_m, fltr_user_e, fltr_user_i]
                 fltr_users.append(fltr_user)
                 fltr_length = fltr_length + 1
                 
@@ -291,8 +301,13 @@ class Ui_Stinder(object):
                 fltr_users = []
                 fltr_length = 0
                 for row in filter_cur:
-                    fltr_user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                    fltr_user_fN = row[0]
+                    fltr_user_lN = row[1]
+                    fltr_user_m = row[2]
+                    fltr_user_e = row[3]
+                    fltr_user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
                         row[3] + "\n\nYear: " + row[4]
+                    fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_m, fltr_user_e, fltr_user_i]
                     fltr_users.append(fltr_user)
                     fltr_length = fltr_length + 1
 
@@ -315,7 +330,10 @@ class Ui_Stinder(object):
         like_counter = 0
 
         for row in likes_cur:
-            like = row[0] + "\n\n" + row[1] + "\n\n" + row[2]
+            like_fN = row[0]
+            like_lN = row[1]
+            like_e = row[2]
+            like = [like_fN, like_lN, like_e]
             users_liked.append(like)
             like_counter = like_counter + 1
 
