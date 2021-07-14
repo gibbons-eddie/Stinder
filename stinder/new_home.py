@@ -565,7 +565,7 @@ class Ui_Stinder(object):
 
 
     def list(self):
-        connection = sqlite3.connect("users.db")
+        connection = sqlite3.connect("stinder/users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
