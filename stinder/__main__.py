@@ -7,7 +7,7 @@ from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from PySide6.QtGui import QIcon
 from sqlite3 import Error
 
-from stinder.home import Ui_Stinder
+from stinder.new_home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
 
 
@@ -37,7 +37,7 @@ class LogInWindow(QDialog):
         lName = self.loginUi.LastNameTb.text()
         email = self.loginUi.EmailInput.text()
         major = self.loginUi.MajorInput.currentText()
-        exists_conn = sqlite3.connect("stinder/users.db")
+        exists_conn = sqlite3.connect("users.db")
         curs = exists_conn.cursor()
 
         if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
@@ -66,7 +66,7 @@ class LogInWindow(QDialog):
                 day == placeholder or sHistory == placeholder:
             self.loginUi.errorLabelP2.setText("Please input all fields.")
         else:
-            login_conn = sqlite3.connect("stinder/users.db")
+            login_conn = sqlite3.connect("users.db")
             login_cur = login_conn.cursor()
             login_cur.execute(
                 "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email, year, method, loc, job, day, sHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -82,7 +82,7 @@ class LogInWindow(QDialog):
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.setFixedSize(646, 476)
+        self.resize(855, 538)
         self.setIcon()
         self.ui = Ui_Stinder()
         self.ui.setupUi(self)
@@ -95,7 +95,7 @@ class MainWindow(QMainWindow):
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
 
         # Adds information from database to profile page
-        profileconn = sqlite3.connect("stinder/users.db")
+        profileconn = sqlite3.connect("users.db")
         profilecur = profileconn.cursor()
 
         maxid = profilecur.execute("SELECT MAX(rowid) FROM contacts")
@@ -109,16 +109,16 @@ class MainWindow(QMainWindow):
         profileEmail = str[3]
         name = fName + " " + lName
 
-        self.ui.NameLabel.setText(name)
-        self.ui.EmailLabel.setText(profileEmail)
-        self.ui.MajorLabel.setText(major)
+        self.ui.UserName.setText(name)
+        self.ui.UserEmail.setText(profileEmail)
+        self.ui.UserMajor.setText(major)
 
     def setIcon(self):
         appIcon = QIcon("resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
-        connection = sqlite3.connect("stinder/users.db")
+        connection = sqlite3.connect("users.db")
         cursor = connection.cursor()
 
         cursor.execute("SELECT * FROM contacts")
@@ -165,7 +165,7 @@ if __name__ == "__main__":
         window.show()
 
     # Below block of code shows functionality for database
-    conn = sqlite3.connect("stinder/users.db")
+    conn = sqlite3.connect("users.db")
     c = conn.cursor()
     """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
 
