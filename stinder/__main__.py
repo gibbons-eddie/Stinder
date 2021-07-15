@@ -122,7 +122,7 @@ class MainWindow(QMainWindow):
         self.ui.UserMajor.setText(major)
 
     def setIcon(self):
-        appIcon = QIcon("resources/images/stinder_book_logo.png")
+        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
