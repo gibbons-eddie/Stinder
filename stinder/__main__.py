@@ -21,35 +21,48 @@ class LogInWindow(QDialog):
         self.loginUi.setupUi(self)
 
         # PAGE 1
-        self.loginUi.ContinueBtn.clicked.connect(self.handleBasicPage)
+        self.loginUi.LogInBtn.clicked.connect(self.handleSignIn)
+        self.loginUi.SignUpBtn.clicked.connect(lambda: self.loginUi.loginPages.setCurrentWidget(self.loginUi.BasicPage))
         # PAGE 2
-        self.loginUi.ContinueBtnP2.clicked.connect(self.handleLogin)
+        self.loginUi.ContinueBtn.clicked.connect(self.handleBasicPage)
+        # PAGE 3
+        self.loginUi.ContinueBtnP2.clicked.connect(self.handleCreateAcct)
+        self.emailAddr = None
 
     # Override close event to close whole app when dialog is closed
     def closeEvent(self, event):
         sys.exit()
 
     def setIcon(self):
-        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
+        appIcon = QIcon("stinder/users.db")
         self.setWindowIcon(appIcon)
+
+    def handleSignIn(self):
+        email = self.loginUi.LoginInput.text()
+        exists_conn = sqlite3.connect("stinder/users.db")
+        curs = exists_conn.cursor()
+        self.emailAddr = email
+
+        if len(email) == 0:
+            self.loginUi.errorLabelP1.setText("Please input an email address.")
+        elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
+            exists_conn.close()
+            self.accept()
+        else:
+            self.loginUi.errorLabelP1.setText("Email address not found.")
 
     def handleBasicPage(self):
         fName = self.loginUi.FirstNameInput.text()
         lName = self.loginUi.LastNameTb.text()
         email = self.loginUi.EmailInput.text()
         major = self.loginUi.MajorInput.currentText()
-        exists_conn = sqlite3.connect("stinder/users.db")
-        curs = exists_conn.cursor()
 
         if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
             self.loginUi.errorLabel.setText("Please input all fields.")
-        elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
-            exists_conn.close()
-            self.accept()
         else:
             self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage)
 
-    def handleLogin(self):
+    def handleCreateAcct(self):
         # check if login is valid
         fName = self.loginUi.FirstNameInput.text()
         lName = self.loginUi.LastNameTb.text()
@@ -98,6 +111,10 @@ class MainWindow(QMainWindow):
         # Adds information from database to profile page
         profileconn = sqlite3.connect("stinder/users.db")
         profilecur = profileconn.cursor()
+        logininstance = LogInWindow()
+        e = logininstance # How do i get the email input from the LoginWindow class?
+        # This is the query to get user information once the email has been found
+        # e = profilecur.execute("SELECT * FROM contacts WHERE email = ? ", (emailAddr,)).fetchone()
 
         maxid = profilecur.execute("SELECT MAX(rowid) FROM contacts")
         maxid = profilecur.fetchone()

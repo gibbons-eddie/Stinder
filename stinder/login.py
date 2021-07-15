@@ -25,6 +25,52 @@ class Ui_Stinder_Login(object):
         self.loginPages.setGeometry(QRect(0, 0, 651, 473))
         self.loginPages.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
         self.loginPages.setFrameShape(QFrame.NoFrame)
+        self.WelcomePage = QWidget()
+        self.WelcomePage.setObjectName(u"WelcomePage")
+        self.StinderLogo_3 = QLabel(self.WelcomePage)
+        self.StinderLogo_3.setObjectName(u"StinderLogo_3")
+        self.StinderLogo_3.setGeometry(QRect(110, -40, 411, 201))
+        self.StinderLogo_3.setStyleSheet(u"background-color: transparent;")
+        self.StinderLogo_3.setPixmap(QPixmap(u":/logo/images/stinder_logo.png"))
+        self.StinderLogo_3.setScaledContents(True)
+        self.LoginInput = QLineEdit(self.WelcomePage)
+        self.LoginInput.setObjectName(u"LoginInput")
+        self.LoginInput.setGeometry(QRect(100, 210, 481, 41))
+        self.LoginInput.setStyleSheet(u"background-color: white;\n"
+                                      "border-radius: 10px;\n"
+                                      "font: 300 13pt \"Nexa Text Demo\";\n"
+                                      "padding: 0 8px;")
+        self.LogInBtn = QPushButton(self.WelcomePage)
+        self.LogInBtn.setObjectName(u"LogInBtn")
+        self.LogInBtn.setGeometry(QRect(100, 280, 481, 31))
+        self.LogInBtn.setStyleSheet(u"background-color: rgb(106,255,121);\n"
+                                    "border-radius: 10px;\n"
+                                    "font: 700 13pt \"Nexa Bold\";\n"
+                                    "color: white;")
+        self.SignInInstruct = QLabel(self.WelcomePage)
+        self.SignInInstruct.setObjectName(u"SignInInstruct")
+        self.SignInInstruct.setGeometry(QRect(160, 120, 341, 51))
+        self.SignInInstruct.setStyleSheet(u"background-color: transparent;\n"
+                                          "color: white;\n"
+                                          "font:  700 24p5 \"Nexa Bold\";")
+        self.NewLabel = QLabel(self.WelcomePage)
+        self.NewLabel.setObjectName(u"NewLabel")
+        self.NewLabel.setGeometry(QRect(100, 330, 111, 16))
+        self.NewLabel.setStyleSheet(u"background-color: transparent;\n"
+                                    "color: white;\n"
+                                    "font: 600 11pt \"Nexa Bold\";")
+        self.SignUpBtn = QPushButton(self.WelcomePage)
+        self.SignUpBtn.setObjectName(u"SignUpBtn")
+        self.SignUpBtn.setGeometry(QRect(215, 327, 61, 24))
+        self.SignUpBtn.setStyleSheet(u"background-color: transparent;\n"
+                                     "color: rgb(106,255,121);;\n"
+                                     "font: 600 11pt \"Nexa Bold\";")
+        self.errorLabelP1 = QLabel(self.WelcomePage)
+        self.errorLabelP1.setObjectName(u"errorLabelP1")
+        self.errorLabelP1.setGeometry(QRect(110, 259, 491, 16))
+        self.errorLabelP1.setStyleSheet(u"background-color: transparent;\n"
+                                        "color: red;")
+        self.loginPages.addWidget(self.WelcomePage)
         self.BasicPage = QWidget()
         self.BasicPage.setObjectName(u"BasicPage")
         self.StinderLogo = QLabel(self.BasicPage)
@@ -258,6 +304,17 @@ class Ui_Stinder_Login(object):
 
     def retranslateUi(self, Stinder_Login):
         Stinder_Login.setWindowTitle(QCoreApplication.translate("Stinder_Login", u"Stinder", None))
+        self.StinderLogo_3.setText("")
+        self.LoginInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Email Address", None))
+        self.LogInBtn.setText(QCoreApplication.translate("Stinder_Login", u"Sign In", None))
+        self.SignInInstruct.setText(QCoreApplication.translate("Stinder_Login",
+                                                               u"<html><head/><body><p><span style=\" font-size:20pt;\">Enter your email to sign in</span></p></body></html>",
+                                                               None))
+        self.NewLabel.setText(QCoreApplication.translate("Stinder_Login",
+                                                         u"<html><head/><body><p><span style=\" font-size:11pt;\">New to Stinder?</span></p></body></html>",
+                                                         None))
+        self.SignUpBtn.setText(QCoreApplication.translate("Stinder_Login", u"Sign Up", None))
+        self.errorLabelP2.setText("")
         self.StinderLogo.setText("")
         self.InstructLabel.setText(QCoreApplication.translate("Stinder_Login", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">Please fill out form to continue</span></p></body></html>", None))
         self.FirstNameInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"First Name", None))
