@@ -148,7 +148,7 @@ class Ui_Stinder(object):
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 1, 1, 1)
 
-        self.FilterButton = QPushButton(self.frame_5)
+        self.FilterButton = QPushButton(self.frame_5, clicked=lambda: self.handleFilter())
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
         self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
@@ -204,6 +204,9 @@ class Ui_Stinder(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.FilterDropdown.sizePolicy().hasHeightForWidth())
         self.FilterDropdown.setSizePolicy(sizePolicy)
+        self.FilterDropdown.addItem("Major", "Major")
+        self.FilterDropdown.addItem("Year", "Year")
+        self.FilterDropdown.addItem("")
         self.FilterDropdown.setMinimumSize(QSize(150, 0))
         self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
                                           "")
@@ -503,7 +506,7 @@ class Ui_Stinder(object):
     # setupUi
 
     def retranslateUi(self, Stinder):
-        a_user = self.students[0].split(',')
+        a_user = self.students[0]
         Stinder.setWindowTitle(QCoreApplication.translate("Stinder", u"Stinder", None))
         self.actionTemp_Button.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
         self.actionTemp_Button_2.setText(QCoreApplication.translate("Stinder", u"Temp Button", None))
@@ -542,12 +545,11 @@ class Ui_Stinder(object):
         if counter == length:
             counter = counter - 1
         self.counter = counter
-        user = users[counter].split(',')
-        self.Discover_FirstName.setText(user[0])
-        self.Discover_LastName.setText(user[1])
-        self.Discover_Major.setText(user[2])
-        self.Discover_Email.setText(user[3])
-        self.Discover_Year.setText(user[4])
+        self.Discover_FirstName.setText(users[counter][0])
+        self.Discover_LastName.setText(users[counter][1])
+        self.Discover_Major.setText(users[counter][2])
+        self.Discover_Email.setText(users[counter][3])
+        self.Discover_Year.setText(users[counter][4])
 
 
     def prev_user(self, users, length):
@@ -556,31 +558,35 @@ class Ui_Stinder(object):
             counter = counter + 1
         counter = counter - 1
         self.counter = counter
-        user = users[counter].split(',')
-        self.Discover_FirstName.setText(user[0])
-        self.Discover_LastName.setText(user[1])
-        self.Discover_Major.setText(user[2])
-        self.Discover_Email.setText(user[3])
-        self.Discover_Year.setText(user[4])
-
+        self.Discover_FirstName.setText(users[counter][0])
+        self.Discover_LastName.setText(users[counter][1])
+        self.Discover_Major.setText(users[counter][2])
+        self.Discover_Email.setText(users[counter][3])
+        self.Discover_Year.setText(users[counter][4])
 
     def list(self):
-        connection = sqlite3.connect("users.db")
+        connection = sqlite3.connect("stinder/users.db")
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
             users = []
             length = 0
             for row in cursor:
-                user = row[0] + "," + row[1] + "," + row[2] + "," + row[3] + "," + row[4]
+                user_fN = row[0]
+                user_lN = row[1]
+                user_m = row[2]
+                user_e = row[3]
+                user_y = row[4]
+                user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                         row[3] + "\n\nYear: " + row[4]
+                user = [user_fN, user_lN, user_m, user_e, user_y, user_i]
                 users.append(user)
                 length = length + 1
             return users, length
 
-
     def handleFilter(self):
         cat = self.FilterDropdown.currentText()
-        line = self.FilterLine.text()
+        line = self.FilterDropdown.currentText()
 
         if (cat != 'Filter By') & (line != 'Category'):
             filter_conn = sqlite3.connect("stinder/users.db")
@@ -591,29 +597,27 @@ class Ui_Stinder(object):
             fltr_users = []
             fltr_length = 0
             for row in filter_cur:
-                fltr_user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[
-                    2] + "\n\nEmail: " + \
-                            row[3] + "\n\nYear: " + row[4]
-                fltr_users.append(fltr_user)
-                fltr_length = fltr_length + 1
+                user_fN = row[0]
+                user_lN = row[1]
+                user_m = row[2]
+                user_e = row[3]
+                user_y = row[4]
+                user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
+                         row[3] + "\n\nYear: " + row[4]
+                user = [user_fN, user_lN, user_m, user_e, user_y, user_i]
+                fltr_users.append(user)
+                length = length + 1
 
-            if fltr_length == 0:
-                # self.errorLabel.setText("No results matching your search.")
+            if not (fltr_length == 0):
+                self.students = fltr_users
+                self.s_length = fltr_length
+            else:
                 print("No results matching your search.")
-                filter_cur.execute("SELECT * FROM contacts")
-                filter_conn.commit()
-                fltr_users = []
-                fltr_length = 0
-                for row in filter_cur:
-                    fltr_user = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[
-                        2] + "\n\nEmail: " + \
-                                row[3] + "\n\nYear: " + row[4]
-                    fltr_users.append(fltr_user)
-                    fltr_length = fltr_length + 1
+                filter_conn.close()
+                return
 
             filter_conn.close()
-            print(fltr_length, "students")
-            self.students = fltr_users
-            self.s_length = fltr_length
-            self.prev_user(self.students, self.s_length)
-            self.counter = 0
+
+            return fltr_users, fltr_length
+
+
