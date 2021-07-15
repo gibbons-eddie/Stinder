@@ -25,6 +25,7 @@ class Ui_Stinder(object):
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
         Stinder.resize(646, 476)
+        QFontDatabase.addApplicationFont(":/fonts/fonts/NexaBold.otf")
         Stinder.setAutoFillBackground(False)
         Stinder.setStyleSheet(
             u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
@@ -48,7 +49,7 @@ class Ui_Stinder(object):
         self.AboutButton.setGeometry(QRect(0, 1, 81, 41))
         self.AboutButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
                                        "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                       "font: 700 13pt \"Nexa Text Demo\";\n"
+                                       "font: 700 13pt \"Nexa\";\n"
                                        "")
         self.students, self.s_length = self.list()
         self.BrowseButton = QPushButton(self.frame)
@@ -56,14 +57,14 @@ class Ui_Stinder(object):
         self.BrowseButton.setGeometry(QRect(0, 51, 81, 41))
         self.BrowseButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
                                         "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                        "font: 500 13pt \"Nexa Bold\";\n"
+                                        "font: 500 13pt \"Nexa\";\n"
                                         "")
         self.ProfileButton = QPushButton(self.frame, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
         self.ProfileButton.setGeometry(QRect(0, 100, 81, 41))
         self.ProfileButton.setStyleSheet(u"color: rgb(255, 255, 255);\n"
                                          "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                         "font: 700 13pt \"Nexa Bold\";")
+                                         "font: 700 13pt \"Nexa\";")
         self.logo = QLabel(self.frame)
         self.logo.setObjectName(u"logo")
         self.logo.setGeometry(QRect(0, 430, 81, 41))
@@ -78,7 +79,7 @@ class Ui_Stinder(object):
         self.AboutLabel.setObjectName(u"AboutLabel")
         self.AboutLabel.setGeometry(QRect(180, 190, 161, 101))
         self.AboutLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                      "font: 700 13pt \"Nexa Text Demo\";")
+                                      "font: 700 13pt \"Nexa\";")
         self.stackedWidget.addWidget(self.AboutPage)
         self.BrowsePage = QWidget()
         self.BrowsePage.setObjectName(u"BrowsePage")
@@ -86,19 +87,19 @@ class Ui_Stinder(object):
         self.BrowseLabel.setObjectName(u"BrowseLabel")
         self.BrowseLabel.setGeometry(QRect(130, 30, 300, 300))
         self.BrowseLabel.setStyleSheet(u"color: rgb(255, 255, 255);\n"
-                                       "font: 700 12pt \"Nexa Text Demo\";")
+                                       "font: 700 12pt \"Nexa\";")
         self.NextBottun = QPushButton(self.BrowsePage, clicked=lambda: self.next_user(self.students, self.s_length))
         self.NextBottun.setObjectName(u"NextBottun")
         self.NextBottun.setGeometry(QRect(235, 370, 64, 20))
         self.NextBottun.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                       "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                      "font: 9pt \"Nexa Text Demo\";")
+                                      "font: 9pt \"Nexa\";")
         self.PrevButton = QPushButton(self.BrowsePage, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PrevButton.setObjectName(u"PrevBottun")
         self.PrevButton.setGeometry(QRect(235, 340, 64, 20))
         self.PrevButton.setStyleSheet(u"color:rgb(255, 255, 255);\n"
                                               "background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                              "font: 9pt \"Nexa Text Demo\";")
+                                              "font: 9pt \"Nexa\";")
         self.FilterDropdown = QComboBox(self.BrowsePage)
         self.FilterDropdown.addItem("")
         self.FilterDropdown.addItem("")
@@ -114,14 +115,14 @@ class Ui_Stinder(object):
         self.FilterLine.setGeometry(QRect(260, 400, 113, 31))
         self.FilterLine.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"font: 500 13pt \"Nexa Bold\";\n"
+"font: 500 13pt \"Nexa\";\n"
 "padding: 5px;")
         self.FilterBtn = QPushButton(self.BrowsePage, clicked=lambda: self.handleFilter())
         self.FilterBtn.setObjectName(u"FilterBtn")
         self.FilterBtn.setGeometry(QRect(30, 390, 81, 51))
         self.FilterBtn.setStyleSheet(u"color: rgb(255, 255, 255);\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"font: 500 13pt \"Nexa Bold\";\n"
+"font: 500 13pt \"Nexa\";\n"
 "\n"
 "")
         self.stackedWidget.addWidget(self.BrowsePage)

@@ -53,7 +53,7 @@
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
 background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
-font: 700 13pt &quot;Nexa Text Demo&quot;;
+font: 700 13pt &quot;Nexa&quot;;
 </string>
      </property>
      <property name="text">
@@ -68,6 +68,14 @@ font: 700 13pt &quot;Nexa Text Demo&quot;;
        <width>81</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Nexa Bold</family>
+       <pointsize>13</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
@@ -141,7 +149,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(255, 255, 255);
-font: 700 13pt &quot;Nexa Text Demo&quot;;</string>
+font: 700 13pt &quot;Nexa&quot;;</string>
       </property>
       <property name="text">
        <string>About</string>

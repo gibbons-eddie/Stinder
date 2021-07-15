@@ -10,13 +10,16 @@ from sqlite3 import Error
 from stinder.home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
 from stinder.resources.images import *
+from stinder.resources.fonts import *
 
+from stinder.stinder_images_rc import *
 
 class LogInWindow(QDialog):
     def __init__(self):
         super(LogInWindow, self).__init__()
         self.setFixedSize(646, 476)
         self.setIcon()
+        # self.setStinderFont()
         self.loginUi = Ui_Stinder_Login()
         self.loginUi.setupUi(self)
 
@@ -32,6 +35,10 @@ class LogInWindow(QDialog):
     def setIcon(self):
         appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
+
+    def setStinderFont(self):
+        appFont = (":/fonts/fonts/Nexa")
+        self.setFont(appFont)
 
     def handleBasicPage(self):
         fName = self.loginUi.FirstNameInput.text()
