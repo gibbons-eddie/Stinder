@@ -53,7 +53,7 @@
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
 background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
-font: 700 13pt &quot;Nexa Text Demo&quot;;
+font: 700 13pt &quot;Nexa&quot;;
 </string>
      </property>
      <property name="text">
@@ -68,6 +68,14 @@ font: 700 13pt &quot;Nexa Text Demo&quot;;
        <width>81</width>
        <height>41</height>
       </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Nexa Bold</family>
+       <pointsize>13</pointsize>
+       <italic>false</italic>
+       <bold>false</bold>
+      </font>
      </property>
      <property name="styleSheet">
       <string notr="true">color: rgb(255, 255, 255);
@@ -127,7 +135,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="AboutPage">
      <widget class="QLabel" name="AboutLabel">
@@ -141,7 +149,7 @@ font: 700 13pt &quot;Nexa Bold&quot;;</string>
       </property>
       <property name="styleSheet">
        <string notr="true">color: rgb(255, 255, 255);
-font: 700 13pt &quot;Nexa Text Demo&quot;;</string>
+font: 700 13pt &quot;Nexa&quot;;</string>
       </property>
       <property name="text">
        <string>About</string>
@@ -401,6 +409,24 @@ font-size: 18px;</string>
        <string notr="true">background-color: transparent;
 color: white;
 font-size: 18px;</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="LikesLabel">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>420</y>
+        <width>251</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: transparent;
+color: white;
+</string>
       </property>
       <property name="text">
        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
