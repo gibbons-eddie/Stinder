@@ -10,13 +10,16 @@ from sqlite3 import Error
 from stinder.home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
 from stinder.resources.images import *
+from stinder.resources.fonts import *
 
+from stinder.stinder_images_rc import *
 
 class LogInWindow(QDialog):
     def __init__(self):
         super(LogInWindow, self).__init__()
         self.setFixedSize(646, 476)
         self.setIcon()
+        # self.setStinderFont()
         self.loginUi = Ui_Stinder_Login()
         self.loginUi.setupUi(self)
 
@@ -34,8 +37,12 @@ class LogInWindow(QDialog):
         sys.exit()
 
     def setIcon(self):
-        appIcon = QIcon("stinder/users.db")
+        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
+
+    def setStinderFont(self):
+        appFont = (":/fonts/fonts/Nexa")
+        self.setFont(appFont)
 
     def handleSignIn(self):
         email = self.loginUi.LoginInput.text()
@@ -96,7 +103,7 @@ class LogInWindow(QDialog):
 class MainWindow(QMainWindow):
     def __init__(self):
         super(MainWindow, self).__init__()
-        self.setFixedSize(646, 476)
+        self.resize(855, 538)
         self.setIcon()
         self.ui = Ui_Stinder()
         self.ui.setupUi(self)
@@ -127,12 +134,12 @@ class MainWindow(QMainWindow):
         profileEmail = str[3]
         name = fName + " " + lName
 
-        self.ui.NameLabel.setText(name)
-        self.ui.EmailLabel.setText(profileEmail)
-        self.ui.MajorLabel.setText(major)
+        self.ui.UserName.setText(name)
+        self.ui.UserEmail.setText(profileEmail)
+        self.ui.UserMajor.setText(major)
 
     def setIcon(self):
-        appIcon = QIcon("resources/images/stinder_book_logo.png")
+        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
         self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through

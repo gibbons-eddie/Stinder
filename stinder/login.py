@@ -19,6 +19,7 @@ class Ui_Stinder_Login(object):
         if not Stinder_Login.objectName():
             Stinder_Login.setObjectName(u"Stinder_Login")
         Stinder_Login.resize(646, 476)
+        QFontDatabase.addApplicationFont(":/fonts/fonts/NexaBold.otf")
         Stinder_Login.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
         self.loginPages = QStackedWidget(Stinder_Login)
         self.loginPages.setObjectName(u"loginPages")
@@ -84,27 +85,28 @@ class Ui_Stinder_Login(object):
         self.InstructLabel.setGeometry(QRect(150, 100, 361, 41))
         self.InstructLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;\n"
-"font: 700 24pt \"Nexa Bold\";")
+"font: 700 24pt \"Nexa\";")
+        #QFontDatabase.addApplicationFont(":/fonts/fonts/NexaHeavy.otf")
         self.FirstNameInput = QLineEdit(self.BasicPage)
         self.FirstNameInput.setObjectName(u"FirstNameInput")
         self.FirstNameInput.setGeometry(QRect(50, 160, 231, 41))
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;")
         self.LastNameTb = QLineEdit(self.BasicPage)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;")
         self.EmailInput = QLineEdit(self.BasicPage)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;")
         self.MajorInput = QComboBox(self.BasicPage)
         self.MajorInput.addItem("")
@@ -133,7 +135,7 @@ class Ui_Stinder_Login(object):
         self.MajorInput.setGeometry(QRect(50, 300, 551, 41))
         self.MajorInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color: black;")
         self.MajorInput.setEditable(False)
@@ -142,8 +144,9 @@ class Ui_Stinder_Login(object):
         self.ContinueBtn.setGeometry(QRect(50, 390, 551, 31))
         self.ContinueBtn.setStyleSheet(u"background-color: rgb(106,255,121);\n"
 "border-radius: 10px;\n"
-"font: 700 13pt \"Nexa Bold\";\n"
+"font: 700 13pt \"Nexa\";\n"
 "color: white;")
+        # self.ContinueBtn.setFont()
         self.errorLabel = QLabel(self.BasicPage)
         self.errorLabel.setObjectName(u"errorLabel")
         self.errorLabel.setGeometry(QRect(60, 347, 491, 16))
@@ -168,7 +171,7 @@ class Ui_Stinder_Login(object):
         self.YearInput.setGeometry(QRect(30, 160, 271, 41))
         self.YearInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color:black;\n"
 "border: 0px;")
@@ -183,7 +186,7 @@ class Ui_Stinder_Login(object):
         self.MethodInput.setGeometry(QRect(30, 250, 271, 41))
         self.MethodInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color:black;\n"
 "border: 0px;")
@@ -208,7 +211,7 @@ class Ui_Stinder_Login(object):
         self.LocInput.setGeometry(QRect(30, 340, 271, 41))
         self.LocInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color:black;\n"
 "border: 0px;")
@@ -226,7 +229,7 @@ class Ui_Stinder_Login(object):
         self.JobInput.setGeometry(QRect(350, 160, 261, 41))
         self.JobInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color:black;\n"
 "border: 0px;")
@@ -250,7 +253,7 @@ class Ui_Stinder_Login(object):
         self.TimeInput.setGeometry(QRect(350, 250, 261, 41))
         self.TimeInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color:black;\n"
 "border: 0px;")
@@ -274,7 +277,7 @@ class Ui_Stinder_Login(object):
         self.StudyHistInput.setGeometry(QRect(350, 340, 261, 41))
         self.StudyHistInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"font: 300 13pt \"Nexa Text Demo\";\n"
+"font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
 "color:black;\n"
 "border: 0px;")
@@ -285,7 +288,7 @@ class Ui_Stinder_Login(object):
         self.ContinueBtnP2.setGeometry(QRect(40, 420, 561, 31))
         self.ContinueBtnP2.setStyleSheet(u"background-color: rgb(106,255,121);\n"
 "border-radius: 10px;\n"
-"font: 700 13pt \"Nexa Bold\";\n"
+"font: 700 13pt \"Nexa\";\n"
 "color: white;")
         self.errorLabelP2 = QLabel(self.DetailPage)
         self.errorLabelP2.setObjectName(u"errorLabelP2")
