@@ -7,7 +7,7 @@ from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from PySide6.QtGui import QIcon
 from sqlite3 import Error
 
-from stinder.new_home_2 import Ui_Stinder
+from stinder.home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
 from stinder.resources.images import *
 from stinder.resources.fonts import *
