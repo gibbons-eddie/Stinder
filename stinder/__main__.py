@@ -30,7 +30,7 @@ class LogInWindow(QDialog):
         self.loginUi.ContinueBtn.clicked.connect(self.handleBasicPage)
         # PAGE 3
         self.loginUi.ContinueBtnP2.clicked.connect(self.handleCreateAcct)
-        self.emailAddr = None
+        self.emailAddr = ""
 
     # Override close event to close whole app when dialog is closed
     def closeEvent(self, event):
@@ -132,11 +132,18 @@ class MainWindow(QMainWindow):
         lName = str[1]
         major = str[2]
         profileEmail = str[3]
+        profileYear = str[4]
+        profileMethod = str[5]
+        profileLoc = str[6]
+        profileJob = str[7]
+        profileDay = str[8]
+        profileSH = str[9]
         name = fName + " " + lName
 
         self.ui.UserName.setText(name)
         self.ui.UserEmail.setText(profileEmail)
         self.ui.UserMajor.setText(major)
+        self.ui.c_user = [fName, lName, major, profileEmail, profileYear, profileMethod, profileLoc, profileJob, profileDay, profileSH]
 
     def setIcon(self):
         appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")

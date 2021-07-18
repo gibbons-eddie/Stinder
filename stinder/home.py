@@ -16,9 +16,11 @@ from PySide6.QtWidgets import *  # type: ignore
 from stinder.stinder_images_rc import *
 
 class Ui_Stinder(object):
-    counter = 0
-    students = 0
-    s_length = 0
+    def __init__(self):
+        self.counter = 0
+        self.students = []
+        self.s_length = 0
+        self.c_user = []
 
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
@@ -671,12 +673,16 @@ class Ui_Stinder(object):
             for row in cursor:
                 user_fN = row[0]
                 user_lN = row[1]
-                user_m = row[2]
+                user_maj = row[2]
                 user_e = row[3]
                 user_y = row[4]
-                user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
-                         row[3] + "\n\nYear: " + row[4]
-                user = [user_fN, user_lN, user_m, user_e, user_y, user_i]
+                user_met = row[5]
+                user_loc = row[6]
+                user_job = row[7]
+                user_day = row[8]
+                user_sH = row[9]
+                
+                user = [user_fN, user_lN, user_maj, user_e, user_y, user_met, user_loc, user_job, user_day, user_sH]
                 users.append(user)
                 length = length + 1
             return users, length
@@ -696,12 +702,16 @@ class Ui_Stinder(object):
             for row in filter_cur:
                 fltr_user_fN = row[0]
                 fltr_user_lN = row[1]
-                fltr_user_m = row[2]
+                fltr_user_maj = row[2]
                 fltr_user_e = row[3]
                 fltr_user_y = row[4]
-                fltr_user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
-                    row[3] + "\n\nYear: " + row[4]
-                fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_m, fltr_user_e, fltr_user_y, fltr_user_i]
+                fltr_user_met = row[5]
+                fltr_user_loc = row[6]
+                fltr_user_job = row[7]
+                fltr_user_day = row[8]
+                fltr_user_sH = row[9]
+                
+                fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_maj, fltr_user_e, fltr_user_y, fltr_user_met, fltr_user_loc, fltr_user_job, fltr_user_day, fltr_user_sH]
                 fltr_users.append(fltr_user)
                 fltr_length = fltr_length + 1
                 
@@ -715,12 +725,16 @@ class Ui_Stinder(object):
                 for row in filter_cur:
                     fltr_user_fN = row[0]
                     fltr_user_lN = row[1]
-                    fltr_user_m = row[2]
+                    fltr_user_maj = row[2]
                     fltr_user_e = row[3]
                     fltr_user_y = row[4]
-                    fltr_user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
-                        row[3] + "\n\nYear: " + row[4]
-                    fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_m, fltr_user_e, fltr_user_y, fltr_user_i]
+                    fltr_user_met = row[5]
+                    fltr_user_loc = row[6]
+                    fltr_user_job = row[7]
+                    fltr_user_day = row[8]
+                    fltr_user_sH = row[9]
+                
+                    fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_maj, fltr_user_e, fltr_user_y, fltr_user_met, fltr_user_loc, fltr_user_job, fltr_user_day, fltr_user_sH]
                     fltr_users.append(fltr_user)
                     fltr_length = fltr_length + 1
 
@@ -757,3 +771,8 @@ class Ui_Stinder(object):
         else:
             result = "You have received " + str(like_counter) + " likes!"
         self.LikesLabel.setText(result)
+        # print(self.c_user)
+
+
+    def handleAlgo(self):
+        print(self.c_user)
