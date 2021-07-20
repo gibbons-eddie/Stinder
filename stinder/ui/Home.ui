@@ -93,8 +93,8 @@ padding: 6px;</string>
          </property>
          <property name="maximumSize">
           <size>
-           <width>81</width>
-           <height>41</height>
+           <width>120</width>
+           <height>42</height>
           </size>
          </property>
          <property name="text">
@@ -131,7 +131,7 @@ padding: 6px;</string>
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="AboutPage">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -145,7 +145,7 @@ padding: 6px;</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>715</width>
+             <width>565</width>
              <height>816</height>
             </rect>
            </property>
@@ -557,6 +557,19 @@ padding: 6px;</string>
              </property>
             </widget>
            </item>
+           <item row="0" column="5">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
            <item row="0" column="4">
             <widget class="QPushButton" name="NextButton">
              <property name="minimumSize">
@@ -580,10 +593,32 @@ padding: 6px;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="3">
-            <widget class="QScrollBar" name="horizontalScrollBar">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="FilterLine">
+             <property name="whatsThis">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="placeholderText">
+              <string>Category</string>
              </property>
             </widget>
            </item>
@@ -600,20 +635,48 @@ padding: 6px;</string>
              </property>
             </spacer>
            </item>
-           <item row="0" column="5">
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
+           <item row="0" column="1">
+            <widget class="QPushButton" name="PreviousButton">
+             <property name="minimumSize">
               <size>
-               <width>40</width>
-               <height>20</height>
+               <width>150</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="styleSheet">
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;</string>
+             </property>
+             <property name="text">
+              <string>Previous</string>
+             </property>
+            </widget>
            </item>
-           <item row="5" column="3">
+           <item row="0" column="2" colspan="2">
+            <widget class="QPushButton" name="LikeButton">
+             <property name="styleSheet">
+              <string notr="true">background-color: white;
+color: black;
+
+font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+color: rgb(255, 255, 255);
+border-radius: 5px; 
+padding: 6px;
+</string>
+             </property>
+             <property name="text">
+              <string>Like</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="2" colspan="2">
             <widget class="QComboBox" name="FilterDropdown">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -656,58 +719,6 @@ padding: 6px;
                <string>Year</string>
               </property>
              </item>
-            </widget>
-           </item>
-           <item row="0" column="1">
-            <widget class="QPushButton" name="PreviousButton">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
-color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;</string>
-             </property>
-             <property name="text">
-              <string>Previous</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="FilterLine">
-             <property name="whatsThis">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
-color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Category</string>
-             </property>
             </widget>
            </item>
           </layout>
