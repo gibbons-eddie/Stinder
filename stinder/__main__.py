@@ -4,7 +4,7 @@ import sys
 
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
-from PySide6.QtGui import QIcon
+from PySide6.QtGui import QIcon, QFontDatabase, QFont
 from sqlite3 import Error
 
 from stinder.home import Ui_Stinder
@@ -102,12 +102,13 @@ class LogInWindow(QDialog):
 
 class MainWindow(QMainWindow):
     def __init__(self):
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaRegular.otf")
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaBold.otf")
         super(MainWindow, self).__init__()
         self.resize(855, 538)
         self.setIcon()
         self.ui = Ui_Stinder()
         self.ui.setupUi(self)
-
         # PAGE 1
         self.ui.AboutButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.AboutPage))
         # PAGE 2
