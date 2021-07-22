@@ -16,6 +16,8 @@ from stinder.stinder_images_rc import *
 
 class LogInWindow(QDialog):
     def __init__(self):
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaRegular.otf")
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/Nexa_Bold.otf")
         super(LogInWindow, self).__init__()
         self.setFixedSize(646, 476)
         self.setIcon()
@@ -103,7 +105,7 @@ class LogInWindow(QDialog):
 class MainWindow(QMainWindow):
     def __init__(self):
         QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaRegular.otf")
-        QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaBold.otf")
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/Nexa_Bold.otf")
         super(MainWindow, self).__init__()
         self.resize(855, 538)
         self.setIcon()

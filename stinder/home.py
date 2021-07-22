@@ -47,7 +47,7 @@ class Ui_Stinder(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.ProfileButton = QPushButton(self.frame_2, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
-        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -60,7 +60,7 @@ class Ui_Stinder(object):
 
         self.BrowseButton = QPushButton(self.frame_2)
         self.BrowseButton.setObjectName(u"BrowseButton")
-        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -86,7 +86,7 @@ class Ui_Stinder(object):
 
         self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
-        self.AboutButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -138,7 +138,7 @@ class Ui_Stinder(object):
         font.setItalic(False)
         self.abouttext1.setFont(font)
         self.abouttext1.setAutoFillBackground(False)
-        self.abouttext1.setStyleSheet(u"font: 500 15pt \"NexaBold\"")
+        self.abouttext1.setStyleSheet(u"font: 500 15pt \"Nexa Bold\"")
         self.abouttext1.setScaledContents(False)
         self.abouttext1.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
@@ -146,7 +146,7 @@ class Ui_Stinder(object):
 
         self.abouttext2 = QLabel(self.scrollAreaWidgetContents)
         self.abouttext2.setObjectName(u"abouttext2")
-        self.abouttext2.setStyleSheet(u"font: 500 8pt \"NexaRegular\"")
+        self.abouttext2.setStyleSheet(u"font: 500 8pt \"Nexa\"")
         self.abouttext2.setScaledContents(False)
         self.abouttext2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.abouttext2.setWordWrap(False)
@@ -155,13 +155,13 @@ class Ui_Stinder(object):
 
         self.abouttext3 = QLabel(self.scrollAreaWidgetContents)
         self.abouttext3.setObjectName(u"abouttext3")
-        self.abouttext3.setStyleSheet(u"font: 500 8pt \"NexaBold\"")
+        self.abouttext3.setStyleSheet(u"font: 500 8pt \"Nexa Bold\"")
 
         self.verticalLayout_2.addWidget(self.abouttext3)
 
         self.aboutteamtext = QLabel(self.scrollAreaWidgetContents)
         self.aboutteamtext.setObjectName(u"aboutteamtext")
-        self.aboutteamtext.setStyleSheet(u"font: 700 13pt \"NexaRegular\"")
+        self.aboutteamtext.setStyleSheet(u"font: 700 13pt \"Nexa\"")
 
         self.verticalLayout_2.addWidget(self.aboutteamtext)
 
@@ -202,7 +202,7 @@ class Ui_Stinder(object):
         self.CardLabel_FirstName.setObjectName(u"CardLabel_FirstName")
         self.CardLabel_FirstName.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_FirstName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaBold\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -227,7 +227,7 @@ class Ui_Stinder(object):
         self.CardLabel_LastName.setObjectName(u"CardLabel_LastName")
         self.CardLabel_LastName.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_LastName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaBold\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -253,7 +253,7 @@ class Ui_Stinder(object):
         self.CardLabel_Major.setObjectName(u"CardLabel_Major")
         self.CardLabel_Major.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Major.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaBold\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -278,7 +278,7 @@ class Ui_Stinder(object):
         self.CardLabel_Email.setObjectName(u"CardLabel_Email")
         self.CardLabel_Email.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Email.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaBold\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -303,7 +303,7 @@ class Ui_Stinder(object):
         self.CardLabel_Year.setObjectName(u"CardLabel_Year")
         self.CardLabel_Year.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Year.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaBold\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -342,7 +342,7 @@ class Ui_Stinder(object):
         self.FilterButton = QPushButton(self.frame_5, clicked=lambda: self.handleFilter())
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
-        self.FilterButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -356,7 +356,7 @@ class Ui_Stinder(object):
         self.NextButton = QPushButton(self.frame_5, clicked=lambda: self.next_user(self.students, self.s_length))
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
-        self.NextButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -395,7 +395,7 @@ class Ui_Stinder(object):
         self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "\n"
-"font: 500 13pt \"NexaBold\";\n"
+"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; \n"
@@ -407,7 +407,7 @@ class Ui_Stinder(object):
         self.PreviousButton = QPushButton(self.frame_5, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
-        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -421,7 +421,7 @@ class Ui_Stinder(object):
         self.FilterLine = QLineEdit(self.frame_5)
         self.FilterLine.setObjectName(u"FilterLine")
         self.FilterLine.setLayoutDirection(Qt.LeftToRight)
-        self.FilterLine.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
+        self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -463,7 +463,7 @@ class Ui_Stinder(object):
         self.label_4.setFont(font1)
         self.label_4.setAutoFillBackground(False)
         self.label_4.setStyleSheet(u"color: white; \n"
-"font: 30pt \"NexaRegular\";\n"
+"font: 30pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -475,7 +475,7 @@ class Ui_Stinder(object):
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(150, 0))
         self.label.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaRegular\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -491,7 +491,7 @@ class Ui_Stinder(object):
         self.UserName.setSizePolicy(sizePolicy2)
         self.UserName.setMinimumSize(QSize(300, 0))
         self.UserName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaRegular\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -503,7 +503,7 @@ class Ui_Stinder(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(150, 0))
         self.label_2.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaRegular\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -516,7 +516,7 @@ class Ui_Stinder(object):
         self.UserEmail.setSizePolicy(sizePolicy2)
         self.UserEmail.setMinimumSize(QSize(300, 0))
         self.UserEmail.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaRegular\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -528,7 +528,7 @@ class Ui_Stinder(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(150, 0))
         self.label_3.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaRegular\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -541,7 +541,7 @@ class Ui_Stinder(object):
         self.UserMajor.setSizePolicy(sizePolicy2)
         self.UserMajor.setMinimumSize(QSize(300, 0))
         self.UserMajor.setStyleSheet(u"color: white; \n"
-"font: 15pt \"NexaRegular\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
