@@ -407,7 +407,7 @@ class Ui_Stinder(object):
         self.PreviousButton = QPushButton(self.frame_5, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
-        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -421,7 +421,7 @@ class Ui_Stinder(object):
         self.FilterLine = QLineEdit(self.frame_5)
         self.FilterLine.setObjectName(u"FilterLine")
         self.FilterLine.setLayoutDirection(Qt.LeftToRight)
-        self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterLine.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -463,7 +463,7 @@ class Ui_Stinder(object):
         self.label_4.setFont(font1)
         self.label_4.setAutoFillBackground(False)
         self.label_4.setStyleSheet(u"color: white; \n"
-"font: 30pt \"Segoe UI\";\n"
+"font: 30pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -475,7 +475,7 @@ class Ui_Stinder(object):
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(150, 0))
         self.label.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -491,7 +491,7 @@ class Ui_Stinder(object):
         self.UserName.setSizePolicy(sizePolicy2)
         self.UserName.setMinimumSize(QSize(300, 0))
         self.UserName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -503,7 +503,7 @@ class Ui_Stinder(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(150, 0))
         self.label_2.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -516,7 +516,7 @@ class Ui_Stinder(object):
         self.UserEmail.setSizePolicy(sizePolicy2)
         self.UserEmail.setMinimumSize(QSize(300, 0))
         self.UserEmail.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -528,7 +528,7 @@ class Ui_Stinder(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(150, 0))
         self.label_3.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -541,7 +541,7 @@ class Ui_Stinder(object):
         self.UserMajor.setSizePolicy(sizePolicy2)
         self.UserMajor.setMinimumSize(QSize(300, 0))
         self.UserMajor.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"NexaRegular\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
