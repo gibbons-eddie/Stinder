@@ -736,6 +736,7 @@ class Ui_Stinder(object):
             if fltr_length == 0:
                 # self.errorLabel.setText("No results matching your search.")
                 print("No results matching your search.")
+                # self.handleAlgo()
                 filter_cur.execute("SELECT * FROM contacts")
                 filter_conn.commit()
                 fltr_users = []
@@ -760,8 +761,9 @@ class Ui_Stinder(object):
             print(fltr_length, "students")
             self.students = fltr_users
             self.s_length = fltr_length
-            self.counter = 0
-            self.prev_user(self.students, self.s_length)
+            # self.counter = 0
+            # self.prev_user(self.students, self.s_length)
+            self.handleAlgo()
     
     def likes_counter(self):
         u_email = self.UserEmail.text()
