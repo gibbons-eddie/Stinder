@@ -7,7 +7,9 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+from posix import NGROUPS_MAX
 import sqlite3
+import numpy
 from os import linesep
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
@@ -24,6 +26,7 @@ class Ui_Stinder(object):
 
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
+        # init user profile parameters
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
         Stinder.resize(903, 641)
@@ -790,9 +793,53 @@ class Ui_Stinder(object):
 
 
     def handleAlgo(self):
-        # for u in self.students:
-                # print(u)
-        print(self.students[self.counter][3])
+        ranking = []
+        rank = 0
+        # print(self.c_user)
+        for student in self.students:
+            rank = 0
+            if student[3] == self.c_user[3]: # major
+                rank = rank + 10
+                # print("Current User: " + self.c_user[3])
+            if student[4] == self.c_user[4]: # year
+                rank = rank + 15
+            if student[5] == self.c_user[5]: # method
+                rank = rank + 20
+            if student[6] == self.c_user[6]: # loc
+                rank = rank + 15
+            if student[7] == self.c_user[7]: # job
+                rank = rank + 12
+            if student[8] == self.c_user[8]: # day
+                rank = rank + 10
+            if student[9] == self.c_user[9]: # study history
+                rank = rank + 10
+            # print(student)
+            # print(rank)
+            # print()
+            ranking.append(rank)
+        
+        numpy_students = numpy.array(self.students)
+        numpy_ranking = numpy.array(ranking)
+        numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
+        # print(numpy_sort)
+        sortedStudents = numpy_students[numpy_sort]
+        # print()
+        # print(sortedStudents)
+        # print()
+        # print(sortedStudents)
+        # print(sortedStudents[self.counter][8])
+
+        # print(self.students[self.counter][10])
+        # student_ranking = list(zip(ranking, self.students))
+        # student_ranking.sort(reverse=True)
+        # for sr in student_ranking:
+            # print(sr)
+        # print(self.s_length)
+        # print(len(sortedStudents))
+        self.students = sortedStudents
+        self.counter = 0
+        self.prev_user(self.students, self.s_length)
+        
 
     def handleLike(self):
         u_email = self.UserEmail.text()
@@ -826,4 +873,6 @@ class Ui_Stinder(object):
             likes_conn.commit()
             likes_conn.close()
 
+    def takeRank(self, i):
+        return self.students[i][10]
         
