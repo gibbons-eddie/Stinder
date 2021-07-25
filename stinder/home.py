@@ -108,6 +108,14 @@ class Ui_Stinder(object):
         self.gridLayout_3.setObjectName(u"gridLayout_3")
         self.scrollArea = QScrollArea(self.AboutPage)
         self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setStyleSheet(u"QScrollBar:vertical {\n"
+                                      "	border: none;\n"
+                                      "}\n"
+                                      "QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
+                                      "	background: none;\n"
+                                      "}\n"
+                                      "\n"
+                                      "")
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
@@ -146,7 +154,7 @@ class Ui_Stinder(object):
 
         self.abouttext2 = QLabel(self.scrollAreaWidgetContents)
         self.abouttext2.setObjectName(u"abouttext2")
-        self.abouttext2.setStyleSheet(u"font: 500 8pt \"Nexa Demo\"")
+        self.abouttext2.setStyleSheet(u"font: 500 8pt \"Nexa\"")
         self.abouttext2.setScaledContents(False)
         self.abouttext2.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
         self.abouttext2.setWordWrap(False)
@@ -161,7 +169,7 @@ class Ui_Stinder(object):
 
         self.aboutteamtext = QLabel(self.scrollAreaWidgetContents)
         self.aboutteamtext.setObjectName(u"aboutteamtext")
-        self.aboutteamtext.setStyleSheet(u"font: 700 13pt \"Nexa Text Demo\"")
+        self.aboutteamtext.setStyleSheet(u"font: 700 13pt \"Nexa\"")
 
         self.verticalLayout_2.addWidget(self.aboutteamtext)
 
@@ -202,7 +210,7 @@ class Ui_Stinder(object):
         self.CardLabel_FirstName.setObjectName(u"CardLabel_FirstName")
         self.CardLabel_FirstName.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_FirstName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -227,7 +235,7 @@ class Ui_Stinder(object):
         self.CardLabel_LastName.setObjectName(u"CardLabel_LastName")
         self.CardLabel_LastName.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_LastName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -253,7 +261,7 @@ class Ui_Stinder(object):
         self.CardLabel_Major.setObjectName(u"CardLabel_Major")
         self.CardLabel_Major.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Major.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -278,7 +286,7 @@ class Ui_Stinder(object):
         self.CardLabel_Email.setObjectName(u"CardLabel_Email")
         self.CardLabel_Email.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Email.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -303,7 +311,7 @@ class Ui_Stinder(object):
         self.CardLabel_Year.setObjectName(u"CardLabel_Year")
         self.CardLabel_Year.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Year.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa Bold\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -463,7 +471,7 @@ class Ui_Stinder(object):
         self.label_4.setFont(font1)
         self.label_4.setAutoFillBackground(False)
         self.label_4.setStyleSheet(u"color: white; \n"
-"font: 30pt \"Segoe UI\";\n"
+"font: 30pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -475,7 +483,7 @@ class Ui_Stinder(object):
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(150, 0))
         self.label.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -491,7 +499,7 @@ class Ui_Stinder(object):
         self.UserName.setSizePolicy(sizePolicy2)
         self.UserName.setMinimumSize(QSize(300, 0))
         self.UserName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -503,7 +511,7 @@ class Ui_Stinder(object):
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(150, 0))
         self.label_2.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -516,7 +524,7 @@ class Ui_Stinder(object):
         self.UserEmail.setSizePolicy(sizePolicy2)
         self.UserEmail.setMinimumSize(QSize(300, 0))
         self.UserEmail.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -528,7 +536,7 @@ class Ui_Stinder(object):
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(150, 0))
         self.label_3.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "\n"
 "")
@@ -541,7 +549,7 @@ class Ui_Stinder(object):
         self.UserMajor.setSizePolicy(sizePolicy2)
         self.UserMajor.setMinimumSize(QSize(300, 0))
         self.UserMajor.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
+"font: 15pt \"Nexa\";\n"
 "background: transparent;\n"
 "border-bottom: 2px solid white;\n"
 "\n"
@@ -599,9 +607,9 @@ class Ui_Stinder(object):
         self.aboutlogo.setWhatsThis(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.aboutlogo.setText("")
-        self.abouttext1.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Do you hate having to group up with </span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">students you don't know?</span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Have you ever been stuck doing </span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">all the work?</span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Us too.</span></p><p align=\"center\"><br/></p></body></html>", None))
-        self.abouttext2.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-weight:400;\">Stinder aims to solve those problems for those who would like to pair up with those with </span></p><p align=\"center\"><span style=\" font-weight:400;\">similar work ethic and motivations. </span></p><p align=\"center\"><span style=\" font-weight:400;\">Fill out your student information for your profile and browse through your class population </span></p><p align=\"center\"><span style=\" font-weight:400;\">for those with similar qualities to work as effectively as possible in a group setting!</span></p><p align=\"center\"><span style=\" font-weight:400;\">Filter students by major, coursework, schedule and more* to </span></p><p align=\"center\"><span style=\" font-weight:400;\">find your perfect match!</span><br/></p></body></html>", None))
-        self.abouttext3.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Stinder. </span></p><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Never have a bad (study) date again.</span></p><p align=\"center\"><br/></p></body></html>", None))
+        self.abouttext1.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Do you hate having to group up with students you don't know?</span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Have you ever been stuck doing all the work?</span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Us too.</span></p><p align=\"center\"><br/></p></body></html>", None))
+        self.abouttext2.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Stinder aims to solve those problems for those who would like to pair up with those with similar work ethic and motivations. </span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Fill out your student information for your profile and browse through your class population </span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">for those with similar qualities to work as effectively as possible in a group setting!</span></p><p align=\"center\"><span style=\" font-size:10pt; font-weight:400;\">Filter students by major, coursework, schedule and more to find your perfect match!</span><span style=\" font-size:10pt;\"><br/></span></p></body></html>", None))
+        self.abouttext3.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Stinder. </span><br/></p><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Never have a bad (study) date again.</span><br/></p></body></html>", None))
         self.aboutteamtext.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/><span style=\" font-size:12pt; text-decoration: underline;\">Meet Team Swipers</span></p><p align=\"center\"><span style=\" font-weight:400;\">Eddie Gibbons</span></p><p align=\"center\"><span style=\" font-weight:400;\">Allison Denham</span></p><p align=\"center\"><span style=\" font-weight:400;\">Carlos Echenique</span></p><p align=\"center\"><span style=\" font-weight:400;\">Wyatt Townsend</span><br/></p></body></html>", None))
         self.CardLabel_FirstName.setText(QCoreApplication.translate("Stinder", u"First Name:", None))
         self.Discover_FirstName.setText(a_user[0])
