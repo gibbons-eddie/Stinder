@@ -1,7 +1,7 @@
 import sqlite3
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QSizePolicy
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from PySide6.QtGui import QIcon
 from sqlite3 import Error
@@ -12,6 +12,7 @@ from stinder.resources.images import *
 from stinder.resources.fonts import *
 
 from stinder.stinder_images_rc import *
+
 
 class LogInWindow(QDialog):
     def __init__(self):
@@ -101,7 +102,6 @@ class LogInWindow(QDialog):
             )
             login_conn.commit()
             login_conn.close()
-            print("Added to database")
             # print(loc) # testing
             self.accept()
 
@@ -121,6 +121,86 @@ class MainWindow(QMainWindow):
         self.ui.BrowseButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.BrowsePage))
         # PAGE 3
         self.ui.ProfileButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.ProfilePage))
+
+        # If add courses button is pushed, display box and list
+        self.ui.AddCoursesBtn.clicked.connect(self.AddCoursesClicked)
+        self.ui.AddBtn.clicked.connect(self.AddCourses)
+        self.ui.DeleteBtn.clicked.connect(self.DeleteCourses)
+        self.ui.DoneBtn.clicked.connect(self.DoneEditing)
+
+    def DoneEditing(self):
+        if self.ui.lCourseListWidget.count() == 0:
+            self.ui.courseinstructlabel.setVisible(True)
+            self.ui.lCourseListWidget.setVisible(False)
+
+        self.ui.AddBtn.setVisible(False)
+        self.ui.DeleteBtn.setVisible(False)
+        self.ui.CourseInputEdit.setVisible(False)
+        self.ui.DoneBtn.setVisible(False)
+        self.ui.AddCoursesBtn.setVisible(True)
+
+    def DeleteCourses(self):
+        row = self.ui.lCourseListWidget.currentRow()
+        course = self.ui.lCourseListWidget.item(row).text()
+        self.ui.lCourseListWidget.takeItem(row)
+        profileconn = sqlite3.connect("stinder/users.db")
+        profilecurs = profileconn.cursor()
+        profilecurs.execute("DELETE FROM courses WHERE user_email=? AND code=?", (self.email, course))
+        profileconn.commit()
+        profileconn.close()
+
+    def AddCourses(self):
+        profileconn = sqlite3.connect("stinder/users.db")
+        profilecurs = profileconn.cursor()
+        if self.ui.CourseInputEdit.text() == "":
+            # Do nothing
+            print("")
+        else:
+            self.ui.lCourseListWidget.addItem(self.ui.CourseInputEdit.text())
+            profilecurs.execute("INSERT INTO courses(user_email, code) VALUES (?, ?)",
+                                (self.email, self.ui.CourseInputEdit.text()))
+            profileconn.commit()
+            profileconn.close()
+            self.ui.CourseInputEdit.setText("")
+
+    def AddCoursesClicked(self):
+        self.ui.AddCoursesBtn.setVisible(False)
+        self.ui.courseinstructlabel.setVisible(False)
+        self.ui.AddBtn.setVisible(True)
+        self.ui.CourseInputEdit.setVisible(True)
+        self.ui.lCourseListWidget.setVisible(True)
+        self.ui.DeleteBtn.setVisible(True)
+        self.ui.DoneBtn.setVisible(True)
+
+    def displayCourses(self, email):
+        # If user has no courses, display prompt information and hide everything else
+        self.email = email
+        resize = self.ui.lCourseListWidget.sizePolicy()
+        resize.setRetainSizeWhenHidden(True)
+        self.ui.lCourseListWidget.setSizePolicy(resize)
+
+        self.ui.AddBtn.setVisible(False)
+        self.ui.DeleteBtn.setVisible(False)
+        self.ui.CourseInputEdit.setVisible(False)
+        self.ui.DoneBtn.setVisible(False)
+
+        profileconn = sqlite3.connect("stinder/users.db")
+        profilecurs = profileconn.cursor()
+        user = profilecurs.execute("SELECT * FROM courses WHERE user_email = ?", (email,)).fetchone()
+        # If user has no courses, display prompt information and hide everything else
+        if not user:
+            print("No courses")
+            profilecurs.close()
+            self.ui.lCourseListWidget.setVisible(False)
+        # If user has courses display courses but not instructions
+        else:
+            self.ui.courseinstructlabel.setVisible(False)
+            self.ui.lCourseListWidget.setVisible(True)
+            courses = profilecurs.execute("SELECT code FROM courses WHERE user_email = ?", (email,)).fetchall()
+            for course in courses:
+                course_str = str(course)
+                self.ui.lCourseListWidget.addItem(course_str.split("\'")[1])
+            profilecurs.close()
 
     def setUser(self, email):
         self.email = email
@@ -185,6 +265,7 @@ if __name__ == "__main__":
         window = MainWindow()
         window.show()
         window.setUser(login.getEmail())
+        window.displayCourses(login.getEmail())
 
     # Below block of code shows functionality for database
     conn = sqlite3.connect("stinder/users.db")
