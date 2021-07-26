@@ -48,11 +48,12 @@ class LogInWindow(QDialog):
         self.setFont(appFont)
 
     def checkRegexEmail(self, email):
-        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
-        if(re.match(email, regex)):
-            return True
+        regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+        if(re.search(regex, email)):
+            print("valid email address")
         else:
-            return False
+            print("invalid email address")
+            self.loginUi.errorLabelP1.setText("Invalid email address.")
 
     def handleSignIn(self):
         email = self.loginUi.LoginInput.text()
@@ -60,10 +61,9 @@ class LogInWindow(QDialog):
         curs = exists_conn.cursor()
         self.emailAddr = email
 
+        self.checkRegexEmail(email)
         if len(email) == 0:
             self.loginUi.errorLabelP1.setText("Please input an email address.")
-        elif not self.checkRegexEmail(email):
-            self.loginUi.errorLabelP1.setText("Invalid email address.")
         elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
             exists_conn.close()
             self.accept()
@@ -76,10 +76,9 @@ class LogInWindow(QDialog):
         email = self.loginUi.EmailInput.text()
         major = self.loginUi.MajorInput.currentText()
 
+        self.checkRegexEmail(email)
         if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
             self.loginUi.errorLabel.setText("Please input all fields.")
-        elif not self.checkRegexEmail(email):
-            self.loginUi.errorLabel.setText("Invalid email address.")
         else:
             self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage)
 
