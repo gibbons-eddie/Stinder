@@ -9,11 +9,15 @@
 ################################################################################
 from posix import NGROUPS_MAX
 import sqlite3
+
+from PySide6 import QtWidgets
 import numpy
 from os import linesep
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
+
+from stinder.match import *
 
 from stinder.stinder_images_rc import *
 
@@ -23,6 +27,10 @@ class Ui_Stinder(object):
         self.students = []
         self.s_length = 0
         self.c_user = []
+        
+        self.matchWindow = QtWidgets.QDialog()
+        self.matchUi = Ui_LikeDialog()
+        self.matchUi.setupUi(self.matchWindow)
 
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
@@ -89,7 +97,7 @@ class Ui_Stinder(object):
 
         self.gridLayout.addWidget(self.logo, 4, 0, 1, 1)
 
-        self.AboutButton = QPushButton(self.frame_2)
+        self.AboutButton = QPushButton(self.frame_2, clicked=lambda: self.showMatch())
         self.AboutButton.setObjectName(u"AboutButton")
         self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
@@ -877,4 +885,7 @@ class Ui_Stinder(object):
 
     def takeRank(self, i):
         return self.students[i][10]
+
+    def showMatch(self):
+        self.matchWindow.show()
         
