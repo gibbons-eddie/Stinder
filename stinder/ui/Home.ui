@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>855</width>
-    <height>662</height>
+    <width>880</width>
+    <height>675</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -230,6 +230,20 @@ padding: 6px;</string>
                <height>450</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {
+	background: none;
+}
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
+	background: none;
+}</string>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Box</enum>
              </property>
@@ -249,59 +263,145 @@ padding: 6px;</string>
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-97</y>
-                <width>665</width>
-                <height>537</height>
+                <y>-2765</y>
+                <width>659</width>
+                <height>3205</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_9">
-               <item row="2" column="0">
-                <widget class="QFrame" name="frame_8">
+               <item row="8" column="0">
+                <widget class="QFrame" name="frame_14">
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_12">
-                  <property name="verticalSpacing">
-                   <number>0</number>
-                  </property>
+                 <layout class="QGridLayout" name="gridLayout_18">
                   <item row="0" column="0">
-                   <spacer name="horizontalSpacer_11">
+                   <spacer name="horizontalSpacer_23">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>0</width>
+                      <width>29</width>
                       <height>20</height>
                      </size>
                     </property>
                    </spacer>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLabel" name="label_7">
+                   <widget class="QLabel" name="label_13">
                     <property name="styleSheet">
                      <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;Stinder aims to solve those problems for those who would like to pair up with those with similar work ethic and motivations. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;Fill out your student information for your profile and browse through your class population for those with similar qualities to &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;work as effectively as possible in a group setting! Filter students by major, coursework, schedule and more to find your perfect&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt; match!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;Q: &lt;/span&gt;&lt;a name=&quot;docs-internal-guid-2efe5ddc-7fff-8493-3a5a-d7bea65d3e43&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;C&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;an I search for students with specific qualities? &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;A: Currently, on the browse page you can filter the profiles &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;by major or year.This filter feature takes into&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;consideration the profiles the algorithm considers to be good &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;matches with your profile and then gives you only &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;profiles that are the same as your major or year. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <spacer name="horizontalSpacer_12">
+                   <spacer name="horizontalSpacer_24">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>0</width>
+                      <width>29</width>
                       <height>20</height>
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="6" column="0">
+                <widget class="QFrame" name="frame_12">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_16">
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_19">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>76</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_11">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a name=&quot;docs-internal-guid-d6b8bf47-7fff-02bc-f938-e7ece8d2821a&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:696; color:#ffffff; background-color:transparent;&quot;&gt;Q: H&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:696; color:#ffffff; background-color:transparent;&quot;&gt;ow do I edit my profile?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt;A: &lt;/span&gt;&lt;a name=&quot;docs-internal-guid-367ca894-7fff-569c-cbbf-45c85db7a4be&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt;Y&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt;ou can edit your profile by clicking on the&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; profile button on the left hand side of the&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; application and then clicking the edit profile&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; button. From there you can reanswer the&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; questions from the sign up process and&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; adjust any preferences that may have&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; changed. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_20">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>75</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="12" column="0">
+                <widget class="QFrame" name="frame_18">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                  <item>
+                   <widget class="QLabel" name="label_17">
+                    <property name="minimumSize">
+                     <size>
+                      <width>256</width>
+                      <height>256</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap>../resources/images/eg-profile.png</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_18">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;Eddie Gibbons | Project Lead&lt;/span&gt;&lt;span style=&quot; font-weight:400; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;&amp;quot;A favorite study habit of mine is to&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;collaborate on class notes with &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;friends. There's alwlays different&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;interpretations and understandings &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;of course material and it's great to &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;learn by having everyone give their &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;opinion and reasoning as to why &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;theybelieve what they believe.&amp;quot;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
@@ -374,7 +474,7 @@ padding: 6px;</string>
                      <number>0</number>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; text-decoration: underline; color:#ffffff;&quot;&gt;Mission Statement&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt; text-decoration: underline; color:#ffffff;&quot;&gt;Mission Statement&lt;/span&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                     <property name="textFormat">
                      <enum>Qt::RichText</enum>
@@ -387,70 +487,193 @@ padding: 6px;</string>
                  </layout>
                 </widget>
                </item>
-               <item row="4" column="0">
-                <widget class="QFrame" name="frame_10">
+               <item row="9" column="0">
+                <widget class="QFrame" name="frame_15">
                  <property name="frameShape">
                   <enum>QFrame::StyledPanel</enum>
                  </property>
                  <property name="frameShadow">
                   <enum>QFrame::Raised</enum>
                  </property>
-                 <layout class="QGridLayout" name="gridLayout_14">
+                 <layout class="QGridLayout" name="gridLayout_19">
                   <item row="0" column="0">
-                   <spacer name="horizontalSpacer_15">
+                   <spacer name="horizontalSpacer_25">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>155</width>
+                      <width>79</width>
                       <height>20</height>
                      </size>
                     </property>
                    </spacer>
                   </item>
                   <item row="0" column="1">
-                   <widget class="QLabel" name="label_9">
-                    <property name="minimumSize">
-                     <size>
-                      <width>0</width>
-                      <height>0</height>
-                     </size>
-                    </property>
+                   <widget class="QLabel" name="label_14">
                     <property name="styleSheet">
-                     <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;</string>
-                    </property>
-                    <property name="frameShape">
-                     <enum>QFrame::NoFrame</enum>
-                    </property>
-                    <property name="frameShadow">
-                     <enum>QFrame::Plain</enum>
-                    </property>
-                    <property name="lineWidth">
-                     <number>4</number>
-                    </property>
-                    <property name="midLineWidth">
-                     <number>0</number>
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; text-decoration: underline; color:#ffffff;&quot;&gt;FAQs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                    </property>
-                    <property name="textFormat">
-                     <enum>Qt::RichText</enum>
-                    </property>
-                    <property name="alignment">
-                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;Q:  &lt;/span&gt;&lt;a name=&quot;docs-internal-guid-ac5f434d-7fff-f5d7-39ec-9f137ccebbd9&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;ow does the like feature work on Stinder?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt;A: When on the browse page you can use&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; the slider to like a certain profile. If the&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; student of the liked profile likes your profile&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; back, then you two would have a match! &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                    </widget>
                   </item>
                   <item row="0" column="2">
-                   <spacer name="horizontalSpacer_16">
+                   <spacer name="horizontalSpacer_26">
                     <property name="orientation">
                      <enum>Qt::Horizontal</enum>
                     </property>
                     <property name="sizeHint" stdset="0">
                      <size>
-                      <width>154</width>
+                      <width>78</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="2" column="0">
+                <widget class="QFrame" name="frame_8">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_12">
+                  <property name="verticalSpacing">
+                   <number>0</number>
+                  </property>
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_11">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>0</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_7">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;Stinder aims to solve those problems for those who would like to pair&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;up with those with similar work ethic and motivations. &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;Fill out your student information for your profile and browse through&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;your class population for those with similar qualities to &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;work as effectively as possible in a group setting! Filter students by&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;major, coursework, schedule and more to find your perfect&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;justify&quot;&gt;&lt;span style=&quot; font-size:8pt; font-weight:400; color:#ffffff;&quot;&gt;match!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_12">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>0</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="5" column="0">
+                <widget class="QFrame" name="frame_11">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_15">
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_17">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>84</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_10">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a name=&quot;docs-internal-guid-7b5fe8b8-7fff-9183-8138-f3d8823b0081&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;Q&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;: How does Stinder work?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a name=&quot;docs-internal-guid-ccca6ff3-7fff-c106-1d28-2e3f845958f1&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;A&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;: Stinder works by using the information you&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;filled out in the sign up process in an algorithm&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;that matches you with other students with similar&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;study habits, behaviors, locations, major and&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;coursework. After the algorithm has been run on&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;your information, you can go to the browse page&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;to view the students who we at Stinder believe&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;are your best match as a study buddy. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_18">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>84</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="7" column="0">
+                <widget class="QFrame" name="frame_13">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_17">
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_21">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>53</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_12">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;Q: &lt;/span&gt;&lt;a name=&quot;docs-internal-guid-088e0566-7fff-4bbb-1e26-74fa49546a58&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;H&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;ow do I message a person that I matched with?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;A: &lt;/span&gt;&lt;a name=&quot;docs-internal-guid-e9989f26-7fff-affc-4df4-e4b6b352bce4&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;O&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;n the browse page you can message any&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;person that appears there via email! From there it&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;is up to you to start conversation and exchange&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;&quot;&gt;other forms of communication. &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_22">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>53</width>
                       <height>20</height>
                      </size>
                     </property>
@@ -509,12 +732,60 @@ padding: 6px;</string>
                      <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
                     </property>
                     <property name="text">
-                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:400; color:#ffffff;&quot;&gt;Do you hate having to group up with students you don't know? &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:400; color:#ffffff;&quot;&gt;Have you ever been stuck doing all the work?&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:14pt; font-weight:400; color:#ffffff;&quot;&gt;Us too.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;Do you hate having to group up with students you don't know? &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;Have you ever been stuck doing all the work?&lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;Us too.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
                     </property>
                     <property name="scaledContents">
                      <bool>false</bool>
                     </property>
                    </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="11" column="0">
+                <widget class="QFrame" name="frame_17">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_21">
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_29">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>115</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_16">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:24pt; text-decoration: underline; color:#ffffff;&quot;&gt;Meet Team Swipers&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_30">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>114</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
                   </item>
                  </layout>
                 </widget>
@@ -572,6 +843,173 @@ padding: 6px;</string>
                      </size>
                     </property>
                    </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="10" column="0">
+                <widget class="QFrame" name="frame_16">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_20">
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_27">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>68</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_15">
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:600; color:#ffffff;&quot;&gt;Q: &lt;/span&gt;&lt;a name=&quot;docs-internal-guid-9a1ec44c-7fff-704f-472d-044e3c22d185&quot;/&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;C&lt;/span&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;&quot;&gt;an I match more than once? &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt;A: Of course! Our matching algorithm works so&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; that it would continue to match your profile&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; with other profiles similar to yours as long as&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'Arial'; font-size:12pt; color:#ffffff; background-color:transparent;&quot;&gt; you are using Stinder and liking profiles&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_28">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>67</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="4" column="0">
+                <widget class="QFrame" name="frame_10">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QGridLayout" name="gridLayout_14">
+                  <item row="0" column="2">
+                   <spacer name="horizontalSpacer_16">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>154</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="0">
+                   <spacer name="horizontalSpacer_15">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>155</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                  <item row="0" column="1">
+                   <widget class="QLabel" name="label_9">
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;</string>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::NoFrame</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Plain</enum>
+                    </property>
+                    <property name="lineWidth">
+                     <number>4</number>
+                    </property>
+                    <property name="midLineWidth">
+                     <number>0</number>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; text-decoration: underline; color:#ffffff;&quot;&gt;FAQs&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                    <property name="textFormat">
+                     <enum>Qt::RichText</enum>
+                    </property>
+                    <property name="alignment">
+                     <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
+               </item>
+               <item row="13" column="0">
+                <widget class="QFrame" name="frame_19">
+                 <property name="frameShape">
+                  <enum>QFrame::StyledPanel</enum>
+                 </property>
+                 <property name="frameShadow">
+                  <enum>QFrame::Raised</enum>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_3">
+                  <item>
+                   <widget class="QLabel" name="label_19">
+                    <property name="minimumSize">
+                     <size>
+                      <width>321</width>
+                      <height>342</height>
+                     </size>
+                    </property>
+                    <property name="styleSheet">
+                     <string notr="true">font: 500 13pt &quot;Nexa&quot;;</string>
+                    </property>
+                    <property name="text">
+                     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;Carlos Echenique | Developer&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;&lt;br/&gt;&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt;&amp;quot;My favorite study spot is usually&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt; my place of residence or at least&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt; close to home. I think it's the best&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt; feeling ever to finish a long night&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt; of studying and then jumping right&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:12pt; font-weight:400; color:#ffffff;&quot;&gt; into bed!&amp;quot; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QLabel" name="label_20">
+                    <property name="minimumSize">
+                     <size>
+                      <width>256</width>
+                      <height>256</height>
+                     </size>
+                    </property>
+                    <property name="text">
+                     <string/>
+                    </property>
+                    <property name="pixmap">
+                     <pixmap>../resources/images/ce-profile.jpg</pixmap>
+                    </property>
+                    <property name="scaledContents">
+                     <bool>true</bool>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </widget>
