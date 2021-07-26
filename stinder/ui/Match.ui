@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>414</width>
-    <height>305</height>
+    <width>646</width>
+    <height>439</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,15 +20,64 @@ color: black;</string>
   <layout class="QVBoxLayout" name="MatchVerticalLayout">
    <item>
     <widget class="QLabel" name="MatchTitle">
+     <property name="font">
+      <font>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>You've got a match!</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;You've got a match!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+    </widget>
+   </item>
+   <item alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="LogoImage">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">padding: 30px 70px;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="pixmap">
+      <pixmap resource="../resources/stinder_images.qrc">:/logo/images/stinder_book_logo.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
+     </property>
+     <property name="margin">
+      <number>0</number>
+     </property>
+     <property name="indent">
+      <number>-2</number>
      </property>
     </widget>
    </item>
    <item>
-    <spacer name="titleSpacer">
+    <widget class="QLabel" name="InfoLabel">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <spacer name="buttonSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType">
+      <enum>QSizePolicy::Maximum</enum>
      </property>
      <property name="sizeHint" stdset="0">
       <size>
@@ -39,7 +88,10 @@ color: black;</string>
     </spacer>
    </item>
    <item>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="OKButton">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
       <string>OK</string>
      </property>
@@ -47,6 +99,8 @@ color: black;</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../resources/stinder_images.qrc"/>
+ </resources>
  <connections/>
 </ui>

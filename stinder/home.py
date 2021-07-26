@@ -881,11 +881,15 @@ class Ui_Stinder(object):
         else:
             likes_cur.execute("INSERT OR REPLACE INTO likes (user_email, like_fname, like_lname, like_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
             likes_conn.commit()
+
+            # likes_cur.execute("")
+
             likes_conn.close()
 
     def takeRank(self, i):
         return self.students[i][10]
 
     def showMatch(self):
+        self.matchUi.InfoLabel.setText(self.students[self.counter][3])
         self.matchWindow.show()
         
