@@ -441,10 +441,6 @@ class Ui_Stinder(object):
         self.ProfilePage.setObjectName(u"ProfilePage")
         self.horizontalLayout = QHBoxLayout(self.ProfilePage)
         self.horizontalLayout.setObjectName(u"horizontalLayout")
-        self.horizontalSpacer_2 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer_2)
-
         self.frame = QFrame(self.ProfilePage)
         self.frame.setObjectName(u"frame")
         self.frame.setMinimumSize(QSize(700, 0))
@@ -452,8 +448,25 @@ class Ui_Stinder(object):
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.frame)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.gridLayout_7 = QGridLayout(self.frame)
+        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.UserMajor = QLabel(self.frame)
+        self.UserMajor.setObjectName(u"UserMajor")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.UserMajor.sizePolicy().hasHeightForWidth())
+        self.UserMajor.setSizePolicy(sizePolicy2)
+        self.UserMajor.setMinimumSize(QSize(300, 0))
+        self.UserMajor.setStyleSheet(u"color: white; \n"
+                                     "font: 15pt \"Segoe UI\";\n"
+                                     "background: transparent;\n"
+                                     "border-bottom: 2px solid white;\n"
+                                     "\n"
+                                     "")
+
+        self.gridLayout_7.addWidget(self.UserMajor, 3, 0, 1, 2)
+
         self.label_4 = QLabel(self.frame)
         self.label_4.setObjectName(u"label_4")
         font1 = QFont()
@@ -463,95 +476,77 @@ class Ui_Stinder(object):
         self.label_4.setFont(font1)
         self.label_4.setAutoFillBackground(False)
         self.label_4.setStyleSheet(u"color: white; \n"
-"font: 30pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
+                                   "font: 30pt \"Segoe UI\";\n"
+                                   "background: transparent;\n"
+                                   "\n"
+                                   "")
         self.label_4.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label_4)
+        self.gridLayout_7.addWidget(self.label_4, 1, 0, 1, 2)
 
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(150, 0))
-        self.label.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
+        self.courseinstructlabel = QLabel(self.frame)
+        self.courseinstructlabel.setObjectName(u"courseinstructlabel")
+        self.courseinstructlabel.setStyleSheet(u"color: white;\n"
+                                               "font: 10pt;\n"
+                                               "")
 
-        self.verticalLayout.addWidget(self.label)
+        self.gridLayout_7.addWidget(self.courseinstructlabel, 12, 0, 1, 1, Qt.AlignHCenter)
 
         self.UserName = QLabel(self.frame)
         self.UserName.setObjectName(u"UserName")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
         sizePolicy2.setHeightForWidth(self.UserName.sizePolicy().hasHeightForWidth())
         self.UserName.setSizePolicy(sizePolicy2)
         self.UserName.setMinimumSize(QSize(300, 0))
         self.UserName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;\n"
-"\n"
-"")
+                                    "font: 15pt \"Segoe UI\";\n"
+                                    "background: transparent;\n"
+                                    "border-bottom: 2px solid white;\n"
+                                    "\n"
+                                    "")
 
-        self.verticalLayout.addWidget(self.UserName)
+        self.gridLayout_7.addWidget(self.UserName, 10, 0, 1, 2)
 
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(150, 0))
         self.label_2.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
+                                   "font: 15pt \"Segoe UI\";\n"
+                                   "background: transparent;\n"
+                                   "\n"
+                                   "")
 
-        self.verticalLayout.addWidget(self.label_2)
+        self.gridLayout_7.addWidget(self.label_2, 7, 0, 1, 1)
 
-        self.UserEmail = QLabel(self.frame)
-        self.UserEmail.setObjectName(u"UserEmail")
-        sizePolicy2.setHeightForWidth(self.UserEmail.sizePolicy().hasHeightForWidth())
-        self.UserEmail.setSizePolicy(sizePolicy2)
-        self.UserEmail.setMinimumSize(QSize(300, 0))
-        self.UserEmail.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;\n"
-"\n"
-"")
+        self.CoursesTitle = QLabel(self.frame)
+        self.CoursesTitle.setObjectName(u"CoursesTitle")
+        self.CoursesTitle.setMinimumSize(QSize(0, 0))
+        self.CoursesTitle.setStyleSheet(u"color: white; \n"
+                                        "font: 25pt \"Segoe UI\";\n"
+                                        "background: transparent;")
+        self.CoursesTitle.setFrameShape(QFrame.NoFrame)
+        self.CoursesTitle.setAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter)
 
-        self.verticalLayout.addWidget(self.UserEmail)
+        self.gridLayout_7.addWidget(self.CoursesTitle, 11, 0, 1, 1)
 
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(150, 0))
         self.label_3.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
+                                   "font: 15pt \"Segoe UI\";\n"
+                                   "background: transparent;\n"
+                                   "\n"
+                                   "")
 
-        self.verticalLayout.addWidget(self.label_3)
+        self.gridLayout_7.addWidget(self.label_3, 9, 0, 1, 1)
 
-        self.UserMajor = QLabel(self.frame)
-        self.UserMajor.setObjectName(u"UserMajor")
-        sizePolicy2.setHeightForWidth(self.UserMajor.sizePolicy().hasHeightForWidth())
-        self.UserMajor.setSizePolicy(sizePolicy2)
-        self.UserMajor.setMinimumSize(QSize(300, 0))
-        self.UserMajor.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;\n"
-"\n"
-"")
+        self.CourseInputEdit = QLineEdit(self.frame)
+        self.CourseInputEdit.setObjectName(u"CourseInputEdit")
+        self.CourseInputEdit.setMinimumSize(QSize(561, 30))
+        self.CourseInputEdit.setStyleSheet(u"background-color: white;\n"
+                                           "border-radius: 10px;\n"
+                                           "padding: 0 8px;")
 
-        self.verticalLayout.addWidget(self.UserMajor)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer_2)
+        self.gridLayout_7.addWidget(self.CourseInputEdit, 13, 0, 1, 1)
 
         self.LikesLabel = QLabel(self.frame)
         self.LikesLabel.setObjectName(u"LikesLabel")
@@ -559,14 +554,118 @@ class Ui_Stinder(object):
 "color: white;\n"
 "")
 
-        self.verticalLayout.addWidget(self.LikesLabel)
+        self.gridLayout_7.addWidget(self.LikesLabel, 17, 0, 1, 1)
 
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(150, 0))
+        self.label.setStyleSheet(u"color: white; \n"
+                                 "font: 15pt \"Segoe UI\";\n"
+                                 "background: transparent;\n"
+                                 "\n"
+                                 "")
+
+        self.gridLayout_7.addWidget(self.label, 2, 0, 1, 1)
+
+        self.UserEmail = QLabel(self.frame)
+        self.UserEmail.setObjectName(u"UserEmail")
+        sizePolicy2.setHeightForWidth(self.UserEmail.sizePolicy().hasHeightForWidth())
+        self.UserEmail.setSizePolicy(sizePolicy2)
+        self.UserEmail.setMinimumSize(QSize(300, 0))
+        self.UserEmail.setStyleSheet(u"color: white; \n"
+                                     "font: 15pt \"Segoe UI\";\n"
+                                     "background: transparent;\n"
+                                     "border-bottom: 2px solid white;\n"
+                                     "\n"
+                                     "")
+
+        self.gridLayout_7.addWidget(self.UserEmail, 8, 0, 1, 2)
+
+        self.AddCoursesBtn = QPushButton(self.frame)
+        self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
+        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                         "background-color: rgb(98, 214, 81);\n"
+                                         "color: rgb(255, 255, 255);\n"
+                                         "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                         "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                         "border-left:  1px solid rgb(72, 156, 59);\n"
+                                         "border-right:  1px solid rgb(72, 156, 59);\n"
+                                         "padding: 6px;\n"
+                                         "")
+
+        self.gridLayout_7.addWidget(self.AddCoursesBtn, 11, 1, 1, 1)
+
+        self.lCourseListWidget = QListWidget(self.frame)
+        self.lCourseListWidget.setObjectName(u"lCourseListWidget")
+        font2 = QFont()
+        font2.setPointSize(16)
+        self.lCourseListWidget.setFont(font2)
+        self.lCourseListWidget.setStyleSheet(u"color: white; border-radius:10px;")
+
+        self.gridLayout_7.addWidget(self.lCourseListWidget, 16, 0, 1, 1)
+
+        self.CourseVertLayout = QVBoxLayout()
+        self.CourseVertLayout.setObjectName(u"CourseVertLayout")
+        self.AddBtn = QPushButton(self.frame)
+        self.AddBtn.setObjectName(u"AddBtn")
+        self.AddBtn.setMinimumSize(QSize(10, 10))
+        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                  "background-color: rgb(98, 214, 81);\n"
+                                  "color: rgb(255, 255, 255);\n"
+                                  "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                  "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                  "border-left:  1px solid rgb(72, 156, 59);\n"
+                                  "border-right:  1px solid rgb(72, 156, 59);\n"
+                                  "padding: 2px;\n"
+                                  "\n"
+                                  "")
+
+        self.CourseVertLayout.addWidget(self.AddBtn)
+
+        self.DeleteBtn = QPushButton(self.frame)
+        self.DeleteBtn.setObjectName(u"DeleteBtn")
+        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                     "background-color: rgb(98, 214, 81);\n"
+                                     "color: rgb(255, 255, 255);\n"
+                                     "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                     "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                     "border-left:  1px solid rgb(72, 156, 59);\n"
+                                     "border-right:  1px solid rgb(72, 156, 59);\n"
+                                     "padding: 2px;\n"
+                                     "")
+
+        self.CourseVertLayout.addWidget(self.DeleteBtn)
+
+        self.DoneBtn = QPushButton(self.frame)
+        self.DoneBtn.setObjectName(u"DoneBtn")
+        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                   "background-color: rgb(98, 214, 81);\n"
+                                   "color: rgb(255, 255, 255);\n"
+                                   "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                   "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                   "border-left:  1px solid rgb(72, 156, 59);\n"
+                                   "border-right:  1px solid rgb(72, 156, 59);\n"
+                                   "padding: 2px;\n"
+                                   "")
+        self.CourseVertLayout.addWidget(self.DoneBtn)
+
+        self.gridLayout_7.addLayout(self.CourseVertLayout, 16, 1, 1, 1)
+
+        self.CoursesTitle.raise_()
+        self.LikesLabel.raise_()
+        self.UserEmail.raise_()
+        self.label_2.raise_()
+        self.label_3.raise_()
+        self.UserName.raise_()
+        self.UserMajor.raise_()
+        self.label.raise_()
+        self.label_4.raise_()
+        self.courseinstructlabel.raise_()
+        self.lCourseListWidget.raise_()
+        self.CourseInputEdit.raise_()
+        self.AddCoursesBtn.raise_()
 
         self.horizontalLayout.addWidget(self.frame)
-
-        self.horizontalSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.horizontalLayout.addItem(self.horizontalSpacer)
 
         self.stackedWidget.addWidget(self.ProfilePage)
 
@@ -626,14 +725,26 @@ class Ui_Stinder(object):
 #endif // QT_CONFIG(whatsthis)
         self.FilterLine.setText("")
         self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Category", None))
+        self.UserMajor.setText("")
         self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
-        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
+        self.courseinstructlabel.setText(
+                QCoreApplication.translate("Stinder", u"Add courses to connect with people in your classes.", None))
         self.UserName.setText("")
         self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
-        self.UserEmail.setText("")
+        self.CoursesTitle.setText(
+                QCoreApplication.translate("Stinder",
+                                           u"<html><head/><body><p align=\"center\">Courses</p></body></html>",
+                                           None))
         self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
-        self.UserMajor.setText("")
+        self.CourseInputEdit.setText("")
+        self.CourseInputEdit.setPlaceholderText(QCoreApplication.translate("Stinder", u"--Enter Course Code--", None))
         self.LikesLabel.setText("")
+        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
+        self.UserEmail.setText("")
+        self.AddCoursesBtn.setText(QCoreApplication.translate("Stinder", u"Edit Courses", None))
+        self.AddBtn.setText(QCoreApplication.translate("Stinder", u"Add", None))
+        self.DeleteBtn.setText(QCoreApplication.translate("Stinder", u"Delete", None))
+        self.DoneBtn.setText(QCoreApplication.translate("Stinder", u"Done", None))
     # retranslateUi
 
     def next_user(self, users, length):

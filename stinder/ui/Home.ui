@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>903</width>
-    <height>641</height>
+    <width>843</width>
+    <height>611</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -101,7 +101,7 @@ padding: 6px;</string>
           <string/>
          </property>
          <property name="pixmap">
-          <pixmap resource="../resources/stinder_images.qrc">:/logo/images/stinder_logo.png</pixmap>
+          <pixmap resource="../PycharmProjects/Stinder/Stinder/stinder/resources/stinder_images.qrc">:/logo/images/stinder_logo.png</pixmap>
          </property>
          <property name="scaledContents">
           <bool>true</bool>
@@ -131,7 +131,7 @@ padding: 6px;</string>
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="AboutPage">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -145,8 +145,8 @@ padding: 6px;</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>715</width>
-             <height>816</height>
+             <width>681</width>
+             <height>905</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -177,7 +177,7 @@ padding: 6px;</string>
                <enum>Qt::AutoText</enum>
               </property>
               <property name="pixmap">
-               <pixmap resource="../resources/stinder_images.qrc">:/logo/images/stinder_logo.png</pixmap>
+               <pixmap resource="../PycharmProjects/Stinder/Stinder/stinder/resources/stinder_images.qrc">:/logo/images/stinder_logo.png</pixmap>
               </property>
               <property name="scaledContents">
                <bool>true</bool>
@@ -718,19 +718,6 @@ padding: 6px;</string>
       <widget class="QWidget" name="ProfilePage">
        <layout class="QHBoxLayout" name="horizontalLayout">
         <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
          <widget class="QFrame" name="frame">
           <property name="minimumSize">
            <size>
@@ -748,149 +735,8 @@ padding: 6px;</string>
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <widget class="QLabel" name="label_4">
-             <property name="font">
-              <font>
-               <pointsize>30</pointsize>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 30pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Profile</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Name:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="UserName">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-border-bottom: 2px solid white;
-
-</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Email:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="UserEmail">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-border-bottom: 2px solid white;
-
-</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_3">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Major:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
+          <layout class="QGridLayout" name="gridLayout_7">
+           <item row="3" column="0" colspan="2">
             <widget class="QLabel" name="UserMajor">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
@@ -917,41 +763,333 @@ border-bottom: 2px solid white;
              </property>
             </widget>
            </item>
-           <item>
-            <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+           <item row="1" column="0" colspan="2">
+            <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <pointsize>30</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
              </property>
-             <property name="sizeHint" stdset="0">
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 30pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Profile</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="12" column="0" alignment="Qt::AlignHCenter">
+            <widget class="QLabel" name="courseinstructlabel">
+             <property name="styleSheet">
+              <string notr="true">color: white;
+font: 10pt;
+</string>
+             </property>
+             <property name="text">
+              <string>Add courses to connect with people in your classes.</string>
+             </property>
+            </widget>
+           </item>
+           <item row="10" column="0" colspan="2">
+            <widget class="QLabel" name="UserName">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
               <size>
-               <width>20</width>
-               <height>40</height>
+               <width>300</width>
+               <height>0</height>
               </size>
              </property>
-            </spacer>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;
+
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
            </item>
-           <item>
+           <item row="7" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Email:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <widget class="QLabel" name="CoursesTitle">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 25pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::NoFrame</enum>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Courses&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="9" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Major:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="13" column="0">
+            <widget class="QLineEdit" name="CourseInputEdit">
+             <property name="minimumSize">
+              <size>
+               <width>561</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">background-color: white;
+border-radius: 10px;
+padding: 0 8px;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="placeholderText">
+              <string>--Enter Course Code--</string>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="0">
             <widget class="QLabel" name="LikesLabel">
              <property name="text">
               <string/>
              </property>
             </widget>
            </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="8" column="0" colspan="2">
+            <widget class="QLabel" name="UserEmail">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;
+
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="1">
+            <widget class="QPushButton" name="AddCoursesBtn">
+             <property name="styleSheet">
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;
+</string>
+             </property>
+             <property name="text">
+              <string>Add Courses</string>
+             </property>
+            </widget>
+           </item>
+           <item row="16" column="0">
+            <widget class="QListWidget" name="lCourseListWidget">
+             <property name="font">
+              <font>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white;
+border-radius: 10px;</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>COP3503</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>ENC1102</string>
+              </property>
+             </item>
+            </widget>
+           </item>
+           <item row="16" column="1">
+            <layout class="QVBoxLayout" name="CourseVertLayout">
+             <item>
+              <widget class="QPushButton" name="AddBtn">
+               <property name="minimumSize">
+                <size>
+                 <width>10</width>
+                 <height>10</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 2px;
+
+</string>
+               </property>
+               <property name="text">
+                <string>Add</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="DeleteBtn">
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 2px;
+</string>
+               </property>
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="DoneBtn">
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 2px;
+</string>
+               </property>
+               <property name="text">
+                <string>Done</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
           </layout>
+          <zorder>CoursesTitle</zorder>
+          <zorder>LikesLabel</zorder>
+          <zorder>UserEmail</zorder>
+          <zorder>label_2</zorder>
+          <zorder>label_3</zorder>
+          <zorder>UserName</zorder>
+          <zorder>UserMajor</zorder>
+          <zorder>label</zorder>
+          <zorder>label_4</zorder>
+          <zorder>courseinstructlabel</zorder>
+          <zorder>lCourseListWidget</zorder>
+          <zorder>CourseInputEdit</zorder>
+          <zorder>verticalLayoutWidget</zorder>
+          <zorder>AddCoursesBtn</zorder>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>
@@ -976,7 +1114,7 @@ border-bottom: 2px solid white;
   </action>
  </widget>
  <resources>
-  <include location="../resources/stinder_images.qrc"/>
+  <include location="../PycharmProjects/Stinder/Stinder/stinder/resources/stinder_images.qrc"/>
  </resources>
  <connections/>
 </ui>
