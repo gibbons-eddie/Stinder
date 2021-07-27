@@ -17,7 +17,8 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))</string>
+   <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(50, 33, 87, 255), stop:1 rgba(75, 0, 149, 255));
+</string>
   </property>
   <property name="animated">
    <bool>true</bool>
@@ -145,7 +146,7 @@ padding: 6px;</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>565</width>
+             <width>715</width>
              <height>816</height>
             </rect>
            </property>
@@ -586,7 +587,8 @@ border-radius: 5px; border: 2px rgb(33, 33, 34);
 border-bottom: 3px solid rgb(72, 156, 59);
 border-left:  1px solid rgb(72, 156, 59);
 border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;</string>
+padding: 6px;
+margin: 24px;</string>
              </property>
              <property name="text">
               <string>Next</string>
@@ -603,10 +605,10 @@ padding: 6px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
-color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
+background-color: rgb(191, 255, 246);
+color: black;
+border-radius: 5px; border: 2px rgb(61, 172, 202);
+border-bottom: 3px solid rgb(159, 255, 246);
 border-left:  1px solid rgb(72, 156, 59);
 border-right:  1px solid rgb(72, 156, 59);
 padding: 6px;</string>
@@ -618,7 +620,7 @@ padding: 6px;</string>
               <set>Qt::AlignCenter</set>
              </property>
              <property name="placeholderText">
-              <string>Category</string>
+              <string>Search</string>
              </property>
             </widget>
            </item>
@@ -651,7 +653,8 @@ border-radius: 5px; border: 2px rgb(33, 33, 34);
 border-bottom: 3px solid rgb(72, 156, 59);
 border-left:  1px solid rgb(72, 156, 59);
 border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;</string>
+padding: 6px;
+margin: 24px;</string>
              </property>
              <property name="text">
               <string>Previous</string>
@@ -668,7 +671,7 @@ font: 500 13pt &quot;Nexa Bold&quot;;
 background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
 color: rgb(255, 255, 255);
 border-radius: 5px; 
-padding: 6px;
+padding: 12px;
 </string>
              </property>
              <property name="text">
@@ -717,6 +720,11 @@ padding: 6px;
              <item>
               <property name="text">
                <string>Year</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Course</string>
               </property>
              </item>
             </widget>

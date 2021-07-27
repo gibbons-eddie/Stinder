@@ -896,7 +896,8 @@ class Ui_Stinder(object):
         return self.students[i][10]
 
     def showMatch(self):
-        self.matchUi.InfoLabel.setText(self.students[self.counter][3])
+        matchUser = "Here's " + self.students[self.counter][0] + "'s email to contact him: " + self.students[self.counter][3]
+        self.matchUi.InfoLabel.setText(matchUser)
         self.matchWindow.show()
         # self.matchUi.OKButton.clicked.connect(self.matchWindow.hide())
         

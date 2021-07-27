@@ -14,7 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: white;
+   <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(134, 179, 255, 255), stop:1 rgba(14, 103, 255, 255));
 color: black;</string>
   </property>
   <layout class="QVBoxLayout" name="MatchVerticalLayout">
@@ -26,7 +26,9 @@ color: black;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">background-color: transparent;
+color: white;
+padding-top:24px;</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;You've got a match!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -45,7 +47,8 @@ color: black;</string>
       </sizepolicy>
      </property>
      <property name="styleSheet">
-      <string notr="true">padding: 30px 70px;</string>
+      <string notr="true">padding: 30px 70px;
+background-color: transparent;</string>
      </property>
      <property name="text">
       <string/>
@@ -66,6 +69,10 @@ color: black;</string>
    </item>
    <item>
     <widget class="QLabel" name="InfoLabel">
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+color: white;</string>
+     </property>
      <property name="text">
       <string>TextLabel</string>
      </property>
@@ -90,7 +97,8 @@ color: black;</string>
    <item>
     <widget class="QPushButton" name="OKButton">
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(53, 190, 73, 255), stop:1 rgba(138, 255, 118, 255));
+color: white;;</string>
      </property>
      <property name="text">
       <string>OK</string>

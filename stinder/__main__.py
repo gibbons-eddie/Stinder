@@ -187,8 +187,7 @@ def fillcontacts():
     c.execute(
         "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Parker','Computer Science', 'jorge@ufl.edu')")
 
-
-if __name__ == "__main__":
+def main():
     app = QApplication([])
     login = LogInWindow()
 
@@ -213,3 +212,7 @@ if __name__ == "__main__":
     # End of database functionality test -- delete block after testing because it won't be needed
 
     sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()

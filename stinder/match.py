@@ -20,7 +20,7 @@ class Ui_LikeDialog(object):
         if not LikeDialog.objectName():
             LikeDialog.setObjectName(u"LikeDialog")
         LikeDialog.resize(646, 439)
-        LikeDialog.setStyleSheet(u"background-color: white;\n"
+        LikeDialog.setStyleSheet(u"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(134, 179, 255, 255), stop:1 rgba(14, 103, 255, 255));\n"
 "color: black;")
         self.MatchVerticalLayout = QVBoxLayout(LikeDialog)
         self.MatchVerticalLayout.setObjectName(u"MatchVerticalLayout")
@@ -29,7 +29,9 @@ class Ui_LikeDialog(object):
         font = QFont()
         font.setBold(True)
         self.MatchTitle.setFont(font)
-        self.MatchTitle.setStyleSheet(u"")
+        self.MatchTitle.setStyleSheet(u"background-color: transparent;\n"
+"color: white;\n"
+"padding-top:24px;")
         self.MatchTitle.setScaledContents(True)
 
         self.MatchVerticalLayout.addWidget(self.MatchTitle)
@@ -41,7 +43,8 @@ class Ui_LikeDialog(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.LogoImage.sizePolicy().hasHeightForWidth())
         self.LogoImage.setSizePolicy(sizePolicy)
-        self.LogoImage.setStyleSheet(u"padding: 30px 70px;")
+        self.LogoImage.setStyleSheet(u"padding: 30px 70px;\n"
+"background-color: transparent;")
         self.LogoImage.setPixmap(QPixmap(u":/logo/images/stinder_book_logo.png"))
         self.LogoImage.setScaledContents(True)
         self.LogoImage.setMargin(0)
@@ -51,6 +54,8 @@ class Ui_LikeDialog(object):
 
         self.InfoLabel = QLabel(LikeDialog)
         self.InfoLabel.setObjectName(u"InfoLabel")
+        self.InfoLabel.setStyleSheet(u"background-color: transparent;\n"
+"color: white;")
 
         self.MatchVerticalLayout.addWidget(self.InfoLabel)
 
@@ -60,7 +65,8 @@ class Ui_LikeDialog(object):
 
         self.OKButton = QPushButton(LikeDialog)
         self.OKButton.setObjectName(u"OKButton")
-        self.OKButton.setStyleSheet(u"")
+        self.OKButton.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(53, 190, 73, 255), stop:1 rgba(138, 255, 118, 255));\n"
+"color: white;;")
 
         self.MatchVerticalLayout.addWidget(self.OKButton)
 
@@ -71,9 +77,10 @@ class Ui_LikeDialog(object):
     # setupUi
 
     def retranslateUi(self, LikeDialog):
-        LikeDialog.setWindowTitle(QCoreApplication.translate("LikeDialog", u"You've got a match!", None))
+        LikeDialog.setWindowTitle(QCoreApplication.translate("LikeDialog", u"Dialog", None))
         self.MatchTitle.setText(QCoreApplication.translate("LikeDialog", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt;\">You've got a match!</span></p></body></html>", None))
         self.LogoImage.setText("")
         self.InfoLabel.setText(QCoreApplication.translate("LikeDialog", u"TextLabel", None))
         self.OKButton.setText(QCoreApplication.translate("LikeDialog", u"OK", None))
     # retranslateUi
+
