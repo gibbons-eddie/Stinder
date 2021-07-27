@@ -32,6 +32,10 @@ class Ui_Stinder(object):
         self.matchUi = Ui_LikeDialog()
         self.matchUi.setupUi(self.matchWindow)
 
+        self.matches = []
+        self.m_length = 0
+        self.m_counter = 0
+
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
         # init user profile parameters
@@ -376,7 +380,8 @@ class Ui_Stinder(object):
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;\n"
+"margin: 24px;")
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
@@ -403,7 +408,7 @@ class Ui_Stinder(object):
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; \n"
-"padding: 6px;\n"
+"padding: 12px;\n"
 "")
 
         self.gridLayout_6.addWidget(self.LikeButton, 0, 2, 1, 2)
@@ -441,7 +446,8 @@ class Ui_Stinder(object):
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;\n"
+"margin: 24px;")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
 
@@ -449,10 +455,10 @@ class Ui_Stinder(object):
         self.FilterLine.setObjectName(u"FilterLine")
         self.FilterLine.setLayoutDirection(Qt.LeftToRight)
         self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"background-color: rgb(191, 255, 246);\n"
+"color: black;\n"
+"border-radius: 5px; border: 2px rgb(61, 172, 202);\n"
+"border-bottom: 3px solid rgb(159, 255, 246);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
 "padding: 6px;")
@@ -580,6 +586,92 @@ class Ui_Stinder(object):
 
         self.verticalLayout.addItem(self.verticalSpacer_2)
 
+        self.MatchTitle = QLabel(self.frame)
+        self.MatchTitle.setObjectName(u"MatchTitle")
+        self.MatchTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"")
+
+        self.verticalLayout.addWidget(self.MatchTitle)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_6)
+
+        self.MatchName = QLabel(self.frame)
+        self.MatchName.setObjectName(u"MatchName")
+        self.MatchName.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;")
+
+        self.verticalLayout.addWidget(self.MatchName)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_5)
+
+        self.MatchEmail = QLabel(self.frame)
+        self.MatchEmail.setObjectName(u"MatchEmail")
+        self.MatchEmail.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;")
+
+        self.verticalLayout.addWidget(self.MatchEmail)
+
+        self.MatchLayout = QHBoxLayout()
+        self.MatchLayout.setObjectName(u"MatchLayout")
+        self.prevMatchButton = QPushButton(self.frame, clicked=lambda: self.prevMatch())
+        self.prevMatchButton.setObjectName(u"prevMatchButton")
+        self.prevMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
+
+        self.MatchLayout.addWidget(self.prevMatchButton)
+
+        self.nextMatchButton = QPushButton(self.frame, clicked=lambda: self.nextMatch())
+        self.nextMatchButton.setObjectName(u"nextMatchButton")
+        self.nextMatchButton.setLayoutDirection(Qt.LeftToRight)
+        self.nextMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"padding-right:15px;\n"
+"padding-left:15px;")
+
+        self.MatchLayout.addWidget(self.nextMatchButton)
+
+        self.MatchSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.MatchLayout.addItem(self.MatchSpacer)
+
+
+        self.verticalLayout.addLayout(self.MatchLayout)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_4)
+
+        self.LikesTitle = QLabel(self.frame)
+        self.LikesTitle.setObjectName(u"LikesTitle")
+        self.LikesTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"")
+
+        self.verticalLayout.addWidget(self.LikesTitle)
+
         self.LikesLabel = QLabel(self.frame)
         self.LikesLabel.setObjectName(u"LikesLabel")
         self.LikesLabel.setStyleSheet(u"background-color: transparent;\n"
@@ -588,6 +680,9 @@ class Ui_Stinder(object):
 
         self.verticalLayout.addWidget(self.LikesLabel)
 
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.verticalLayout.addItem(self.verticalSpacer_3)
 
         self.horizontalLayout.addWidget(self.frame)
 
@@ -653,7 +748,7 @@ class Ui_Stinder(object):
         self.FilterLine.setWhatsThis(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.FilterLine.setText("")
-        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Category", None))
+        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Search", None))
         self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
         self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
         self.UserName.setText("")
@@ -661,6 +756,13 @@ class Ui_Stinder(object):
         self.UserEmail.setText("")
         self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
         self.UserMajor.setText("")
+        self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
+        self.MatchName.setText("")
+        self.MatchEmail.setText("")
+        self.prevMatchButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
+        self.nextMatchButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
+        self.LikesTitle.setText(QCoreApplication.translate("Stinder", u"Likes", None))
+        self.LikesLabel.setText("")
         self.LikesLabel.setText("")
     # retranslateUi
 
@@ -799,8 +901,10 @@ class Ui_Stinder(object):
         else:
             result = "You have received " + str(like_counter) + " likes!"
         self.LikesLabel.setText(result)
-        # print(self.c_user)
 
+        self.matches, self.m_length = self.matchList()
+        self.MatchName.setText(self.matches[self.m_counter][0])
+        self.MatchEmail.setText(self.matches[self.m_counter][1])
 
     def handleAlgo(self):
         ranking = []
@@ -882,15 +986,18 @@ class Ui_Stinder(object):
             likes_cur.execute("INSERT OR REPLACE INTO likes (user_email, like_fname, like_lname, like_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
             likes_conn.commit()
 
-            likes_cur.execute("SELECT like_email from likes WHERE user_email == ?", (l_email, ))
+            likes_cur.execute("SELECT * from likes WHERE user_email == ?", (l_email, ))
             likes_conn.commit()
 
             for row in likes_cur:
-                if str(row[0]) == u_email:
+                if str(row[4]) == u_email:
+                    likes_cur.execute("INSERT OR REPLACE INTO matches (user_email, match_fname, match_lname, match_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
+                    likes_conn.commit()
                     self.showMatch()
                     break
 
             likes_conn.close()
+
 
     def takeRank(self, i):
         return self.students[i][10]
@@ -900,4 +1007,48 @@ class Ui_Stinder(object):
         self.matchUi.InfoLabel.setText(matchUser)
         self.matchWindow.show()
         # self.matchUi.OKButton.clicked.connect(self.matchWindow.hide())
+
+    def matchList(self):
+        u_email = self.UserEmail.text()
+        
+        match_conn = sqlite3.connect("stinder/users.db")
+        match_cur = match_conn.cursor()
+
+        match_cur.execute("SELECT * from matches WHERE user_email == ?", (u_email, ))
+        match_conn.commit()
+
+        m_list = []
+        m_length = 0
+        for row in match_cur:
+            m_name = str(row[2]) + " " + str(row[3])
+            m_email = str(row[4])
+            m = [m_name, m_email]
+            m_list.append(m)
+            m_length = m_length + 1
+
+        return m_list, m_length
+
+    def prevMatch(self):
+        counter = self.m_counter
+
+        if counter != 0:
+            counter = counter - 1
+            self.m_counter = counter
+
+        self.MatchName.setText(self.matches[self.m_counter][0])
+        self.MatchEmail.setText(self.matches[self.m_counter][1])
+
+    def nextMatch(self):
+        counter = self.m_counter
+
+        if counter != self.m_length | self.m_length != 1:
+            counter = counter + 1
+            self.m_counter = counter
+
+        if self.m_counter == self.m_length:
+            counter = counter - 1
+            self.m_counter = counter
+
+        self.MatchName.setText(self.matches[self.m_counter][0])
+        self.MatchEmail.setText(self.matches[self.m_counter][1])
         

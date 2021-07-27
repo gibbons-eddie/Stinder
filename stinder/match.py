@@ -56,6 +56,7 @@ class Ui_LikeDialog(object):
         self.InfoLabel.setObjectName(u"InfoLabel")
         self.InfoLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;")
+        self.InfoLabel.setTextInteractionFlags(Qt.LinksAccessibleByMouse|Qt.TextSelectableByKeyboard)
 
         self.MatchVerticalLayout.addWidget(self.InfoLabel)
 

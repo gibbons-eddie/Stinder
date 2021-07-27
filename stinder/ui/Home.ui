@@ -132,7 +132,7 @@ padding: 6px;</string>
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="AboutPage">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -950,11 +950,171 @@ border-bottom: 2px solid white;
             </spacer>
            </item>
            <item>
+            <widget class="QLabel" name="MatchTitle">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 30pt &quot;Segoe UI&quot;;
+background: transparent;
+</string>
+             </property>
+             <property name="text">
+              <string>Matches</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_6">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="MatchName">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="MatchEmail">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="MatchLayout">
+             <item>
+              <widget class="QPushButton" name="prevMatchButton">
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;</string>
+               </property>
+               <property name="text">
+                <string>Previous</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="nextMatchButton">
+               <property name="layoutDirection">
+                <enum>Qt::LeftToRight</enum>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;
+padding-right:15px;
+padding-left:15px;</string>
+               </property>
+               <property name="text">
+                <string>Next</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <spacer name="MatchSpacer">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="LikesTitle">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 30pt &quot;Segoe UI&quot;;
+background: transparent;
+</string>
+             </property>
+             <property name="text">
+              <string>Likes</string>
+             </property>
+            </widget>
+           </item>
+           <item>
             <widget class="QLabel" name="LikesLabel">
              <property name="text">
               <string/>
              </property>
             </widget>
+           </item>
+           <item>
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
            </item>
           </layout>
          </widget>
