@@ -97,6 +97,19 @@ class Ui_Stinder(object):
 
         self.gridLayout.addWidget(self.AboutButton, 0, 0, 1, 1)
 
+        self.LogoutBtn = QPushButton(self.frame_2)
+        self.LogoutBtn.setObjectName(u"LogoutBtn")
+        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                     "background-color: rgb(98, 214, 81);\n"
+                                     "color: rgb(255, 255, 255);\n"
+                                     "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                     "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                     "border-left:  1px solid rgb(72, 156, 59);\n"
+                                     "border-right:  1px solid rgb(72, 156, 59);\n"
+                                     "padding: 6px;")
+
+        self.gridLayout.addWidget(self.LogoutBtn, 3, 0, 1, 1, Qt.AlignTop)
+
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
 
@@ -691,6 +704,7 @@ class Ui_Stinder(object):
         self.BrowseButton.setText(QCoreApplication.translate("Stinder", u"Browse", None))
         self.logo.setText("")
         self.AboutButton.setText(QCoreApplication.translate("Stinder", u"About", None))
+        self.LogoutBtn.setText(QCoreApplication.translate("Stinder", u"Logout", None))
 #if QT_CONFIG(tooltip)
         self.aboutlogo.setToolTip(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)

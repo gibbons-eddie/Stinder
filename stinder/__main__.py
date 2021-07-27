@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import sys
 
@@ -31,6 +32,7 @@ class LogInWindow(QDialog):
         self.loginUi.ContinueBtn.clicked.connect(self.handleBasicPage)
         # PAGE 3
         self.loginUi.ContinueBtnP2.clicked.connect(self.handleCreateAcct)
+        self.loginUi.SignInBtn.clicked.connect(lambda: self.loginUi.loginPages.setCurrentWidget(self.loginUi.WelcomePage))
 
     # Override close event to close whole app when dialog is closed
     def closeEvent(self, event):
@@ -128,6 +130,18 @@ class MainWindow(QMainWindow):
         self.ui.DeleteBtn.clicked.connect(self.DeleteCourses)
         self.ui.DoneBtn.clicked.connect(self.DoneEditing)
 
+        self.ui.LogoutBtn.clicked.connect(self.Logout)
+
+    def Logout(self):
+        self.close()
+        new_window = MainWindow()
+        new_dialog = LogInWindow()
+
+        if new_dialog.exec() == QDialog.Accepted:
+            new_window.show()
+            new_window.setUser(new_dialog.getEmail())
+            new_window.displayCourses(new_dialog.getEmail())
+
     def DoneEditing(self):
         if self.ui.lCourseListWidget.count() == 0:
             self.ui.courseinstructlabel.setVisible(True)
@@ -141,13 +155,14 @@ class MainWindow(QMainWindow):
 
     def DeleteCourses(self):
         row = self.ui.lCourseListWidget.currentRow()
-        course = self.ui.lCourseListWidget.item(row).text()
-        self.ui.lCourseListWidget.takeItem(row)
-        profileconn = sqlite3.connect("stinder/users.db")
-        profilecurs = profileconn.cursor()
-        profilecurs.execute("DELETE FROM courses WHERE user_email=? AND code=?", (self.email, course))
-        profileconn.commit()
-        profileconn.close()
+        if not self.ui.lCourseListWidget.count() == 0:
+            course = self.ui.lCourseListWidget.item(row).text()
+            self.ui.lCourseListWidget.takeItem(row)
+            profileconn = sqlite3.connect("stinder/users.db")
+            profilecurs = profileconn.cursor()
+            profilecurs.execute("DELETE FROM courses WHERE user_email=? AND code=?", (self.email, course))
+            profileconn.commit()
+            profileconn.close()
 
     def AddCourses(self):
         profileconn = sqlite3.connect("stinder/users.db")
@@ -173,7 +188,6 @@ class MainWindow(QMainWindow):
         self.ui.DoneBtn.setVisible(True)
 
     def displayCourses(self, email):
-        # If user has no courses, display prompt information and hide everything else
         self.email = email
         resize = self.ui.lCourseListWidget.sizePolicy()
         resize.setRetainSizeWhenHidden(True)
@@ -189,10 +203,9 @@ class MainWindow(QMainWindow):
         user = profilecurs.execute("SELECT * FROM courses WHERE user_email = ?", (email,)).fetchone()
         # If user has no courses, display prompt information and hide everything else
         if not user:
-            print("No courses")
             profilecurs.close()
             self.ui.lCourseListWidget.setVisible(False)
-        # If user has courses display courses but not instructions
+        # If user has courses display courses but not prompt information
         else:
             self.ui.courseinstructlabel.setVisible(False)
             self.ui.lCourseListWidget.setVisible(True)
@@ -260,9 +273,9 @@ def fillcontacts():
 if __name__ == "__main__":
     app = QApplication([])
     login = LogInWindow()
+    window = MainWindow()
 
     if login.exec() == QDialog.Accepted:
-        window = MainWindow()
         window.show()
         window.setUser(login.getEmail())
         window.displayCourses(login.getEmail())
@@ -282,5 +295,4 @@ if __name__ == "__main__":
 
     conn.close()
     # End of database functionality test -- delete block after testing because it won't be needed
-
     sys.exit(app.exec())
