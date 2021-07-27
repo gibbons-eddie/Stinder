@@ -97,7 +97,7 @@ class Ui_Stinder(object):
 
         self.gridLayout.addWidget(self.logo, 4, 0, 1, 1)
 
-        self.AboutButton = QPushButton(self.frame_2, clicked=lambda: self.showMatch())
+        self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
         self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
@@ -809,12 +809,12 @@ class Ui_Stinder(object):
         for student in self.students:
             rank = 0
             if student[3] == self.c_user[3]: # major
-                rank = rank + 10
+                rank = rank + 18
                 # print("Current User: " + self.c_user[3])
             if student[4] == self.c_user[4]: # year
-                rank = rank + 15
+                rank = rank + 18
             if student[5] == self.c_user[5]: # method
-                rank = rank + 20
+                rank = rank + 17
             if student[6] == self.c_user[6]: # loc
                 rank = rank + 15
             if student[7] == self.c_user[7]: # job
@@ -828,7 +828,7 @@ class Ui_Stinder(object):
             # print()
             ranking.append(rank)
         
-        numpy_students = numpy.array(self.students)
+        numpy_students = numpy.array(self.students) 
         numpy_ranking = numpy.array(ranking)
         numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
         # print(numpy_sort)
@@ -882,7 +882,13 @@ class Ui_Stinder(object):
             likes_cur.execute("INSERT OR REPLACE INTO likes (user_email, like_fname, like_lname, like_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
             likes_conn.commit()
 
-            # likes_cur.execute("")
+            likes_cur.execute("SELECT like_email from likes WHERE user_email == ?", (l_email, ))
+            likes_conn.commit()
+
+            for row in likes_cur:
+                if str(row[0]) == u_email:
+                    self.showMatch()
+                    break
 
             likes_conn.close()
 
@@ -892,4 +898,5 @@ class Ui_Stinder(object):
     def showMatch(self):
         self.matchUi.InfoLabel.setText(self.students[self.counter][3])
         self.matchWindow.show()
+        # self.matchUi.OKButton.clicked.connect(self.matchWindow.hide())
         

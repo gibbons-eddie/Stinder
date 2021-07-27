@@ -77,7 +77,3 @@ class Ui_LikeDialog(object):
         self.InfoLabel.setText(QCoreApplication.translate("LikeDialog", u"TextLabel", None))
         self.OKButton.setText(QCoreApplication.translate("LikeDialog", u"OK", None))
     # retranslateUi
-
-    def setUserInfo(self, user):
-        self.InfoLabel.setText(user)
-
