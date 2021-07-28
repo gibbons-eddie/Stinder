@@ -18,7 +18,7 @@ class Ui_Stinder(object):
     def setupUi(self, Stinder):
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
-        Stinder.resize(903, 641)
+        Stinder.resize(948, 812)
         Stinder.setAutoFillBackground(False)
         Stinder.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(50, 33, 87, 255), stop:1 rgba(75, 0, 149, 255));\n"
 "")
@@ -106,7 +106,7 @@ class Ui_Stinder(object):
         self.scrollArea.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 715, 816))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 758, 816))
         self.verticalLayout_2 = QVBoxLayout(self.scrollAreaWidgetContents)
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.aboutlogo = QLabel(self.scrollAreaWidgetContents)
@@ -444,119 +444,16 @@ class Ui_Stinder(object):
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.frame)
-        self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label_4 = QLabel(self.frame)
-        self.label_4.setObjectName(u"label_4")
-        font1 = QFont()
-        font1.setPointSize(30)
-        font1.setBold(False)
-        font1.setItalic(False)
-        self.label_4.setFont(font1)
-        self.label_4.setAutoFillBackground(False)
-        self.label_4.setStyleSheet(u"color: white; \n"
-"font: 30pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-        self.label_4.setAlignment(Qt.AlignCenter)
+        self.gridLayout_9 = QGridLayout(self.frame)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.lCourseListWidget = QListWidget(self.frame)
+        self.lCourseListWidget.setObjectName(u"lCourseListWidget")
 
-        self.verticalLayout.addWidget(self.label_4)
-
-        self.label = QLabel(self.frame)
-        self.label.setObjectName(u"label")
-        self.label.setMinimumSize(QSize(150, 0))
-        self.label.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-
-        self.verticalLayout.addWidget(self.label)
-
-        self.UserName = QLabel(self.frame)
-        self.UserName.setObjectName(u"UserName")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.UserName.sizePolicy().hasHeightForWidth())
-        self.UserName.setSizePolicy(sizePolicy2)
-        self.UserName.setMinimumSize(QSize(300, 0))
-        self.UserName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;\n"
-"\n"
-"")
-
-        self.verticalLayout.addWidget(self.UserName)
-
-        self.label_2 = QLabel(self.frame)
-        self.label_2.setObjectName(u"label_2")
-        self.label_2.setMinimumSize(QSize(150, 0))
-        self.label_2.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-
-        self.verticalLayout.addWidget(self.label_2)
-
-        self.UserEmail = QLabel(self.frame)
-        self.UserEmail.setObjectName(u"UserEmail")
-        sizePolicy2.setHeightForWidth(self.UserEmail.sizePolicy().hasHeightForWidth())
-        self.UserEmail.setSizePolicy(sizePolicy2)
-        self.UserEmail.setMinimumSize(QSize(300, 0))
-        self.UserEmail.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;\n"
-"\n"
-"")
-
-        self.verticalLayout.addWidget(self.UserEmail)
-
-        self.label_3 = QLabel(self.frame)
-        self.label_3.setObjectName(u"label_3")
-        self.label_3.setMinimumSize(QSize(150, 0))
-        self.label_3.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-
-        self.verticalLayout.addWidget(self.label_3)
-
-        self.UserMajor = QLabel(self.frame)
-        self.UserMajor.setObjectName(u"UserMajor")
-        sizePolicy2.setHeightForWidth(self.UserMajor.sizePolicy().hasHeightForWidth())
-        self.UserMajor.setSizePolicy(sizePolicy2)
-        self.UserMajor.setMinimumSize(QSize(300, 0))
-        self.UserMajor.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;\n"
-"\n"
-"")
-
-        self.verticalLayout.addWidget(self.UserMajor)
-
-        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
-
-        self.verticalLayout.addItem(self.verticalSpacer_2)
-
-        self.MatchTitle = QLabel(self.frame)
-        self.MatchTitle.setObjectName(u"MatchTitle")
-        self.MatchTitle.setStyleSheet(u"color: white; \n"
-"font: 30pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"")
-
-        self.verticalLayout.addWidget(self.MatchTitle)
+        self.gridLayout_9.addWidget(self.lCourseListWidget, 21, 0, 1, 1)
 
         self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_6)
+        self.gridLayout_9.addItem(self.verticalSpacer_6, 9, 0, 1, 1)
 
         self.MatchName = QLabel(self.frame)
         self.MatchName.setObjectName(u"MatchName")
@@ -565,20 +462,30 @@ class Ui_Stinder(object):
 "background: transparent;\n"
 "border-bottom: 2px solid white;")
 
-        self.verticalLayout.addWidget(self.MatchName)
+        self.gridLayout_9.addWidget(self.MatchName, 10, 0, 1, 1)
 
-        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.AddCoursesBtn = QPushButton(self.frame)
+        self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
+        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"")
 
-        self.verticalLayout.addItem(self.verticalSpacer_5)
+        self.gridLayout_9.addWidget(self.AddCoursesBtn, 23, 0, 1, 1)
 
-        self.MatchEmail = QLabel(self.frame)
-        self.MatchEmail.setObjectName(u"MatchEmail")
-        self.MatchEmail.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"border-bottom: 2px solid white;")
+        self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addWidget(self.MatchEmail)
+        self.gridLayout_9.addItem(self.verticalSpacer_2, 7, 0, 1, 1)
+
+        self.LikesLabel = QLabel(self.frame)
+        self.LikesLabel.setObjectName(u"LikesLabel")
+
+        self.gridLayout_9.addWidget(self.LikesLabel, 16, 0, 1, 1)
 
         self.MatchLayout = QHBoxLayout()
         self.MatchLayout.setObjectName(u"MatchLayout")
@@ -616,11 +523,178 @@ class Ui_Stinder(object):
         self.MatchLayout.addItem(self.MatchSpacer)
 
 
-        self.verticalLayout.addLayout(self.MatchLayout)
+        self.gridLayout_9.addLayout(self.MatchLayout, 13, 0, 1, 1)
+
+        self.UserName = QLabel(self.frame)
+        self.UserName.setObjectName(u"UserName")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.UserName.sizePolicy().hasHeightForWidth())
+        self.UserName.setSizePolicy(sizePolicy2)
+        self.UserName.setMinimumSize(QSize(300, 0))
+        self.UserName.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;\n"
+"\n"
+"")
+
+        self.gridLayout_9.addWidget(self.UserName, 2, 0, 1, 1)
+
+        self.CoursesTitle = QLabel(self.frame)
+        self.CoursesTitle.setObjectName(u"CoursesTitle")
+        self.CoursesTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;")
+
+        self.gridLayout_9.addWidget(self.CoursesTitle, 19, 0, 1, 1)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_4)
+        self.gridLayout_9.addItem(self.verticalSpacer_4, 14, 0, 1, 1)
+
+        self.MatchEmail = QLabel(self.frame)
+        self.MatchEmail.setObjectName(u"MatchEmail")
+        self.MatchEmail.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;")
+
+        self.gridLayout_9.addWidget(self.MatchEmail, 12, 0, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_5, 11, 0, 1, 1)
+
+        self.label_2 = QLabel(self.frame)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMinimumSize(QSize(150, 0))
+        self.label_2.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
+
+        self.gridLayout_9.addWidget(self.label_2, 3, 0, 1, 1)
+
+        self.label_3 = QLabel(self.frame)
+        self.label_3.setObjectName(u"label_3")
+        self.label_3.setMinimumSize(QSize(150, 0))
+        self.label_3.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
+
+        self.gridLayout_9.addWidget(self.label_3, 5, 0, 1, 1)
+
+        self.CourseVertLayout = QHBoxLayout()
+        self.CourseVertLayout.setObjectName(u"CourseVertLayout")
+        self.AddBtn = QPushButton(self.frame)
+        self.AddBtn.setObjectName(u"AddBtn")
+        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.AddBtn)
+
+        self.DoneBtn = QPushButton(self.frame)
+        self.DoneBtn.setObjectName(u"DoneBtn")
+        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.DoneBtn)
+
+        self.DeleteBtn = QPushButton(self.frame)
+        self.DeleteBtn.setObjectName(u"DeleteBtn")
+        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.DeleteBtn)
+
+
+        self.gridLayout_9.addLayout(self.CourseVertLayout, 25, 0, 1, 1)
+
+        self.MatchTitle = QLabel(self.frame)
+        self.MatchTitle.setObjectName(u"MatchTitle")
+        self.MatchTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.MatchTitle, 8, 0, 1, 1)
+
+        self.CourseInputEdit = QLineEdit(self.frame)
+        self.CourseInputEdit.setObjectName(u"CourseInputEdit")
+        self.CourseInputEdit.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"padding: 0 8px;")
+
+        self.gridLayout_9.addWidget(self.CourseInputEdit, 24, 0, 1, 1)
+
+        self.label = QLabel(self.frame)
+        self.label.setObjectName(u"label")
+        self.label.setMinimumSize(QSize(150, 0))
+        self.label.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
+
+        self.gridLayout_9.addWidget(self.label, 1, 0, 1, 1)
+
+        self.UserMajor = QLabel(self.frame)
+        self.UserMajor.setObjectName(u"UserMajor")
+        sizePolicy2.setHeightForWidth(self.UserMajor.sizePolicy().hasHeightForWidth())
+        self.UserMajor.setSizePolicy(sizePolicy2)
+        self.UserMajor.setMinimumSize(QSize(300, 0))
+        self.UserMajor.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;\n"
+"\n"
+"")
+
+        self.gridLayout_9.addWidget(self.UserMajor, 6, 0, 1, 1)
+
+        self.UserEmail = QLabel(self.frame)
+        self.UserEmail.setObjectName(u"UserEmail")
+        sizePolicy2.setHeightForWidth(self.UserEmail.sizePolicy().hasHeightForWidth())
+        self.UserEmail.setSizePolicy(sizePolicy2)
+        self.UserEmail.setMinimumSize(QSize(300, 0))
+        self.UserEmail.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;\n"
+"\n"
+"")
+
+        self.gridLayout_9.addWidget(self.UserEmail, 4, 0, 1, 1)
+
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_3, 17, 0, 1, 1)
 
         self.LikesTitle = QLabel(self.frame)
         self.LikesTitle.setObjectName(u"LikesTitle")
@@ -629,16 +703,32 @@ class Ui_Stinder(object):
 "background: transparent;\n"
 "")
 
-        self.verticalLayout.addWidget(self.LikesTitle)
+        self.gridLayout_9.addWidget(self.LikesTitle, 15, 0, 1, 1)
 
-        self.LikesLabel = QLabel(self.frame)
-        self.LikesLabel.setObjectName(u"LikesLabel")
+        self.label_4 = QLabel(self.frame)
+        self.label_4.setObjectName(u"label_4")
+        font1 = QFont()
+        font1.setPointSize(30)
+        font1.setBold(False)
+        font1.setItalic(False)
+        self.label_4.setFont(font1)
+        self.label_4.setAutoFillBackground(False)
+        self.label_4.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
+        self.label_4.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.LikesLabel)
+        self.gridLayout_9.addWidget(self.label_4, 0, 0, 1, 1)
 
-        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+        self.courseinstructLabel = QLabel(self.frame)
+        self.courseinstructLabel.setObjectName(u"courseinstructLabel")
+        self.courseinstructLabel.setStyleSheet(u"color: white;\n"
+"font: 10pt;\n"
+"")
 
-        self.verticalLayout.addItem(self.verticalSpacer_3)
+        self.gridLayout_9.addWidget(self.courseinstructLabel, 20, 0, 1, 1)
 
 
         self.horizontalLayout.addWidget(self.frame)
@@ -655,7 +745,7 @@ class Ui_Stinder(object):
 
         self.retranslateUi(Stinder)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(Stinder)
@@ -706,19 +796,26 @@ class Ui_Stinder(object):
         self.FilterDropdown.setItemText(3, QCoreApplication.translate("Stinder", u"Course", None))
 
         self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
-        self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
-        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
-        self.UserName.setText("")
-        self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
-        self.UserEmail.setText("")
-        self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
-        self.UserMajor.setText("")
-        self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
         self.MatchName.setText("")
-        self.MatchEmail.setText("")
+        self.AddCoursesBtn.setText(QCoreApplication.translate("Stinder", u"Add Courses", None))
+        self.LikesLabel.setText("")
         self.prevMatchButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
         self.nextMatchButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
+        self.UserName.setText("")
+        self.CoursesTitle.setText(QCoreApplication.translate("Stinder", u"Courses", None))
+        self.MatchEmail.setText("")
+        self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
+        self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
+        self.AddBtn.setText(QCoreApplication.translate("Stinder", u"Add", None))
+        self.DoneBtn.setText(QCoreApplication.translate("Stinder", u"Delete", None))
+        self.DeleteBtn.setText(QCoreApplication.translate("Stinder", u"Done", None))
+        self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
+        self.CourseInputEdit.setPlaceholderText(QCoreApplication.translate("Stinder", u"--Enter Course Code--", None))
+        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
+        self.UserMajor.setText("")
+        self.UserEmail.setText("")
         self.LikesTitle.setText(QCoreApplication.translate("Stinder", u"Likes", None))
-        self.LikesLabel.setText("")
+        self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
+        self.courseinstructLabel.setText(QCoreApplication.translate("Stinder", u"Add courses to connect with people in your classes.", None))
     # retranslateUi
 

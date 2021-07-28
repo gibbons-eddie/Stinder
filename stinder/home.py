@@ -385,12 +385,6 @@ class Ui_Stinder(object):
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
-        self.horizontalScrollBar = QScrollBar(self.frame_5)
-        self.horizontalScrollBar.setObjectName(u"horizontalScrollBar")
-        self.horizontalScrollBar.setOrientation(Qt.Horizontal)
-
-        self.gridLayout_6.addWidget(self.horizontalScrollBar, 0, 3, 1, 1)
-
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_6.addItem(self.horizontalSpacer_3, 0, 0, 1, 1)
@@ -485,8 +479,12 @@ class Ui_Stinder(object):
 "")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.frame)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.gridLayout_9 = QGridLayout(self.frame)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.lCourseListWidget = QListWidget(self.frame)
+        self.lCourseListWidget.setObjectName(u"lCourseListWidget")
+
+        self.gridLayout_9.addWidget(self.lCourseListWidget, 21, 0, 1, 1)
         self.label_4 = QLabel(self.frame)
         self.label_4.setObjectName(u"label_4")
         font1 = QFont()
@@ -502,7 +500,15 @@ class Ui_Stinder(object):
 "")
         self.label_4.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label_4)
+        self.gridLayout_9.addWidget(self.label_4, 0, 0, 1, 1)
+
+        self.courseinstructLabel = QLabel(self.frame)
+        self.courseinstructLabel.setObjectName(u"courseinstructLabel")
+        self.courseinstructLabel.setStyleSheet(u"color: white;\n"
+"font: 10pt;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.courseinstructLabel, 20, 0, 1, 1)
 
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
@@ -513,7 +519,7 @@ class Ui_Stinder(object):
 "\n"
 "")
 
-        self.verticalLayout.addWidget(self.label)
+        self.gridLayout_9.addWidget(self.label, 1, 0, 1, 1)
 
         self.UserName = QLabel(self.frame)
         self.UserName.setObjectName(u"UserName")
@@ -530,7 +536,7 @@ class Ui_Stinder(object):
 "\n"
 "")
 
-        self.verticalLayout.addWidget(self.UserName)
+        self.gridLayout_9.addWidget(self.UserName, 2, 0, 1, 1)
 
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
@@ -541,7 +547,7 @@ class Ui_Stinder(object):
 "\n"
 "")
 
-        self.verticalLayout.addWidget(self.label_2)
+        self.gridLayout_9.addWidget(self.label_2, 3, 0, 1, 1)
 
         self.UserEmail = QLabel(self.frame)
         self.UserEmail.setObjectName(u"UserEmail")
@@ -555,7 +561,7 @@ class Ui_Stinder(object):
 "\n"
 "")
 
-        self.verticalLayout.addWidget(self.UserEmail)
+        self.gridLayout_9.addWidget(self.UserEmail, 4, 0, 1, 1)
 
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
@@ -566,7 +572,53 @@ class Ui_Stinder(object):
 "\n"
 "")
 
-        self.verticalLayout.addWidget(self.label_3)
+        self.gridLayout_9.addWidget(self.label_3, 5, 0, 1, 1)
+
+        self.CourseVertLayout = QHBoxLayout()
+        self.CourseVertLayout.setObjectName(u"CourseVertLayout")
+        self.AddBtn = QPushButton(self.frame)
+        self.AddBtn.setObjectName(u"AddBtn")
+        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.AddBtn)
+
+        self.DoneBtn = QPushButton(self.frame)
+        self.DoneBtn.setObjectName(u"DoneBtn")
+        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.DoneBtn)
+
+        self.DeleteBtn = QPushButton(self.frame)
+        self.DeleteBtn.setObjectName(u"DeleteBtn")
+        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.DeleteBtn)
+
+        self.gridLayout_9.addLayout(self.CourseVertLayout, 25, 0, 1, 1)
 
         self.UserMajor = QLabel(self.frame)
         self.UserMajor.setObjectName(u"UserMajor")
@@ -580,11 +632,11 @@ class Ui_Stinder(object):
 "\n"
 "")
 
-        self.verticalLayout.addWidget(self.UserMajor)
+        self.gridLayout_9.addWidget(self.UserMajor, 6, 0, 1, 1)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_2)
+        self.gridLayout_9.addItem(self.verticalSpacer_2)
 
         self.MatchTitle = QLabel(self.frame)
         self.MatchTitle.setObjectName(u"MatchTitle")
@@ -593,11 +645,19 @@ class Ui_Stinder(object):
 "background: transparent;\n"
 "")
 
-        self.verticalLayout.addWidget(self.MatchTitle)
+        self.gridLayout_9.addWidget(self.MatchTitle, 8, 0, 1, 1)
+
+        self.CourseInputEdit = QLineEdit(self.frame)
+        self.CourseInputEdit.setObjectName(u"CourseInputEdit")
+        self.CourseInputEdit.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"padding: 0 8px;")
+
+        self.gridLayout_9.addWidget(self.CourseInputEdit, 24, 0, 1, 1)
 
         self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_6)
+        self.gridLayout_9.addItem(self.verticalSpacer_6, 9, 0, 1, 1)
 
         self.MatchName = QLabel(self.frame)
         self.MatchName.setObjectName(u"MatchName")
@@ -606,11 +666,25 @@ class Ui_Stinder(object):
 "background: transparent;\n"
 "border-bottom: 2px solid white;")
 
-        self.verticalLayout.addWidget(self.MatchName)
+        self.gridLayout_9.addWidget(self.MatchName, 10, 0, 1, 1)
+
+        self.AddCoursesBtn = QPushButton(self.frame)
+        self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
+        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.AddCoursesBtn, 23, 0, 1, 1)
 
         self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_5)
+        self.gridLayout_9.addItem(self.verticalSpacer_5)
 
         self.MatchEmail = QLabel(self.frame)
         self.MatchEmail.setObjectName(u"MatchEmail")
@@ -619,7 +693,7 @@ class Ui_Stinder(object):
 "background: transparent;\n"
 "border-bottom: 2px solid white;")
 
-        self.verticalLayout.addWidget(self.MatchEmail)
+        self.gridLayout_9.addWidget(self.MatchEmail, 12, 0, 1, 1)
 
         self.MatchLayout = QHBoxLayout()
         self.MatchLayout.setObjectName(u"MatchLayout")
@@ -657,11 +731,19 @@ class Ui_Stinder(object):
         self.MatchLayout.addItem(self.MatchSpacer)
 
 
-        self.verticalLayout.addLayout(self.MatchLayout)
+        self.gridLayout_9.addLayout(self.MatchLayout, 13, 0, 1, 1)
+
+        self.CoursesTitle = QLabel(self.frame)
+        self.CoursesTitle.setObjectName(u"CoursesTitle")
+        self.CoursesTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;")
+
+        self.gridLayout_9.addWidget(self.CoursesTitle, 19, 0, 1, 1)
 
         self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_4)
+        self.gridLayout_9.addItem(self.verticalSpacer_4)
 
         self.LikesTitle = QLabel(self.frame)
         self.LikesTitle.setObjectName(u"LikesTitle")
@@ -670,7 +752,7 @@ class Ui_Stinder(object):
 "background: transparent;\n"
 "")
 
-        self.verticalLayout.addWidget(self.LikesTitle)
+        self.gridLayout_9.addWidget(self.LikesTitle, 15, 0, 1, 1)
 
         self.LikesLabel = QLabel(self.frame)
         self.LikesLabel.setObjectName(u"LikesLabel")
@@ -678,11 +760,11 @@ class Ui_Stinder(object):
 "color: white;\n"
 "")
 
-        self.verticalLayout.addWidget(self.LikesLabel)
+        self.gridLayout_9.addWidget(self.LikesLabel, 16, 0, 1, 1)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_3)
+        self.gridLayout_9.addItem(self.verticalSpacer_3)
 
         self.horizontalLayout.addWidget(self.frame)
 
@@ -726,44 +808,51 @@ class Ui_Stinder(object):
         self.abouttext3.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Stinder. </span></p><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Never have a bad (study) date again.</span></p><p align=\"center\"><br/></p></body></html>", None))
         self.aboutteamtext.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/><span style=\" font-size:12pt; text-decoration: underline;\">Meet Team Swipers</span></p><p align=\"center\"><span style=\" font-weight:400;\">Eddie Gibbons</span></p><p align=\"center\"><span style=\" font-weight:400;\">Allison Denham</span></p><p align=\"center\"><span style=\" font-weight:400;\">Carlos Echenique</span></p><p align=\"center\"><span style=\" font-weight:400;\">Wyatt Townsend</span><br/></p></body></html>", None))
         self.CardLabel_FirstName.setText(QCoreApplication.translate("Stinder", u"First Name:", None))
-        self.Discover_FirstName.setText(a_user[0])
+        self.Discover_FirstName.setText("")
         self.CardLabel_LastName.setText(QCoreApplication.translate("Stinder", u"Last Name:", None))
-        self.Discover_LastName.setText(a_user[1])
+        self.Discover_LastName.setText("")
         self.CardLabel_Major.setText(QCoreApplication.translate("Stinder", u"Major:", None))
-        self.Discover_Major.setText(a_user[2])
+        self.Discover_Major.setText("")
         self.CardLabel_Email.setText(QCoreApplication.translate("Stinder", u"Email:", None))
-        self.Discover_Email.setText(a_user[3])
+        self.Discover_Email.setText("")
         self.CardLabel_Year.setText(QCoreApplication.translate("Stinder", u"Year:", None))
-        self.Discover_Year.setText(a_user[4])
+        self.Discover_Year.setText("")
         self.FilterButton.setText(QCoreApplication.translate("Stinder", u"Filter", None))
         self.NextButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
-        self.FilterDropdown.setItemText(0, QCoreApplication.translate("Stinder", u"Filter By", None))
-        self.FilterDropdown.setItemText(1, QCoreApplication.translate("Stinder", u"Major", None))
-        self.FilterDropdown.setItemText(2, QCoreApplication.translate("Stinder", u"Year", None))
-
-        self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
-        self.PreviousButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
-        self.LikeButton.setText(QCoreApplication.translate("Stinder", u"Like", None))
 #if QT_CONFIG(whatsthis)
         self.FilterLine.setWhatsThis(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
 #endif // QT_CONFIG(whatsthis)
         self.FilterLine.setText("")
         self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Search", None))
-        self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
-        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
-        self.UserName.setText("")
-        self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
-        self.UserEmail.setText("")
-        self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
-        self.UserMajor.setText("")
-        self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
+        self.PreviousButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
+        self.LikeButton.setText(QCoreApplication.translate("Stinder", u"Like", None))
+        self.FilterDropdown.setItemText(0, QCoreApplication.translate("Stinder", u"Filter By", None))
+        self.FilterDropdown.setItemText(1, QCoreApplication.translate("Stinder", u"Major", None))
+        self.FilterDropdown.setItemText(2, QCoreApplication.translate("Stinder", u"Year", None))
+        self.FilterDropdown.setItemText(3, QCoreApplication.translate("Stinder", u"Course", None))
+
+        self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
         self.MatchName.setText("")
-        self.MatchEmail.setText("")
+        self.AddCoursesBtn.setText(QCoreApplication.translate("Stinder", u"Add Courses", None))
+        self.LikesLabel.setText("")
         self.prevMatchButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
         self.nextMatchButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
+        self.UserName.setText("")
+        self.CoursesTitle.setText(QCoreApplication.translate("Stinder", u"Courses", None))
+        self.MatchEmail.setText("")
+        self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
+        self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
+        self.AddBtn.setText(QCoreApplication.translate("Stinder", u"Add", None))
+        self.DoneBtn.setText(QCoreApplication.translate("Stinder", u"Delete", None))
+        self.DeleteBtn.setText(QCoreApplication.translate("Stinder", u"Done", None))
+        self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
+        self.CourseInputEdit.setPlaceholderText(QCoreApplication.translate("Stinder", u"--Enter Course Code--", None))
+        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
+        self.UserMajor.setText("")
+        self.UserEmail.setText("")
         self.LikesTitle.setText(QCoreApplication.translate("Stinder", u"Likes", None))
-        self.LikesLabel.setText("")
-        self.LikesLabel.setText("")
+        self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
+        self.courseinstructLabel.setText(QCoreApplication.translate("Stinder", u"Add courses to connect with people in your classes.", None))
     # retranslateUi
 
     def next_user(self, users, length):

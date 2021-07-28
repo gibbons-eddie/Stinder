@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>903</width>
-    <height>641</height>
+    <width>948</width>
+    <height>812</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -132,7 +132,7 @@ padding: 6px;</string>
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="AboutPage">
        <layout class="QGridLayout" name="gridLayout_3">
@@ -146,7 +146,7 @@ padding: 6px;</string>
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>715</width>
+             <width>758</width>
              <height>816</height>
             </rect>
            </property>
@@ -767,202 +767,11 @@ padding: 6px;
           <property name="frameShadow">
            <enum>QFrame::Raised</enum>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout">
-           <item>
-            <widget class="QLabel" name="label_4">
-             <property name="font">
-              <font>
-               <pointsize>30</pointsize>
-               <italic>false</italic>
-               <bold>false</bold>
-              </font>
-             </property>
-             <property name="autoFillBackground">
-              <bool>false</bool>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 30pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Profile</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="21" column="0">
+            <widget class="QListWidget" name="lCourseListWidget"/>
            </item>
-           <item>
-            <widget class="QLabel" name="label">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Name:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="UserName">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-border-bottom: 2px solid white;
-
-</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_2">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Email:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="UserEmail">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-border-bottom: 2px solid white;
-
-</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="label_3">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-
-</string>
-             </property>
-             <property name="text">
-              <string>Major:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QLabel" name="UserMajor">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>300</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-border-bottom: 2px solid white;
-
-</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item>
-            <widget class="QLabel" name="MatchTitle">
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 30pt &quot;Segoe UI&quot;;
-background: transparent;
-</string>
-             </property>
-             <property name="text">
-              <string>Matches</string>
-             </property>
-            </widget>
-           </item>
-           <item>
+           <item row="9" column="0">
             <spacer name="verticalSpacer_6">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -975,7 +784,7 @@ background: transparent;
              </property>
             </spacer>
            </item>
-           <item>
+           <item row="10" column="0">
             <widget class="QLabel" name="MatchName">
              <property name="styleSheet">
               <string notr="true">color: white; 
@@ -988,8 +797,26 @@ border-bottom: 2px solid white;</string>
              </property>
             </widget>
            </item>
-           <item>
-            <spacer name="verticalSpacer_5">
+           <item row="23" column="0">
+            <widget class="QPushButton" name="AddCoursesBtn">
+             <property name="styleSheet">
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;
+</string>
+             </property>
+             <property name="text">
+              <string>Add Courses</string>
+             </property>
+            </widget>
+           </item>
+           <item row="7" column="0">
+            <spacer name="verticalSpacer_2">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
              </property>
@@ -1001,20 +828,14 @@ border-bottom: 2px solid white;</string>
              </property>
             </spacer>
            </item>
-           <item>
-            <widget class="QLabel" name="MatchEmail">
-             <property name="styleSheet">
-              <string notr="true">color: white; 
-font: 15pt &quot;Segoe UI&quot;;
-background: transparent;
-border-bottom: 2px solid white;</string>
-             </property>
+           <item row="16" column="0">
+            <widget class="QLabel" name="LikesLabel">
              <property name="text">
               <string/>
              </property>
             </widget>
            </item>
-           <item>
+           <item row="13" column="0">
             <layout class="QHBoxLayout" name="MatchLayout">
              <item>
               <widget class="QPushButton" name="prevMatchButton">
@@ -1070,7 +891,46 @@ padding-left:15px;</string>
              </item>
             </layout>
            </item>
-           <item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="UserName">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;
+
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="19" column="0">
+            <widget class="QLabel" name="CoursesTitle">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 30pt &quot;Segoe UI&quot;;
+background: transparent;</string>
+             </property>
+             <property name="text">
+              <string>Courses</string>
+             </property>
+            </widget>
+           </item>
+           <item row="14" column="0">
             <spacer name="verticalSpacer_4">
              <property name="orientation">
               <enum>Qt::Vertical</enum>
@@ -1083,7 +943,243 @@ padding-left:15px;</string>
              </property>
             </spacer>
            </item>
-           <item>
+           <item row="12" column="0">
+            <widget class="QLabel" name="MatchEmail">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="11" column="0">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_2">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Email:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QLabel" name="label_3">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Major:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="25" column="0">
+            <layout class="QHBoxLayout" name="CourseVertLayout">
+             <item>
+              <widget class="QPushButton" name="AddBtn">
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 2px;
+</string>
+               </property>
+               <property name="text">
+                <string>Add</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="DoneBtn">
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 2px;
+</string>
+               </property>
+               <property name="text">
+                <string>Delete</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="DeleteBtn">
+               <property name="styleSheet">
+                <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 2px;
+</string>
+               </property>
+               <property name="text">
+                <string>Done</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item row="8" column="0">
+            <widget class="QLabel" name="MatchTitle">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 30pt &quot;Segoe UI&quot;;
+background: transparent;
+</string>
+             </property>
+             <property name="text">
+              <string>Matches</string>
+             </property>
+            </widget>
+           </item>
+           <item row="24" column="0">
+            <widget class="QLineEdit" name="CourseInputEdit">
+             <property name="styleSheet">
+              <string notr="true">background-color: white;
+border-radius: 10px;
+padding: 0 8px;</string>
+             </property>
+             <property name="placeholderText">
+              <string>--Enter Course Code--</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
+             <property name="text">
+              <string>Name:</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="0">
+            <widget class="QLabel" name="UserMajor">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;
+
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QLabel" name="UserEmail">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>300</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 15pt &quot;Segoe UI&quot;;
+background: transparent;
+border-bottom: 2px solid white;
+
+</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="17" column="0">
+            <spacer name="verticalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="15" column="0">
             <widget class="QLabel" name="LikesTitle">
              <property name="styleSheet">
               <string notr="true">color: white; 
@@ -1096,25 +1192,44 @@ background: transparent;
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QLabel" name="LikesLabel">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <pointsize>30</pointsize>
+               <italic>false</italic>
+               <bold>false</bold>
+              </font>
+             </property>
+             <property name="autoFillBackground">
+              <bool>false</bool>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 30pt &quot;Segoe UI&quot;;
+background: transparent;
+
+</string>
+             </property>
              <property name="text">
-              <string/>
+              <string>Profile</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
              </property>
             </widget>
            </item>
-           <item>
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+           <item row="20" column="0">
+            <widget class="QLabel" name="courseinstructLabel">
+             <property name="styleSheet">
+              <string notr="true">color: white;
+font: 10pt;
+</string>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
+             <property name="text">
+              <string>Add courses to connect with people in your classes.</string>
              </property>
-            </spacer>
+            </widget>
            </item>
           </layout>
          </widget>
