@@ -7,7 +7,7 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
-#from posix import NGROUPS_MAX
+from posix import NGROUPS_MAX
 import sqlite3
 
 from PySide6 import QtWidgets
@@ -861,15 +861,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
         self.NextButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(161, 137, 248);\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(92, 77, 182);\n"
-"border-left:  1px solid rgb(134, 115, 210);\n"
-"border-right:  1px solid rgb(134, 115, 210);\n"
-"padding: 6px;\n"
-"margin: 24px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
-"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
@@ -935,15 +934,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
         self.PreviousButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(161, 137, 248);\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(92, 77, 182);\n"
-"border-left:  1px solid rgb(134, 115, 210);\n"
-"border-right:  1px solid rgb(134, 115, 210);\n"
-"padding: 6px;\n"
-"margin: 24px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
-"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
 
