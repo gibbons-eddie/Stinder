@@ -873,6 +873,7 @@ class Ui_Stinder(object):
         self.FilterDropdown.addItem("")
         self.FilterDropdown.addItem("")
         self.FilterDropdown.addItem("")
+        self.FilterDropdown.addItem("")
         self.FilterDropdown.setObjectName(u"FilterDropdown")
         sizePolicy1 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
@@ -1398,67 +1399,57 @@ class Ui_Stinder(object):
                 user = [user_fN, user_lN, user_maj, user_e, user_y, user_met, user_loc, user_job, user_day, user_sH]
                 users.append(user)
                 length = length + 1
+            
+            cursor.execute("SELECT user_email, code FROM courses") # getting courses separately
+            courses = []
+            for row in cursor:
+                email = row[0]
+                code = row[1]
+                course = [email, code]
+                courses.append(course)
+
+            for student in users: # joining every student's courses
+                codes = []
+                for course in courses:
+                    if course[0] == student[3]:
+                        codes.append(course[1])
+                student.append(codes)
+                # print(student)
+
             return users, length
 
     def handleFilter(self):
         cat = self.FilterDropdown.currentText()
         line = self.FilterLine.text()
 
-        if (cat != 'Filter By') & (line != 'Category'):
-            filter_conn = sqlite3.connect("stinder/users.db")
-            filter_cur = filter_conn.cursor()
-            print("Filtered by " + line) 
-            filter_cur.execute("SELECT * FROM contacts WHERE " + cat + " == ?", (line,))
-            filter_conn.commit()
-            fltr_users = []
-            fltr_length = 0
-            for row in filter_cur:
-                fltr_user_fN = row[0]
-                fltr_user_lN = row[1]
-                fltr_user_maj = row[2]
-                fltr_user_e = row[3]
-                fltr_user_y = row[4]
-                fltr_user_met = row[5]
-                fltr_user_loc = row[6]
-                fltr_user_job = row[7]
-                fltr_user_day = row[8]
-                fltr_user_sH = row[9]
-                
-                fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_maj, fltr_user_e, fltr_user_y, fltr_user_met, fltr_user_loc, fltr_user_job, fltr_user_day, fltr_user_sH]
-                fltr_users.append(fltr_user)
-                fltr_length = fltr_length + 1
-                
-            if fltr_length == 0:
-                # self.errorLabel.setText("No results matching your search.")
-                print("No results matching your search.")
-                # self.handleAlgo()
-                filter_cur.execute("SELECT * FROM contacts")
-                filter_conn.commit()
-                fltr_users = []
-                fltr_length = 0
-                for row in filter_cur:
-                    fltr_user_fN = row[0]
-                    fltr_user_lN = row[1]
-                    fltr_user_maj = row[2]
-                    fltr_user_e = row[3]
-                    fltr_user_y = row[4]
-                    fltr_user_met = row[5]
-                    fltr_user_loc = row[6]
-                    fltr_user_job = row[7]
-                    fltr_user_day = row[8]
-                    fltr_user_sH = row[9]
-                
-                    fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_maj, fltr_user_e, fltr_user_y, fltr_user_met, fltr_user_loc, fltr_user_job, fltr_user_day, fltr_user_sH]
-                    fltr_users.append(fltr_user)
-                    fltr_length = fltr_length + 1
+        fltr_users = []
+        fltr_length = 0
 
-            filter_conn.close()
-            print(fltr_length, "students")
+        if cat == "Major":
+            for student in self.students:
+                if student[2] == line:
+                    fltr_users.append(student)
+                    fltr_length = fltr_length + 1
+        elif cat == "Year":
+            for student in self.students:
+                if student[4] == line:
+                    fltr_users.append(student)
+                    fltr_length = fltr_length + 1
+        elif cat == "Course":
+            for student in self.students:
+                for code in student[10]:
+                    if code == line:
+                        fltr_users.append(student)
+                        fltr_length = fltr_length + 1
+
+        if fltr_length == 0:
+            print("No results found matching your search!")
+            self.students, self.s_length = self.list()
+        else:
             self.students = fltr_users
             self.s_length = fltr_length
-            # self.counter = 0
-            # self.prev_user(self.students, self.s_length)
-            self.handleAlgo()
+        
+        self.handleAlgo()
     
     def likes_counter(self):
         u_email = self.UserEmail.text()
@@ -1522,8 +1513,8 @@ class Ui_Stinder(object):
             # print()
             ranking.append(rank)
         
-        numpy_students = numpy.array(self.students) 
-        numpy_ranking = numpy.array(ranking)
+        numpy_students = numpy.array(self.students, dtype=object) 
+        numpy_ranking = numpy.array(ranking, dtype=object)
         numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
         # print(numpy_sort)
         sortedStudents = numpy_students[numpy_sort]
