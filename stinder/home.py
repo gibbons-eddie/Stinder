@@ -114,6 +114,18 @@ class Ui_Stinder(object):
 
         self.gridLayout.addWidget(self.AboutButton, 0, 0, 1, 1)
 
+        self.LogoutBtn = QPushButton(self.frame_2)
+        self.LogoutBtn.setObjectName(u"LogoutBtn")
+        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                     "background-color: rgb(98, 214, 81);\n"
+                                     "color: rgb(255, 255, 255);\n"
+                                     "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                     "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                     "border-left:  1px solid rgb(72, 156, 59);\n"
+                                     "border-right:  1px solid rgb(72, 156, 59);\n"
+                                     "padding: 6px;")
+
+        self.gridLayout.addWidget(self.LogoutBtn, 3, 0, 1, 1, Qt.AlignTop)
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
 
@@ -759,7 +771,7 @@ class Ui_Stinder(object):
         self.LikesLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;\n"
 "")
-
+        
         self.gridLayout_9.addWidget(self.LikesLabel, 16, 0, 1, 1)
 
         self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
@@ -780,6 +792,20 @@ class Ui_Stinder(object):
 
         self.retranslateUi(Stinder)
 
+        self.CoursesTitle.raise_()
+        self.LikesLabel.raise_()
+        self.UserEmail.raise_()
+        self.label_2.raise_()
+        self.label_3.raise_()
+        self.UserName.raise_()
+        self.UserMajor.raise_()
+        self.label.raise_()
+        self.label_4.raise_()
+        # self.courseinstructlabel.raise_()
+        self.lCourseListWidget.raise_()
+        self.CourseInputEdit.raise_()
+        self.AddCoursesBtn.raise_()
+
         self.stackedWidget.setCurrentIndex(0)
 
 
@@ -796,6 +822,7 @@ class Ui_Stinder(object):
         self.BrowseButton.setText(QCoreApplication.translate("Stinder", u"Browse", None))
         self.logo.setText("")
         self.AboutButton.setText(QCoreApplication.translate("Stinder", u"About", None))
+        self.LogoutBtn.setText(QCoreApplication.translate("Stinder", u"Logout", None))
 #if QT_CONFIG(tooltip)
         self.aboutlogo.setToolTip(QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
 #endif // QT_CONFIG(tooltip)
@@ -843,8 +870,8 @@ class Ui_Stinder(object):
         self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
         self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
         self.AddBtn.setText(QCoreApplication.translate("Stinder", u"Add", None))
-        self.DoneBtn.setText(QCoreApplication.translate("Stinder", u"Delete", None))
-        self.DeleteBtn.setText(QCoreApplication.translate("Stinder", u"Done", None))
+        self.DoneBtn.setText(QCoreApplication.translate("Stinder", u"Done", None))
+        self.DeleteBtn.setText(QCoreApplication.translate("Stinder", u"Delete", None))
         self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
         self.CourseInputEdit.setPlaceholderText(QCoreApplication.translate("Stinder", u"--Enter Course Code--", None))
         self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
@@ -992,13 +1019,18 @@ class Ui_Stinder(object):
         self.LikesLabel.setText(result)
 
         self.matches, self.m_length = self.matchList()
-        self.MatchName.setText(self.matches[self.m_counter][0])
-        self.MatchEmail.setText(self.matches[self.m_counter][1])
+        if self.m_length != 0:
+            self.MatchName.setText(self.matches[self.m_counter][0])
+            self.MatchEmail.setText(self.matches[self.m_counter][1])
+        else:
+            self.nextMatchButton.setVisible(False)
+            self.prevMatchButton.setVisible(False)
 
     def handleAlgo(self):
         ranking = []
         rank = 0
         # print(self.c_user)
+        # print(self.UserEmail.text())
         for student in self.students:
             rank = 0
             if student[3] == self.c_user[3]: # major
@@ -1118,26 +1150,29 @@ class Ui_Stinder(object):
         return m_list, m_length
 
     def prevMatch(self):
-        counter = self.m_counter
+        if self.m_length != 0:
+            counter = self.m_counter
 
-        if counter != 0:
-            counter = counter - 1
-            self.m_counter = counter
+            if counter != 0:
+                counter = counter - 1
+                self.m_counter = counter
 
-        self.MatchName.setText(self.matches[self.m_counter][0])
-        self.MatchEmail.setText(self.matches[self.m_counter][1])
+            self.MatchName.setText(self.matches[self.m_counter][0])
+            self.MatchEmail.setText(self.matches[self.m_counter][1])
 
     def nextMatch(self):
-        counter = self.m_counter
+        if self.m_length != 0:
+        
+            counter = self.m_counter
 
-        if counter != self.m_length | self.m_length != 1:
-            counter = counter + 1
-            self.m_counter = counter
+            if counter != self.m_length | self.m_length != 1:
+                counter = counter + 1
+                self.m_counter = counter
 
-        if self.m_counter == self.m_length:
-            counter = counter - 1
-            self.m_counter = counter
+            if self.m_counter == self.m_length:
+                counter = counter - 1
+                self.m_counter = counter
 
-        self.MatchName.setText(self.matches[self.m_counter][0])
-        self.MatchEmail.setText(self.matches[self.m_counter][1])
+            self.MatchName.setText(self.matches[self.m_counter][0])
+            self.MatchEmail.setText(self.matches[self.m_counter][1])
         
