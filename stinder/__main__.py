@@ -1,21 +1,18 @@
 import sqlite3
-import os
+import re
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
-from PySide6.QtSql import QSqlDatabase, QSqlQuery
-from PySide6.QtGui import QIcon
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
+from PySide6.QtGui import QIcon, QFontDatabase
 from sqlite3 import Error
 
 from stinder.home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
-from stinder.resources.images import *
-from stinder.resources.fonts import *
-
-from stinder.stinder_images_rc import *
 
 class LogInWindow(QDialog):
     def __init__(self):
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaRegular.otf")
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/Nexa_Bold.otf")
         super(LogInWindow, self).__init__()
         self.setFixedSize(646, 476)
         self.setIcon()
@@ -44,14 +41,27 @@ class LogInWindow(QDialog):
         appFont = (":/fonts/fonts/Nexa")
         self.setFont(appFont)
 
+    # using the re module to check if the inputted email is valid or invalid
+    def checkRegexEmail(self, email):
+        regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
+        if(re.search(regex, email)):
+            print("valid email address")
+            return True
+        else:
+            print("invalid email address")
+            return False
+
     def handleSignIn(self):
         email = self.loginUi.LoginInput.text()
         exists_conn = sqlite3.connect("stinder/users.db")
         curs = exists_conn.cursor()
         self.emailAddr = email
 
+        self.checkRegexEmail(email)
         if len(email) == 0:
             self.loginUi.errorLabelP1.setText("Please input an email address.")
+        elif not self.checkRegexEmail(email):
+            self.loginUi.errorLabelP1.setText("Invalid email address.")
         elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
             exists_conn.close()
             self.accept()
@@ -66,6 +76,8 @@ class LogInWindow(QDialog):
 
         if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
             self.loginUi.errorLabel.setText("Please input all fields.")
+        elif not self.checkRegexEmail(email):
+            self.loginUi.errorLabel.setText("Invalid email address.")
         else:
             self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage)
 
@@ -102,12 +114,13 @@ class LogInWindow(QDialog):
 
 class MainWindow(QMainWindow):
     def __init__(self):
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/NexaRegular.otf")
+        QFontDatabase.addApplicationFont("stinder/resources/fonts/Nexa_Bold.otf")
         super(MainWindow, self).__init__()
         self.resize(855, 538)
         self.setIcon()
         self.ui = Ui_Stinder()
         self.ui.setupUi(self)
-
         # PAGE 1
         self.ui.AboutButton.clicked.connect(lambda: self.ui.stackedWidget.setCurrentWidget(self.ui.AboutPage))
         # PAGE 2
