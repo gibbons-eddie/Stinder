@@ -400,4 +400,4 @@ class Ui_Stinder_Login(object):
         self.ContinueBtnP2.setText(QCoreApplication.translate("Stinder_Login", u"Continue", None))
         self.errorLabelP2.setText("")
     # retranslateUi
-
+    

@@ -1,13 +1,18 @@
 import sqlite3
+import os
 import re
 import sys
 
-from PySide6.QtWidgets import QApplication, QMainWindow, QDialog
-from PySide6.QtGui import QIcon, QFontDatabase
+from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QTableWidgetItem
+from PySide6.QtSql import QSqlDatabase, QSqlQuery
+from PySide6.QtGui import QIcon, QFontDatabase, QFont
 from sqlite3 import Error
 
 from stinder.home import Ui_Stinder
 from stinder.login import Ui_Stinder_Login
+from stinder.resources.images import *
+from stinder.resources.fonts import *
+from stinder.stinder_images_rc import *
 
 class LogInWindow(QDialog):
     def __init__(self):
