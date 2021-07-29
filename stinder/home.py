@@ -861,13 +861,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
         self.NextButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+"background-color: rgb(161, 137, 248);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"border-bottom: 3px solid rgb(92, 77, 182);\n"
+"border-left:  1px solid rgb(134, 115, 210);\n"
+"border-right:  1px solid rgb(134, 115, 210);\n"
+"padding: 6px;\n"
+"margin: 24px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
@@ -934,13 +935,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
         self.PreviousButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+"background-color: rgb(161, 137, 248);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"border-bottom: 3px solid rgb(92, 77, 182);\n"
+"border-left:  1px solid rgb(134, 115, 210);\n"
+"border-right:  1px solid rgb(134, 115, 210);\n"
+"padding: 6px;\n"
+"margin: 24px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
@@ -1079,13 +1081,13 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.AddBtn = QPushButton(self.frame)
         self.AddBtn.setObjectName(u"AddBtn")
         self.AddBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+"background-color: rgb(18, 172, 207);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"border-radius: 5px; border: 2px rgb(18, 172, 207);\n"
+"border-bottom: 4px solid rgb(13, 123, 147);\n"
+"border-left:  2px solid rgb(13, 123, 147);\n"
+"border-right:  2px solid rgb(13, 123, 147);\n"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.CourseVertLayout.addWidget(self.AddBtn)
@@ -1099,7 +1101,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.CourseVertLayout.addWidget(self.DoneBtn)
@@ -1107,13 +1109,14 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.DeleteBtn = QPushButton(self.frame)
         self.DeleteBtn.setObjectName(u"DeleteBtn")
         self.DeleteBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+"background-color: rgb(255, 61, 50);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"border-radius: 5px; \n"
+"border: 2px rgb(255, 61, 50);\n"
+"border-bottom: 3px solid rgb(158, 37, 31);\n"
+"border-left:  1px solid rgb(214, 50, 42);\n"
+"border-right:  1px solid rgb(214, 50, 42);\n"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
         self.CourseVertLayout.addWidget(self.DeleteBtn)
 
@@ -1199,12 +1202,12 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.prevMatchButton = QPushButton(self.frame, clicked=lambda: self.prevMatch())
         self.prevMatchButton.setObjectName(u"prevMatchButton")
         self.prevMatchButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+"background-color: rgb(161, 137, 248);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
+"border-bottom: 3px solid rgb(92, 77, 182);\n"
+"border-left:  1px solid rgb(134, 115, 210);\n"
+"border-right:  1px solid rgb(134, 115, 210);\n"
 "padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
@@ -1214,13 +1217,15 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.nextMatchButton.setObjectName(u"nextMatchButton")
         self.nextMatchButton.setLayoutDirection(Qt.LeftToRight)
         self.nextMatchButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+"background-color: rgb(161, 137, 248);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"border-bottom: 3px solid rgb(92, 77, 182);\n"
+"border-left:  1px solid rgb(134, 115, 210);\n"
+"border-right:  1px solid rgb(134, 115, 210);\n"
+"padding: 6px;\n"
+"padding-right:15px;\n"
+"padding-left:15px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
 "QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.MatchLayout.addWidget(self.nextMatchButton)
