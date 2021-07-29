@@ -19,6 +19,7 @@ class Ui_Stinder_Login(object):
         if not Stinder_Login.objectName():
             Stinder_Login.setObjectName(u"Stinder_Login")
         Stinder_Login.resize(646, 476)
+        QFontDatabase.addApplicationFont(":/fonts/fonts/NexaBold.otf")
         Stinder_Login.setStyleSheet(u"background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(56, 0, 83, 255), stop:1 rgba(75, 0, 149, 255))")
         self.loginPages = QStackedWidget(Stinder_Login)
         self.loginPages.setObjectName(u"loginPages")
@@ -38,7 +39,7 @@ class Ui_Stinder_Login(object):
         self.LoginInput.setGeometry(QRect(100, 210, 481, 41))
         self.LoginInput.setStyleSheet(u"background-color: white;\n"
                                       "border-radius: 10px;\n"
-                                      "font: 300 13pt \"Nexa\";\n"
+                                      "font: 300 13pt \"Nexa Text Demo\";\n"
                                       "padding: 0 8px;")
         self.LogInBtn = QPushButton(self.WelcomePage)
         self.LogInBtn.setObjectName(u"LogInBtn")
@@ -85,6 +86,7 @@ class Ui_Stinder_Login(object):
         self.InstructLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: white;\n"
 "font: 700 24pt \"Nexa\";")
+        #QFontDatabase.addApplicationFont(":/fonts/fonts/NexaHeavy.otf")
         self.FirstNameInput = QLineEdit(self.BasicPage)
         self.FirstNameInput.setObjectName(u"FirstNameInput")
         self.FirstNameInput.setGeometry(QRect(50, 160, 231, 41))
@@ -398,4 +400,4 @@ class Ui_Stinder_Login(object):
         self.ContinueBtnP2.setText(QCoreApplication.translate("Stinder_Login", u"Continue", None))
         self.errorLabelP2.setText("")
     # retranslateUi
-
+    
