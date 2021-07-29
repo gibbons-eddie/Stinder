@@ -52,28 +52,16 @@ class LogInWindow(QDialog):
     def getEmail(self):
         return self.user
 
-    def checkRegexEmail(self, email):
-        regex = '^[a-z0-9]+[\._]?[a-z0-9]+[@]\w+[.]\w{2,3}$'
-        if(re.search(regex, email)):
-            print("valid email address")
-            return True
-        else:
-            print("invalid email address")
-            return False
-
     def handleSignIn(self):
         email = self.loginUi.LoginInput.text()
         exists_conn = sqlite3.connect("stinder/users.db")
         curs = exists_conn.cursor()
-        self.emailAddr = email
 
-        self.checkRegexEmail(email)
         if len(email) == 0:
             self.loginUi.errorLabelP1.setText("Please input an email address.")
-        elif not self.checkRegexEmail(email):
-            self.loginUi.errorLabelP1.setText("Invalid email address.")
         elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
             exists_conn.close()
+            self.setEmail(email)
             self.accept()
         else:
             self.loginUi.errorLabelP1.setText("Email address not found.")
