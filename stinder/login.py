@@ -152,6 +152,18 @@ class Ui_Stinder_Login(object):
         self.errorLabel.setGeometry(QRect(60, 347, 491, 16))
         self.errorLabel.setStyleSheet(u"background-color: transparent;\n"
 "color: red;")
+        self.label = QLabel(self.BasicPage)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(200, 430, 181, 16))
+        self.label.setStyleSheet(u"background-color: transparent;\n"
+                                 "color: white;\n"
+                                 "font: 600 11pt \"Nexa Bold\";")
+        self.SignInBtn = QPushButton(self.BasicPage)
+        self.SignInBtn.setObjectName(u"SignInBtn")
+        self.SignInBtn.setGeometry(QRect(376, 426, 73, 24))
+        self.SignInBtn.setStyleSheet(u"background-color: transparent;\n"
+                                     "color: rgb(106,255,121);;\n"
+                                     "font: 600 11pt \"Nexa Bold\";")
         self.loginPages.addWidget(self.BasicPage)
         self.DetailPage = QWidget()
         self.DetailPage.setObjectName(u"DetailPage")
@@ -349,6 +361,8 @@ class Ui_Stinder_Login(object):
         self.MajorInput.setPlaceholderText(QCoreApplication.translate("Stinder_Login", u"Major", None))
         self.ContinueBtn.setText(QCoreApplication.translate("Stinder_Login", u"Continue", None))
         self.errorLabel.setText("")
+        self.label.setText(QCoreApplication.translate("Stinder_Login", u"Already have an account?", None))
+        self.SignInBtn.setText(QCoreApplication.translate("Stinder_Login", u"Sign In", None))
         self.StinderLogo_2.setText("")
         self.YearInput.setItemText(0, QCoreApplication.translate("Stinder_Login", u"---Please Select---"))
         self.YearInput.setItemText(1, QCoreApplication.translate("Stinder_Login", u"Freshman", None))
@@ -400,4 +414,3 @@ class Ui_Stinder_Login(object):
         self.ContinueBtnP2.setText(QCoreApplication.translate("Stinder_Login", u"Continue", None))
         self.errorLabelP2.setText("")
     # retranslateUi
-    

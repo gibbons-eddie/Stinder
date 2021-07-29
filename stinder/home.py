@@ -7,22 +7,38 @@
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
+from posix import NGROUPS_MAX
 import sqlite3
+
+from PySide6 import QtWidgets
+import numpy
 from os import linesep
 from PySide6.QtCore import *  # type: ignore
 from PySide6.QtGui import *  # type: ignore
 from PySide6.QtWidgets import *  # type: ignore
 
+from stinder.match import *
+
 from stinder.stinder_images_rc import *
 
-
 class Ui_Stinder(object):
-    counter = 0
-    students = 0
-    s_length = 0
+    def __init__(self):
+        self.counter = 0
+        self.students = []
+        self.s_length = 0
+        self.c_user = []
+        
+        self.matchWindow = QtWidgets.QDialog()
+        self.matchUi = Ui_LikeDialog()
+        self.matchUi.setupUi(self.matchWindow)
+
+        self.matches = []
+        self.m_length = 0
+        self.m_counter = 0
 
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
+        # init user profile parameters
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
         Stinder.resize(903, 641)
@@ -49,26 +65,26 @@ class Ui_Stinder(object):
         self.ProfileButton = QPushButton(self.frame_2, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
         self.ProfileButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                         "background-color: rgb(98, 214, 81);\n"
-                                         "color: rgb(255, 255, 255);\n"
-                                         "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                         "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                         "border-left:  1px solid rgb(72, 156, 59);\n"
-                                         "border-right:  1px solid rgb(72, 156, 59);\n"
-                                         "padding: 6px;")
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
 
         self.gridLayout.addWidget(self.ProfileButton, 2, 0, 1, 1)
 
-        self.BrowseButton = QPushButton(self.frame_2)
+        self.BrowseButton = QPushButton(self.frame_2, clicked=lambda: self.handleAlgo())
         self.BrowseButton.setObjectName(u"BrowseButton")
         self.BrowseButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                        "background-color: rgb(98, 214, 81);\n"
-                                        "color: rgb(255, 255, 255);\n"
-                                        "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                        "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                        "border-left:  1px solid rgb(72, 156, 59);\n"
-                                        "border-right:  1px solid rgb(72, 156, 59);\n"
-                                        "padding: 6px;")
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
 
         self.gridLayout.addWidget(self.BrowseButton, 1, 0, 1, 1)
 
@@ -79,7 +95,7 @@ class Ui_Stinder(object):
         self.logo = QLabel(self.frame_2)
         self.logo.setObjectName(u"logo")
         self.logo.setMinimumSize(QSize(81, 41))
-        self.logo.setMaximumSize(QSize(81, 41))
+        self.logo.setMaximumSize(QSize(120, 42))
         self.logo.setPixmap(QPixmap(u":/logo/images/stinder_logo.png"))
         self.logo.setScaledContents(True)
 
@@ -88,15 +104,28 @@ class Ui_Stinder(object):
         self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
         self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                       "background-color: rgb(98, 214, 81);\n"
-                                       "color: rgb(255, 255, 255);\n"
-                                       "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                       "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                       "border-left:  1px solid rgb(72, 156, 59);\n"
-                                       "border-right:  1px solid rgb(72, 156, 59);\n"
-                                       "padding: 6px;")
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
 
         self.gridLayout.addWidget(self.AboutButton, 0, 0, 1, 1)
+
+        self.LogoutBtn = QPushButton(self.frame_2)
+        self.LogoutBtn.setObjectName(u"LogoutBtn")
+        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+                                     "background-color: rgb(98, 214, 81);\n"
+                                     "color: rgb(255, 255, 255);\n"
+                                     "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+                                     "border-bottom: 3px solid rgb(72, 156, 59);\n"
+                                     "border-left:  1px solid rgb(72, 156, 59);\n"
+                                     "border-right:  1px solid rgb(72, 156, 59);\n"
+                                     "padding: 6px;")
+
+        self.gridLayout.addWidget(self.LogoutBtn, 3, 0, 1, 1, Qt.AlignTop)
 
         self.gridLayout_2.addWidget(self.frame_2, 0, 0, 1, 1)
 
@@ -104,34 +133,24 @@ class Ui_Stinder(object):
         self.stackedWidget.setObjectName(u"stackedWidget")
         self.AboutPage = QWidget()
         self.AboutPage.setObjectName(u"AboutPage")
-        self.AboutPage.setStyleSheet(u"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}")
-        self.gridLayout_3 = QGridLayout(self.AboutPage)
-        self.gridLayout_3.setObjectName(u"gridLayout_3")
+        self.gridLayout_31 = QGridLayout(self.AboutPage)
+        self.gridLayout_31.setObjectName(u"gridLayout_31")
         self.aboutouterframe = QFrame(self.AboutPage)
         self.aboutouterframe.setObjectName(u"aboutouterframe")
         self.aboutouterframe.setStyleSheet(u"background-color: transparent;")
         self.aboutouterframe.setFrameShape(QFrame.StyledPanel)
         self.aboutouterframe.setFrameShadow(QFrame.Raised)
-        self.gridLayout_7 = QGridLayout(self.aboutouterframe)
-        self.gridLayout_7.setObjectName(u"gridLayout_7")
+        self.gridLayout_10 = QGridLayout(self.aboutouterframe)
+        self.gridLayout_10.setObjectName(u"gridLayout_10")
         self.aboutinnerframe = QFrame(self.aboutouterframe)
         self.aboutinnerframe.setObjectName(u"aboutinnerframe")
         self.aboutinnerframe.setMinimumSize(QSize(250, 150))
         self.aboutinnerframe.setFrameShape(QFrame.StyledPanel)
         self.aboutinnerframe.setFrameShadow(QFrame.Raised)
-        self.gridLayout_8 = QGridLayout(self.aboutinnerframe)
-        self.gridLayout_8.setObjectName(u"gridLayout_8")
-        self.gridLayout_8.setVerticalSpacing(6)
-        self.gridLayout_8.setContentsMargins(-1, 0, -1, -1)
-        self.horizSpacerLogoRight = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_8.addItem(self.horizSpacerLogoRight, 0, 2, 1, 1)
-
+        self.gridLayout_11 = QGridLayout(self.aboutinnerframe)
+        self.gridLayout_11.setObjectName(u"gridLayout_11")
+        self.gridLayout_11.setVerticalSpacing(6)
+        self.gridLayout_11.setContentsMargins(-1, 0, -1, -1)
         self.aboutlogo = QLabel(self.aboutinnerframe)
         self.aboutlogo.setObjectName(u"aboutlogo")
         self.aboutlogo.setMinimumSize(QSize(240, 120))
@@ -139,14 +158,18 @@ class Ui_Stinder(object):
         self.aboutlogo.setPixmap(QPixmap(u":/logo/images/stinder_logo.png"))
         self.aboutlogo.setScaledContents(True)
 
-        self.gridLayout_8.addWidget(self.aboutlogo, 0, 1, 1, 1)
+        self.gridLayout_11.addWidget(self.aboutlogo, 0, 1, 1, 1)
+
+        self.horizSpacerLogoRight = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_11.addItem(self.horizSpacerLogoRight, 0, 2, 1, 1)
 
         self.horizSpacerLogoLeft = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_8.addItem(self.horizSpacerLogoLeft, 0, 0, 1, 1)
+        self.gridLayout_11.addItem(self.horizSpacerLogoLeft, 0, 0, 1, 1)
 
 
-        self.gridLayout_7.addWidget(self.aboutinnerframe, 0, 0, 1, 1)
+        self.gridLayout_10.addWidget(self.aboutinnerframe, 0, 0, 1, 1)
 
         self.aboutscroll = QScrollArea(self.aboutouterframe)
         self.aboutscroll.setObjectName(u"aboutscroll")
@@ -170,32 +193,32 @@ class Ui_Stinder(object):
         self.aboutscroll.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, -2679, 665, 3119))
-        self.gridLayout_9 = QGridLayout(self.scrollAreaWidgetContents)
-        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, -2468, 724, 3030))
+        self.gridLayout_12 = QGridLayout(self.scrollAreaWidgetContents)
+        self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.AboutTextP2 = QFrame(self.scrollAreaWidgetContents)
         self.AboutTextP2.setObjectName(u"AboutTextP2")
         self.AboutTextP2.setFrameShape(QFrame.StyledPanel)
         self.AboutTextP2.setFrameShadow(QFrame.Raised)
-        self.gridLayout_12 = QGridLayout(self.AboutTextP2)
-        self.gridLayout_12.setObjectName(u"gridLayout_12")
-        self.gridLayout_12.setVerticalSpacing(0)
+        self.gridLayout_13 = QGridLayout(self.AboutTextP2)
+        self.gridLayout_13.setObjectName(u"gridLayout_13")
+        self.gridLayout_13.setVerticalSpacing(0)
         self.horizSpacerAT2Left = QSpacerItem(0, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_12.addItem(self.horizSpacerAT2Left, 0, 0, 1, 1)
+        self.gridLayout_13.addItem(self.horizSpacerAT2Left, 0, 0, 1, 1)
 
         self.abouttextp2 = QLabel(self.AboutTextP2)
         self.abouttextp2.setObjectName(u"abouttextp2")
         self.abouttextp2.setStyleSheet(u"font: 500 13pt \"Nexa\";")
 
-        self.gridLayout_12.addWidget(self.abouttextp2, 0, 1, 1, 1)
+        self.gridLayout_13.addWidget(self.abouttextp2, 0, 1, 1, 1)
 
         self.horizSpacerAT2Right = QSpacerItem(0, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_12.addItem(self.horizSpacerAT2Right, 0, 2, 1, 1)
+        self.gridLayout_13.addItem(self.horizSpacerAT2Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.AboutTextP2, 2, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.AboutTextP2, 2, 0, 1, 1)
 
         self.FAQsFrame = QFrame(self.scrollAreaWidgetContents)
         self.FAQsFrame.setObjectName(u"FAQsFrame")
@@ -225,7 +248,7 @@ class Ui_Stinder(object):
         self.gridLayout_14.addWidget(self.FAQsText, 0, 1, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.FAQsFrame, 4, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.FAQsFrame, 4, 0, 1, 1)
 
         self.TeamSectionFrame = QFrame(self.scrollAreaWidgetContents)
         self.TeamSectionFrame.setObjectName(u"TeamSectionFrame")
@@ -248,32 +271,32 @@ class Ui_Stinder(object):
         self.gridLayout_21.addWidget(self.TSText, 0, 1, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.TeamSectionFrame, 11, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.TeamSectionFrame, 11, 0, 1, 1)
 
         self.AboutTextP3 = QFrame(self.scrollAreaWidgetContents)
         self.AboutTextP3.setObjectName(u"AboutTextP3")
         self.AboutTextP3.setStyleSheet(u"font: 500 13pt \"Nexa\";")
         self.AboutTextP3.setFrameShape(QFrame.StyledPanel)
         self.AboutTextP3.setFrameShadow(QFrame.Raised)
-        self.gridLayout_13 = QGridLayout(self.AboutTextP3)
-        self.gridLayout_13.setObjectName(u"gridLayout_13")
-        self.gridLayout_13.setVerticalSpacing(0)
+        self.gridLayout_15 = QGridLayout(self.AboutTextP3)
+        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.gridLayout_15.setVerticalSpacing(0)
         self.horizSpacerAT3Left = QSpacerItem(89, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_13.addItem(self.horizSpacerAT3Left, 0, 0, 1, 1)
+        self.gridLayout_15.addItem(self.horizSpacerAT3Left, 0, 0, 1, 1)
 
         self.abouttextp3 = QLabel(self.AboutTextP3)
         self.abouttextp3.setObjectName(u"abouttextp3")
         self.abouttextp3.setMinimumSize(QSize(0, 0))
 
-        self.gridLayout_13.addWidget(self.abouttextp3, 0, 2, 1, 1)
+        self.gridLayout_15.addWidget(self.abouttextp3, 0, 2, 1, 1)
 
         self.horizSpacerAT3Right = QSpacerItem(88, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_13.addItem(self.horizSpacerAT3Right, 0, 3, 1, 1)
+        self.gridLayout_15.addItem(self.horizSpacerAT3Right, 0, 3, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.AboutTextP3, 3, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.AboutTextP3, 3, 0, 1, 1)
 
         self.Question6Frame = QFrame(self.scrollAreaWidgetContents)
         self.Question6Frame.setObjectName(u"Question6Frame")
@@ -297,7 +320,7 @@ class Ui_Stinder(object):
         self.gridLayout_20.addItem(self.horizSpacerQ6Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.Question6Frame, 10, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.Question6Frame, 10, 0, 1, 1)
 
         self.Question2Frame = QFrame(self.scrollAreaWidgetContents)
         self.Question2Frame.setObjectName(u"Question2Frame")
@@ -320,7 +343,7 @@ class Ui_Stinder(object):
         self.gridLayout_16.addItem(self.horizSpacerQ2Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.Question2Frame, 6, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.Question2Frame, 6, 0, 1, 1)
 
         self.TeamMemberP1_EG = QFrame(self.scrollAreaWidgetContents)
         self.TeamMemberP1_EG.setObjectName(u"TeamMemberP1_EG")
@@ -331,7 +354,7 @@ class Ui_Stinder(object):
         self.EG_ProfilePic = QLabel(self.TeamMemberP1_EG)
         self.EG_ProfilePic.setObjectName(u"EG_ProfilePic")
         self.EG_ProfilePic.setMaximumSize(QSize(256, 256))
-        self.EG_ProfilePic.setPixmap(QPixmap(u":/logo/images/eg-profile.png"))
+        self.EG_ProfilePic.setPixmap(QPixmap(u":/logo/images/eg_pfp.jpg"))
         self.EG_ProfilePic.setScaledContents(True)
 
         self.gridLayout_22.addWidget(self.EG_ProfilePic, 0, 1, 1, 1)
@@ -356,7 +379,7 @@ class Ui_Stinder(object):
         self.gridLayout_22.addItem(self.horizSpacerP1_EGCenter, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.TeamMemberP1_EG, 12, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.TeamMemberP1_EG, 12, 0, 1, 1)
 
         self.TeamMemberP2_WT = QFrame(self.scrollAreaWidgetContents)
         self.TeamMemberP2_WT.setObjectName(u"TeamMemberP2_WT")
@@ -394,7 +417,7 @@ class Ui_Stinder(object):
         self.gridLayout_23.addItem(self.horizSpacerP2_EGCenter, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.TeamMemberP2_WT, 13, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.TeamMemberP2_WT, 13, 0, 1, 1)
 
         self.Question5Frame = QFrame(self.scrollAreaWidgetContents)
         self.Question5Frame.setObjectName(u"Question5Frame")
@@ -418,7 +441,7 @@ class Ui_Stinder(object):
         self.gridLayout_19.addItem(self.horizSpacerQ5Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.Question5Frame, 9, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.Question5Frame, 9, 0, 1, 1)
 
         self.Question3Frame = QFrame(self.scrollAreaWidgetContents)
         self.Question3Frame.setObjectName(u"Question3Frame")
@@ -441,7 +464,7 @@ class Ui_Stinder(object):
         self.gridLayout_17.addItem(self.horizSpacerQ3Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.Question3Frame, 7, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.Question3Frame, 7, 0, 1, 1)
 
         self.TeamMemberP3_CE = QFrame(self.scrollAreaWidgetContents)
         self.TeamMemberP3_CE.setObjectName(u"TeamMemberP3_CE")
@@ -449,14 +472,10 @@ class Ui_Stinder(object):
         self.TeamMemberP3_CE.setFrameShadow(QFrame.Raised)
         self.gridLayout_24 = QGridLayout(self.TeamMemberP3_CE)
         self.gridLayout_24.setObjectName(u"gridLayout_24")
-        self.horizSpacerP3_CELeft = QSpacerItem(62, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_24.addItem(self.horizSpacerP3_CELeft, 0, 0, 1, 1)
-
         self.CE_ProfilePic = QLabel(self.TeamMemberP3_CE)
         self.CE_ProfilePic.setObjectName(u"CE_ProfilePic")
         self.CE_ProfilePic.setMaximumSize(QSize(256, 256))
-        self.CE_ProfilePic.setPixmap(QPixmap(u":/logo/images/ce-profile.png"))
+        self.CE_ProfilePic.setPixmap(QPixmap(u":/logo/images/ce-profile.jpg"))
         self.CE_ProfilePic.setScaledContents(True)
 
         self.gridLayout_24.addWidget(self.CE_ProfilePic, 0, 1, 1, 1)
@@ -480,23 +499,23 @@ class Ui_Stinder(object):
         self.gridLayout_24.addItem(self.horizSpacerP3_CECenter, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.TeamMemberP3_CE, 14, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.TeamMemberP3_CE, 14, 0, 1, 1)
 
         self.MissionStatementFrame = QFrame(self.scrollAreaWidgetContents)
         self.MissionStatementFrame.setObjectName(u"MissionStatementFrame")
         self.MissionStatementFrame.setMinimumSize(QSize(0, 0))
         self.MissionStatementFrame.setFrameShape(QFrame.StyledPanel)
         self.MissionStatementFrame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_10 = QGridLayout(self.MissionStatementFrame)
-        self.gridLayout_10.setObjectName(u"gridLayout_10")
-        self.gridLayout_10.setVerticalSpacing(0)
+        self.gridLayout_18 = QGridLayout(self.MissionStatementFrame)
+        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.gridLayout_18.setVerticalSpacing(0)
         self.horizSpacerMSRight = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_10.addItem(self.horizSpacerMSRight, 0, 2, 1, 1)
+        self.gridLayout_18.addItem(self.horizSpacerMSRight, 0, 2, 1, 1)
 
         self.horizspacerMSLeft = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_10.addItem(self.horizspacerMSLeft, 0, 0, 1, 1)
+        self.gridLayout_18.addItem(self.horizspacerMSLeft, 0, 0, 1, 1)
 
         self.MissionStatement = QLabel(self.MissionStatementFrame)
         self.MissionStatement.setObjectName(u"MissionStatement")
@@ -509,25 +528,25 @@ class Ui_Stinder(object):
         self.MissionStatement.setTextFormat(Qt.RichText)
         self.MissionStatement.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
 
-        self.gridLayout_10.addWidget(self.MissionStatement, 0, 1, 1, 1)
+        self.gridLayout_18.addWidget(self.MissionStatement, 0, 1, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.MissionStatementFrame, 0, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.MissionStatementFrame, 0, 0, 1, 1)
 
         self.AboutTextP1 = QFrame(self.scrollAreaWidgetContents)
         self.AboutTextP1.setObjectName(u"AboutTextP1")
         self.AboutTextP1.setFrameShape(QFrame.StyledPanel)
         self.AboutTextP1.setFrameShadow(QFrame.Raised)
-        self.gridLayout_11 = QGridLayout(self.AboutTextP1)
-        self.gridLayout_11.setObjectName(u"gridLayout_11")
-        self.gridLayout_11.setVerticalSpacing(9)
+        self.gridLayout_25 = QGridLayout(self.AboutTextP1)
+        self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.gridLayout_25.setVerticalSpacing(9)
         self.horizSpacerAT1Right = QSpacerItem(36, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_11.addItem(self.horizSpacerAT1Right, 0, 0, 1, 1)
+        self.gridLayout_25.addItem(self.horizSpacerAT1Right, 0, 0, 1, 1)
 
         self.horizSpacerAT1Left = QSpacerItem(36, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_11.addItem(self.horizSpacerAT1Left, 0, 2, 1, 1)
+        self.gridLayout_25.addItem(self.horizSpacerAT1Left, 0, 2, 1, 1)
 
         self.abouttextp1 = QLabel(self.AboutTextP1)
         self.abouttextp1.setObjectName(u"abouttextp1")
@@ -535,66 +554,66 @@ class Ui_Stinder(object):
         self.abouttextp1.setStyleSheet(u"font: 500 13pt \"Nexa\";")
         self.abouttextp1.setScaledContents(False)
 
-        self.gridLayout_11.addWidget(self.abouttextp1, 0, 1, 1, 1)
+        self.gridLayout_25.addWidget(self.abouttextp1, 0, 1, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.AboutTextP1, 1, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.AboutTextP1, 1, 0, 1, 1)
 
         self.Question4Frame = QFrame(self.scrollAreaWidgetContents)
         self.Question4Frame.setObjectName(u"Question4Frame")
         self.Question4Frame.setFrameShape(QFrame.StyledPanel)
         self.Question4Frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_18 = QGridLayout(self.Question4Frame)
-        self.gridLayout_18.setObjectName(u"gridLayout_18")
+        self.gridLayout_26 = QGridLayout(self.Question4Frame)
+        self.gridLayout_26.setObjectName(u"gridLayout_26")
         self.horizSpacerQ4Left = QSpacerItem(80, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_18.addItem(self.horizSpacerQ4Left, 0, 0, 1, 1)
+        self.gridLayout_26.addItem(self.horizSpacerQ4Left, 0, 0, 1, 1)
 
         self.Q4Text = QLabel(self.Question4Frame)
         self.Q4Text.setObjectName(u"Q4Text")
         self.Q4Text.setStyleSheet(u"font: 500 13pt \"Nexa\";")
 
-        self.gridLayout_18.addWidget(self.Q4Text, 0, 1, 1, 1)
+        self.gridLayout_26.addWidget(self.Q4Text, 0, 1, 1, 1)
 
         self.horizSpacerQ4Right = QSpacerItem(29, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_18.addItem(self.horizSpacerQ4Right, 0, 2, 1, 1)
+        self.gridLayout_26.addItem(self.horizSpacerQ4Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.Question4Frame, 8, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.Question4Frame, 8, 0, 1, 1)
 
         self.Question1Frame = QFrame(self.scrollAreaWidgetContents)
         self.Question1Frame.setObjectName(u"Question1Frame")
         self.Question1Frame.setFrameShape(QFrame.StyledPanel)
         self.Question1Frame.setFrameShadow(QFrame.Raised)
-        self.gridLayout_15 = QGridLayout(self.Question1Frame)
-        self.gridLayout_15.setObjectName(u"gridLayout_15")
+        self.gridLayout_27 = QGridLayout(self.Question1Frame)
+        self.gridLayout_27.setObjectName(u"gridLayout_27")
         self.horizSpacerQ1Left = QSpacerItem(84, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_15.addItem(self.horizSpacerQ1Left, 0, 0, 1, 1)
+        self.gridLayout_27.addItem(self.horizSpacerQ1Left, 0, 0, 1, 1)
 
         self.Q1Text = QLabel(self.Question1Frame)
         self.Q1Text.setObjectName(u"Q1Text")
         self.Q1Text.setStyleSheet(u"font: 500 13pt \"Nexa\";")
 
-        self.gridLayout_15.addWidget(self.Q1Text, 0, 1, 1, 1)
+        self.gridLayout_27.addWidget(self.Q1Text, 0, 1, 1, 1)
 
         self.horizSpacerQ1Right = QSpacerItem(84, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_15.addItem(self.horizSpacerQ1Right, 0, 2, 1, 1)
+        self.gridLayout_27.addItem(self.horizSpacerQ1Right, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.Question1Frame, 5, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.Question1Frame, 5, 0, 1, 1)
 
         self.TeamMemberP4_AD = QFrame(self.scrollAreaWidgetContents)
         self.TeamMemberP4_AD.setObjectName(u"TeamMemberP4_AD")
         self.TeamMemberP4_AD.setFrameShape(QFrame.StyledPanel)
         self.TeamMemberP4_AD.setFrameShadow(QFrame.Raised)
-        self.gridLayout_25 = QGridLayout(self.TeamMemberP4_AD)
-        self.gridLayout_25.setObjectName(u"gridLayout_25")
+        self.gridLayout_28 = QGridLayout(self.TeamMemberP4_AD)
+        self.gridLayout_28.setObjectName(u"gridLayout_28")
         self.horizSpacerP4_ADRight = QSpacerItem(177, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_25.addItem(self.horizSpacerP4_ADRight, 0, 0, 1, 1)
+        self.gridLayout_28.addItem(self.horizSpacerP4_ADRight, 0, 0, 1, 1)
 
         self.AD_ProfilePic = QLabel(self.TeamMemberP4_AD)
         self.AD_ProfilePic.setObjectName(u"AD_ProfilePic")
@@ -602,32 +621,32 @@ class Ui_Stinder(object):
         self.AD_ProfilePic.setPixmap(QPixmap(u":/logo/images/AD-profile.png"))
         self.AD_ProfilePic.setScaledContents(True)
 
-        self.gridLayout_25.addWidget(self.AD_ProfilePic, 0, 3, 1, 1)
+        self.gridLayout_28.addWidget(self.AD_ProfilePic, 0, 3, 1, 1)
 
         self.AD_NameRoleAnswer = QLabel(self.TeamMemberP4_AD)
         self.AD_NameRoleAnswer.setObjectName(u"AD_NameRoleAnswer")
         self.AD_NameRoleAnswer.setMaximumSize(QSize(256, 256))
         self.AD_NameRoleAnswer.setStyleSheet(u"font: 500 13pt \"Nexa\";")
 
-        self.gridLayout_25.addWidget(self.AD_NameRoleAnswer, 0, 1, 1, 1)
+        self.gridLayout_28.addWidget(self.AD_NameRoleAnswer, 0, 1, 1, 1)
 
         self.horizSpacerP4_ADLeft = QSpacerItem(176, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_25.addItem(self.horizSpacerP4_ADLeft, 0, 4, 1, 1)
+        self.gridLayout_28.addItem(self.horizSpacerP4_ADLeft, 0, 4, 1, 1)
 
         self.horizSpacerP4_ADCenter = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
-        self.gridLayout_25.addItem(self.horizSpacerP4_ADCenter, 0, 2, 1, 1)
+        self.gridLayout_28.addItem(self.horizSpacerP4_ADCenter, 0, 2, 1, 1)
 
 
-        self.gridLayout_9.addWidget(self.TeamMemberP4_AD, 15, 0, 1, 1)
+        self.gridLayout_12.addWidget(self.TeamMemberP4_AD, 15, 0, 1, 1)
 
         self.aboutscroll.setWidget(self.scrollAreaWidgetContents)
 
-        self.gridLayout_7.addWidget(self.aboutscroll, 1, 0, 1, 1)
+        self.gridLayout_10.addWidget(self.aboutscroll, 1, 0, 1, 1)
 
 
-        self.gridLayout_3.addWidget(self.aboutouterframe, 0, 0, 1, 1)
+        self.gridLayout_31.addWidget(self.aboutouterframe, 0, 0, 1, 1)
 
         self.stackedWidget.addWidget(self.AboutPage)
         self.BrowsePage = QWidget()
@@ -662,10 +681,10 @@ class Ui_Stinder(object):
         self.CardLabel_FirstName.setObjectName(u"CardLabel_FirstName")
         self.CardLabel_FirstName.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_FirstName.setStyleSheet(u"color: white; \n"
-                                               "font: 15pt \"Nexa Bold\";\n"
-                                               "background: transparent;\n"
-                                               "\n"
-                                               "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
         self.horizontalLayout_10.addWidget(self.CardLabel_FirstName)
 
@@ -673,10 +692,11 @@ class Ui_Stinder(object):
         self.Discover_FirstName.setObjectName(u"Discover_FirstName")
         self.Discover_FirstName.setMinimumSize(QSize(189, 42))
         self.Discover_FirstName.setStyleSheet(u"background-color: transparent;\n"
-                                              "color: white;\n"
-                                              "")
+"color: white;\n"
+"")
 
         self.horizontalLayout_10.addWidget(self.Discover_FirstName)
+
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_10)
 
@@ -686,10 +706,10 @@ class Ui_Stinder(object):
         self.CardLabel_LastName.setObjectName(u"CardLabel_LastName")
         self.CardLabel_LastName.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_LastName.setStyleSheet(u"color: white; \n"
-                                              "font: 15pt \"Nexa Bold\";\n"
-                                              "background: transparent;\n"
-                                              "\n"
-                                              "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
         self.horizontalLayout_11.addWidget(self.CardLabel_LastName)
 
@@ -697,10 +717,11 @@ class Ui_Stinder(object):
         self.Discover_LastName.setObjectName(u"Discover_LastName")
         self.Discover_LastName.setMinimumSize(QSize(189, 42))
         self.Discover_LastName.setStyleSheet(u"background-color: transparent;\n"
-                                             "color: white;\n"
-                                             "")
+"color: white;\n"
+"")
 
         self.horizontalLayout_11.addWidget(self.Discover_LastName)
+
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_11)
 
@@ -711,10 +732,10 @@ class Ui_Stinder(object):
         self.CardLabel_Major.setObjectName(u"CardLabel_Major")
         self.CardLabel_Major.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Major.setStyleSheet(u"color: white; \n"
-                                           "font: 15pt \"Nexa Bold\";\n"
-                                           "background: transparent;\n"
-                                           "\n"
-                                           "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
         self.horizontalLayout_12.addWidget(self.CardLabel_Major)
 
@@ -722,10 +743,11 @@ class Ui_Stinder(object):
         self.Discover_Major.setObjectName(u"Discover_Major")
         self.Discover_Major.setMinimumSize(QSize(189, 42))
         self.Discover_Major.setStyleSheet(u"background-color: transparent;\n"
-                                          "color: white;\n"
-                                          "")
+"color: white;\n"
+"")
 
         self.horizontalLayout_12.addWidget(self.Discover_Major)
+
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_12)
 
@@ -735,10 +757,10 @@ class Ui_Stinder(object):
         self.CardLabel_Email.setObjectName(u"CardLabel_Email")
         self.CardLabel_Email.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Email.setStyleSheet(u"color: white; \n"
-                                           "font: 15pt \"Nexa Bold\";\n"
-                                           "background: transparent;\n"
-                                           "\n"
-                                           "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
         self.horizontalLayout_13.addWidget(self.CardLabel_Email)
 
@@ -746,10 +768,11 @@ class Ui_Stinder(object):
         self.Discover_Email.setObjectName(u"Discover_Email")
         self.Discover_Email.setMinimumSize(QSize(189, 42))
         self.Discover_Email.setStyleSheet(u"background-color: transparent;\n"
-                                          "color: white;\n"
-                                          "")
+"color: white;\n"
+"")
 
         self.horizontalLayout_13.addWidget(self.Discover_Email)
+
 
         self.verticalLayout_3.addLayout(self.horizontalLayout_13)
 
@@ -759,10 +782,10 @@ class Ui_Stinder(object):
         self.CardLabel_Year.setObjectName(u"CardLabel_Year")
         self.CardLabel_Year.setMaximumSize(QSize(150, 16777215))
         self.CardLabel_Year.setStyleSheet(u"color: white; \n"
-                                          "font: 15pt \"Nexa Bold\";\n"
-                                          "background: transparent;\n"
-                                          "\n"
-                                          "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
         self.horizontalLayout_14.addWidget(self.CardLabel_Year)
 
@@ -770,14 +793,17 @@ class Ui_Stinder(object):
         self.Discover_Year.setObjectName(u"Discover_Year")
         self.Discover_Year.setMinimumSize(QSize(189, 42))
         self.Discover_Year.setStyleSheet(u"background-color: transparent;\n"
-                                         "color: white;\n"
-                                         "")
+"color: white;\n"
+"")
 
         self.horizontalLayout_14.addWidget(self.Discover_Year)
 
+
         self.verticalLayout_3.addLayout(self.horizontalLayout_14)
 
+
         self.gridLayout_5.addWidget(self.frame_7, 0, 0, 1, 1)
+
 
         self.gridLayout_4.addWidget(self.frame_4, 0, 1, 1, 1)
 
@@ -796,13 +822,13 @@ class Ui_Stinder(object):
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
         self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                        "background-color: rgb(98, 214, 81);\n"
-                                        "color: rgb(255, 255, 255);\n"
-                                        "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                        "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                        "border-left:  1px solid rgb(72, 156, 59);\n"
-                                        "border-right:  1px solid rgb(72, 156, 59);\n"
-                                        "padding: 6px;")
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
 
         self.gridLayout_6.addWidget(self.FilterButton, 5, 4, 1, 1)
 
@@ -810,21 +836,16 @@ class Ui_Stinder(object):
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
         self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                      "background-color: rgb(98, 214, 81);\n"
-                                      "color: rgb(255, 255, 255);\n"
-                                      "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                      "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                      "border-left:  1px solid rgb(72, 156, 59);\n"
-                                      "border-right:  1px solid rgb(72, 156, 59);\n"
-                                      "padding: 6px;")
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"margin: 24px;")
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
-
-        self.horizontalScrollBar = QScrollBar(self.frame_5)
-        self.horizontalScrollBar.setObjectName(u"horizontalScrollBar")
-        self.horizontalScrollBar.setOrientation(Qt.Horizontal)
-
-        self.gridLayout_6.addWidget(self.horizontalScrollBar, 0, 3, 1, 1)
 
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
@@ -833,6 +854,20 @@ class Ui_Stinder(object):
         self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_6.addItem(self.horizontalSpacer_4, 0, 5, 1, 1)
+
+        self.LikeButton = QPushButton(self.frame_5, clicked=lambda: self.handleLike())
+        self.LikeButton.setObjectName(u"LikeButton")
+        self.LikeButton.setStyleSheet(u"background-color: white;\n"
+"color: black;\n"
+"\n"
+"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; \n"
+"padding: 12px;\n"
+"")
+
+        self.gridLayout_6.addWidget(self.LikeButton, 0, 2, 1, 2)
 
         self.FilterDropdown = QComboBox(self.frame_5)
         self.FilterDropdown.addItem("")
@@ -846,28 +881,29 @@ class Ui_Stinder(object):
         self.FilterDropdown.setSizePolicy(sizePolicy1)
         self.FilterDropdown.setMinimumSize(QSize(150, 0))
         self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
-                                          "color: black;\n"
-                                          "\n"
-                                          "font: 500 13pt \"Nexa Bold\";\n"
-                                          "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-                                          "color: rgb(255, 255, 255);\n"
-                                          "border-radius: 5px; \n"
-                                          "padding: 6px;\n"
-                                          "")
+"color: black;\n"
+"\n"
+"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; \n"
+"padding: 6px;\n"
+"")
 
-        self.gridLayout_6.addWidget(self.FilterDropdown, 5, 3, 1, 1)
+        self.gridLayout_6.addWidget(self.FilterDropdown, 5, 2, 1, 2)
 
         self.PreviousButton = QPushButton(self.frame_5, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
         self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                          "background-color: rgb(98, 214, 81);\n"
-                                          "color: rgb(255, 255, 255);\n"
-                                          "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                          "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                          "border-left:  1px solid rgb(72, 156, 59);\n"
-                                          "border-right:  1px solid rgb(72, 156, 59);\n"
-                                          "padding: 6px;")
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"margin: 24px;")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
 
@@ -875,16 +911,17 @@ class Ui_Stinder(object):
         self.FilterLine.setObjectName(u"FilterLine")
         self.FilterLine.setLayoutDirection(Qt.LeftToRight)
         self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                      "background-color: rgb(98, 214, 81);\n"
-                                      "color: rgb(255, 255, 255);\n"
-                                      "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                      "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                      "border-left:  1px solid rgb(72, 156, 59);\n"
-                                      "border-right:  1px solid rgb(72, 156, 59);\n"
-                                      "padding: 6px;")
+"background-color: rgb(191, 255, 246);\n"
+"color: black;\n"
+"border-radius: 5px; border: 2px rgb(61, 172, 202);\n"
+"border-bottom: 3px solid rgb(159, 255, 246);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
         self.FilterLine.setAlignment(Qt.AlignCenter)
 
         self.gridLayout_6.addWidget(self.FilterLine, 5, 1, 1, 1)
+
 
         self.gridLayout_4.addWidget(self.frame_5, 1, 1, 1, 1)
 
@@ -901,11 +938,15 @@ class Ui_Stinder(object):
         self.frame.setObjectName(u"frame")
         self.frame.setMinimumSize(QSize(700, 0))
         self.frame.setStyleSheet(u"background: transparent;\n"
-                                 "")
+"")
         self.frame.setFrameShape(QFrame.StyledPanel)
         self.frame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.frame)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.gridLayout_9 = QGridLayout(self.frame)
+        self.gridLayout_9.setObjectName(u"gridLayout_9")
+        self.lCourseListWidget = QListWidget(self.frame)
+        self.lCourseListWidget.setObjectName(u"lCourseListWidget")
+
+        self.gridLayout_9.addWidget(self.lCourseListWidget, 21, 0, 1, 1)
         self.label_4 = QLabel(self.frame)
         self.label_4.setObjectName(u"label_4")
         font1 = QFont()
@@ -915,24 +956,32 @@ class Ui_Stinder(object):
         self.label_4.setFont(font1)
         self.label_4.setAutoFillBackground(False)
         self.label_4.setStyleSheet(u"color: white; \n"
-                                   "font: 30pt \"Nexa\";\n"
-                                   "background: transparent;\n"
-                                   "\n"
-                                   "")
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
         self.label_4.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label_4)
+        self.gridLayout_9.addWidget(self.label_4, 0, 0, 1, 1)
+
+        self.courseinstructLabel = QLabel(self.frame)
+        self.courseinstructLabel.setObjectName(u"courseinstructLabel")
+        self.courseinstructLabel.setStyleSheet(u"color: white;\n"
+"font: 10pt;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.courseinstructLabel, 20, 0, 1, 1)
 
         self.label = QLabel(self.frame)
         self.label.setObjectName(u"label")
         self.label.setMinimumSize(QSize(150, 0))
         self.label.setStyleSheet(u"color: white; \n"
-                                 "font: 15pt \"Nexa\";\n"
-                                 "background: transparent;\n"
-                                 "\n"
-                                 "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
-        self.verticalLayout.addWidget(self.label)
+        self.gridLayout_9.addWidget(self.label, 1, 0, 1, 1)
 
         self.UserName = QLabel(self.frame)
         self.UserName.setObjectName(u"UserName")
@@ -943,24 +992,24 @@ class Ui_Stinder(object):
         self.UserName.setSizePolicy(sizePolicy2)
         self.UserName.setMinimumSize(QSize(300, 0))
         self.UserName.setStyleSheet(u"color: white; \n"
-                                    "font: 15pt \"Nexa\";\n"
-                                    "background: transparent;\n"
-                                    "border-bottom: 2px solid white;\n"
-                                    "\n"
-                                    "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;\n"
+"\n"
+"")
 
-        self.verticalLayout.addWidget(self.UserName)
+        self.gridLayout_9.addWidget(self.UserName, 2, 0, 1, 1)
 
         self.label_2 = QLabel(self.frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setMinimumSize(QSize(150, 0))
         self.label_2.setStyleSheet(u"color: white; \n"
-                                   "font: 15pt \"Nexa\";\n"
-                                   "background: transparent;\n"
-                                   "\n"
-                                   "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
-        self.verticalLayout.addWidget(self.label_2)
+        self.gridLayout_9.addWidget(self.label_2, 3, 0, 1, 1)
 
         self.UserEmail = QLabel(self.frame)
         self.UserEmail.setObjectName(u"UserEmail")
@@ -968,24 +1017,70 @@ class Ui_Stinder(object):
         self.UserEmail.setSizePolicy(sizePolicy2)
         self.UserEmail.setMinimumSize(QSize(300, 0))
         self.UserEmail.setStyleSheet(u"color: white; \n"
-                                     "font: 15pt \"Nexa\";\n"
-                                     "background: transparent;\n"
-                                     "border-bottom: 2px solid white;\n"
-                                     "\n"
-                                     "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;\n"
+"\n"
+"")
 
-        self.verticalLayout.addWidget(self.UserEmail)
+        self.gridLayout_9.addWidget(self.UserEmail, 4, 0, 1, 1)
 
         self.label_3 = QLabel(self.frame)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setMinimumSize(QSize(150, 0))
         self.label_3.setStyleSheet(u"color: white; \n"
-                                   "font: 15pt \"Nexa\";\n"
-                                   "background: transparent;\n"
-                                   "\n"
-                                   "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"\n"
+"")
 
-        self.verticalLayout.addWidget(self.label_3)
+        self.gridLayout_9.addWidget(self.label_3, 5, 0, 1, 1)
+
+        self.CourseVertLayout = QHBoxLayout()
+        self.CourseVertLayout.setObjectName(u"CourseVertLayout")
+        self.AddBtn = QPushButton(self.frame)
+        self.AddBtn.setObjectName(u"AddBtn")
+        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.AddBtn)
+
+        self.DoneBtn = QPushButton(self.frame)
+        self.DoneBtn.setObjectName(u"DoneBtn")
+        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.DoneBtn)
+
+        self.DeleteBtn = QPushButton(self.frame)
+        self.DeleteBtn.setObjectName(u"DeleteBtn")
+        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 2px;\n"
+"")
+
+        self.CourseVertLayout.addWidget(self.DeleteBtn)
+
+        self.gridLayout_9.addLayout(self.CourseVertLayout, 25, 0, 1, 1)
 
         self.UserMajor = QLabel(self.frame)
         self.UserMajor.setObjectName(u"UserMajor")
@@ -993,25 +1088,145 @@ class Ui_Stinder(object):
         self.UserMajor.setSizePolicy(sizePolicy2)
         self.UserMajor.setMinimumSize(QSize(300, 0))
         self.UserMajor.setStyleSheet(u"color: white; \n"
-                                     "font: 15pt \"Nexa\";\n"
-                                     "background: transparent;\n"
-                                     "border-bottom: 2px solid white;\n"
-                                     "\n"
-                                     "")
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;\n"
+"\n"
+"")
 
-        self.verticalLayout.addWidget(self.UserMajor)
+        self.gridLayout_9.addWidget(self.UserMajor, 6, 0, 1, 1)
 
         self.verticalSpacer_2 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
-        self.verticalLayout.addItem(self.verticalSpacer_2)
+        self.gridLayout_9.addItem(self.verticalSpacer_2)
+
+        self.MatchTitle = QLabel(self.frame)
+        self.MatchTitle.setObjectName(u"MatchTitle")
+        self.MatchTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.MatchTitle, 8, 0, 1, 1)
+
+        self.CourseInputEdit = QLineEdit(self.frame)
+        self.CourseInputEdit.setObjectName(u"CourseInputEdit")
+        self.CourseInputEdit.setStyleSheet(u"background-color: white;\n"
+"border-radius: 10px;\n"
+"padding: 0 8px;")
+
+        self.gridLayout_9.addWidget(self.CourseInputEdit, 24, 0, 1, 1)
+
+        self.verticalSpacer_6 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_6, 9, 0, 1, 1)
+
+        self.MatchName = QLabel(self.frame)
+        self.MatchName.setObjectName(u"MatchName")
+        self.MatchName.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;")
+
+        self.gridLayout_9.addWidget(self.MatchName, 10, 0, 1, 1)
+
+        self.AddCoursesBtn = QPushButton(self.frame)
+        self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
+        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.AddCoursesBtn, 23, 0, 1, 1)
+
+        self.verticalSpacer_5 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_5)
+
+        self.MatchEmail = QLabel(self.frame)
+        self.MatchEmail.setObjectName(u"MatchEmail")
+        self.MatchEmail.setStyleSheet(u"color: white; \n"
+"font: 15pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"border-bottom: 2px solid white;")
+
+        self.gridLayout_9.addWidget(self.MatchEmail, 12, 0, 1, 1)
+
+        self.MatchLayout = QHBoxLayout()
+        self.MatchLayout.setObjectName(u"MatchLayout")
+        self.prevMatchButton = QPushButton(self.frame, clicked=lambda: self.prevMatch())
+        self.prevMatchButton.setObjectName(u"prevMatchButton")
+        self.prevMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
+
+        self.MatchLayout.addWidget(self.prevMatchButton)
+
+        self.nextMatchButton = QPushButton(self.frame, clicked=lambda: self.nextMatch())
+        self.nextMatchButton.setObjectName(u"nextMatchButton")
+        self.nextMatchButton.setLayoutDirection(Qt.LeftToRight)
+        self.nextMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"padding-right:15px;\n"
+"padding-left:15px;")
+
+        self.MatchLayout.addWidget(self.nextMatchButton)
+
+        self.MatchSpacer = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.MatchLayout.addItem(self.MatchSpacer)
+
+
+        self.gridLayout_9.addLayout(self.MatchLayout, 13, 0, 1, 1)
+
+        self.CoursesTitle = QLabel(self.frame)
+        self.CoursesTitle.setObjectName(u"CoursesTitle")
+        self.CoursesTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;")
+
+        self.gridLayout_9.addWidget(self.CoursesTitle, 19, 0, 1, 1)
+
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_4)
+
+        self.LikesTitle = QLabel(self.frame)
+        self.LikesTitle.setObjectName(u"LikesTitle")
+        self.LikesTitle.setStyleSheet(u"color: white; \n"
+"font: 30pt \"Segoe UI\";\n"
+"background: transparent;\n"
+"")
+
+        self.gridLayout_9.addWidget(self.LikesTitle, 15, 0, 1, 1)
 
         self.LikesLabel = QLabel(self.frame)
         self.LikesLabel.setObjectName(u"LikesLabel")
         self.LikesLabel.setStyleSheet(u"background-color: transparent;\n"
-                                      "color: white;\n"
-                                      "")
+"color: white;\n"
+"")
+        
+        self.gridLayout_9.addWidget(self.LikesLabel, 16, 0, 1, 1)
 
-        self.verticalLayout.addWidget(self.LikesLabel)
+        self.verticalSpacer_3 = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
+
+        self.gridLayout_9.addItem(self.verticalSpacer_3)
 
         self.horizontalLayout.addWidget(self.frame)
 
@@ -1027,10 +1242,24 @@ class Ui_Stinder(object):
 
         self.retranslateUi(Stinder)
 
+        self.CoursesTitle.raise_()
+        self.LikesLabel.raise_()
+        self.UserEmail.raise_()
+        self.label_2.raise_()
+        self.label_3.raise_()
+        self.UserName.raise_()
+        self.UserMajor.raise_()
+        self.label.raise_()
+        self.label_4.raise_()
+        self.courseinstructLabel.raise_()
+        self.lCourseListWidget.raise_()
+        self.CourseInputEdit.raise_()
+        self.AddCoursesBtn.raise_()
+
         self.stackedWidget.setCurrentIndex(0)
 
-        QMetaObject.connectSlotsByName(Stinder)
 
+        QMetaObject.connectSlotsByName(Stinder)
     # setupUi
 
     def retranslateUi(self, Stinder):
@@ -1043,14 +1272,7 @@ class Ui_Stinder(object):
         self.BrowseButton.setText(QCoreApplication.translate("Stinder", u"Browse", None))
         self.logo.setText("")
         self.AboutButton.setText(QCoreApplication.translate("Stinder", u"About", None))
-        # if QT_CONFIG(tooltip)
-        self.aboutlogo.setToolTip(
-            QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
-        # endif // QT_CONFIG(tooltip)
-        # if QT_CONFIG(whatsthis)
-        self.aboutlogo.setWhatsThis(
-            QCoreApplication.translate("Stinder", u"<html><head/><body><p><br/></p></body></html>", None))
-        # endif // QT_CONFIG(whatsthis)
+        self.LogoutBtn.setText(QCoreApplication.translate("Stinder", u"Logout", None))
         self.aboutlogo.setText("")
         self.abouttextp2.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">Stinder aims to solve those problems for those who would like to pair</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">up with those with similar work ethic and motivations. </span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">Fill out your student information for your profile and browse through</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">your class population for those with similar qualities to </span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">work as effectively as possible in a group setting! Filter students by</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">major,"
                         " coursework, schedule and more to find your perfect</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">match!</span></p></body></html>", None))
@@ -1065,7 +1287,6 @@ class Ui_Stinder(object):
         self.EG_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:700; text-decoration: underline; color:#ffffff;\">Eddie Gibbons | Project Lead</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">&quot;A favorite study habit of mine is to</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">collaborate on class notes with </span></p><p><span style=\" font-size:11pt; color:#ffffff;\">friends. There's always different </span></p><p><span style=\" font-size:11pt; color:#ffffff;\">interpretations and understandings</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">of course material and it's great to</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">learn by having everyone give their</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">opinion and reasoning as to why they </span></p><p><span style=\" font-size:11pt; color:#ffffff;\">believe what they believe.&quot;</span></p></body></html>", None))
         self.WT_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff;\">Wyatt Townsend | Backend</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">&quot;Flash cards have always been an </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">effective study method for me. </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">They become much more effective </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">when I get to share flash cards </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">with others and use cards they </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">made to make sure I cover all </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">important material.&quot;</span></p></body></html>", None))
         self.WT_ProfilePic.setText("")
-        self.WT_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff;\">Wyatt Townsend | Backend</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">&quot;Flash cards have always been an </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">effective study method for me. </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">They become much more effective </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">when I get to share flash cards </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">with others and use cards they </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">made to make sure I cover all </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">important material.&quot;</span></p></body></html>", None))
         self.Q5Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-ac5f434d-7fff-f5d7-39ec-9f137ccebbd9\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">H</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">ow does the like feature work </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">on Stinder?</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-5279443d-7fff-235c-73b0-504c6371e233\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">W</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\""
                         ">hen on the browse page you can use </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">the slider to like a certain profile. If that </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">student likes you back, then you two have</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">a match! </span></p></body></html>", None))
         self.Q3Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-d6b8bf47-7fff-02bc-f938-e7ece8d2821a\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:696; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">: </span><a name=\"docs-internal-guid-088e0566-7fff-4bbb-1e26-74fa49546a58\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">H</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">ow do I message a person that I </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">matched with?</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: Once you get a match, the email of your </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:4"
@@ -1079,43 +1300,55 @@ class Ui_Stinder(object):
         self.Q1Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-7b5fe8b8-7fff-9183-8138-f3d8823b0081\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">: How does Stinder work?</span></p><p><a name=\"docs-internal-guid-ccca6ff3-7fff-c106-1d28-2e3f845958f1\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">: Stinder works by using the information </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">you filled out in the sign up process in an </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">al"
                         "gorithm that matches you with other </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">students with similar study habits,</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\"> behaviors, locations, major and</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">coursework. After the algorithm has </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">been run on your information, you can </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">go to the browse page to view the students </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">who we at Stinder believe"
                         " are your best </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">match as a study buddy. </span></p></body></html>", None))
+        self.AD_ProfilePic.setText("")
         self.AD_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-f7cd91fc-7fff-5fe1-50e4-815a388fcb13\"/><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">llison Denham | Backend/Frontend</span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">My favorite place to study is definitely in </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">the libraries. During the pandemic I </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">realized how important my </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-"
                         "color:transparent;\">environment is to my study habits </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">and productivity when getting work </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">done. The libraries at UF are also </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">a great place to meet up and study </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">with a group or friend.</span><span style=\" color:#ffffff;\"><br/></span></p></body></html>", None))
-        self.AD_ProfilePic.setText("")
         self.CardLabel_FirstName.setText(QCoreApplication.translate("Stinder", u"First Name:", None))
-        self.Discover_FirstName.setText(a_user[0])
+        self.Discover_FirstName.setText("")
         self.CardLabel_LastName.setText(QCoreApplication.translate("Stinder", u"Last Name:", None))
-        self.Discover_LastName.setText(a_user[1])
+        self.Discover_LastName.setText("")
         self.CardLabel_Major.setText(QCoreApplication.translate("Stinder", u"Major:", None))
-        self.Discover_Major.setText(a_user[2])
+        self.Discover_Major.setText("")
         self.CardLabel_Email.setText(QCoreApplication.translate("Stinder", u"Email:", None))
-        self.Discover_Email.setText(a_user[3])
+        self.Discover_Email.setText("")
         self.CardLabel_Year.setText(QCoreApplication.translate("Stinder", u"Year:", None))
-        self.Discover_Year.setText(a_user[4])
+        self.Discover_Year.setText("")
         self.FilterButton.setText(QCoreApplication.translate("Stinder", u"Filter", None))
         self.NextButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
+#if QT_CONFIG(whatsthis)
+        self.FilterLine.setWhatsThis(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
+#endif // QT_CONFIG(whatsthis)
+        self.FilterLine.setText("")
+        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Search", None))
+        self.PreviousButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
+        self.LikeButton.setText(QCoreApplication.translate("Stinder", u"Like", None))
         self.FilterDropdown.setItemText(0, QCoreApplication.translate("Stinder", u"Filter By", None))
         self.FilterDropdown.setItemText(1, QCoreApplication.translate("Stinder", u"Major", None))
         self.FilterDropdown.setItemText(2, QCoreApplication.translate("Stinder", u"Year", None))
+        self.FilterDropdown.setItemText(3, QCoreApplication.translate("Stinder", u"Course", None))
 
         self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
-        self.PreviousButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
-        # if QT_CONFIG(whatsthis)
-        self.FilterLine.setWhatsThis(
-            QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p></body></html>",
-                                       None))
-        # endif // QT_CONFIG(whatsthis)
-        self.FilterLine.setText("")
-        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Category", None))
-        self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
-        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
-        self.UserName.setText("")
-        self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
-        self.UserEmail.setText("")
-        self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
-        self.UserMajor.setText("")
+        self.MatchName.setText("")
+        self.AddCoursesBtn.setText(QCoreApplication.translate("Stinder", u"Add Courses", None))
         self.LikesLabel.setText("")
-
+        self.prevMatchButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
+        self.nextMatchButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
+        self.UserName.setText("")
+        self.CoursesTitle.setText(QCoreApplication.translate("Stinder", u"Courses", None))
+        self.MatchEmail.setText("")
+        self.label_2.setText(QCoreApplication.translate("Stinder", u"Email:", None))
+        self.label_3.setText(QCoreApplication.translate("Stinder", u"Major:", None))
+        self.AddBtn.setText(QCoreApplication.translate("Stinder", u"Add", None))
+        self.DoneBtn.setText(QCoreApplication.translate("Stinder", u"Done", None))
+        self.DeleteBtn.setText(QCoreApplication.translate("Stinder", u"Delete", None))
+        self.MatchTitle.setText(QCoreApplication.translate("Stinder", u"Matches", None))
+        self.CourseInputEdit.setPlaceholderText(QCoreApplication.translate("Stinder", u"--Enter Course Code--", None))
+        self.label.setText(QCoreApplication.translate("Stinder", u"Name:", None))
+        self.UserMajor.setText("")
+        self.UserEmail.setText("")
+        self.LikesTitle.setText(QCoreApplication.translate("Stinder", u"Likes", None))
+        self.label_4.setText(QCoreApplication.translate("Stinder", u"Profile", None))
+        self.courseinstructLabel.setText(QCoreApplication.translate("Stinder", u"Add courses to connect with people in your classes.", None))
     # retranslateUi
 
     def next_user(self, users, length):
@@ -1129,6 +1362,7 @@ class Ui_Stinder(object):
         self.Discover_Major.setText(users[counter][2])
         self.Discover_Email.setText(users[counter][3])
         self.Discover_Year.setText(users[counter][4])
+
 
     def prev_user(self, users, length):
         counter = self.counter
@@ -1152,12 +1386,16 @@ class Ui_Stinder(object):
             for row in cursor:
                 user_fN = row[0]
                 user_lN = row[1]
-                user_m = row[2]
+                user_maj = row[2]
                 user_e = row[3]
                 user_y = row[4]
-                user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[2] + "\n\nEmail: " + \
-                         row[3] + "\n\nYear: " + row[4]
-                user = [user_fN, user_lN, user_m, user_e, user_y, user_i]
+                user_met = row[5]
+                user_loc = row[6]
+                user_job = row[7]
+                user_day = row[8]
+                user_sH = row[9]
+                
+                user = [user_fN, user_lN, user_maj, user_e, user_y, user_met, user_loc, user_job, user_day, user_sH]
                 users.append(user)
                 length = length + 1
             return users, length
@@ -1169,7 +1407,7 @@ class Ui_Stinder(object):
         if (cat != 'Filter By') & (line != 'Category'):
             filter_conn = sqlite3.connect("stinder/users.db")
             filter_cur = filter_conn.cursor()
-            print("Filtered by " + line)
+            print("Filtered by " + line) 
             filter_cur.execute("SELECT * FROM contacts WHERE " + cat + " == ?", (line,))
             filter_conn.commit()
             fltr_users = []
@@ -1177,19 +1415,23 @@ class Ui_Stinder(object):
             for row in filter_cur:
                 fltr_user_fN = row[0]
                 fltr_user_lN = row[1]
-                fltr_user_m = row[2]
+                fltr_user_maj = row[2]
                 fltr_user_e = row[3]
                 fltr_user_y = row[4]
-                fltr_user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[
-                    2] + "\n\nEmail: " + \
-                              row[3] + "\n\nYear: " + row[4]
-                fltr_user = [fltr_user_fN, fltr_user_lN, fltr_user_m, fltr_user_e, fltr_user_y, fltr_user_i]
+                fltr_user_met = row[5]
+                fltr_user_loc = row[6]
+                fltr_user_job = row[7]
+                fltr_user_day = row[8]
+                fltr_user_sH = row[9]
+                
+                fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_maj, fltr_user_e, fltr_user_y, fltr_user_met, fltr_user_loc, fltr_user_job, fltr_user_day, fltr_user_sH]
                 fltr_users.append(fltr_user)
                 fltr_length = fltr_length + 1
-
+                
             if fltr_length == 0:
                 # self.errorLabel.setText("No results matching your search.")
                 print("No results matching your search.")
+                # self.handleAlgo()
                 filter_cur.execute("SELECT * FROM contacts")
                 filter_conn.commit()
                 fltr_users = []
@@ -1197,13 +1439,16 @@ class Ui_Stinder(object):
                 for row in filter_cur:
                     fltr_user_fN = row[0]
                     fltr_user_lN = row[1]
-                    fltr_user_m = row[2]
+                    fltr_user_maj = row[2]
                     fltr_user_e = row[3]
                     fltr_user_y = row[4]
-                    fltr_user_i = "First Name: " + row[0] + "\n\nLast Name: " + row[1] + "\n\nMajor: " + row[
-                        2] + "\n\nEmail: " + \
-                                  row[3] + "\n\nYear: " + row[4]
-                    fltr_user = [fltr_user_fN, fltr_user_lN, fltr_user_m, fltr_user_e, fltr_user_y, fltr_user_i]
+                    fltr_user_met = row[5]
+                    fltr_user_loc = row[6]
+                    fltr_user_job = row[7]
+                    fltr_user_day = row[8]
+                    fltr_user_sH = row[9]
+                
+                    fltr_user = [fltr_user_fN,  fltr_user_lN, fltr_user_maj, fltr_user_e, fltr_user_y, fltr_user_met, fltr_user_loc, fltr_user_job, fltr_user_day, fltr_user_sH]
                     fltr_users.append(fltr_user)
                     fltr_length = fltr_length + 1
 
@@ -1211,12 +1456,13 @@ class Ui_Stinder(object):
             print(fltr_length, "students")
             self.students = fltr_users
             self.s_length = fltr_length
-            self.counter = 0
-            self.prev_user(self.students, self.s_length)
-
+            # self.counter = 0
+            # self.prev_user(self.students, self.s_length)
+            self.handleAlgo()
+    
     def likes_counter(self):
         u_email = self.UserEmail.text()
-
+        
         likes_conn = sqlite3.connect("stinder/users.db")
         likes_cur = likes_conn.cursor()
 
@@ -1240,3 +1486,161 @@ class Ui_Stinder(object):
         else:
             result = "You have received " + str(like_counter) + " likes!"
         self.LikesLabel.setText(result)
+
+        self.matches, self.m_length = self.matchList()
+        if self.m_length != 0:
+            self.MatchName.setText(self.matches[self.m_counter][0])
+            self.MatchEmail.setText(self.matches[self.m_counter][1])
+        else:
+            self.nextMatchButton.setVisible(False)
+            self.prevMatchButton.setVisible(False)
+
+    def handleAlgo(self):
+        ranking = []
+        rank = 0
+        # print(self.c_user)
+        # print(self.UserEmail.text())
+        for student in self.students:
+            rank = 0
+            if student[3] == self.c_user[3]: # major
+                rank = rank + 18
+                # print("Current User: " + self.c_user[3])
+            if student[4] == self.c_user[4]: # year
+                rank = rank + 18
+            if student[5] == self.c_user[5]: # method
+                rank = rank + 17
+            if student[6] == self.c_user[6]: # loc
+                rank = rank + 15
+            if student[7] == self.c_user[7]: # job
+                rank = rank + 12
+            if student[8] == self.c_user[8]: # day
+                rank = rank + 10
+            if student[9] == self.c_user[9]: # study history
+                rank = rank + 10
+            # print(student)
+            # print(rank)
+            # print()
+            ranking.append(rank)
+        
+        numpy_students = numpy.array(self.students) 
+        numpy_ranking = numpy.array(ranking)
+        numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
+        # print(numpy_sort)
+        sortedStudents = numpy_students[numpy_sort]
+        # print()
+        # print(sortedStudents)
+        # print()
+        # print(sortedStudents)
+        # print(sortedStudents[self.counter][8])
+
+        # print(self.students[self.counter][10])
+        # student_ranking = list(zip(ranking, self.students))
+        # student_ranking.sort(reverse=True)
+        # for sr in student_ranking:
+            # print(sr)
+        # print(self.s_length)
+        # print(len(sortedStudents))
+        self.students = sortedStudents
+        self.counter = 0
+        self.prev_user(self.students, self.s_length)
+        
+
+    def handleLike(self):
+        u_email = self.UserEmail.text()
+        l_Fn = self.students[self.counter][0]
+        l_Ln = self.students[self.counter][1]
+        l_email = self.students[self.counter][3]
+        # print(u_email)
+        # print(l_email)
+        
+        likes_conn = sqlite3.connect("stinder/users.db")
+        likes_cur = likes_conn.cursor()
+
+        # Like already exists
+        likes_cur.execute("SELECT COUNT(*) from likes where user_email == ? AND like_email == ?", (u_email, l_email))
+        likes_conn.commit()
+        isLiked = likes_cur.fetchone()[0]
+        # print("isLiked is " + str(isLiked))
+
+        # Like yourself , soon to be deprecrated
+        if u_email == l_email:
+            # add error message to GUI also
+            likes_conn.close()
+            print("Attempted to like yourself!")
+            return
+        elif isLiked == 1:
+            likes_conn.close()
+            print("You already liked this person!")
+            return
+        else:
+            likes_cur.execute("INSERT OR REPLACE INTO likes (user_email, like_fname, like_lname, like_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
+            likes_conn.commit()
+
+            likes_cur.execute("SELECT * from likes WHERE user_email == ?", (l_email, ))
+            likes_conn.commit()
+
+            for row in likes_cur:
+                if str(row[4]) == u_email:
+                    likes_cur.execute("INSERT OR REPLACE INTO matches (user_email, match_fname, match_lname, match_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
+                    likes_conn.commit()
+                    self.showMatch()
+                    break
+
+            likes_conn.close()
+
+
+    def takeRank(self, i):
+        return self.students[i][10]
+
+    def showMatch(self):
+        matchUser = "Here's " + self.students[self.counter][0] + "'s email to contact him: " + self.students[self.counter][3]
+        self.matchUi.InfoLabel.setText(matchUser)
+        self.matchWindow.show()
+        # self.matchUi.OKButton.clicked.connect(self.matchWindow.hide())
+
+    def matchList(self):
+        u_email = self.UserEmail.text()
+        
+        match_conn = sqlite3.connect("stinder/users.db")
+        match_cur = match_conn.cursor()
+
+        match_cur.execute("SELECT * from matches WHERE user_email == ?", (u_email, ))
+        match_conn.commit()
+
+        m_list = []
+        m_length = 0
+        for row in match_cur:
+            m_name = str(row[2]) + " " + str(row[3])
+            m_email = str(row[4])
+            m = [m_name, m_email]
+            m_list.append(m)
+            m_length = m_length + 1
+
+        return m_list, m_length
+
+    def prevMatch(self):
+        if self.m_length != 0:
+            counter = self.m_counter
+
+            if counter != 0:
+                counter = counter - 1
+                self.m_counter = counter
+
+            self.MatchName.setText(self.matches[self.m_counter][0])
+            self.MatchEmail.setText(self.matches[self.m_counter][1])
+
+    def nextMatch(self):
+        if self.m_length != 0:
+        
+            counter = self.m_counter
+
+            if counter != self.m_length | self.m_length != 1:
+                counter = counter + 1
+                self.m_counter = counter
+
+            if self.m_counter == self.m_length:
+                counter = counter - 1
+                self.m_counter = counter
+
+            self.MatchName.setText(self.matches[self.m_counter][0])
+            self.MatchEmail.setText(self.matches[self.m_counter][1])

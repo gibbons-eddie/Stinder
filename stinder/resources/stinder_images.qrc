@@ -1,6 +1,9 @@
 <RCC>
   <qresource prefix="logo">
     <file>images/IMG_4845.JPG</file>
+    <file>images/ce-profile.jpg</file>
+    <file>images/eg_pfp.jpg</file>
+    <file>images/stinder_book_logo.png</file>
     <file>images/stinder_logo.png</file>
   </qresource>
   <qresource prefix="fonts">
