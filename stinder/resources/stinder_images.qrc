@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="logo">
+    <file>images/wt-profile.png</file>
+    <file>images/AD-profile.png</file>
     <file>images/IMG_4845.JPG</file>
     <file>images/ce-profile.jpg</file>
     <file>images/eg_pfp.jpg</file>
