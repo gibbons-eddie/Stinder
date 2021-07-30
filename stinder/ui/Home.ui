@@ -132,7 +132,7 @@ padding: 6px;</string>
     <item row="0" column="1">
      <widget class="QStackedWidget" name="stackedWidget">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="AboutPage">
        <layout class="QGridLayout" name="gridLayout_31">
@@ -264,7 +264,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
               <property name="geometry">
                <rect>
                 <x>0</x>
-                <y>-1924</y>
+                <y>0</y>
                 <width>724</width>
                 <height>3104</height>
                </rect>
@@ -1614,14 +1614,15 @@ padding: 6px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+background-color: rgb(161, 137, 248);
 color: rgb(255, 255, 255);
 border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
+border-bottom: 3px solid rgb(92, 77, 182);
+border-left:  1px solid rgb(134, 115, 210);
+border-right:  1px solid rgb(134, 115, 210);
 padding: 6px;
-margin: 24px;</string>
+margin: 24px;
+</string>
              </property>
              <property name="text">
               <string>Next</string>
@@ -1680,14 +1681,15 @@ padding: 6px;</string>
              </property>
              <property name="styleSheet">
               <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+background-color: rgb(161, 137, 248);
 color: rgb(255, 255, 255);
 border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
+border-bottom: 3px solid rgb(92, 77, 182);
+border-left:  1px solid rgb(134, 115, 210);
+border-right:  1px solid rgb(134, 115, 210);
 padding: 6px;
-margin: 24px;</string>
+margin: 24px;
+</string>
              </property>
              <property name="text">
               <string>Previous</string>
@@ -1874,12 +1876,12 @@ padding: 6px;
               <widget class="QPushButton" name="prevMatchButton">
                <property name="styleSheet">
                 <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+background-color: rgb(161, 137, 248);
 color: rgb(255, 255, 255);
 border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
+border-bottom: 3px solid rgb(92, 77, 182);
+border-left:  1px solid rgb(134, 115, 210);
+border-right:  1px solid rgb(134, 115, 210);
 padding: 6px;</string>
                </property>
                <property name="text">
@@ -1894,12 +1896,12 @@ padding: 6px;</string>
                </property>
                <property name="styleSheet">
                 <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+background-color: rgb(161, 137, 248);
 color: rgb(255, 255, 255);
 border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
+border-bottom: 3px solid rgb(92, 77, 182);
+border-left:  1px solid rgb(134, 115, 210);
+border-right:  1px solid rgb(134, 115, 210);
 padding: 6px;
 padding-right:15px;
 padding-left:15px;</string>
@@ -2048,14 +2050,13 @@ background: transparent;
               <widget class="QPushButton" name="AddBtn">
                <property name="styleSheet">
                 <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+background-color: rgb(18, 172, 207);
 color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
-padding: 2px;
-</string>
+border-radius: 5px; border: 2px rgb(18, 172, 207);
+border-bottom: 4px solid rgb(13, 123, 147);
+border-left:  2px solid rgb(13, 123, 147);
+border-right:  2px solid rgb(13, 123, 147);
+padding: 2px;</string>
                </property>
                <property name="text">
                 <string>Add</string>
@@ -2063,15 +2064,16 @@ padding: 2px;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="DoneBtn">
+              <widget class="QPushButton" name="DeleteBtn_2">
                <property name="styleSheet">
                 <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+background-color: rgb(255, 61, 50);
 color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
+border-radius: 5px; 
+border: 2px rgb(255, 61, 50);
+border-bottom: 3px solid rgb(158, 37, 31);
+border-left:  1px solid rgb(214, 50, 42);
+border-right:  1px solid rgb(214, 50, 42);
 padding: 2px;
 </string>
                </property>
@@ -2081,7 +2083,7 @@ padding: 2px;
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="DeleteBtn">
+              <widget class="QPushButton" name="DoneBtn">
                <property name="styleSheet">
                 <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
 background-color: rgb(98, 214, 81);

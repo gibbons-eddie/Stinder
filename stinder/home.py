@@ -27,7 +27,7 @@ class Ui_Stinder(object):
         self.s_length = 0
         self.c_user = []
         
-        self.matchWindow = QtWidgets.QDialog()
+        self.matchWindow = QDialog()
         self.matchUi = Ui_LikeDialog()
         self.matchUi.setupUi(self.matchWindow)
 
@@ -63,27 +63,29 @@ class Ui_Stinder(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.ProfileButton = QPushButton(self.frame_2, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
-        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.ProfileButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.ProfileButton, 2, 0, 1, 1)
 
         self.BrowseButton = QPushButton(self.frame_2, clicked=lambda: self.handleAlgo())
         self.BrowseButton.setObjectName(u"BrowseButton")
-        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.BrowseButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.BrowseButton, 1, 0, 1, 1)
 
@@ -102,27 +104,29 @@ class Ui_Stinder(object):
 
         self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
-        self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AboutButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.AboutButton, 0, 0, 1, 1)
 
         self.LogoutBtn = QPushButton(self.frame_2)
         self.LogoutBtn.setObjectName(u"LogoutBtn")
-        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                     "background-color: rgb(98, 214, 81);\n"
-                                     "color: rgb(255, 255, 255);\n"
-                                     "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                     "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                     "border-left:  1px solid rgb(72, 156, 59);\n"
-                                     "border-right:  1px solid rgb(72, 156, 59);\n"
-                                     "padding: 6px;")
+        self.LogoutBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.LogoutBtn, 3, 0, 1, 1, Qt.AlignTop)
 
@@ -173,18 +177,38 @@ class Ui_Stinder(object):
         self.aboutscroll = QScrollArea(self.aboutouterframe)
         self.aboutscroll.setObjectName(u"aboutscroll")
         self.aboutscroll.setMinimumSize(QSize(600, 450))
-        self.aboutscroll.setStyleSheet(u"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
-"	background: none;\n"
-"}")
+        self.aboutscroll.setStyleSheet("""QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 68);
+    width: 15px;
+    margin: 16px 0 16px 0;
+ }
+QScrollBar::handle:vertical {	
+	background-color: rgb(33, 33, 34);
+	border-radius: 4px;
+	min-height: 10px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color:  rgb(98, 214, 81);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(24, 24, 32);
+}
+QScrollBar::sub-line:vertical {
+     border: none;
+     background: none;
+}
+QScrollBar::add-line:vertical {
+    border: none;
+    background: none;
+}
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+""")
         self.aboutscroll.setFrameShape(QFrame.Box)
         self.aboutscroll.setFrameShadow(QFrame.Plain)
         self.aboutscroll.setLineWidth(5)
@@ -820,29 +844,30 @@ class Ui_Stinder(object):
         self.FilterButton = QPushButton(self.frame_5, clicked=lambda: self.handleFilter())
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
-        self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout_6.addWidget(self.FilterButton, 5, 4, 1, 1)
 
         self.NextButton = QPushButton(self.frame_5, clicked=lambda: self.next_user(self.students, self.s_length))
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
-        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.NextButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"margin: 24px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
@@ -856,15 +881,16 @@ class Ui_Stinder(object):
 
         self.LikeButton = QPushButton(self.frame_5, clicked=lambda: self.handleLike())
         self.LikeButton.setObjectName(u"LikeButton")
-        self.LikeButton.setStyleSheet(u"background-color: white;\n"
-"color: black;\n"
-"\n"
-"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+        self.LikeButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(18, 172, 207);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; \n"
-"padding: 12px;\n"
-"")
+"border-radius: 5px; border: 2px rgb(18, 172, 207);\n"
+"border-bottom: 4px solid rgb(13, 123, 147);\n"
+"border-left:  2px solid rgb(13, 123, 147);\n"
+"border-right:  2px solid rgb(13, 123, 147);\n"
+"min-height: 40px;\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(20, 235, 255); \n border-bottom: 4px solid rgb(15, 176, 191);\n border-left: 2px solid rgb(15, 176, 191);\n border-right: 2px solid rgb(15, 176, 191);}"
+"QPushButton:pressed{background-color: rgb(8, 74, 88);\n border-bottom: 3px solid rgb(5, 49, 59);\n border-left: 2px solid rgb(5, 49, 59);\n border-right: 2px solid rgb(5, 49, 59);}")
 
         self.gridLayout_6.addWidget(self.LikeButton, 0, 2, 1, 2)
 
@@ -880,30 +906,41 @@ class Ui_Stinder(object):
         sizePolicy1.setHeightForWidth(self.FilterDropdown.sizePolicy().hasHeightForWidth())
         self.FilterDropdown.setSizePolicy(sizePolicy1)
         self.FilterDropdown.setMinimumSize(QSize(150, 0))
-        self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
-"color: black;\n"
-"\n"
-"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius: 5px; \n"
-"padding: 6px;\n"
-"")
-
+        self.FilterDropdown.setStyleSheet(u"""
+        QComboBox{
+                border: 1px solid rgb(73, 73, 75); 
+                border-radius: 4px; 
+                padding: 1px 18px 1px 4px; 
+                color: rgb(255, 255, 255);
+                font: 15px \"Nexa\";
+                background: rgb(33, 33, 34);
+                }
+        QComboBox::hover{
+                background: rgb(73, 73, 75);
+                }
+        QComboBox QAbstractItemView {
+                outline: 0px solid gray; 
+                border: none; 
+                color: rgb(255, 255, 255);
+                font: 15px \"Nexa\";
+                background-color: rgb(73, 73, 75); 
+                selection-background-color: rgb(103, 103, 108); 
+                }
+        """)
         self.gridLayout_6.addWidget(self.FilterDropdown, 5, 2, 1, 2)
 
         self.PreviousButton = QPushButton(self.frame_5, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
-        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.PreviousButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"margin: 24px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
 
@@ -1040,44 +1077,44 @@ class Ui_Stinder(object):
         self.CourseVertLayout.setObjectName(u"CourseVertLayout")
         self.AddBtn = QPushButton(self.frame)
         self.AddBtn.setObjectName(u"AddBtn")
-        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.AddBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(18, 172, 207);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 2px;\n"
-"")
+"border-radius: 5px; border: 2px rgb(18, 172, 207);\n"
+"border-bottom: 4px solid rgb(13, 123, 147);\n"
+"border-left:  2px solid rgb(13, 123, 147);\n"
+"border-right:  2px solid rgb(13, 123, 147);\n"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(20, 235, 255); \n border-bottom: 3px solid rgb(15, 176, 191);\n border-left: 2px solid rgb(15, 176, 191);\n border-right: 2px solid rgb(15, 176, 191);}"
+"QPushButton:pressed{background-color: rgb(8, 74, 88);\n border-bottom: 3px solid rgb(5, 49, 59);\n border-left: 2px solid rgb(5, 49, 59);\n border-right: 2px solid rgb(5, 49, 59);}")
 
         self.CourseVertLayout.addWidget(self.AddBtn)
 
         self.DoneBtn = QPushButton(self.frame)
         self.DoneBtn.setObjectName(u"DoneBtn")
-        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.DoneBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 2px;\n"
-"")
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.CourseVertLayout.addWidget(self.DoneBtn)
 
         self.DeleteBtn = QPushButton(self.frame)
         self.DeleteBtn.setObjectName(u"DeleteBtn")
-        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.DeleteBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(255, 61, 50);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 2px;\n"
-"")
-
+"border-radius: 5px; \n"
+"border: 2px rgb(255, 61, 50);\n"
+"border-bottom: 3px solid rgb(158, 37, 31);\n"
+"border-left:  1px solid rgb(214, 50, 42);\n"
+"border-right:  1px solid rgb(214, 50, 42);\n"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(253, 128, 121); \n border-bottom: 3px solid rgb(223, 77, 68);\n border-left: 2px solid rgb(223, 77, 68);\n border-right: 2px solid rgb(223, 77, 68);}"
+"QPushButton:pressed{background-color: rgb(128, 44, 39);\n border-bottom: 3px solid rgb(80, 19, 16);\n border-left: 2px solid rgb(80, 19, 16);\n border-right: 2px solid rgb(80, 19, 16);}")
         self.CourseVertLayout.addWidget(self.DeleteBtn)
 
         self.gridLayout_9.addLayout(self.CourseVertLayout, 25, 0, 1, 1)
@@ -1132,15 +1169,15 @@ class Ui_Stinder(object):
 
         self.AddCoursesBtn = QPushButton(self.frame)
         self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
-        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AddCoursesBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout_9.addWidget(self.AddCoursesBtn, 23, 0, 1, 1)
 
@@ -1161,30 +1198,30 @@ class Ui_Stinder(object):
         self.MatchLayout.setObjectName(u"MatchLayout")
         self.prevMatchButton = QPushButton(self.frame, clicked=lambda: self.prevMatch())
         self.prevMatchButton.setObjectName(u"prevMatchButton")
-        self.prevMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.prevMatchButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.MatchLayout.addWidget(self.prevMatchButton)
 
         self.nextMatchButton = QPushButton(self.frame, clicked=lambda: self.nextMatch())
         self.nextMatchButton.setObjectName(u"nextMatchButton")
         self.nextMatchButton.setLayoutDirection(Qt.LeftToRight)
-        self.nextMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.nextMatchButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"padding-right:15px;\n"
-"padding-left:15px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.MatchLayout.addWidget(self.nextMatchButton)
 
@@ -1274,32 +1311,32 @@ class Ui_Stinder(object):
         self.AboutButton.setText(QCoreApplication.translate("Stinder", u"About", None))
         self.LogoutBtn.setText(QCoreApplication.translate("Stinder", u"Logout", None))
         self.aboutlogo.setText("")
-        self.abouttextp2.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">Stinder aims to solve those problems for those who would like to pair</span></p><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">up with those with similar work ethic and motivations. </span></p><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">Fill out your student information for your profile and browse through</span></p><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">your class population for those with similar qualities to </span></p><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">work as effectively as possible in a group setting! Filter students by</span></p><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">"
-                        "major, coursework, schedule and more to find your perfect</span></p><p align=\"justify\"><span style=\" font-size:12pt; font-weight:600; font-style:italic; color:#ffffff;\">match!</span></p></body></html>", None))
+        self.abouttextp2.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">Stinder aims to solve those problems for those who would like to pair</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">up with those with similar work ethic and motivations. </span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">Fill out your student information for your profile and browse through</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">your class population for those with similar qualities to </span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">work as effectively as possible in a group setting! Filter students by</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">major,"
+                        " coursework, schedule and more to find your perfect</span></p><p align=\"justify\"><span style=\" font-size:8pt; font-weight:600; font-style:italic; color:#ffffff;\">match!</span></p></body></html>", None))
         self.FAQsText.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; text-decoration: underline; color:#ffffff;\">FAQs</span></p></body></html>", None))
-        self.TSText.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:26pt; text-decoration: underline; color:#ffffff;\">Meet Team Swipers</span></p></body></html>", None))
-        self.abouttextp3.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; color:#ffffff;\">Stinder. Never have a bad (study) date again.</span></p></body></html>", None))
-        self.Q6Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-9a1ec44c-7fff-704f-472d-044e3c22d185\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">C</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">an I match more than once? </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: Of course! Our matching algorithm </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">works so that it would continue to match </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">your profile with other profiles similar to </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:40"
-                        "0; color:#ffffff; background-color:transparent;\">yours as long as you are using Stinder and </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">liking profiles.</span></p></body></html>", None))
-        self.Q2Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-d6b8bf47-7fff-02bc-f938-e7ece8d2821a\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:696; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:696; color:#ffffff; background-color:transparent;\">: How do I edit my profile?</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-367ca894-7fff-569c-cbbf-45c85db7a4be\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">Y</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">ou can edit your profile by clicking on the</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">profile button on the left hand side of the</"
-                        "span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">application and then clicking the edit profile</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">button. </span></p></body></html>", None))
+        self.TSText.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:24pt; text-decoration: underline; color:#ffffff;\">Meet Team Swipers</span></p></body></html>", None))
+        self.abouttextp3.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; color:#ffffff;\">Stinder. Never have a bad (study) date again.</span></p><p align=\"center\"><br/></p></body></html>", None))
+        self.Q6Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-9a1ec44c-7fff-704f-472d-044e3c22d185\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">C</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">an I match more than once? </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: Of course! Our matching algorithm </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">works so that it would continue to match </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">your profile with other profiles similar to </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:40"
+                        "0; color:#ffffff; background-color:transparent;\">yours as long as you are using Stinder and </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">liking profiles.</span></p></body></html>", None))
+        self.Q2Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-d6b8bf47-7fff-02bc-f938-e7ece8d2821a\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:696; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:696; color:#ffffff; background-color:transparent;\">: How do I edit my profile?</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-367ca894-7fff-569c-cbbf-45c85db7a4be\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">Y</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">ou can edit your profile by clicking on the</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">profile button on the left hand side of the</"
+                        "span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">application and then clicking the edit profile</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">button. </span></p></body></html>", None))
         self.EG_ProfilePic.setText("")
-        self.EG_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:10pt; font-weight:700; text-decoration: underline; color:#ffffff;\">Eddie Gibbons | Project Lead</span></p><p><span style=\" font-size:10pt; color:#ffffff;\">&quot;A favorite study habit of mine is to</span></p><p><span style=\" font-size:10pt; color:#ffffff;\">collaborate on class notes with </span></p><p><span style=\" font-size:10pt; color:#ffffff;\">friends. There's always different </span></p><p><span style=\" font-size:10pt; color:#ffffff;\">interpretations and understandings</span></p><p><span style=\" font-size:10pt; color:#ffffff;\">of course material and it's great to</span></p><p><span style=\" font-size:10pt; color:#ffffff;\">learn by having everyone give their</span></p><p><span style=\" font-size:10pt; color:#ffffff;\">opinion and reasoning as to why they </span></p><p><span style=\" font-size:10pt; color:#ffffff;\">believe what they believe.&quot;</span></p></body></html>", None))
+        self.EG_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:700; text-decoration: underline; color:#ffffff;\">Eddie Gibbons | Project Lead</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">&quot;A favorite study habit of mine is to</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">collaborate on class notes with </span></p><p><span style=\" font-size:11pt; color:#ffffff;\">friends. There's always different </span></p><p><span style=\" font-size:11pt; color:#ffffff;\">interpretations and understandings</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">of course material and it's great to</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">learn by having everyone give their</span></p><p><span style=\" font-size:11pt; color:#ffffff;\">opinion and reasoning as to why they </span></p><p><span style=\" font-size:11pt; color:#ffffff;\">believe what they believe.&quot;</span></p></body></html>", None))
         self.WT_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff;\">Wyatt Townsend | Backend</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">&quot;Flash cards have always been an </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">effective study method for me. </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">They become much more effective </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">when I get to share flash cards </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">with others and use cards they </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">made to make sure I cover all </span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">important material.&quot;</span></p></body></html>", None))
         self.WT_ProfilePic.setText("")
-        self.Q5Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-ac5f434d-7fff-f5d7-39ec-9f137ccebbd9\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">H</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">ow does the like feature work </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">on Stinder?</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-5279443d-7fff-235c-73b0-504c6371e233\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">W</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\""
-                        ">hen on the browse page you can use </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">the slider to like a certain profile. If that </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">student likes you back, then you two have</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">a match! </span></p></body></html>", None))
-        self.Q3Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-d6b8bf47-7fff-02bc-f938-e7ece8d2821a\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:696; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">: </span><a name=\"docs-internal-guid-088e0566-7fff-4bbb-1e26-74fa49546a58\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">H</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">ow do I message a person that I </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">matched with?</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: Once you get a match, the email of your </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:4"
-                        "00; color:#ffffff; background-color:transparent;\">match will then be displayed on your screen </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">to contact them! </span></p></body></html>", None))
+        self.Q5Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-ac5f434d-7fff-f5d7-39ec-9f137ccebbd9\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">H</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">ow does the like feature work </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">on Stinder?</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-5279443d-7fff-235c-73b0-504c6371e233\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">W</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\""
+                        ">hen on the browse page you can use </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">the slider to like a certain profile. If that </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">student likes you back, then you two have</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">a match! </span></p></body></html>", None))
+        self.Q3Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-d6b8bf47-7fff-02bc-f938-e7ece8d2821a\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:696; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">: </span><a name=\"docs-internal-guid-088e0566-7fff-4bbb-1e26-74fa49546a58\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">H</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">ow do I message a person that I </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">matched with?</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: Once you get a match, the email of your </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:4"
+                        "00; color:#ffffff; background-color:transparent;\">match will then be displayed on your screen </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">to contact them! </span></p></body></html>", None))
         self.CE_ProfilePic.setText("")
         self.CE_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff;\">Carlos Echenique | Frontend</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">&quot;My favorite study spot is usually</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">my place of residence or at least</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">close to home. I think it's the best</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">feeling ever to finish a long night</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">of studying and then jumping right</span></p><p><span style=\" font-size:11pt; font-weight:400; color:#ffffff;\">into bed!&quot; </span></p></body></html>", None))
-        self.MissionStatement.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:28pt; text-decoration: underline; color:#ffffff;\">Mission Statement</span><span style=\" font-size:28pt;\"><br/></span></p></body></html>", None))
-        self.abouttextp1.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Do you hate having to group up with students you don't know? </span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Have you ever been stuck doing all the work?</span></p><p align=\"center\"><span style=\" font-size:16pt; font-weight:600; color:#ffffff;\">Us too.</span></p></body></html>", None))
-        self.Q4Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:14pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-2efe5ddc-7fff-8493-3a5a-d7bea65d3e43\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">C</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">an I search for students </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">with specific qualities? </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-a09ac3f7-7fff-19a0-9d0c-45e205b4e893\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">C</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:trans"
-                        "parent;\">urrently on the browse page you can </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">filter the profiles by major, by year, or by </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">course. Once you enter a search and click </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">the filter button, all Stinder profiles are </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">refreshed, giving you the profiles that </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">match your filter search.</span></p></body></html>", None))
-        self.Q1Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-7b5fe8b8-7fff-9183-8138-f3d8823b0081\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:600; color:#ffffff; background-color:transparent;\">: How does Stinder work?</span></p><p><a name=\"docs-internal-guid-ccca6ff3-7fff-c106-1d28-2e3f845958f1\"/><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">: Stinder works by using the information </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">you filled out in the sign up process in an </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">al"
-                        "gorithm that matches you with other </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">students with similar study habits,</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">behaviors, locations, major and</span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">coursework. After the algorithm has </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">been run on your information, you can </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">go to the browse page to view the students </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">who we at Stinder believe "
-                        "are your best </span></p><p><span style=\" font-family:'Arial'; font-size:14pt; font-weight:400; color:#ffffff; background-color:transparent;\">match as a study buddy. </span></p></body></html>", None))
+        self.MissionStatement.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:24pt; text-decoration: underline; color:#ffffff;\">Mission Statement</span><span style=\" font-size:24pt;\"><br/></span></p></body></html>", None))
+        self.abouttextp1.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Do you hate having to group up with students you don't know? </span></p><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Have you ever been stuck doing all the work?</span></p><p align=\"center\"><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Us too.</span></p></body></html>", None))
+        self.Q4Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><span style=\" font-size:12pt; font-weight:600; color:#ffffff;\">Q: </span><a name=\"docs-internal-guid-2efe5ddc-7fff-8493-3a5a-d7bea65d3e43\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">C</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">an I search for students </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">with specific qualities? </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A: </span><a name=\"docs-internal-guid-a09ac3f7-7fff-19a0-9d0c-45e205b4e893\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">C</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:trans"
+                        "parent;\">urrently on the browse page you can </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">filter the profiles by major, by year, or by </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">course. Once you enter a search and click </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">the filter button, all Stinder profiles are </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">refreshed, giving you the profiles that </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">match your filter search.</span></p></body></html>", None))
+        self.Q1Text.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-7b5fe8b8-7fff-9183-8138-f3d8823b0081\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">Q</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:600; color:#ffffff; background-color:transparent;\">: How does Stinder work?</span></p><p><a name=\"docs-internal-guid-ccca6ff3-7fff-c106-1d28-2e3f845958f1\"/><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">: Stinder works by using the information </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">you filled out in the sign up process in an </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">al"
+                        "gorithm that matches you with other </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">students with similar study habits,</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\"> behaviors, locations, major and</span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">coursework. After the algorithm has </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">been run on your information, you can </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">go to the browse page to view the students </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">who we at Stinder believe"
+                        " are your best </span></p><p><span style=\" font-family:'Arial'; font-size:12pt; font-weight:400; color:#ffffff; background-color:transparent;\">match as a study buddy. </span></p></body></html>", None))
         self.AD_ProfilePic.setText("")
         self.AD_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-f7cd91fc-7fff-5fe1-50e4-815a388fcb13\"/><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">llison Denham | Backend/Frontend</span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">My favorite place to study is definitely in </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">the libraries. During the pandemic I </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">realized how important my </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-"
                         "color:transparent;\">environment is to my study habits </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">and productivity when getting work </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">done. The libraries at UF are also </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">a great place to meet up and study </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">with a group or friend.</span><span style=\" color:#ffffff;\"><br/></span></p></body></html>", None))
@@ -1512,7 +1549,7 @@ class Ui_Stinder(object):
             # print()
             ranking.append(rank)
         
-        numpy_students = numpy.array(self.students, dtype=object) 
+        numpy_students = numpy.array(self.students, dtype=object)
         numpy_ranking = numpy.array(ranking, dtype=object)
         numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
         # print(numpy_sort)
