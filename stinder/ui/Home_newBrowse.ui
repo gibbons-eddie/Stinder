@@ -265,7 +265,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>724</width>
+                <width>681</width>
                 <height>3104</height>
                </rect>
               </property>
@@ -1300,8 +1300,8 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
       </widget>
       <widget class="QWidget" name="BrowsePage">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="2">
-         <spacer name="horizontalSpacer_6">
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer_5">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1315,6 +1315,24 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
         </item>
         <item row="0" column="1">
          <widget class="QFrame" name="frame_4">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1200</width>
+            <height>600</height>
+           </size>
+          </property>
+          <property name="baseSize">
+           <size>
+            <width>0</width>
+            <height>0</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: transparent;</string>
           </property>
@@ -1325,7 +1343,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
            <enum>QFrame::Raised</enum>
           </property>
           <layout class="QGridLayout" name="gridLayout_5">
-           <item row="0" column="0">
+           <item row="1" column="0">
             <widget class="QFrame" name="frame_7">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
@@ -1360,101 +1378,69 @@ border-right:  4px solid rgb(222, 221, 223);</string>
              <property name="midLineWidth">
               <number>22</number>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_2">
-              <item>
-               <layout class="QHBoxLayout" name="horizontalLayout_14">
-                <item>
-                 <layout class="QVBoxLayout" name="verticalLayout">
-                  <property name="sizeConstraint">
-                   <enum>QLayout::SetMaximumSize</enum>
-                  </property>
-                  <item>
-                   <widget class="QLabel" name="Discover_FirstName">
-                    <property name="minimumSize">
-                     <size>
-                      <width>189</width>
-                      <height>42</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">color: white; 
-font: 1200 60pt &quot;Nexa&quot;;
-background-color: rgb(97, 165, 85);
-padding:0px;
-
-border-top: 0px solid rgb(125, 125, 125);
-border-left :0px;
-border-right:0px;
-border-bottom:0px;
-
-background-color:transparent;</string>
-                    </property>
-                    <property name="text">
-                     <string>EDDIE</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="Discover_LastName">
-                    <property name="styleSheet">
-                     <string notr="true">color: white; 
-font: 1200 60pt &quot;Nexa&quot;;
-background-color: rgb(97, 165, 85);
-padding:0px;
-
-border-top: 0px solid rgb(125, 125, 125);
-border-left :0px;
-border-right:0px;
-border-bottom:0px;
-
-background-color:transparent;</string>
-                    </property>
-                    <property name="text">
-                     <string>GIBBONS</string>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
-                   <widget class="QLabel" name="DescriptionLabel">
-                    <property name="sizePolicy">
-                     <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
-                      <horstretch>0</horstretch>
-                      <verstretch>0</verstretch>
-                     </sizepolicy>
-                    </property>
-                    <property name="maximumSize">
-                     <size>
-                      <width>280</width>
-                      <height>200</height>
-                     </size>
-                    </property>
-                    <property name="styleSheet">
-                     <string notr="true">border:0px;
-font: 20pt &quot;Nexa&quot;;</string>
-                    </property>
-                    <property name="text">
-                     <string>fhdjsakl fjfdsl hfjldhsaj fldhsa jfhdsaj lkfhdjsa klfhjdk lsafhjdkl safhjdkl safhjkdlsa fklajsdklfh jl</string>
-                    </property>
-                    <property name="scaledContents">
-                     <bool>false</bool>
-                    </property>
-                    <property name="wordWrap">
-                     <bool>true</bool>
-                    </property>
-                    <property name="textInteractionFlags">
-                     <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
-                    </property>
-                   </widget>
-                  </item>
-                 </layout>
-                </item>
-               </layout>
-              </item>
+             <layout class="QVBoxLayout" name="verticalLayout_3">
               <item>
                <layout class="QVBoxLayout" name="verticalLayout_2">
                 <property name="sizeConstraint">
                  <enum>QLayout::SetFixedSize</enum>
                 </property>
+                <item>
+                 <layout class="QHBoxLayout" name="horizontalLayout_14">
+                  <item>
+                   <layout class="QVBoxLayout" name="verticalLayout">
+                    <property name="sizeConstraint">
+                     <enum>QLayout::SetMaximumSize</enum>
+                    </property>
+                    <item>
+                     <widget class="QLabel" name="Discover_FirstName">
+                      <property name="minimumSize">
+                       <size>
+                        <width>189</width>
+                        <height>42</height>
+                       </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">color: white; 
+font: 1200 60pt &quot;Nexa&quot;;
+background-color: rgb(97, 165, 85);
+padding:0px;
+
+border-top: 0px solid rgb(125, 125, 125);
+border-left :0px;
+border-right:0px;
+border-bottom:0px;
+
+background-color:transparent;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QLabel" name="Discover_LastName">
+                      <property name="styleSheet">
+                       <string notr="true">color: white; 
+font: 1200 60pt &quot;Nexa&quot;;
+background-color: rgb(97, 165, 85);
+padding:0px;
+
+border-top: 0px solid rgb(125, 125, 125);
+border-left :0px;
+border-right:0px;
+border-bottom:0px;
+
+background-color:transparent;</string>
+                      </property>
+                      <property name="text">
+                       <string/>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
+                  </item>
+                 </layout>
+                </item>
                 <item>
                  <widget class="QLabel" name="Discover_Major">
                   <property name="minimumSize">
@@ -1464,19 +1450,19 @@ font: 20pt &quot;Nexa&quot;;</string>
                    </size>
                   </property>
                   <property name="styleSheet">
-                   <string notr="true">color: rgb(145, 251, 141);; 
+                   <string notr="true">color: rgb(145, 251, 141);
 font: 1200 15pt &quot;Nexa&quot;;
 background-color: rgb(97, 165, 85);
 border-radius: 5px;
 border-top: 0px solid rgb(125, 125, 125);
 border-left :0px;
 border-right:0px;
-border-bottom:0px;
+border-bottom:2px solid rgb(145, 251, 141);
 padding: 10px;
 background-color:transparent;</string>
                   </property>
                   <property name="text">
-                   <string>Computer Science</string>
+                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -1496,12 +1482,12 @@ border-radius: 5px;
 border-top: 0px solid rgb(125, 125, 125);
 border-left :0px;
 border-right:0px;
-border-bottom:0px;
+border-bottom:2px solid rgb(145, 251, 141);
 padding: 10px;
 background-color:transparent;</string>
                   </property>
                   <property name="text">
-                   <string>Senior</string>
+                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -1521,12 +1507,12 @@ border-radius: 5px;
 border-top: 0px solid rgb(125, 125, 125);
 border-left :0px;
 border-right:0px;
-border-bottom:0px;
+border-bottom:2px solid rgb(145, 251, 141);
 padding: 10px;
 background-color:transparent;</string>
                   </property>
                   <property name="text">
-                   <string>MUT1001, CIS4390</string>
+                   <string/>
                   </property>
                  </widget>
                 </item>
@@ -1535,24 +1521,39 @@ background-color:transparent;</string>
              </layout>
             </widget>
            </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="BrowseHeader">
+             <property name="styleSheet">
+              <string notr="true">color: white; 
+font: 800 50pt &quot;Nexa&quot;;
+background: transparent;
+</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Browse&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="scaledContents">
+              <bool>false</bool>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
         </item>
-        <item row="1" column="0">
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
         <item row="1" column="1">
          <widget class="QFrame" name="frame_5">
+          <property name="minimumSize">
+           <size>
+            <width>50</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>1000</width>
+            <height>200</height>
+           </size>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: transparent;</string>
           </property>
@@ -1599,27 +1600,21 @@ padding: 6px;</string>
              </property>
             </spacer>
            </item>
-           <item row="0" column="4">
-            <widget class="QPushButton" name="NextButton">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
+           <item row="0" column="2" colspan="2">
+            <widget class="QPushButton" name="LikeButton">
              <property name="styleSheet">
-              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
+              <string notr="true">background-color: white;
+color: black;
+
+font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
 color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;
-margin: 24px;</string>
+border-radius: 5px; 
+padding: 12px;
+</string>
              </property>
              <property name="text">
-              <string>Next</string>
+              <string>Like</string>
              </property>
             </widget>
            </item>
@@ -1652,19 +1647,6 @@ padding: 6px;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="0">
-            <spacer name="horizontalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
            <item row="0" column="1">
             <widget class="QPushButton" name="PreviousButton">
              <property name="minimumSize">
@@ -1689,21 +1671,27 @@ margin: 24px;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="2" colspan="2">
-            <widget class="QPushButton" name="LikeButton">
+           <item row="0" column="4">
+            <widget class="QPushButton" name="NextButton">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="styleSheet">
-              <string notr="true">background-color: white;
-color: black;
-
-font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
 color: rgb(255, 255, 255);
-border-radius: 5px; 
-padding: 12px;
-</string>
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;
+margin: 24px;</string>
              </property>
              <property name="text">
-              <string>Like</string>
+              <string>Next</string>
              </property>
             </widget>
            </item>
@@ -1757,8 +1745,34 @@ padding: 6px;
              </item>
             </widget>
            </item>
+           <item row="0" column="0">
+            <spacer name="horizontalSpacer_3">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
           </layout>
          </widget>
+        </item>
+        <item row="1" column="2">
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
        </layout>
       </widget>
