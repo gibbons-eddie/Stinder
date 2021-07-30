@@ -39,33 +39,35 @@ class Ui_Stinder_Login(object):
         self.LoginInput.setGeometry(QRect(100, 210, 481, 41))
         self.LoginInput.setStyleSheet(u"background-color: white;\n"
                                       "border-radius: 10px;\n"
-                                      "font: 300 13pt \"Nexa Text Demo\";\n"
-                                      "padding: 0 8px;")
+                                      "font: 300 13pt Nexa;\n"
+                                      "padding: 0 8px;\n"
+                                      "padding-top: 4px;\n"
+                                      "color:black")
         self.LogInBtn = QPushButton(self.WelcomePage)
         self.LogInBtn.setObjectName(u"LogInBtn")
         self.LogInBtn.setGeometry(QRect(100, 280, 481, 31))
         self.LogInBtn.setStyleSheet(u"background-color: rgb(106,255,121);\n"
                                     "border-radius: 10px;\n"
-                                    "font: 700 13pt \"Nexa Bold\";\n"
+                                    "font: 700 13pt \"NexaBold\";\n"
                                     "color: white;")
         self.SignInInstruct = QLabel(self.WelcomePage)
         self.SignInInstruct.setObjectName(u"SignInInstruct")
         self.SignInInstruct.setGeometry(QRect(160, 120, 341, 51))
         self.SignInInstruct.setStyleSheet(u"background-color: transparent;\n"
                                           "color: white;\n"
-                                          "font:  700 24p5 \"Nexa Bold\";")
+                                          "font:  700 24p5 \"NexaBold\";")
         self.NewLabel = QLabel(self.WelcomePage)
         self.NewLabel.setObjectName(u"NewLabel")
         self.NewLabel.setGeometry(QRect(100, 330, 111, 16))
         self.NewLabel.setStyleSheet(u"background-color: transparent;\n"
                                     "color: white;\n"
-                                    "font: 600 11pt \"Nexa Bold\";")
+                                    "font: 600 11pt \"NexaBold\";")
         self.SignUpBtn = QPushButton(self.WelcomePage)
         self.SignUpBtn.setObjectName(u"SignUpBtn")
         self.SignUpBtn.setGeometry(QRect(215, 327, 61, 24))
         self.SignUpBtn.setStyleSheet(u"background-color: transparent;\n"
                                      "color: rgb(106,255,121);;\n"
-                                     "font: 600 11pt \"Nexa Bold\";")
+                                     "font: 600 11pt \"NexaBold\";")
         self.errorLabelP1 = QLabel(self.WelcomePage)
         self.errorLabelP1.setObjectName(u"errorLabelP1")
         self.errorLabelP1.setGeometry(QRect(110, 259, 491, 16))
@@ -93,21 +95,27 @@ class Ui_Stinder_Login(object):
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;\n"
+"padding-top: 4px;")
         self.LastNameTb = QLineEdit(self.BasicPage)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;\n"
+"padding-top: 4px;")
         self.EmailInput = QLineEdit(self.BasicPage)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;\n"
+"padding-top: 4px;")
         self.MajorInput = QComboBox(self.BasicPage)
         self.MajorInput.addItem("")
         self.MajorInput.addItem("")
@@ -137,6 +145,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color: black;")
         self.MajorInput.setEditable(False)
         self.ContinueBtn = QPushButton(self.BasicPage)
@@ -157,13 +166,13 @@ class Ui_Stinder_Login(object):
         self.label.setGeometry(QRect(200, 430, 181, 16))
         self.label.setStyleSheet(u"background-color: transparent;\n"
                                  "color: white;\n"
-                                 "font: 600 11pt \"Nexa Bold\";")
+                                 "font: 600 11pt \"NexaBold\";")
         self.SignInBtn = QPushButton(self.BasicPage)
         self.SignInBtn.setObjectName(u"SignInBtn")
         self.SignInBtn.setGeometry(QRect(376, 426, 73, 24))
         self.SignInBtn.setStyleSheet(u"background-color: transparent;\n"
                                      "color: rgb(106,255,121);;\n"
-                                     "font: 600 11pt \"Nexa Bold\";")
+                                     "font: 600 11pt \"NexaBold\";")
         self.loginPages.addWidget(self.BasicPage)
         self.DetailPage = QWidget()
         self.DetailPage.setObjectName(u"DetailPage")
@@ -185,6 +194,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color:black;\n"
 "border: 0px;")
         self.YearInput.setEditable(False)
@@ -200,6 +210,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color:black;\n"
 "border: 0px;")
         self.MethodInput.setEditable(False)
@@ -225,6 +236,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color:black;\n"
 "border: 0px;")
         self.LocInput.setEditable(False)
@@ -243,6 +255,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color:black;\n"
 "border: 0px;")
         self.JobInput.setEditable(False)
@@ -267,6 +280,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color:black;\n"
 "border: 0px;")
         self.TimeInput.setEditable(False)
@@ -291,6 +305,7 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
+"padding-top: 4px;"
 "color:black;\n"
 "border: 0px;")
         self.StudyHistInput.setEditable(False)

@@ -54,7 +54,7 @@ class Ui_Stinder(object):
 
         self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
-        self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AboutButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -67,7 +67,7 @@ class Ui_Stinder(object):
 
         self.BrowseButton = QPushButton(self.frame_2)
         self.BrowseButton.setObjectName(u"BrowseButton")
-        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -80,7 +80,7 @@ class Ui_Stinder(object):
 
         self.ProfileButton = QPushButton(self.frame_2)
         self.ProfileButton.setObjectName(u"ProfileButton")
-        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -208,7 +208,7 @@ class Ui_Stinder(object):
         self.FAQsText = QLabel(self.FAQsFrame)
         self.FAQsText.setObjectName(u"FAQsText")
         self.FAQsText.setMinimumSize(QSize(0, 0))
-        self.FAQsText.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";")
+        self.FAQsText.setStyleSheet(u"font: 500 13pt \"NexaBold\";")
         self.FAQsText.setFrameShape(QFrame.NoFrame)
         self.FAQsText.setFrameShadow(QFrame.Plain)
         self.FAQsText.setLineWidth(4)
@@ -237,7 +237,7 @@ class Ui_Stinder(object):
 
         self.TSText = QLabel(self.TeamSectionFrame)
         self.TSText.setObjectName(u"TSText")
-        self.TSText.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";")
+        self.TSText.setStyleSheet(u"font: 500 13pt \"NexaBold\";")
 
         self.gridLayout_21.addWidget(self.TSText, 0, 1, 1, 1)
 
@@ -491,7 +491,7 @@ class Ui_Stinder(object):
         self.MissionStatement = QLabel(self.MissionStatementFrame)
         self.MissionStatement.setObjectName(u"MissionStatement")
         self.MissionStatement.setMinimumSize(QSize(0, 0))
-        self.MissionStatement.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";")
+        self.MissionStatement.setStyleSheet(u"font: 500 13pt \"NexaBold\";")
         self.MissionStatement.setFrameShape(QFrame.NoFrame)
         self.MissionStatement.setFrameShadow(QFrame.Plain)
         self.MissionStatement.setLineWidth(1)
@@ -782,7 +782,7 @@ class Ui_Stinder(object):
         self.PreviousButton = QPushButton(self.frame_5)
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
-        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -811,7 +811,7 @@ class Ui_Stinder(object):
         self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "\n"
-"font: 500 13pt \"Nexa Bold\";\n"
+"font: 500 13pt \"NexaBold\";\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; \n"
@@ -823,7 +823,7 @@ class Ui_Stinder(object):
         self.FilterButton = QPushButton(self.frame_5)
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
-        self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -837,7 +837,7 @@ class Ui_Stinder(object):
         self.FilterLine = QLineEdit(self.frame_5)
         self.FilterLine.setObjectName(u"FilterLine")
         self.FilterLine.setLayoutDirection(Qt.LeftToRight)
-        self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterLine.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -852,7 +852,7 @@ class Ui_Stinder(object):
         self.NextButton = QPushButton(self.frame_5)
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
-        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.NextButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"

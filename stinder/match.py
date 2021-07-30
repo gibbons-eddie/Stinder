@@ -74,7 +74,7 @@ class Ui_LikeDialog(object):
 
         self.OKButton = QPushButton(LikeDialog, clicked=lambda: LikeDialog.close())
         self.OKButton.setObjectName(u"OKButton")
-        self.OKButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+        self.OKButton.setStyleSheet(u"QPushButton{font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"

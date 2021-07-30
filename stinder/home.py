@@ -9,7 +9,8 @@
 ################################################################################
 import os
 import sqlite3
-import time
+
+from pkg_resources import resource_filename
 
 from PySide6 import QtWidgets
 import numpy
@@ -66,7 +67,7 @@ class Ui_Stinder(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.ProfileButton = QPushButton(self.frame_2, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
-        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -79,7 +80,7 @@ class Ui_Stinder(object):
 
         self.BrowseButton = QPushButton(self.frame_2, clicked=lambda: self.handleAlgo())
         self.BrowseButton.setObjectName(u"BrowseButton")
-        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -105,7 +106,7 @@ class Ui_Stinder(object):
 
         self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
-        self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AboutButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -118,7 +119,7 @@ class Ui_Stinder(object):
 
         self.LogoutBtn = QPushButton(self.frame_2)
         self.LogoutBtn.setObjectName(u"LogoutBtn")
-        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
                                      "background-color: rgb(98, 214, 81);\n"
                                      "color: rgb(255, 255, 255);\n"
                                      "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -239,7 +240,7 @@ class Ui_Stinder(object):
         self.FAQsText = QLabel(self.FAQsFrame)
         self.FAQsText.setObjectName(u"FAQsText")
         self.FAQsText.setMinimumSize(QSize(0, 0))
-        self.FAQsText.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";")
+        self.FAQsText.setStyleSheet(u"font: 500 13pt \"NexaBold\";")
         self.FAQsText.setFrameShape(QFrame.NoFrame)
         self.FAQsText.setFrameShadow(QFrame.Plain)
         self.FAQsText.setLineWidth(4)
@@ -268,7 +269,7 @@ class Ui_Stinder(object):
 
         self.TSText = QLabel(self.TeamSectionFrame)
         self.TSText.setObjectName(u"TSText")
-        self.TSText.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";")
+        self.TSText.setStyleSheet(u"font: 500 13pt \"NexaBold\";")
 
         self.gridLayout_21.addWidget(self.TSText, 0, 1, 1, 1)
 
@@ -522,7 +523,7 @@ class Ui_Stinder(object):
         self.MissionStatement = QLabel(self.MissionStatementFrame)
         self.MissionStatement.setObjectName(u"MissionStatement")
         self.MissionStatement.setMinimumSize(QSize(0, 0))
-        self.MissionStatement.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";")
+        self.MissionStatement.setStyleSheet(u"font: 500 13pt \"NexaBold\";")
         self.MissionStatement.setFrameShape(QFrame.NoFrame)
         self.MissionStatement.setFrameShadow(QFrame.Plain)
         self.MissionStatement.setLineWidth(1)
@@ -822,7 +823,7 @@ class Ui_Stinder(object):
         self.FilterButton = QPushButton(self.frame_5, clicked=lambda: self.handleFilter())
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
-        self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -836,7 +837,7 @@ class Ui_Stinder(object):
         self.NextButton = QPushButton(self.frame_5, clicked=lambda: self.next_user(self.students, self.s_length))
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
-        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.NextButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -861,7 +862,7 @@ class Ui_Stinder(object):
         self.LikeButton.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "\n"
-"font: 500 13pt \"Nexa Bold\";\n"
+"font: 500 13pt \"NexaBold\";\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; \n"
@@ -885,7 +886,7 @@ class Ui_Stinder(object):
         self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
 "color: black;\n"
 "\n"
-"font: 500 13pt \"Nexa Bold\";\n"
+"font: 500 13pt \"NexaBold\";\n"
 "background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; \n"
@@ -897,7 +898,7 @@ class Ui_Stinder(object):
         self.PreviousButton = QPushButton(self.frame_5, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
-        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -912,7 +913,7 @@ class Ui_Stinder(object):
         self.FilterLine = QLineEdit(self.frame_5)
         self.FilterLine.setObjectName(u"FilterLine")
         self.FilterLine.setLayoutDirection(Qt.LeftToRight)
-        self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterLine.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(191, 255, 246);\n"
 "color: black;\n"
 "border-radius: 5px; border: 2px rgb(61, 172, 202);\n"
@@ -1042,7 +1043,7 @@ class Ui_Stinder(object):
         self.CourseVertLayout.setObjectName(u"CourseVertLayout")
         self.AddBtn = QPushButton(self.frame)
         self.AddBtn.setObjectName(u"AddBtn")
-        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AddBtn.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -1056,7 +1057,7 @@ class Ui_Stinder(object):
 
         self.DoneBtn = QPushButton(self.frame)
         self.DoneBtn.setObjectName(u"DoneBtn")
-        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -1070,7 +1071,7 @@ class Ui_Stinder(object):
 
         self.DeleteBtn = QPushButton(self.frame)
         self.DeleteBtn.setObjectName(u"DeleteBtn")
-        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -1134,7 +1135,7 @@ class Ui_Stinder(object):
 
         self.AddCoursesBtn = QPushButton(self.frame)
         self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
-        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -1163,7 +1164,7 @@ class Ui_Stinder(object):
         self.MatchLayout.setObjectName(u"MatchLayout")
         self.prevMatchButton = QPushButton(self.frame, clicked=lambda: self.prevMatch())
         self.prevMatchButton.setObjectName(u"prevMatchButton")
-        self.prevMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.prevMatchButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -1177,7 +1178,7 @@ class Ui_Stinder(object):
         self.nextMatchButton = QPushButton(self.frame, clicked=lambda: self.nextMatch())
         self.nextMatchButton.setObjectName(u"nextMatchButton")
         self.nextMatchButton.setLayoutDirection(Qt.LeftToRight)
-        self.nextMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.nextMatchButton.setStyleSheet(u"font: 500 13pt \"NexaBold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
@@ -1404,45 +1405,48 @@ class Ui_Stinder(object):
         self.Discover_Year.setText(users[counter][4])
 
     def list(self):
-        connection = sqlite3.connect("stinder/users.db")
+        connection = sqlite3.connect(resource_filename(__name__, "users.db"))
         cursor = connection.cursor()
-        with connection:
-            cursor.execute("SELECT * FROM contacts")
-            users = []
-            length = 0
-            for row in cursor:
-                user_fN = row[0]
-                user_lN = row[1]
-                user_maj = row[2]
-                user_e = row[3]
-                user_y = row[4]
-                user_met = row[5]
-                user_loc = row[6]
-                user_job = row[7]
-                user_day = row[8]
-                user_sH = row[9]
-                
-                user = [user_fN, user_lN, user_maj, user_e, user_y, user_met, user_loc, user_job, user_day, user_sH]
-                users.append(user)
-                length = length + 1
             
-            cursor.execute("SELECT user_email, code FROM courses") # getting courses separately
-            courses = []
-            for row in cursor:
-                email = row[0]
-                code = row[1]
-                course = [email, code]
-                courses.append(course)
+        cursor.execute("SELECT * FROM contacts")
+        connection.commit()
+        users = []
+        length = 0
+        for row in cursor:
+            user_fN = row[0]
+            user_lN = row[1]
+            user_maj = row[2]
+            user_e = row[3]
+            user_y = row[4]
+            user_met = row[5]
+            user_loc = row[6]
+            user_job = row[7]
+            user_day = row[8]
+            user_sH = row[9]
+                
+            user = [user_fN, user_lN, user_maj, user_e, user_y, user_met, user_loc, user_job, user_day, user_sH]
+            users.append(user)
+            length = length + 1
+        
+        cursor.execute("SELECT user_email, code FROM courses") # getting courses separately
+        connection.commit()
+        courses = []
+        for row in cursor:
+            email = row[0]
+            code = row[1]
+            course = [email, code]
+            courses.append(course)
 
-            for student in users: # joining every student's courses
-                codes = []
-                for course in courses:
-                    if course[0] == student[3]:
-                        codes.append(course[1])
-                student.append(codes)
-                # print(student)
+        for student in users: # joining every student's courses
+            codes = []
+            for course in courses:
+                if course[0] == student[3]:
+                    codes.append(course[1])
+            student.append(codes)
+            # print(student)
 
-            return users, length
+        connection.close()
+        return users, length
 
     def handleFilter(self):
         cat = self.FilterDropdown.currentText()
@@ -1483,7 +1487,7 @@ class Ui_Stinder(object):
     def likes_counter(self):
         u_email = self.UserEmail.text()
         
-        likes_conn = sqlite3.connect("stinder/users.db")
+        likes_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         likes_cur = likes_conn.cursor()
 
         likes_cur.execute("SELECT like_fname, like_lname, like_email FROM likes where user_email = ?", (u_email,))
@@ -1576,7 +1580,7 @@ class Ui_Stinder(object):
         # print(u_email)
         # print(l_email)
         
-        likes_conn = sqlite3.connect("stinder/users.db")
+        likes_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         likes_cur = likes_conn.cursor()
 
         # Like already exists
@@ -1630,7 +1634,7 @@ class Ui_Stinder(object):
     def matchList(self):
         u_email = self.UserEmail.text()
         
-        match_conn = sqlite3.connect("stinder/users.db")
+        match_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         match_cur = match_conn.cursor()
 
         match_cur.execute("SELECT * from matches WHERE user_email == ?", (u_email, ))
@@ -1675,7 +1679,7 @@ class Ui_Stinder(object):
             self.MatchEmail.setText(self.matches[self.m_counter][1])
 
     def removeSelf(self):
-        print("this is remove self")
+        # print("this is remove self")
         i = 0
         for student in self.students:
             if student[3] == self.UserEmail.text():

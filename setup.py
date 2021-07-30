@@ -1,12 +1,12 @@
-import setuptools
+from setuptools import *
 import pathlib
 
 here = pathlib.Path(__file__).parent.resolve()
 long_description = (here / 'README.md').read_text(encoding='utf-8')
 
-setuptools.setup(
+setup(
     name='stinder',
-    version='0.2.0',
+    version='0.2.6',
     description='The Stinder project aims to help students find compatible study partners through their major and coursework for optimal study sessions.',
     long_description = long_description,
     long_description_content_type = 'text/markdown',
@@ -20,7 +20,7 @@ setuptools.setup(
 
         'Programming Language :: Python :: 3',
     ],
-    packages=setuptools.find_namespace_packages(include=['stinder', 'stinder.*']),
+    packages=find_namespace_packages(include=['stinder', 'stinder.*']),
     package_data={'':['*.db', '*.otf', '*.qrc', '*.png', '*.jpg']},
     python_requires='>=3.8.2',
     entry_points={

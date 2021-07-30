@@ -1,4 +1,4 @@
-![alt text](https://github.com/gibbons-eddie/Stinder/blob/main/stinder/resources/images/IMG_4845.JPG)
+![](https://raw.githubusercontent.com/gibbons-eddie/Stinder/main/stinder/resources/images/IMG_4845.JPG)
 
 <h3>Do you hate having to group up with students you don't know? Have you ever been stuck doing all the work?</h3>
 <h3>Us too.</h3>
@@ -7,10 +7,10 @@ Stinder aims to solve those problems for those who would like to pair up with th
 
 ***Stinder. Never have a bad (study) date again.***
 
-To test out our alpha build of Stinder, open up a directory, clone the repository (linked below) to that directory, and run: 
+To download Stinder, run: 
 
-    python3 -m pip install stinder
-    python3 -m stinder
+    pip install stinder
+    Stinder
 
 [*Trello*](https://trello.com/b/WMZnG8PD/stinder)
 
