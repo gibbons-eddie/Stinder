@@ -6,8 +6,7 @@
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
-################################################################################
-from posix import NGROUPS_MAX
+import os
 import sqlite3
 
 from PySide6 import QtWidgets
