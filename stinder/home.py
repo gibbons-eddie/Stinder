@@ -1085,8 +1085,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 "border-bottom: 4px solid rgb(13, 123, 147);\n"
 "border-left:  2px solid rgb(13, 123, 147);\n"
 "border-right:  2px solid rgb(13, 123, 147);\n"
-"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
-"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(20, 235, 255); \n border-bottom: 3px solid rgb(15, 176, 191);\n border-left: 2px solid rgb(15, 176, 191);\n border-right: 2px solid rgb(15, 176, 191);}"
+"QPushButton:pressed{background-color: rgb(8, 74, 88);\n border-bottom: 3px solid rgb(5, 49, 59);\n border-left: 2px solid rgb(5, 49, 59);\n border-right: 2px solid rgb(5, 49, 59);}")
 
         self.CourseVertLayout.addWidget(self.AddBtn)
 
@@ -1114,8 +1114,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 "border-bottom: 3px solid rgb(158, 37, 31);\n"
 "border-left:  1px solid rgb(214, 50, 42);\n"
 "border-right:  1px solid rgb(214, 50, 42);\n"
-"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
-"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(253, 128, 121); \n border-bottom: 3px solid rgb(223, 77, 68);\n border-left: 2px solid rgb(223, 77, 68);\n border-right: 2px solid rgb(223, 77, 68);}"
+"QPushButton:pressed{background-color: rgb(128, 44, 39);\n border-bottom: 3px solid rgb(80, 19, 16);\n border-left: 2px solid rgb(80, 19, 16);\n border-right: 2px solid rgb(80, 19, 16);}")
         self.CourseVertLayout.addWidget(self.DeleteBtn)
 
         self.gridLayout_9.addLayout(self.CourseVertLayout, 25, 0, 1, 1)
