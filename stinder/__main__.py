@@ -52,6 +52,13 @@ class LogInWindow(QDialog):
     def getEmail(self):
         return self.user
 
+    def checkEmail(self, email):
+        regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+        if(re.match(regex, email)):
+            return True
+        else:
+            return False
+
     def handleSignIn(self):
         email = self.loginUi.LoginInput.text()
         exists_conn = sqlite3.connect("stinder/users.db")
@@ -59,6 +66,8 @@ class LogInWindow(QDialog):
 
         if len(email) == 0:
             self.loginUi.errorLabelP1.setText("Please input an email address.")
+        elif not self.checkEmail(email):
+            self.loginUi.errorLabelP1.setText("Invalid Email.")
         elif curs.execute("SELECT * FROM contacts WHERE email = ?", (email,)).fetchone():
             exists_conn.close()
             self.setEmail(email)
@@ -74,6 +83,8 @@ class LogInWindow(QDialog):
 
         if len(fName) == 0 or len(lName) == 0 or len(email) == 0 or major == "---Please Select Major---":
             self.loginUi.errorLabel.setText("Please input all fields.")
+        elif not self.checkEmail(email):
+            self.loginUi.errorLabel.setText("Invalid Email.")
         else:
             self.setEmail(email)
             self.loginUi.loginPages.setCurrentWidget(self.loginUi.DetailPage)
@@ -259,17 +270,17 @@ def createcontactstable(conn, tablesql):
         print(e)
 
 
-def fillcontacts():
-    c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Joe','Johnson', 'Computer Science', 'joe@ufl.edu')")
-    c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Smith', 'Data Science', 'jack@ufl.edu')")
-    c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chen','Chemistry', 'jill@ufl.edu')")
-    c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Joseph','Brown', 'Biology', 'joseph@ufl.edu')")
-    c.execute(
-        "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Parker','Computer Science', 'jorge@ufl.edu')")
+#def fillcontacts():
+#    c.execute(
+#        "INSERT INTO contacts(name, major, classes, email) VALUES('Joe','Johnson', 'Computer Science', 'joe@ufl.edu')")
+#    c.execute(
+#        "INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Smith', 'Data Science', 'jack@ufl.edu')")
+#    c.execute(
+#        "INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chen','Chemistry', 'jill@ufl.edu')")
+#    c.execute(
+#        "INSERT INTO contacts(name, major, classes, email) VALUES('Joseph','Brown', 'Biology', 'joseph@ufl.edu')")
+#    c.execute(
+#        "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Parker','Computer Science', 'jorge@ufl.edu')")
 
 def main():
     app = QApplication([])
