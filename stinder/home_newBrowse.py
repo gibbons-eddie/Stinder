@@ -159,7 +159,7 @@ class Ui_Stinder(object):
         self.aboutscroll.setWidgetResizable(True)
         self.scrollAreaWidgetContents = QWidget()
         self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 681, 3104))
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 598, 3122))
         self.gridLayout_12 = QGridLayout(self.scrollAreaWidgetContents)
         self.gridLayout_12.setObjectName(u"gridLayout_12")
         self.AboutTextP2 = QFrame(self.scrollAreaWidgetContents)
@@ -619,10 +619,6 @@ class Ui_Stinder(object):
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.gridLayout_4 = QGridLayout(self.BrowsePage)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
-
         self.frame_4 = QFrame(self.BrowsePage)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setMinimumSize(QSize(0, 0))
@@ -768,6 +764,14 @@ class Ui_Stinder(object):
 
         self.gridLayout_4.addWidget(self.frame_4, 0, 1, 1, 1)
 
+        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_6, 2, 2, 1, 1)
+
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_5, 2, 0, 1, 1)
+
         self.frame_5 = QFrame(self.BrowsePage)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setMinimumSize(QSize(50, 0))
@@ -791,39 +795,6 @@ class Ui_Stinder(object):
 
         self.gridLayout_6.addWidget(self.FilterButton, 5, 4, 1, 1)
 
-        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_6.addItem(self.horizontalSpacer_4, 0, 5, 1, 1)
-
-        self.LikeButton = QPushButton(self.frame_5)
-        self.LikeButton.setObjectName(u"LikeButton")
-        self.LikeButton.setStyleSheet(u"background-color: white;\n"
-"color: black;\n"
-"\n"
-"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius: 5px; \n"
-"padding: 12px;\n"
-"")
-
-        self.gridLayout_6.addWidget(self.LikeButton, 0, 2, 1, 2)
-
-        self.FilterLine = QLineEdit(self.frame_5)
-        self.FilterLine.setObjectName(u"FilterLine")
-        self.FilterLine.setLayoutDirection(Qt.LeftToRight)
-        self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(191, 255, 246);\n"
-"color: black;\n"
-"border-radius: 5px; border: 2px rgb(61, 172, 202);\n"
-"border-bottom: 3px solid rgb(159, 255, 246);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
-        self.FilterLine.setAlignment(Qt.AlignCenter)
-
-        self.gridLayout_6.addWidget(self.FilterLine, 5, 1, 1, 1)
-
         self.PreviousButton = QPushButton(self.frame_5)
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
@@ -838,21 +809,6 @@ class Ui_Stinder(object):
 "margin: 24px;")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
-
-        self.NextButton = QPushButton(self.frame_5)
-        self.NextButton.setObjectName(u"NextButton")
-        self.NextButton.setMinimumSize(QSize(150, 0))
-        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"margin: 24px;")
-
-        self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
         self.FilterDropdown = QComboBox(self.frame_5)
         self.FilterDropdown.addItem("")
@@ -878,16 +834,69 @@ class Ui_Stinder(object):
 
         self.gridLayout_6.addWidget(self.FilterDropdown, 5, 2, 1, 2)
 
+        self.horizontalSpacer_4 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_6.addItem(self.horizontalSpacer_4, 0, 5, 1, 1)
+
         self.horizontalSpacer_3 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_6.addItem(self.horizontalSpacer_3, 0, 0, 1, 1)
 
+        self.NextButton = QPushButton(self.frame_5)
+        self.NextButton.setObjectName(u"NextButton")
+        self.NextButton.setMinimumSize(QSize(150, 0))
+        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;\n"
+"margin: 24px;")
 
-        self.gridLayout_4.addWidget(self.frame_5, 1, 1, 1, 1)
+        self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
-        self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+        self.FilterLine = QLineEdit(self.frame_5)
+        self.FilterLine.setObjectName(u"FilterLine")
+        self.FilterLine.setLayoutDirection(Qt.LeftToRight)
+        self.FilterLine.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(191, 255, 246);\n"
+"color: black;\n"
+"border-radius: 5px; border: 2px rgb(61, 172, 202);\n"
+"border-bottom: 3px solid rgb(159, 255, 246);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;")
+        self.FilterLine.setAlignment(Qt.AlignCenter)
 
-        self.gridLayout_4.addItem(self.horizontalSpacer_6, 1, 2, 1, 1)
+        self.gridLayout_6.addWidget(self.FilterLine, 5, 1, 1, 1)
+
+        self.LikeButton = QPushButton(self.frame_5)
+        self.LikeButton.setObjectName(u"LikeButton")
+        self.LikeButton.setStyleSheet(u"background-color: white;\n"
+"color: black;\n"
+"\n"
+"font: 500 13pt \"Nexa Bold\";\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; \n"
+"padding: 12px;\n"
+"")
+
+        self.gridLayout_6.addWidget(self.LikeButton, 0, 2, 1, 2)
+
+        self.browseErrorLabel = QLabel(self.frame_5)
+        self.browseErrorLabel.setObjectName(u"browseErrorLabel")
+        self.browseErrorLabel.setStyleSheet(u"background: transparent;\n"
+"font: 800 24pt \"Nexa\";\n"
+"color:white;\n"
+"padding-top: 20px;")
+
+        self.gridLayout_6.addWidget(self.browseErrorLabel, 6, 1, 1, 4)
+
+
+        self.gridLayout_4.addWidget(self.frame_5, 2, 1, 1, 1)
 
         self.stackedWidget.addWidget(self.BrowsePage)
         self.ProfilePage = QWidget()
@@ -1258,20 +1267,21 @@ class Ui_Stinder(object):
         self.Discover_Email.setText("")
         self.BrowseHeader.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\">Browse</p></body></html>", None))
         self.FilterButton.setText(QCoreApplication.translate("Stinder", u"Filter", None))
-        self.LikeButton.setText(QCoreApplication.translate("Stinder", u"Like", None))
-#if QT_CONFIG(whatsthis)
-        self.FilterLine.setWhatsThis(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
-#endif // QT_CONFIG(whatsthis)
-        self.FilterLine.setText("")
-        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Search", None))
         self.PreviousButton.setText(QCoreApplication.translate("Stinder", u"Previous", None))
-        self.NextButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
         self.FilterDropdown.setItemText(0, QCoreApplication.translate("Stinder", u"Filter By", None))
         self.FilterDropdown.setItemText(1, QCoreApplication.translate("Stinder", u"Major", None))
         self.FilterDropdown.setItemText(2, QCoreApplication.translate("Stinder", u"Year", None))
         self.FilterDropdown.setItemText(3, QCoreApplication.translate("Stinder", u"Course", None))
 
         self.FilterDropdown.setPlaceholderText(QCoreApplication.translate("Stinder", u"Filter By", None))
+        self.NextButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
+#if QT_CONFIG(whatsthis)
+        self.FilterLine.setWhatsThis(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><br/></p></body></html>", None))
+#endif // QT_CONFIG(whatsthis)
+        self.FilterLine.setText("")
+        self.FilterLine.setPlaceholderText(QCoreApplication.translate("Stinder", u"Search", None))
+        self.LikeButton.setText(QCoreApplication.translate("Stinder", u"Like", None))
+        self.browseErrorLabel.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\"><span style=\" font-size:18pt;\">You've already liked this person!</span></p></body></html>", None))
         self.MatchName.setText("")
         self.AddCoursesBtn.setText(QCoreApplication.translate("Stinder", u"Add Courses", None))
         self.LikesLabel.setText("")

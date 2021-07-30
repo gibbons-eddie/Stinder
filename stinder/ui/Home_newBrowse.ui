@@ -265,8 +265,8 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                <rect>
                 <x>0</x>
                 <y>0</y>
-                <width>681</width>
-                <height>3104</height>
+                <width>598</width>
+                <height>3122</height>
                </rect>
               </property>
               <layout class="QGridLayout" name="gridLayout_12">
@@ -735,7 +735,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>:/logo/images/wt-profile.png</pixmap>
+                     <pixmap resource="../resources/stinder_images.qrc">:/logo/images/wt-profile.png</pixmap>
                     </property>
                     <property name="scaledContents">
                      <bool>true</bool>
@@ -1237,7 +1237,7 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
                      <string/>
                     </property>
                     <property name="pixmap">
-                     <pixmap>:/logo/images/AD-profile.png</pixmap>
+                     <pixmap resource="../resources/stinder_images.qrc">:/logo/images/AD-profile.png</pixmap>
                     </property>
                     <property name="scaledContents">
                      <bool>true</bool>
@@ -1300,19 +1300,6 @@ QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {
       </widget>
       <widget class="QWidget" name="BrowsePage">
        <layout class="QGridLayout" name="gridLayout_4">
-        <item row="1" column="0">
-         <spacer name="horizontalSpacer_5">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
         <item row="0" column="1">
          <widget class="QFrame" name="frame_4">
           <property name="minimumSize">
@@ -1540,7 +1527,33 @@ background: transparent;
           </layout>
          </widget>
         </item>
-        <item row="1" column="1">
+        <item row="2" column="2">
+         <spacer name="horizontalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="0">
+         <spacer name="horizontalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="2" column="1">
          <widget class="QFrame" name="frame_5">
           <property name="minimumSize">
            <size>
@@ -1587,66 +1600,6 @@ padding: 6px;</string>
              </property>
             </widget>
            </item>
-           <item row="0" column="5">
-            <spacer name="horizontalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>40</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="0" column="2" colspan="2">
-            <widget class="QPushButton" name="LikeButton">
-             <property name="styleSheet">
-              <string notr="true">background-color: white;
-color: black;
-
-font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
-color: rgb(255, 255, 255);
-border-radius: 5px; 
-padding: 12px;
-</string>
-             </property>
-             <property name="text">
-              <string>Like</string>
-             </property>
-            </widget>
-           </item>
-           <item row="5" column="1">
-            <widget class="QLineEdit" name="FilterLine">
-             <property name="whatsThis">
-              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-             </property>
-             <property name="layoutDirection">
-              <enum>Qt::LeftToRight</enum>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(191, 255, 246);
-color: black;
-border-radius: 5px; border: 2px rgb(61, 172, 202);
-border-bottom: 3px solid rgb(159, 255, 246);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;</string>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-             <property name="placeholderText">
-              <string>Search</string>
-             </property>
-            </widget>
-           </item>
            <item row="0" column="1">
             <widget class="QPushButton" name="PreviousButton">
              <property name="minimumSize">
@@ -1668,30 +1621,6 @@ margin: 24px;</string>
              </property>
              <property name="text">
               <string>Previous</string>
-             </property>
-            </widget>
-           </item>
-           <item row="0" column="4">
-            <widget class="QPushButton" name="NextButton">
-             <property name="minimumSize">
-              <size>
-               <width>150</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
-background-color: rgb(98, 214, 81);
-color: rgb(255, 255, 255);
-border-radius: 5px; border: 2px rgb(33, 33, 34);
-border-bottom: 3px solid rgb(72, 156, 59);
-border-left:  1px solid rgb(72, 156, 59);
-border-right:  1px solid rgb(72, 156, 59);
-padding: 6px;
-margin: 24px;</string>
-             </property>
-             <property name="text">
-              <string>Next</string>
              </property>
             </widget>
            </item>
@@ -1745,6 +1674,19 @@ padding: 6px;
              </item>
             </widget>
            </item>
+           <item row="0" column="5">
+            <spacer name="horizontalSpacer_4">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
            <item row="0" column="0">
             <spacer name="horizontalSpacer_3">
              <property name="orientation">
@@ -1758,21 +1700,92 @@ padding: 6px;
              </property>
             </spacer>
            </item>
+           <item row="0" column="4">
+            <widget class="QPushButton" name="NextButton">
+             <property name="minimumSize">
+              <size>
+               <width>150</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;
+margin: 24px;</string>
+             </property>
+             <property name="text">
+              <string>Next</string>
+             </property>
+            </widget>
+           </item>
+           <item row="5" column="1">
+            <widget class="QLineEdit" name="FilterLine">
+             <property name="whatsThis">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+             <property name="layoutDirection">
+              <enum>Qt::LeftToRight</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: rgb(191, 255, 246);
+color: black;
+border-radius: 5px; border: 2px rgb(61, 172, 202);
+border-bottom: 3px solid rgb(159, 255, 246);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;</string>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+             <property name="placeholderText">
+              <string>Search</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2" colspan="2">
+            <widget class="QPushButton" name="LikeButton">
+             <property name="styleSheet">
+              <string notr="true">background-color: white;
+color: black;
+
+font: 500 13pt &quot;Nexa Bold&quot;;
+background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));
+color: rgb(255, 255, 255);
+border-radius: 5px; 
+padding: 12px;
+</string>
+             </property>
+             <property name="text">
+              <string>Like</string>
+             </property>
+            </widget>
+           </item>
+           <item row="6" column="1" colspan="4">
+            <widget class="QLabel" name="browseErrorLabel">
+             <property name="styleSheet">
+              <string notr="true">background: transparent;
+font: 800 24pt &quot;Nexa&quot;;
+color:white;
+padding-top: 20px;</string>
+             </property>
+             <property name="text">
+              <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt;&quot;&gt;You've already liked this person!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+             </property>
+            </widget>
+           </item>
           </layout>
          </widget>
-        </item>
-        <item row="1" column="2">
-         <spacer name="horizontalSpacer_6">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </widget>

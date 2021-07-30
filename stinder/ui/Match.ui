@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>646</width>
-    <height>439</height>
+    <height>457</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -22,19 +22,46 @@ color: black;</string>
     <widget class="QLabel" name="MatchTitle">
      <property name="font">
       <font>
+       <pointsize>60</pointsize>
+       <italic>false</italic>
        <bold>true</bold>
       </font>
      </property>
      <property name="styleSheet">
       <string notr="true">background-color: transparent;
 color: white;
-padding-top:24px;</string>
+padding-top:24px;
+font: 1000 60pt &quot;Nexa&quot;;</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:24pt;&quot;&gt;You've got a match!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt;&quot;&gt;You've got a match!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="InfoLabel">
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: transparent;
+color: white;
+font: 300 18pt &quot;Nexa&quot;;</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;TextLabel&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="textInteractionFlags">
+      <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
      </property>
     </widget>
    </item>
@@ -59,25 +86,14 @@ background-color: transparent;</string>
      <property name="scaledContents">
       <bool>true</bool>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <property name="margin">
       <number>0</number>
      </property>
      <property name="indent">
       <number>-2</number>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <widget class="QLabel" name="InfoLabel">
-     <property name="styleSheet">
-      <string notr="true">background-color: transparent;
-color: white;</string>
-     </property>
-     <property name="text">
-      <string>TextLabel</string>
-     </property>
-     <property name="textInteractionFlags">
-      <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
      </property>
     </widget>
    </item>
@@ -100,8 +116,22 @@ color: white;</string>
    <item>
     <widget class="QPushButton" name="OKButton">
      <property name="styleSheet">
-      <string notr="true">background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(53, 190, 73, 255), stop:1 rgba(138, 255, 118, 255));
-color: white;;</string>
+      <string notr="true">QPushButton{font: 500 13pt \&quot;Nexa Bold&quot;;
+background-color: rgb(98, 214, 81);
+color: rgb(255, 255, 255);
+border-radius: 5px; border: 2px rgb(33, 33, 34);
+border-bottom: 3px solid rgb(72, 156, 59);
+border-left:  1px solid rgb(72, 156, 59);
+border-right:  1px solid rgb(72, 156, 59);
+padding: 6px;}
+QPushButton:hover{background-color: rgb(99, 255, 179);
+border-bottom: 3px solid rgb(45, 160, 104);
+border-left: 2px solid rgb(45, 160, 104);
+border-right: 2px solid rgb(45, 160, 104);}
+QPushButton:pressed{background-color: rgb(30, 94, 31);
+border-bottom: 3px solid rgb(22, 50, 22);
+border-left: 2px solid rgb(22, 50, 22);
+border-right: 2px solid rgb(22, 50, 22);}</string>
      </property>
      <property name="text">
       <string>OK</string>

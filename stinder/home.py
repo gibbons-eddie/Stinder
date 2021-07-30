@@ -9,6 +9,7 @@
 ################################################################################
 import os
 import sqlite3
+import time
 
 from PySide6 import QtWidgets
 import numpy
@@ -36,9 +37,10 @@ class Ui_Stinder(object):
         self.m_length = 0
         self.m_counter = 0
 
+        # self.errorBox = QtWidgets.QMessageBox()
+
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
-        # init user profile parameters
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
         Stinder.resize(903, 641)
@@ -1260,6 +1262,8 @@ class Ui_Stinder(object):
 
 
         QMetaObject.connectSlotsByName(Stinder)
+
+        # self.removeSelf()
     # setupUi
 
     def retranslateUi(self, Stinder):
@@ -1465,7 +1469,10 @@ class Ui_Stinder(object):
                         fltr_length = fltr_length + 1
 
         if fltr_length == 0:
-            print("No results found matching your search!")
+            errorBox = QtWidgets.QMessageBox()
+            errorBox.setText("No results found matching your search!")
+            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
+            errorBox.exec()
             self.students, self.s_length = self.list()
         else:
             self.students = fltr_users
@@ -1535,11 +1542,12 @@ class Ui_Stinder(object):
             # print()
             ranking.append(rank)
         
-        numpy_students = numpy.array(self.students, dtype=object) 
+        numpy_students = numpy.array(self.students,dtype =object) 
         numpy_ranking = numpy.array(ranking, dtype=object)
         numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
         # print(numpy_sort)
         sortedStudents = numpy_students[numpy_sort]
+        # sortedStudents = sortedStudents[1:]
         # print()
         # print(sortedStudents)
         # print()
@@ -1555,6 +1563,8 @@ class Ui_Stinder(object):
         # print(len(sortedStudents))
         self.students = sortedStudents
         self.counter = 0
+        # self.prev_user(self.students, self.s_length)
+        self.removeSelf()
         self.prev_user(self.students, self.s_length)
         
 
@@ -1579,11 +1589,17 @@ class Ui_Stinder(object):
         if u_email == l_email:
             # add error message to GUI also
             likes_conn.close()
-            print("Attempted to like yourself!")
+            errorBox = QtWidgets.QMessageBox()
+            errorBox.setText("You attempted to like yourself!")
+            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
+            errorBox.exec()
             return
         elif isLiked == 1:
             likes_conn.close()
-            print("You already liked this person!")
+            errorBox = QtWidgets.QMessageBox()
+            errorBox.setText("You've already liked this person")
+            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
+            errorBox.exec()
             return
         else:
             likes_cur.execute("INSERT OR REPLACE INTO likes (user_email, like_fname, like_lname, like_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
@@ -1606,7 +1622,7 @@ class Ui_Stinder(object):
         return self.students[i][10]
 
     def showMatch(self):
-        matchUser = "Here's " + self.students[self.counter][0] + "'s email to contact him: " + self.students[self.counter][3]
+        matchUser = "Here's " + self.students[self.counter][0] + "'s email to contact them: " + self.students[self.counter][3]
         self.matchUi.InfoLabel.setText(matchUser)
         self.matchWindow.show()
         # self.matchUi.OKButton.clicked.connect(self.matchWindow.hide())
@@ -1657,3 +1673,17 @@ class Ui_Stinder(object):
 
             self.MatchName.setText(self.matches[self.m_counter][0])
             self.MatchEmail.setText(self.matches[self.m_counter][1])
+
+    def removeSelf(self):
+        print("this is remove self")
+        i = 0
+        for student in self.students:
+            if student[3] == self.UserEmail.text():
+                # print(student)
+                # print(str(i))
+                self.students = numpy.delete(numpy.array(self.students,dtype =object), i, 0)
+                self.s_length = self.s_length - 1
+                break
+            i = i + 1
+                # self.students.remove(student)
+
