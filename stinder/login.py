@@ -40,7 +40,9 @@ class Ui_Stinder_Login(object):
         self.LoginInput.setStyleSheet(u"background-color: white;\n"
                                       "border-radius: 10px;\n"
                                       "font: 300 13pt \"Nexa Text Demo\";\n"
-                                      "padding: 0 8px;")
+                                      "padding: 0 8px;\n"
+                                      "padding-top: 4px;\n"
+                                      "color: black;")
         self.LogInBtn = QPushButton(self.WelcomePage)
         self.LogInBtn.setObjectName(u"LogInBtn")
         self.LogInBtn.setGeometry(QRect(100, 280, 481, 31))
@@ -98,21 +100,27 @@ class Ui_Stinder_Login(object):
         self.FirstNameInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;\n"
+"padding-top: 4px;")
         self.LastNameTb = QLineEdit(self.BasicPage)
         self.LastNameTb.setObjectName(u"LastNameTb")
         self.LastNameTb.setGeometry(QRect(350, 160, 251, 41))
         self.LastNameTb.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;\n"
+"padding-top: 4px;")
         self.EmailInput = QLineEdit(self.BasicPage)
         self.EmailInput.setObjectName(u"EmailInput")
         self.EmailInput.setGeometry(QRect(50, 230, 551, 41))
         self.EmailInput.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;\n"
+"padding-top: 4px;")
         self.MajorInput = QComboBox(self.BasicPage)
         self.MajorInput.addItem("")
         self.MajorInput.addItem("")
@@ -142,7 +150,8 @@ class Ui_Stinder_Login(object):
 "border-radius: 10px;\n"
 "font: 300 13pt \"Nexa\";\n"
 "padding: 0 8px;\n"
-"color: black;")
+"color: black;\n"
+"padding-top: 4px;")
         self.MajorInput.setEditable(False)
         self.ContinueBtn = QPushButton(self.BasicPage)
         self.ContinueBtn.setObjectName(u"ContinueBtn")

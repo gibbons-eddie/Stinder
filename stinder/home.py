@@ -9,6 +9,8 @@
 import os
 import sqlite3
 
+from pkg_resources import resource_filename
+
 from PySide6 import QtWidgets
 import numpy
 from os import linesep
@@ -676,12 +678,20 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.BrowsePage.setObjectName(u"BrowsePage")
         self.gridLayout_4 = QGridLayout(self.BrowsePage)
         self.gridLayout_4.setObjectName(u"gridLayout_4")
+        
+        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
+
+        self.gridLayout_4.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
+
         self.horizontalSpacer_6 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
 
         self.gridLayout_4.addItem(self.horizontalSpacer_6, 1, 2, 1, 1)
 
         self.frame_4 = QFrame(self.BrowsePage)
         self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(0, 0))
+        self.frame_4.setMaximumSize(QSize(1200, 600))
+        self.frame_4.setBaseSize(QSize(0, 0))
         self.frame_4.setStyleSheet(u"background-color: transparent;")
         self.frame_4.setFrameShape(QFrame.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Raised)
@@ -689,153 +699,144 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.gridLayout_5.setObjectName(u"gridLayout_5")
         self.frame_7 = QFrame(self.frame_4)
         self.frame_7.setObjectName(u"frame_7")
+        sizePolicy = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Maximum)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.frame_7.sizePolicy().hasHeightForWidth())
+        self.frame_7.setSizePolicy(sizePolicy)
         self.frame_7.setMinimumSize(QSize(600, 350))
         self.frame_7.setStyleSheet(u"border-radius: 15px;\n"
-"border: 2px solid rgb(73, 73, 75);\n"
+"border-top: 2px solid rgb(73, 73, 75);\n"
+"border-left: 2px solid rgb(73, 73, 75);\n"
 "background-color:rgb(33, 33, 34);\n"
-"padding: 10px;")
-        self.frame_7.setFrameShape(QFrame.StyledPanel)
-        self.frame_7.setFrameShadow(QFrame.Raised)
+"padding: 10px;\n"
+"border-bottom: 4px solid rgb(222, 221, 223);\n"
+"border-right:  4px solid rgb(222, 221, 223);")
+        self.frame_7.setFrameShape(QFrame.Box)
+        self.frame_7.setFrameShadow(QFrame.Plain)
+        self.frame_7.setLineWidth(15)
+        self.frame_7.setMidLineWidth(22)
+
         self.verticalLayout_3 = QVBoxLayout(self.frame_7)
         self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.horizontalLayout_10 = QHBoxLayout()
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.CardLabel_FirstName = QLabel(self.frame_7)
-        self.CardLabel_FirstName.setObjectName(u"CardLabel_FirstName")
-        self.CardLabel_FirstName.setMaximumSize(QSize(150, 16777215))
-        self.CardLabel_FirstName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-
-        self.horizontalLayout_10.addWidget(self.CardLabel_FirstName)
+        self.verticalLayout_2 = QVBoxLayout()
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_2.setSizeConstraint(QLayout.SetFixedSize)
+        self.horizontalLayout_14 = QHBoxLayout()
+        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
+        self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setSizeConstraint(QLayout.SetMaximumSize)
 
         self.Discover_FirstName = QLabel(self.frame_7)
         self.Discover_FirstName.setObjectName(u"Discover_FirstName")
         self.Discover_FirstName.setMinimumSize(QSize(189, 42))
-        self.Discover_FirstName.setStyleSheet(u"background-color: transparent;\n"
-"color: white;\n"
-"")
-
-        self.horizontalLayout_10.addWidget(self.Discover_FirstName)
-
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_10)
-
-        self.horizontalLayout_11 = QHBoxLayout()
-        self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
-        self.CardLabel_LastName = QLabel(self.frame_7)
-        self.CardLabel_LastName.setObjectName(u"CardLabel_LastName")
-        self.CardLabel_LastName.setMaximumSize(QSize(150, 16777215))
-        self.CardLabel_LastName.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
+        self.Discover_FirstName.setStyleSheet(u"color: white; \n"
+"font: 1000 60pt \"Nexa\";\n"
+"background-color: rgb(97, 165, 85);\n"
+"padding:0px;\n"
 "\n"
-"")
+"border-top: 0px solid rgb(125, 125, 125);\n"
+"border-left :0px;\n"
+"border-right:0px;\n"
+"border-bottom:0px;\n"
+"\n"
+"background-color:transparent;")
 
-        self.horizontalLayout_11.addWidget(self.CardLabel_LastName)
+        self.verticalLayout.addWidget(self.Discover_FirstName)
 
         self.Discover_LastName = QLabel(self.frame_7)
         self.Discover_LastName.setObjectName(u"Discover_LastName")
         self.Discover_LastName.setMinimumSize(QSize(189, 42))
-        self.Discover_LastName.setStyleSheet(u"background-color: transparent;\n"
-"color: white;\n"
-"")
-
-        self.horizontalLayout_11.addWidget(self.Discover_LastName)
-
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_11)
-
-        self.horizontalLayout_12 = QHBoxLayout()
-        self.horizontalLayout_12.setObjectName(u"horizontalLayout_12")
-        self.horizontalLayout_12.setSizeConstraint(QLayout.SetFixedSize)
-        self.CardLabel_Major = QLabel(self.frame_7)
-        self.CardLabel_Major.setObjectName(u"CardLabel_Major")
-        self.CardLabel_Major.setMaximumSize(QSize(150, 16777215))
-        self.CardLabel_Major.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
+        self.Discover_LastName.setStyleSheet(u"color: white; \n"
+"font: 1000 60pt \"Nexa\";\n"
+"background-color: rgb(97, 165, 85);\n"
+"padding:0px;\n"
 "\n"
-"")
+"border-top: 0px solid rgb(125, 125, 125);\n"
+"border-left :0px;\n"
+"border-right:0px;\n"
+"border-bottom:0px;\n"
+"\n"
+"background-color:transparent;")
 
-        self.horizontalLayout_12.addWidget(self.CardLabel_Major)
+        self.verticalLayout.addWidget(self.Discover_LastName)
+
+        self.horizontalLayout_14.addLayout(self.verticalLayout)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_14)
 
         self.Discover_Major = QLabel(self.frame_7)
         self.Discover_Major.setObjectName(u"Discover_Major")
         self.Discover_Major.setMinimumSize(QSize(189, 42))
-        self.Discover_Major.setStyleSheet(u"background-color: transparent;\n"
-"color: white;\n"
-"")
+        self.Discover_Major.setStyleSheet(u"color: rgb(145, 251, 141);\n"
+"font: 1000 15pt \"Nexa\";\n"
+"background-color: rgb(97, 165, 85);\n"
+"border-radius: 5px;\n"
+"border-top: 0px solid rgb(125, 125, 125);\n"
+"border-left :0px;\n"
+"border-right:0px;\n"
+"border-bottom:2px solid rgb(145, 251, 141);\n"
+"padding: 10px;\n"
+"background-color:transparent;")
 
-        self.horizontalLayout_12.addWidget(self.Discover_Major)
+        self.verticalLayout_2.addWidget(self.Discover_Major)
 
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_12)
-
-        self.horizontalLayout_13 = QHBoxLayout()
-        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.CardLabel_Email = QLabel(self.frame_7)
-        self.CardLabel_Email.setObjectName(u"CardLabel_Email")
-        self.CardLabel_Email.setMaximumSize(QSize(150, 16777215))
-        self.CardLabel_Email.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-
-        self.horizontalLayout_13.addWidget(self.CardLabel_Email)
 
         self.Discover_Email = QLabel(self.frame_7)
         self.Discover_Email.setObjectName(u"Discover_Email")
         self.Discover_Email.setMinimumSize(QSize(189, 42))
-        self.Discover_Email.setStyleSheet(u"background-color: transparent;\n"
-"color: white;\n"
-"")
+        self.Discover_Email.setStyleSheet(u"color: rgb(145, 251, 141);; \n"
+"font: 1000 15pt \"Nexa\";\n"
+"background-color: rgb(97, 165, 85);\n"
+"border-radius: 5px;\n"
+"border-top: 0px solid rgb(125, 125, 125);\n"
+"border-left :0px;\n"
+"border-right:0px;\n"
+"border-bottom:2px solid rgb(145, 251, 141);\n"
+"padding: 10px;\n"
+"background-color:transparent;")
 
-        self.horizontalLayout_13.addWidget(self.Discover_Email)
+        self.verticalLayout_2.addWidget(self.Discover_Email)
 
 
-        self.verticalLayout_3.addLayout(self.horizontalLayout_13)
+        self.verticalLayout_3.addLayout(self.verticalLayout_2)
 
-        self.horizontalLayout_14 = QHBoxLayout()
-        self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.CardLabel_Year = QLabel(self.frame_7)
-        self.CardLabel_Year.setObjectName(u"CardLabel_Year")
-        self.CardLabel_Year.setMaximumSize(QSize(150, 16777215))
-        self.CardLabel_Year.setStyleSheet(u"color: white; \n"
-"font: 15pt \"Segoe UI\";\n"
-"background: transparent;\n"
-"\n"
-"")
-
-        self.horizontalLayout_14.addWidget(self.CardLabel_Year)
+        self.gridLayout_5.addWidget(self.frame_7, 1, 0, 1, 1)
 
         self.Discover_Year = QLabel(self.frame_7)
         self.Discover_Year.setObjectName(u"Discover_Year")
         self.Discover_Year.setMinimumSize(QSize(189, 42))
-        self.Discover_Year.setStyleSheet(u"background-color: transparent;\n"
-"color: white;\n"
+        self.Discover_Year.setStyleSheet(u"color: rgb(145, 251, 141);; \n"
+"font: 1000 15pt \"Nexa\";\n"
+"background-color: rgb(97, 165, 85);\n"
+"border-radius: 5px;\n"
+"border-top: 0px solid rgb(125, 125, 125);\n"
+"border-left :0px;\n"
+"border-right:0px;\n"
+"border-bottom:2px solid rgb(145, 251, 141);\n"
+"padding: 10px;\n"
+"background-color:transparent;")
+
+        self.verticalLayout_2.addWidget(self.Discover_Year)
+
+        self.BrowseHeader = QLabel(self.frame_4)
+        self.BrowseHeader.setObjectName(u"BrowseHeader")
+        self.BrowseHeader.setStyleSheet(u"color: white; \n"
+"font: 800 50pt \"Nexa\";\n"
+"background: transparent;\n"
 "")
+        self.BrowseHeader.setScaledContents(False)
 
-        self.horizontalLayout_14.addWidget(self.Discover_Year)
-
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_14)
-
-
-        self.gridLayout_5.addWidget(self.frame_7, 0, 0, 1, 1)
-
+        self.gridLayout_5.addWidget(self.BrowseHeader, 0, 0, 1, 1)
 
         self.gridLayout_4.addWidget(self.frame_4, 0, 1, 1, 1)
 
-        self.horizontalSpacer_5 = QSpacerItem(40, 20, QSizePolicy.Expanding, QSizePolicy.Minimum)
-
-        self.gridLayout_4.addItem(self.horizontalSpacer_5, 1, 0, 1, 1)
-
         self.frame_5 = QFrame(self.BrowsePage)
         self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setMinimumSize(QSize(50, 0))
+        self.frame_5.setMaximumSize(QSize(1000, 200))
         self.frame_5.setStyleSheet(u"background-color: transparent;")
         self.frame_5.setFrameShape(QFrame.StyledPanel)
         self.frame_5.setFrameShadow(QFrame.Raised)
@@ -962,7 +963,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 
         self.gridLayout_4.addWidget(self.frame_5, 1, 1, 1, 1)
 
-        self.stackedWidget.addWidget(self.BrowsePage)
+        self.stackedWidget.addWidget(self.BrowsePage) #END BROWSE
         self.ProfilePage = QWidget()
         self.ProfilePage.setObjectName(u"ProfilePage")
         self.horizontalLayout = QHBoxLayout(self.ProfilePage)
@@ -1340,16 +1341,17 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.AD_ProfilePic.setText("")
         self.AD_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-f7cd91fc-7fff-5fe1-50e4-815a388fcb13\"/><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">llison Denham | Backend/Frontend</span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">My favorite place to study is definitely in </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">the libraries. During the pandemic I </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">realized how important my </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-"
                         "color:transparent;\">environment is to my study habits </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">and productivity when getting work </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">done. The libraries at UF are also </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">a great place to meet up and study </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">with a group or friend.</span><span style=\" color:#ffffff;\"><br/></span></p></body></html>", None))
-        self.CardLabel_FirstName.setText(QCoreApplication.translate("Stinder", u"First Name:", None))
+        # self.CardLabel_FirstName.setText(QCoreApplication.translate("Stinder", u"First Name:", None))
         self.Discover_FirstName.setText("")
-        self.CardLabel_LastName.setText(QCoreApplication.translate("Stinder", u"Last Name:", None))
+        # self.CardLabel_LastName.setText(QCoreApplication.translate("Stinder", u"Last Name:", None))
         self.Discover_LastName.setText("")
-        self.CardLabel_Major.setText(QCoreApplication.translate("Stinder", u"Major:", None))
+        # self.CardLabel_Major.setText(QCoreApplication.translate("Stinder", u"Major:", None))
         self.Discover_Major.setText("")
-        self.CardLabel_Email.setText(QCoreApplication.translate("Stinder", u"Email:", None))
+        # self.CardLabel_Email.setText(QCoreApplication.translate("Stinder", u"Email:", None))
         self.Discover_Email.setText("")
-        self.CardLabel_Year.setText(QCoreApplication.translate("Stinder", u"Year:", None))
+        # self.CardLabel_Year.setText(QCoreApplication.translate("Stinder", u"Year:", None))
         self.Discover_Year.setText("")
+        self.BrowseHeader.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\">Browse</p></body></html>", None))
         self.FilterButton.setText(QCoreApplication.translate("Stinder", u"Filter", None))
         self.NextButton.setText(QCoreApplication.translate("Stinder", u"Next", None))
 #if QT_CONFIG(whatsthis)

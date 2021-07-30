@@ -3,6 +3,8 @@ import os
 import re
 import sys
 
+from pkg_resources import resource_filename
+
 from PySide6.QtWidgets import QApplication, QMainWindow, QDialog, QSizePolicy, QTableWidgetItem
 from PySide6.QtSql import QSqlDatabase, QSqlQuery
 from PySide6.QtGui import QIcon
@@ -39,7 +41,7 @@ class LogInWindow(QDialog):
         sys.exit()
 
     def setIcon(self):
-        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
+        appIcon = QIcon(resource_filename(__name__, "resources/images/stinder_book_logo.png"))
         self.setWindowIcon(appIcon)
 
     def setStinderFont(self):
@@ -61,7 +63,7 @@ class LogInWindow(QDialog):
 
     def handleSignIn(self):
         email = self.loginUi.LoginInput.text()
-        exists_conn = sqlite3.connect("stinder/users.db")
+        exists_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         curs = exists_conn.cursor()
 
         if len(email) == 0:
@@ -107,7 +109,7 @@ class LogInWindow(QDialog):
                 day == placeholder or sHistory == placeholder:
             self.loginUi.errorLabelP2.setText("Please input all fields.")
         else:
-            login_conn = sqlite3.connect("stinder/users.db")
+            login_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
             login_cur = login_conn.cursor()
             login_cur.execute(
                 "INSERT OR REPLACE INTO contacts(Fname, Lname, major, email, year, method, loc, job, day, sHistory) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
@@ -169,14 +171,14 @@ class MainWindow(QMainWindow):
         if not self.ui.lCourseListWidget.count() == 0:
             course = self.ui.lCourseListWidget.item(row).text()
             self.ui.lCourseListWidget.takeItem(row)
-            profileconn = sqlite3.connect("stinder/users.db")
+            profileconn = sqlite3.connect(resource_filename(__name__, "users.db"))
             profilecurs = profileconn.cursor()
             profilecurs.execute("DELETE FROM courses WHERE user_email=? AND code=?", (self.email, course))
             profileconn.commit()
             profileconn.close()
 
     def AddCourses(self):
-        profileconn = sqlite3.connect("stinder/users.db")
+        profileconn = sqlite3.connect(resource_filename(__name__, "users.db"))
         profilecurs = profileconn.cursor()
         if self.ui.CourseInputEdit.text() == "":
             # Do nothing
@@ -209,7 +211,7 @@ class MainWindow(QMainWindow):
         self.ui.CourseInputEdit.setVisible(False)
         self.ui.DoneBtn.setVisible(False)
 
-        profileconn = sqlite3.connect("stinder/users.db")
+        profileconn = sqlite3.connect(resource_filename(__name__, "users.db"))
         profilecurs = profileconn.cursor()
         user = profilecurs.execute("SELECT * FROM courses WHERE user_email = ?", (email,)).fetchone()
         # If user has no courses, display prompt information and hide everything else
@@ -228,7 +230,7 @@ class MainWindow(QMainWindow):
 
     def setUser(self, email):
         self.email = email
-        profileconn = sqlite3.connect("stinder/users.db")
+        profileconn = sqlite3.connect(resource_filename(__name__, "users.db"))
         profilecurs = profileconn.cursor()
         user = profilecurs.execute("SELECT * FROM contacts WHERE email = ? ", (email,)).fetchone()
         name = user[0] + " " + user[1]
@@ -245,7 +247,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(appIcon)
 
     def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
-        connection = sqlite3.connect("stinder/users.db")
+        connection = sqlite3.connect(resource_filename(__name__, "users.db"))
         cursor = connection.cursor()
 
         cursor.execute("SELECT * FROM contacts")
@@ -293,7 +295,7 @@ def main():
         window.displayCourses(login.getEmail())
 
     # Below block of code shows functionality for database
-    conn = sqlite3.connect("stinder/users.db")
+    conn = sqlite3.connect(resource_filename(__name__, "users.db"))
     c = conn.cursor()
     """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
     tablequery = "CREATE TABLE IF NOT EXISTS contacts(name VARCHAR(40) PRIMARY KEY NOT NULL, major VARCHAR(40) NOT NULL, classes VARCHAR(50),email VARCHAR(40))"
