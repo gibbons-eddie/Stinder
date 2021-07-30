@@ -27,7 +27,7 @@ class Ui_Stinder(object):
         self.s_length = 0
         self.c_user = []
         
-        self.matchWindow = QtWidgets.QDialog()
+        self.matchWindow = QDialog()
         self.matchUi = Ui_LikeDialog()
         self.matchUi.setupUi(self.matchWindow)
 
@@ -63,27 +63,29 @@ class Ui_Stinder(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.ProfileButton = QPushButton(self.frame_2, clicked=lambda: self.likes_counter())
         self.ProfileButton.setObjectName(u"ProfileButton")
-        self.ProfileButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.ProfileButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.ProfileButton, 2, 0, 1, 1)
 
         self.BrowseButton = QPushButton(self.frame_2, clicked=lambda: self.handleAlgo())
         self.BrowseButton.setObjectName(u"BrowseButton")
-        self.BrowseButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.BrowseButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.BrowseButton, 1, 0, 1, 1)
 
@@ -102,27 +104,29 @@ class Ui_Stinder(object):
 
         self.AboutButton = QPushButton(self.frame_2)
         self.AboutButton.setObjectName(u"AboutButton")
-        self.AboutButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AboutButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.AboutButton, 0, 0, 1, 1)
 
         self.LogoutBtn = QPushButton(self.frame_2)
         self.LogoutBtn.setObjectName(u"LogoutBtn")
-        self.LogoutBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-                                     "background-color: rgb(98, 214, 81);\n"
-                                     "color: rgb(255, 255, 255);\n"
-                                     "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-                                     "border-bottom: 3px solid rgb(72, 156, 59);\n"
-                                     "border-left:  1px solid rgb(72, 156, 59);\n"
-                                     "border-right:  1px solid rgb(72, 156, 59);\n"
-                                     "padding: 6px;")
+        self.LogoutBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout.addWidget(self.LogoutBtn, 3, 0, 1, 1, Qt.AlignTop)
 
@@ -173,18 +177,38 @@ class Ui_Stinder(object):
         self.aboutscroll = QScrollArea(self.aboutouterframe)
         self.aboutscroll.setObjectName(u"aboutscroll")
         self.aboutscroll.setMinimumSize(QSize(600, 450))
-        self.aboutscroll.setStyleSheet(u"QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::up-arrow:horizontal, QScrollBar::down-arrow:horizontal {\n"
-"	background: none;\n"
-"}\n"
-"QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal {\n"
-"	background: none;\n"
-"}")
+        self.aboutscroll.setStyleSheet("""QScrollBar:vertical {
+	border: none;
+    background: rgb(45, 45, 68);
+    width: 15px;
+    margin: 16px 0 16px 0;
+ }
+QScrollBar::handle:vertical {	
+	background-color: rgb(33, 33, 34);
+	border-radius: 4px;
+	min-height: 10px;
+}
+QScrollBar::handle:vertical:hover{	
+	background-color:  rgb(98, 214, 81);
+}
+QScrollBar::handle:vertical:pressed {	
+	background-color: rgb(24, 24, 32);
+}
+QScrollBar::sub-line:vertical {
+     border: none;
+     background: none;
+}
+QScrollBar::add-line:vertical {
+    border: none;
+    background: none;
+}
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical {
+	background: none;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+	background: none;
+}
+""")
         self.aboutscroll.setFrameShape(QFrame.Box)
         self.aboutscroll.setFrameShadow(QFrame.Plain)
         self.aboutscroll.setLineWidth(5)
@@ -820,29 +844,30 @@ class Ui_Stinder(object):
         self.FilterButton = QPushButton(self.frame_5, clicked=lambda: self.handleFilter())
         self.FilterButton.setObjectName(u"FilterButton")
         self.FilterButton.setMaximumSize(QSize(500, 16777215))
-        self.FilterButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.FilterButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout_6.addWidget(self.FilterButton, 5, 4, 1, 1)
 
         self.NextButton = QPushButton(self.frame_5, clicked=lambda: self.next_user(self.students, self.s_length))
         self.NextButton.setObjectName(u"NextButton")
         self.NextButton.setMinimumSize(QSize(150, 0))
-        self.NextButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.NextButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"margin: 24px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.gridLayout_6.addWidget(self.NextButton, 0, 4, 1, 1)
 
@@ -856,15 +881,16 @@ class Ui_Stinder(object):
 
         self.LikeButton = QPushButton(self.frame_5, clicked=lambda: self.handleLike())
         self.LikeButton.setObjectName(u"LikeButton")
-        self.LikeButton.setStyleSheet(u"background-color: white;\n"
-"color: black;\n"
-"\n"
-"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
+        self.LikeButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(18, 172, 207);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; \n"
-"padding: 12px;\n"
-"")
+"border-radius: 5px; border: 2px rgb(18, 172, 207);\n"
+"border-bottom: 4px solid rgb(13, 123, 147);\n"
+"border-left:  2px solid rgb(13, 123, 147);\n"
+"border-right:  2px solid rgb(13, 123, 147);\n"
+"min-height: 40px;\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(20, 235, 255); \n border-bottom: 4px solid rgb(15, 176, 191);\n border-left: 2px solid rgb(15, 176, 191);\n border-right: 2px solid rgb(15, 176, 191);}"
+"QPushButton:pressed{background-color: rgb(8, 74, 88);\n border-bottom: 3px solid rgb(5, 49, 59);\n border-left: 2px solid rgb(5, 49, 59);\n border-right: 2px solid rgb(5, 49, 59);}")
 
         self.gridLayout_6.addWidget(self.LikeButton, 0, 2, 1, 2)
 
@@ -880,30 +906,41 @@ class Ui_Stinder(object):
         sizePolicy1.setHeightForWidth(self.FilterDropdown.sizePolicy().hasHeightForWidth())
         self.FilterDropdown.setSizePolicy(sizePolicy1)
         self.FilterDropdown.setMinimumSize(QSize(150, 0))
-        self.FilterDropdown.setStyleSheet(u"background-color: white;\n"
-"color: black;\n"
-"\n"
-"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(0, 56, 140, 255), stop:1 rgba(0, 244, 255, 255));\n"
-"color: rgb(255, 255, 255);\n"
-"border-radius: 5px; \n"
-"padding: 6px;\n"
-"")
-
+        self.FilterDropdown.setStyleSheet(u"""
+        QComboBox{
+                border: 1px solid rgb(73, 73, 75); 
+                border-radius: 4px; 
+                padding: 1px 18px 1px 4px; 
+                color: rgb(255, 255, 255);
+                font: 15px \"Nexa\";
+                background: rgb(33, 33, 34);
+                }
+        QComboBox::hover{
+                background: rgb(73, 73, 75);
+                }
+        QComboBox QAbstractItemView {
+                outline: 0px solid gray; 
+                border: none; 
+                color: rgb(255, 255, 255);
+                font: 15px \"Nexa\";
+                background-color: rgb(73, 73, 75); 
+                selection-background-color: rgb(103, 103, 108); 
+                }
+        """)
         self.gridLayout_6.addWidget(self.FilterDropdown, 5, 2, 1, 2)
 
         self.PreviousButton = QPushButton(self.frame_5, clicked=lambda: self.prev_user(self.students, self.s_length))
         self.PreviousButton.setObjectName(u"PreviousButton")
         self.PreviousButton.setMinimumSize(QSize(150, 0))
-        self.PreviousButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.PreviousButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"margin: 24px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.gridLayout_6.addWidget(self.PreviousButton, 0, 1, 1, 1)
 
@@ -1040,44 +1077,44 @@ class Ui_Stinder(object):
         self.CourseVertLayout.setObjectName(u"CourseVertLayout")
         self.AddBtn = QPushButton(self.frame)
         self.AddBtn.setObjectName(u"AddBtn")
-        self.AddBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.AddBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(18, 172, 207);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 2px;\n"
-"")
+"border-radius: 5px; border: 2px rgb(18, 172, 207);\n"
+"border-bottom: 4px solid rgb(13, 123, 147);\n"
+"border-left:  2px solid rgb(13, 123, 147);\n"
+"border-right:  2px solid rgb(13, 123, 147);\n"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(20, 235, 255); \n border-bottom: 3px solid rgb(15, 176, 191);\n border-left: 2px solid rgb(15, 176, 191);\n border-right: 2px solid rgb(15, 176, 191);}"
+"QPushButton:pressed{background-color: rgb(8, 74, 88);\n border-bottom: 3px solid rgb(5, 49, 59);\n border-left: 2px solid rgb(5, 49, 59);\n border-right: 2px solid rgb(5, 49, 59);}")
 
         self.CourseVertLayout.addWidget(self.AddBtn)
 
         self.DoneBtn = QPushButton(self.frame)
         self.DoneBtn.setObjectName(u"DoneBtn")
-        self.DoneBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.DoneBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 2px;\n"
-"")
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.CourseVertLayout.addWidget(self.DoneBtn)
 
         self.DeleteBtn = QPushButton(self.frame)
         self.DeleteBtn.setObjectName(u"DeleteBtn")
-        self.DeleteBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.DeleteBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(255, 61, 50);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 2px;\n"
-"")
-
+"border-radius: 5px; \n"
+"border: 2px rgb(255, 61, 50);\n"
+"border-bottom: 3px solid rgb(158, 37, 31);\n"
+"border-left:  1px solid rgb(214, 50, 42);\n"
+"border-right:  1px solid rgb(214, 50, 42);\n"
+"padding: 2px;}\n QPushButton:hover{background-color: rgb(253, 128, 121); \n border-bottom: 3px solid rgb(223, 77, 68);\n border-left: 2px solid rgb(223, 77, 68);\n border-right: 2px solid rgb(223, 77, 68);}"
+"QPushButton:pressed{background-color: rgb(128, 44, 39);\n border-bottom: 3px solid rgb(80, 19, 16);\n border-left: 2px solid rgb(80, 19, 16);\n border-right: 2px solid rgb(80, 19, 16);}")
         self.CourseVertLayout.addWidget(self.DeleteBtn)
 
         self.gridLayout_9.addLayout(self.CourseVertLayout, 25, 0, 1, 1)
@@ -1132,15 +1169,15 @@ class Ui_Stinder(object):
 
         self.AddCoursesBtn = QPushButton(self.frame)
         self.AddCoursesBtn.setObjectName(u"AddCoursesBtn")
-        self.AddCoursesBtn.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
+        self.AddCoursesBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
 "background-color: rgb(98, 214, 81);\n"
 "color: rgb(255, 255, 255);\n"
 "border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
 "border-bottom: 3px solid rgb(72, 156, 59);\n"
 "border-left:  1px solid rgb(72, 156, 59);\n"
 "border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"")
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
 
         self.gridLayout_9.addWidget(self.AddCoursesBtn, 23, 0, 1, 1)
 
@@ -1161,30 +1198,30 @@ class Ui_Stinder(object):
         self.MatchLayout.setObjectName(u"MatchLayout")
         self.prevMatchButton = QPushButton(self.frame, clicked=lambda: self.prevMatch())
         self.prevMatchButton.setObjectName(u"prevMatchButton")
-        self.prevMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.prevMatchButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.MatchLayout.addWidget(self.prevMatchButton)
 
         self.nextMatchButton = QPushButton(self.frame, clicked=lambda: self.nextMatch())
         self.nextMatchButton.setObjectName(u"nextMatchButton")
         self.nextMatchButton.setLayoutDirection(Qt.LeftToRight)
-        self.nextMatchButton.setStyleSheet(u"font: 500 13pt \"Nexa Bold\";\n"
-"background-color: rgb(98, 214, 81);\n"
+        self.nextMatchButton.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(180, 18, 223);\n"
 "color: rgb(255, 255, 255);\n"
-"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
-"border-bottom: 3px solid rgb(72, 156, 59);\n"
-"border-left:  1px solid rgb(72, 156, 59);\n"
-"border-right:  1px solid rgb(72, 156, 59);\n"
-"padding: 6px;\n"
-"padding-right:15px;\n"
-"padding-left:15px;")
+"border-radius: 5px; border: 2px rgb(129, 13, 159);\n"
+"border-bottom: 3px solid rgb(129, 13, 159);\n"
+"border-left:  1px solid rgb(129, 13, 159);\n"
+"border-right:  1px solid rgb(129, 13, 159);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(206, 20, 255); \n border-bottom: 3px solid rgb(180, 18, 223);\n border-left: 2px solid rgb(180, 18, 223);\n border-right: 2px solid rgb(180, 18, 223);}"
+"QPushButton:pressed{background-color: rgb(77, 8, 96);\n border-bottom: 3px solid rgb(52, 5, 64);\n border-left: 2px solid rgb(52, 5, 64);\n border-right: 2px solid rgb(52, 5, 64);}")
 
         self.MatchLayout.addWidget(self.nextMatchButton)
 
@@ -1512,7 +1549,7 @@ class Ui_Stinder(object):
             # print()
             ranking.append(rank)
         
-        numpy_students = numpy.array(self.students, dtype=object) 
+        numpy_students = numpy.array(self.students, dtype=object)
         numpy_ranking = numpy.array(ranking, dtype=object)
         numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
         # print(numpy_sort)

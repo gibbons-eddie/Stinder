@@ -44,10 +44,15 @@ class Ui_Stinder_Login(object):
         self.LogInBtn = QPushButton(self.WelcomePage)
         self.LogInBtn.setObjectName(u"LogInBtn")
         self.LogInBtn.setGeometry(QRect(100, 280, 481, 31))
-        self.LogInBtn.setStyleSheet(u"background-color: rgb(106,255,121);\n"
-                                    "border-radius: 10px;\n"
-                                    "font: 700 13pt \"Nexa Bold\";\n"
-                                    "color: white;")
+        self.LogInBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 4px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
         self.SignInInstruct = QLabel(self.WelcomePage)
         self.SignInInstruct.setObjectName(u"SignInInstruct")
         self.SignInInstruct.setGeometry(QRect(160, 120, 341, 51))
@@ -142,10 +147,15 @@ class Ui_Stinder_Login(object):
         self.ContinueBtn = QPushButton(self.BasicPage)
         self.ContinueBtn.setObjectName(u"ContinueBtn")
         self.ContinueBtn.setGeometry(QRect(50, 390, 551, 31))
-        self.ContinueBtn.setStyleSheet(u"background-color: rgb(106,255,121);\n"
-"border-radius: 10px;\n"
-"font: 700 13pt \"Nexa\";\n"
-"color: white;")
+        self.ContinueBtn.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
         # self.ContinueBtn.setFont()
         self.errorLabel = QLabel(self.BasicPage)
         self.errorLabel.setObjectName(u"errorLabel")
@@ -298,10 +308,15 @@ class Ui_Stinder_Login(object):
         self.ContinueBtnP2 = QPushButton(self.DetailPage)
         self.ContinueBtnP2.setObjectName(u"ContinueBtnP2")
         self.ContinueBtnP2.setGeometry(QRect(40, 420, 561, 31))
-        self.ContinueBtnP2.setStyleSheet(u"background-color: rgb(106,255,121);\n"
-"border-radius: 10px;\n"
-"font: 700 13pt \"Nexa\";\n"
-"color: white;")
+        self.ContinueBtnP2.setStyleSheet(u"QPushButton{font: 500 13pt \"Nexa Bold\";\n"
+"background-color: rgb(98, 214, 81);\n"
+"color: rgb(255, 255, 255);\n"
+"border-radius: 5px; border: 2px rgb(33, 33, 34);\n"
+"border-bottom: 3px solid rgb(72, 156, 59);\n"
+"border-left:  1px solid rgb(72, 156, 59);\n"
+"border-right:  1px solid rgb(72, 156, 59);\n"
+"padding: 6px;}\n QPushButton:hover{background-color: rgb(99, 255, 179); \n border-bottom: 3px solid rgb(45, 160, 104);\n border-left: 2px solid rgb(45, 160, 104);\n border-right: 2px solid rgb(45, 160, 104);}"
+"QPushButton:pressed{background-color: rgb(30, 94, 31);\n border-bottom: 3px solid rgb(22, 50, 22);\n border-left: 2px solid rgb(22, 50, 22);\n border-right: 2px solid rgb(22, 50, 22);}")
         self.errorLabelP2 = QLabel(self.DetailPage)
         self.errorLabelP2.setObjectName(u"errorLabelP2")
         self.errorLabelP2.setGeometry(QRect(30, 390, 491, 16))
