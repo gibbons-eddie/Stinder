@@ -7,10 +7,18 @@ Stinder aims to solve those problems for those who would like to pair up with th
 
 ***Stinder. Never have a bad (study) date again.***
 
-To download Stinder, run: 
+To use Stinder, run these commands in your terminal with Python3 installed*: 
 
     pip install stinder
     Stinder
+
+*There is currently a bug running Stinder on Windows concering OpenGL. If you receive this error when you try to run the app:
+
+    ImportError: libOpenGL.so.0: cannot open shared object file: No such file or directory
+
+you must enter and run this in your terminal:
+
+    sudo apt install libopengl0 -y
 
 [*Trello*](https://trello.com/b/WMZnG8PD/stinder)
 

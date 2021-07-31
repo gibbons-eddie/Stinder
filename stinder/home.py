@@ -1435,7 +1435,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.Discover_Year.setText(users[counter][4])
 
     def list(self):
-        connection = sqlite3.connect("stinder/users.db")
+        connection = sqlite3.connect(resource_filename(__name__, "users.db"))
         cursor = connection.cursor()
         with connection:
             cursor.execute("SELECT * FROM contacts")
@@ -1512,7 +1512,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     def likes_counter(self):
         u_email = self.UserEmail.text()
         
-        likes_conn = sqlite3.connect("stinder/users.db")
+        likes_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         likes_cur = likes_conn.cursor()
 
         likes_cur.execute("SELECT like_fname, like_lname, like_email FROM likes where user_email = ?", (u_email,))
@@ -1582,7 +1582,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         l_Ln = self.students[self.counter][1]
         l_email = self.students[self.counter][3]
         
-        likes_conn = sqlite3.connect("stinder/users.db")
+        likes_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         likes_cur = likes_conn.cursor()
 
         # Like already exists
@@ -1631,7 +1631,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     def matchList(self):
         u_email = self.UserEmail.text()
         
-        match_conn = sqlite3.connect("stinder/users.db")
+        match_conn = sqlite3.connect(resource_filename(__name__, "users.db"))
         match_cur = match_conn.cursor()
 
         match_cur.execute("SELECT * from matches WHERE user_email == ?", (u_email, ))
