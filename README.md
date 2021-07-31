@@ -24,4 +24,4 @@ you must enter and run this in your terminal:
 
 [*GitHub*](https://github.com/gibbons-eddie/Stinder)
 
-[*PyPi*](https://pypi.org/project/stinder/0.3.1/)
+[*PyPi*](https://pypi.org/project/stinder/)

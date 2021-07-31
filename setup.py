@@ -6,7 +6,7 @@ long_description = (here / 'README.md').read_text(encoding='utf-8')
 
 setuptools.setup(
     name='stinder',
-    version='0.3.2',
+    version='0.3.3',
     description='The Stinder project aims to help students find compatible study partners through their major and coursework for optimal study sessions.',
     long_description = long_description,
     long_description_content_type = 'text/markdown',
