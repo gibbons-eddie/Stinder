@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'logoTest.ui'
+## Form generated from reading UI file 'Home.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.1.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
 import os
 import sqlite3
 
@@ -39,7 +41,6 @@ class Ui_Stinder(object):
 
     def setupUi(self, Stinder):
         self.students, self.s_length = self.list()
-        # init user profile parameters
         if not Stinder.objectName():
             Stinder.setObjectName(u"Stinder")
         Stinder.resize(903, 641)
@@ -787,7 +788,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.Discover_Email = QLabel(self.frame_7)
         self.Discover_Email.setObjectName(u"Discover_Email")
         self.Discover_Email.setMinimumSize(QSize(189, 42))
-        self.Discover_Email.setStyleSheet(u"color: rgb(145, 251, 141);; \n"
+        self.Discover_Email.setStyleSheet(u"color: rgb(145, 251, 141); \n"
 "font: 1000 15pt \"Nexa\";\n"
 "background-color: rgb(97, 165, 85);\n"
 "border-radius: 5px;\n"
@@ -1343,15 +1344,10 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.AD_ProfilePic.setText("")
         self.AD_NameRoleAnswer.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p><a name=\"docs-internal-guid-f7cd91fc-7fff-5fe1-50e4-815a388fcb13\"/><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">A</span><span style=\" font-family:'Arial'; font-size:11pt; font-weight:600; text-decoration: underline; color:#ffffff; background-color:transparent;\">llison Denham | Backend/Frontend</span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">My favorite place to study is definitely in </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">the libraries. During the pandemic I </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">realized how important my </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-"
                         "color:transparent;\">environment is to my study habits </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">and productivity when getting work </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">done. The libraries at UF are also </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">a great place to meet up and study </span></p><p><span style=\" font-family:'Arial'; font-size:11pt; font-weight:400; color:#ffffff; background-color:transparent;\">with a group or friend.</span><span style=\" color:#ffffff;\"><br/></span></p></body></html>", None))
-        # self.CardLabel_FirstName.setText(QCoreApplication.translate("Stinder", u"First Name:", None))
         self.Discover_FirstName.setText("")
-        # self.CardLabel_LastName.setText(QCoreApplication.translate("Stinder", u"Last Name:", None))
         self.Discover_LastName.setText("")
-        # self.CardLabel_Major.setText(QCoreApplication.translate("Stinder", u"Major:", None))
         self.Discover_Major.setText("")
-        # self.CardLabel_Email.setText(QCoreApplication.translate("Stinder", u"Email:", None))
         self.Discover_Email.setText("")
-        # self.CardLabel_Year.setText(QCoreApplication.translate("Stinder", u"Year:", None))
         self.Discover_Year.setText("")
         self.BrowseHeader.setText(QCoreApplication.translate("Stinder", u"<html><head/><body><p align=\"center\">Browse</p></body></html>", None))
         self.FilterButton.setText(QCoreApplication.translate("Stinder", u"Filter", None))
@@ -1401,9 +1397,19 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.Discover_FirstName.setText(users[counter][0])
         self.Discover_LastName.setText(users[counter][1])
         self.Discover_Major.setText(users[counter][2])
-        self.Discover_Email.setText(users[counter][3])
+        courses = ""
+        i = 0
+        if len(users[counter][10]) == 0:
+            courses = "No courses."
+        else:
+            for c in users[counter][10]:
+                if i == (len(users[counter][10]) - 1):
+                    courses = courses + str(c)
+                else:
+                    courses = courses + str(c) + ", "
+                i = i + 1
+        self.Discover_Email.setText(courses)
         self.Discover_Year.setText(users[counter][4])
-
 
     def prev_user(self, users, length):
         counter = self.counter
@@ -1414,7 +1420,18 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.Discover_FirstName.setText(users[counter][0])
         self.Discover_LastName.setText(users[counter][1])
         self.Discover_Major.setText(users[counter][2])
-        self.Discover_Email.setText(users[counter][3])
+        courses = ""
+        i = 0
+        if len(users[counter][10]) == 0:
+            courses = "No courses."
+        else:
+            for c in users[counter][10]:
+                if i == (len(users[counter][10]) - 1):
+                    courses = courses + str(c)
+                else:
+                    courses = courses + str(c) + ", "
+                i = i + 1
+        self.Discover_Email.setText(courses)
         self.Discover_Year.setText(users[counter][4])
 
     def list(self):
@@ -1454,7 +1471,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                     if course[0] == student[3]:
                         codes.append(course[1])
                 student.append(codes)
-                # print(student)
 
             return users, length
 
@@ -1485,7 +1501,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         if fltr_length == 0:
             errorBox = QtWidgets.QMessageBox()
             errorBox.setText("No results found matching your search!")
-            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
             errorBox.exec()
             self.students, self.s_length = self.list()
         else:
@@ -1532,13 +1547,11 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
     def handleAlgo(self):
         ranking = []
         rank = 0
-        # print(self.c_user)
-        # print(self.UserEmail.text())
+
         for student in self.students:
             rank = 0
             if student[3] == self.c_user[3]: # major
                 rank = rank + 18
-                # print("Current User: " + self.c_user[3])
             if student[4] == self.c_user[4]: # year
                 rank = rank + 18
             if student[5] == self.c_user[5]: # method
@@ -1551,42 +1564,23 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                 rank = rank + 10
             if student[9] == self.c_user[9]: # study history
                 rank = rank + 10
-            # print(student)
-            # print(rank)
-            # print()
             ranking.append(rank)
         
         numpy_students = numpy.array(self.students, dtype=object)
         numpy_ranking = numpy.array(ranking, dtype=object)
         numpy_sort = numpy_ranking.argsort()[::-1][:self.s_length + 1]
-        # print(numpy_sort)
         sortedStudents = numpy_students[numpy_sort]
-        # print()
-        # print(sortedStudents)
-        # print()
-        # print(sortedStudents)
-        # print(sortedStudents[self.counter][8])
 
-        # print(self.students[self.counter][10])
-        # student_ranking = list(zip(ranking, self.students))
-        # student_ranking.sort(reverse=True)
-        # for sr in student_ranking:
-            # print(sr)
-        # print(self.s_length)
-        # print(len(sortedStudents))
         self.students = sortedStudents
         self.counter = 0
         self.removeSelf()
         self.prev_user(self.students, self.s_length)
         
-
     def handleLike(self):
         u_email = self.UserEmail.text()
         l_Fn = self.students[self.counter][0]
         l_Ln = self.students[self.counter][1]
         l_email = self.students[self.counter][3]
-        # print(u_email)
-        # print(l_email)
         
         likes_conn = sqlite3.connect("stinder/users.db")
         likes_cur = likes_conn.cursor()
@@ -1595,22 +1589,19 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         likes_cur.execute("SELECT COUNT(*) from likes where user_email == ? AND like_email == ?", (u_email, l_email))
         likes_conn.commit()
         isLiked = likes_cur.fetchone()[0]
-        # print("isLiked is " + str(isLiked))
 
-        # Like yourself , soon to be deprecrated
+        # Like yourself, deprecrated
         if u_email == l_email:
             # add error message to GUI also
             likes_conn.close()
             errorBox = QtWidgets.QMessageBox()
             errorBox.setText("You attempted to like yourself!")
-            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
             errorBox.exec()
             return
         elif isLiked == 1:
             likes_conn.close()
             errorBox = QtWidgets.QMessageBox()
             errorBox.setText("You already liked this person!")
-            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
             errorBox.exec()
             return
         else:
@@ -1629,7 +1620,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 
             likes_conn.close()
 
-
     def takeRank(self, i):
         return self.students[i][10]
 
@@ -1637,7 +1627,6 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         matchUser = "Here's " + self.students[self.counter][0] + "'s email to contact him: " + self.students[self.counter][3]
         self.matchUi.InfoLabel.setText(matchUser)
         self.matchWindow.show()
-        # self.matchUi.OKButton.clicked.connect(self.matchWindow.hide())
 
     def matchList(self):
         u_email = self.UserEmail.text()
@@ -1687,14 +1676,10 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
             self.MatchEmail.setText(self.matches[self.m_counter][1])
 
     def removeSelf(self):
-        # print("this is remove self")
         i = 0
         for student in self.students:
             if student[3] == self.UserEmail.text():
-                # print(student)
-                # print(str(i))
                 self.students = numpy.delete(numpy.array(self.students,dtype =object), i, 0)
                 self.s_length = self.s_length - 1
                 break
             i = i + 1
-                # self.students.remove(student)

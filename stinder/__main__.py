@@ -22,7 +22,6 @@ class LogInWindow(QDialog):
         super(LogInWindow, self).__init__()
         self.setFixedSize(646, 476)
         self.setIcon()
-        # self.setStinderFont()
         self.loginUi = Ui_Stinder_Login()
         self.loginUi.setupUi(self)
         self.user = None
@@ -43,10 +42,6 @@ class LogInWindow(QDialog):
     def setIcon(self):
         appIcon = QIcon(resource_filename(__name__, "resources/images/stinder_book_logo.png"))
         self.setWindowIcon(appIcon)
-
-    def setStinderFont(self):
-        appFont = (":/fonts/fonts/Nexa")
-        self.setFont(appFont)
 
     def setEmail(self, email):
         self.user = email
@@ -117,7 +112,7 @@ class LogInWindow(QDialog):
             )
             login_conn.commit()
             login_conn.close()
-            # print(loc) # testing
+
             self.accept()
 
 
@@ -243,46 +238,9 @@ class MainWindow(QMainWindow):
         
 
     def setIcon(self):
-        appIcon = QIcon("stinder/resources/images/stinder_book_logo.png")
+        appIcon = QIcon(resource_filename(__name__, "resources/images/stinder_book_logo.png"))
         self.setWindowIcon(appIcon)
 
-    def load_contacts(self):  # Place holder for the function to load the data of each user as they are 'swiped' through
-        connection = sqlite3.connect(resource_filename(__name__, "users.db"))
-        cursor = connection.cursor()
-
-        cursor.execute("SELECT * FROM contacts")
-        print(cursor.fetchall())  # Delete later, this just shows all contacts in table
-
-        # Add Functionality to link data to profile card once they are created
-        # FOR REFERENCE: Database table format created from below
-        #    CREATE TABLE contacts
-        #        name VARCHAR(40) PRIMARY KEY NOT NULL,
-        #        major VARCHAR(40) NOT NULL,
-        #        classes VARCHAR(50),
-        #        email VARCHAR(40)
-
-        connection.close()
-
-
-def createcontactstable(conn, tablesql):
-    try:
-        c = conn.cursor()
-        c.execute(tablesql)
-    except Error as e:
-        print(e)
-
-
-#def fillcontacts():
-#    c.execute(
-#        "INSERT INTO contacts(name, major, classes, email) VALUES('Joe','Johnson', 'Computer Science', 'joe@ufl.edu')")
-#    c.execute(
-#        "INSERT INTO contacts(name, major, classes, email) VALUES('Jack', 'Smith', 'Data Science', 'jack@ufl.edu')")
-#    c.execute(
-#        "INSERT INTO contacts(name, major, classes, email) VALUES('Jill', 'Chen','Chemistry', 'jill@ufl.edu')")
-#    c.execute(
-#        "INSERT INTO contacts(name, major, classes, email) VALUES('Joseph','Brown', 'Biology', 'joseph@ufl.edu')")
-#    c.execute(
-#        "INSERT INTO contacts(name, major, classes, email) VALUES('Jorge', 'Parker','Computer Science', 'jorge@ufl.edu')")
 
 def main():
     app = QApplication([])
@@ -293,21 +251,6 @@ def main():
         window.show()
         window.setUser(login.getEmail())
         window.displayCourses(login.getEmail())
-
-    # Below block of code shows functionality for database
-    conn = sqlite3.connect(resource_filename(__name__, "users.db"))
-    c = conn.cursor()
-    """ # I keep getting an error with the commented out code because it keeps trying to add data that is already there 
-    tablequery = "CREATE TABLE IF NOT EXISTS contacts(name VARCHAR(40) PRIMARY KEY NOT NULL, major VARCHAR(40) NOT NULL, classes VARCHAR(50),email VARCHAR(40))"
-    createcontactstable(conn, tablequery)
-    fillcontacts() 
-    rows = c.execute("SELECT * FROM contacts")
-    for row in rows:
-        print(row)
-"""
-
-    conn.close()
-    # End of database functionality test -- delete block after testing because it won't be needed
 
     sys.exit(app.exec())
 
