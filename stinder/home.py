@@ -983,6 +983,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.gridLayout_9.setObjectName(u"gridLayout_9")
         self.lCourseListWidget = QListWidget(self.frame)
         self.lCourseListWidget.setObjectName(u"lCourseListWidget")
+        self.lCourseListWidget.setStyleSheet(u"color: white;")
 
         self.gridLayout_9.addWidget(self.lCourseListWidget, 21, 0, 1, 1)
         self.label_4 = QLabel(self.frame)
@@ -1151,7 +1152,8 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         self.CourseInputEdit.setObjectName(u"CourseInputEdit")
         self.CourseInputEdit.setStyleSheet(u"background-color: white;\n"
 "border-radius: 10px;\n"
-"padding: 0 8px;")
+"padding: 0 8px;\n"
+"color: black;")
 
         self.gridLayout_9.addWidget(self.CourseInputEdit, 24, 0, 1, 1)
 
@@ -1481,7 +1483,10 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
                         fltr_length = fltr_length + 1
 
         if fltr_length == 0:
-            print("No results found matching your search!")
+            errorBox = QtWidgets.QMessageBox()
+            errorBox.setText("No results found matching your search!")
+            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
+            errorBox.exec()
             self.students, self.s_length = self.list()
         else:
             self.students = fltr_users
@@ -1571,6 +1576,7 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         # print(len(sortedStudents))
         self.students = sortedStudents
         self.counter = 0
+        self.removeSelf()
         self.prev_user(self.students, self.s_length)
         
 
@@ -1595,11 +1601,17 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
         if u_email == l_email:
             # add error message to GUI also
             likes_conn.close()
-            print("Attempted to like yourself!")
+            errorBox = QtWidgets.QMessageBox()
+            errorBox.setText("You attempted to like yourself!")
+            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
+            errorBox.exec()
             return
         elif isLiked == 1:
             likes_conn.close()
-            print("You already liked this person!")
+            errorBox = QtWidgets.QMessageBox()
+            errorBox.setText("You already liked this person!")
+            # errorBox.setStyleSheet("font: 300 13pt \"Nexa\";\n")
+            errorBox.exec()
             return
         else:
             likes_cur.execute("INSERT OR REPLACE INTO likes (user_email, like_fname, like_lname, like_email) VALUES (?, ?, ?, ?)", (u_email, l_Fn, l_Ln, l_email))
@@ -1673,3 +1685,16 @@ QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
 
             self.MatchName.setText(self.matches[self.m_counter][0])
             self.MatchEmail.setText(self.matches[self.m_counter][1])
+
+    def removeSelf(self):
+        # print("this is remove self")
+        i = 0
+        for student in self.students:
+            if student[3] == self.UserEmail.text():
+                # print(student)
+                # print(str(i))
+                self.students = numpy.delete(numpy.array(self.students,dtype =object), i, 0)
+                self.s_length = self.s_length - 1
+                break
+            i = i + 1
+                # self.students.remove(student)
