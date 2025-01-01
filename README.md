@@ -22,6 +22,4 @@ you must enter and run this in your terminal:
 
 [*Trello*](https://trello.com/b/WMZnG8PD/stinder)
 
-[*GitHub*](https://github.com/gibbons-eddie/Stinder)
-
 [*PyPi*](https://pypi.org/project/stinder/)
